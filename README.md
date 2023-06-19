@@ -1,3 +1,3 @@
 # dhbw-T3300-Umati
 
-Meine Batchlorarbeit an der dhbw Mosbach
+Meine Bachelorarbeit an der dhbw Mosbach
