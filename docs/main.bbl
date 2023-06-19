@@ -1,0 +1,84 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.2 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated as
+% required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+\datalist[entry]{none/global//global/global}
+  \entry{GrafanaLabs:Thresholds}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=s}{%
+         family={szymonzy1},
+         familyi={s\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{s1}
+    \strng{fullhash}{s1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+  \field{howpublished}{\url{https://community.grafana.com/t/config-from-query-result-multiple-thresholds/74798}}
+    \field{title}{Config from query result - multiple thresholds}
+    \field{year}{Online; accessed 02.02.2023}
+  \endentry
+
+  \entry{GrafanaLabs:Variables}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=G}{%
+         family={Grafana},
+         familyi={G\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{G1}
+    \strng{fullhash}{G1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+  \field{howpublished}{\url{https://grafana.com/docs/grafana/latest/dashboards/variables/variable-syntax/}}
+    \field{title}{Variable syntax}
+    \field{year}{Online; accessed 02.02.2023}
+  \endentry
+
+  \entry{GrafanaLabs:GrafanaLabs}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=G}{%
+         family={Grafana},
+         familyi={G\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{G1}
+    \strng{fullhash}{G1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{howpublished}{\url{https://grafana.com/docs/grafana/latest/}}
+    \field{title}{Grafana Labs Documetation}
+    \field{year}{Online; accessed 07.03.2023}
+  \endentry
+
+  \entry{GrafanaLabs:GitHub}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=G}{%
+         family={Grafana},
+         familyi={G\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{G1}
+    \strng{fullhash}{G1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{howpublished}{\url{https://github.com/grafana/grafana/issues}}
+    \field{title}{Grafana GitHub}
+    \field{year}{Online; accessed 07.03.2023}
+  \endentry
+\enddatalist
+\endinput

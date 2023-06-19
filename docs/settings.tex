@@ -1,0 +1,86 @@
+\usepackage[hyphens,spaces,obeyspaces]{url}
+\usepackage[sorting = none, backend=bibtex]{biblatex}
+\usepackage[german]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[hidelinks]{hyperref}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{epstopdf}
+\usepackage{lmodern}
+\usepackage{float}
+\usepackage{acronym}
+\usepackage{booktabs}
+\usepackage{caption}
+\usepackage{csquotes}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{url}
+\usepackage{listings}
+\usepackage[table]{xcolor}
+\usepackage{wrapfig}
+\usepackage{forest}
+\usepackage{tabularx}
+\usepackage{colortbl}
+\usepackage{booktabs}
+\usepackage[onehalfspacing]{setspace}
+\usepackage{amsmath}
+\usepackage{threeparttable}
+\usepackage[german]{cleveref}
+\renewcommand*{\headfont}{\normalfont}
+\renewcommand*{\multicitedelim}{\addsemicolon\space}
+\renewcommand*{\headrulewidth}{0pt}
+\renewcommand*{\arraystretch}{1.5}
+\setlength{\parskip}{1.5ex}
+\makeatletter
+% define new boolean conditional switch for whether
+% the abstract is being typeset
+\newif\ifabstract
+% redefine `\chapter` so it only starts a new page if not typesetting
+% the abstract; sets abstract conditional to false after doing so
+\renewcommand\chapter{\ifabstract\relax\else%
+	\if@openright\cleardoublepage\else\clearpage\fi%
+	\fi
+	\abstractfalse%
+	\thispagestyle{plain}%
+	\global\@topnum\z@
+	\@afterindentfalse
+	\secdef\@chapter\@schapter}
+
+% command for putting the title and name above the abstract; switches
+% abstact boolean to true for next `\chapter*` command...
+\newcommand{\conclusion}{
+	\if@openright\cleardoublepage\else\clearpage\fi
+		\begin{center}
+			\textbf{\larger{Summary}}\par
+			\emph{Hier kommt nach der Fertigstellung der Arbeit noch eine Zusammenfassung der Arbeit mit ein oder mehreren Sätzen hin. Hier kommt nach der Fertigstellung der Arbeit noch eine Zusammenfassung der Arbeit mit ein oder mehreren Sätzen hin. Hier kommt nach der Fertigstellung der Arbeit noch eine Zusammenfassung der Arbeit mit ein oder mehreren Sätzen hin2. }\par
+		\end{center}
+
+	\abstracttrue}
+\makeatother
+\lstset
+{
+         basicstyle=\footnotesize\ttfamily,
+         numbers=left,               	% Ort der Zeilennummern
+         numberstyle=\tiny,          	% Stil der Zeilennummern
+%         stepnumber=2,               	% Abstand zwischen den Zeilennummern
+         numbersep=5pt,              	% Abstand der Nummern zum Text
+         tabsize=2,                  	% Groesse von Tabs
+         extendedchars=true,
+         breaklines=true,            	% Zeilen werden Umgebrochen
+         keywordstyle=\color{red},
+            frame=b,
+ %        keywordstyle=[1]\textbf,    	% Stil der Keywords
+ %        keywordstyle=[2]\textbf,
+ %        keywordstyle=[3]\textbf,
+ %        keywordstyle=[4]\textbf, \sqrt{\sqrt{}}
+         stringstyle=\color{white}\ttfamily,
+         showspaces=false,
+         showtabs=false,
+         xleftmargin=27pt,
+         framexleftmargin=27pt,
+         framexrightmargin=5pt,
+         framexbottommargin=4pt,
+%         backgroundcolor=\color{lightgray},
+         showstringspaces=false      	% Leerzeichen in Strings anzeigen ?
+}
