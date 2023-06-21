@@ -33,70 +33,108 @@
 	% added Value to data
 	% automated posibilities
 	
+	% Lesermotivation 
+	
 	\section{Problemstellung und Ziel}
 	
 	% (1-2 Seiten)
 	
-	\noindent Durch die zunehmende Automatisierung der Produktion und Fertigung stehen viele Produzenten vor der Aufgabe, zahlreiche Maschinen verschiedenster Hersteller in ihren Fertigungsprozess zu integrieren. Viele dieser Maschinen nutzen verschiedene Kommunikationsprotokolle, Datenformate und Schnittstellen was die Integration dieser diversen Systeme erschwert. Durch eine komplizierte Integration kann Vendor Locking entstehen. Die Bindung eines Kunden an einen Anbieter, da dieser eine Technologie Integriert, die andere Hersteller nicht oder nur extrem Schwer Integrieren können. Dies kann zu einer Atmosphäre führen, welche für den Kosten weniger Flexibilität und Kontrolle über seine eigene Produktion gibt und gleichzeitig die Kosten steigen lässt. Um dieses Problem zu lösen müssen sich die Produzenten zu einem Standard zusammenfinden und die Interoperabilität ihrer Systeme gewährleisten.
+	 Durch die zunehmende Automatisierung der Produktion und Fertigung stehen viele Produzenten vor der Aufgabe, zahlreiche Maschinen verschiedenster Hersteller in ihren Fertigungsprozess zu integrieren. Viele dieser Maschinen nutzen verschiedene Kommunikationsprotokolle, Datenformate und Schnittstellen was die Integration dieser diversen Systeme erschwert. Durch eine komplizierte Integration kann Vendor Locking entstehen. Die Bindung eines Kunden an einen Anbieter, da dieser eine Technologie Integriert, die andere Hersteller nicht oder nur extrem Schwer Integrieren können. Dies kann zu einer Atmosphäre führen, welche für den Kosten weniger Flexibilität und Kontrolle über seine eigene Produktion gibt und gleichzeitig die Kosten steigen lässt. Um dieses Problem zu lösen müssen sich die Produzenten zu einem Standard zusammenfinden und die Interoperabilität ihrer Systeme gewährleisten.
 	
-	\noindent Für AZO als Anlagenproduzent ist es von großem Interesse mit Anlagen und Maschinen anderer Hersteller kommunizieren zu können und dabei die Integration möglich einfach zu realisieren. Auch für Entwickler von \ac(MES) bedeutet die Standardisierung von Kommunikationsprotokollen eine schnellere und einfachere Entwicklung was zu niedrigeren Entwicklungskosten führt und die Robustheit der Systeme erhöhen kann. AZO hat, um diese Standardisierung zu erreichen, an der Ausarbeitung von \ac{UMATI} zugesagt. Dieser Standard möchte die Kommunikation zwischen Maschinen und der darüber liegenden Datenverarbeitung definieren und basiert auf dem Offenen Standard \ac{OPC UA}.
+	 Für AZO als Anlagenproduzent ist es von großem Interesse mit Anlagen und Maschinen anderer Hersteller kommunizieren zu können und dabei die Integration möglich einfach zu realisieren. Auch für Entwickler von \ac(MES) bedeutet die Standardisierung von Kommunikationsprotokollen eine schnellere und einfachere Entwicklung was zu niedrigeren Entwicklungskosten führt und die Robustheit der Systeme erhöhen kann. AZO hat, um diese Standardisierung zu erreichen, an der Ausarbeitung von \ac{UMATI} zugesagt. Dieser Standard möchte die Kommunikation zwischen Maschinen und der darüber liegenden Datenverarbeitung definieren und basiert auf dem Offenen Standard \ac{OPC UA}.
 	
-	\noindent Das Ziel dieser Arbeit ist es, UMATI in einem Testumfeld aufzubauen und eine Proof of Konzept System aufzubauen. Um dies zu erreichen soll zunächst eine Marktanalyse durchgeführt werden und mögliche Lösungen zum versenden und empfangen von Daten zwischen Maschine und MES zu finden. Diese sollen anhand von selbst entwickelten Kriterien abgewogen und bewertet werden. Die vielversprechendsten Umsetzungen sollen in einem Testsystem implementiert werden und für zukünftige Demonstrationen auf Messen für AZO zur Verfügung gestellt werden. Außerdem soll evaluiert werden, ob UMATI auch in der Low-Code Plattform Node Red angewendet werden kann und wenn möglich, das entstehende System als Open-Source Lösung der Öffentlichkeit zur Verfügung zu stellen.
+	 Das Ziel dieser Arbeit ist es, UMATI in einem Testumfeld aufzubauen und eine Proof of Konzept System aufzubauen. Um dies zu erreichen soll zunächst eine Marktanalyse durchgeführt werden und mögliche Lösungen zum versenden und empfangen von Daten zwischen Maschine und MES zu finden. Diese sollen anhand von selbst entwickelten Kriterien abgewogen und bewertet werden. Die vielversprechendsten Umsetzungen sollen in einem Testsystem implementiert werden und für zukünftige Demonstrationen auf Messen für AZO zur Verfügung gestellt werden. Außerdem soll evaluiert werden, ob UMATI auch in der Low-Code Plattform Node Red angewendet werden kann und wenn möglich, das entstehende System als Open-Source Lösung der Öffentlichkeit zur Verfügung zu stellen.
 	
-	\noindent Der Prototyp soll ebenfalls eine Integration in ACAS umfassen. Damit kann gezeigt werden, dass UMATI eine Möglichkeit ist, die Kommunikation von AZO Anlagen und ACAS zu realisieren. Diese Integration muss im Nachgang weiter Evaluiert werden um festzustellen ob UMATI als Standardisierung eine gute Lösung ist.
+	 Der Prototyp soll ebenfalls eine Integration in ACAS umfassen. Damit kann gezeigt werden, dass UMATI eine Möglichkeit ist, die Kommunikation von AZO Anlagen und ACAS zu realisieren. Diese Integration muss im Nachgang weiter Evaluiert werden um festzustellen ob UMATI als Standardisierung eine gute Lösung ist.
 	
-	
-	
-	% AZO -> Entsteht Problem
-	% Problemstellung
-	% Zielsetzung -> Software die das halt kann
-	
-	% Markanalyse -> Prototyp -> in ACAS Integrieren
+	%TODO Relevanz für AZO und Wissenschaft
+	%TODO Sicherheitsrelevanz
 	
 	\section{Unternehmen}
 	
-	%TODO: Welche AZO Bezeichnung
+	 Diese Arbeit wird mit dem Dualen Partner \textit{AZO Gmbh \& Co. KG} durchgeführt. AZO bietet maßgeschneiderte Lösungen für die automatisierte Förderung, Lagerung und Dosierung von Rohstoffen weltweit an. Dabei werden Anlagen für die Bereiche der Chemie-, Nahrungsmittel-, Pharma-, Kosmetik und Kunststoffindustrie gefertigt. Diese Projekte umfassen die Planung, Fertigung und Montage, sowie die Automatisierung der Anlagen.
 	
-	\noindent Diese Arbeit wird mit dem Dualen Partner \textit{AZO Gmbh \& Co. KG} durchgeführt. AZO bietet maßgeschneiderte Lösungen für die automatisierte Förderung, Lagerung und Dosierung von Rohstoffen weltweit an. Dabei werden Anlagen für die Bereiche der Chemie-, Nahrungsmittel-, Pharma-, Kosmetik und Kunststoffindustrie gefertigt. Diese Projekte umfassen die Planung, Fertigung und Montage, sowie die Automatisierung der Anlagen.
+	 AZO entwickelt ein eigenes MES System ACAS, welches die Kommunikation zwischen Anlagen von AZO, aber auch Anlagen von anderen Herstellern, mit den Kunden vereinheitlichen und verbessern soll. Dabei soll ein Umfassendes System entstehen, welches Steuerung, Visualisierung und Überwachung der Produktion übernehmen und in einer zentralen Software bündeln soll.
 	
-	\noindent AZO entwickelt ein eigenes MES System ACAS, welches die Kommunikation zwischen Anlagen von AZO, aber auch Anlagen von anderen Herstellern, mit den Kunden vereinheitlichen und verbessern soll. Dabei soll ein Umfassendes System entstehen, welches Steuerung, Visualisierung und Überwachung der Produktion übernehmen und in einer zentralen Software bündeln soll.
-	
-	\noindent ACAS entsteht in der Entwicklungsabteilung welche ebenfalls an dieser Arbeit beteiligt ist. Sie fokussiert sich auf die Automatisierung von AZO Anlagen im Bereich von SPS Steuerungen bis zur Datenverarbeitung und erhebung auf abstrahierter Ebene. 
+	 ACAS entsteht in der Entwicklungsabteilung welche ebenfalls an dieser Arbeit beteiligt ist. Sie fokussiert sich auf die Automatisierung von AZO Anlagen im Bereich von SPS Steuerungen bis zur Datenverarbeitung und Erhebung auf abstrahierter Ebene. 
 	
 	%TODO: Was stellt mir AZO zur verfügung - System, Server, ...
 	
 	\section{Forschungsfragen}
 	
+	Die Standardisierung der Integration von verschiedensten Maschinen in eine Umgebung ist nötig und kann zu verstärkten Effizienzsteigerungen und Aufwandsersparnis führen. Für Anlagenbauer verspricht die Nutzung von Umati, diese Integration in einen schnellen und effizienten Prozess zu wandeln. Um das Potential von Umati zu evaluieren wurden folgende Schwerpunkte betrachtet:
+	
 	\begin{itemize}
-		\item \textbf{Q1}: Welche Herrausforderungen ergeben sich bei der Umsetzung von Umati?
-		\item \textbf{Q2}: Ist eine Lösung durch Node Red Möglich? Wenn ja, ist diese Wirtschaftlich oder existieren bereits bessere Lösungen?
-		\item \textbf{Q3}: Wie kann die Datenkommunikation von Anlage und ACAS bestmöglich umgesetzt werden?
+		\item \textbf{Q1}: Welche Herausforderungen ergeben sich bei der Umsetzung von Umati?
+		\item \textbf{Q2}: Welche Lösungen zur Umsetzung von Umati sind am Wirtschaftlichsten?
+		\item \textbf{Q3}: Wie kann die Datenkommunikation von Anlage und ACAS bestmöglich implementiert werden?
 	\end{itemize}
 	
 	\section{Aufbau der Arbeit}
 	
-	% Ziel
 	% Methodik - kurz
-	% Lesermotivation 
-	% Relevanz für AZO, relevanz für Wissenschaft
-	% Einsatzbereich bei AZO, Ziel und Anwndung
+	% Aufbau ->
+		% Analyse: Marktanalyse und Informationssammlung über Lösungen
+		% Implementierung des Prototypen
+		% Integration in ACAS
+		% Erstellen von Materialien für Messen und Demos
+				% Schulung des Personals
 	
 \chapter{Grundlagen}
 	% (16 Seiten)
 	
 	% Stand der Technik
+	
+	
 	\section{OPC UA}
 	
-	\noindent \ac{OPC UA} ist ein Unternehmensunabhängiger, offener Standard zur Kommunikation von Informationen und Daten zwischen Maschinen im Industriellen Umfeld. Das Protokoll wurde 2008 von der OPC Foundation veröffentlicht und nimmt sich zur Aufgabe, die Interoperabilität von Systemen zu fördern. Es verwendet eine Service orientierte Architektur und kann auf verschiedensten Betriebssystemen verwendet werden. OPC UA ist sehr gut Skalierbar und kann deshalb als Kommunikationsprotokoll bei kleinen \ac{IoT} Systemen als auch bei komplexen Cloud Systemen zur Anwendung kommen.
+	%OPC UA
+	% - Interoperabilität
 	
-	\noindent OPC UA besteht baut auf einem Server-Client-Modell auf, wobei der Client die Anfragen an den Server senden muss. Der Client fragt den Server nach Daten und analysiert diese. Der Server stellt die Daten zur Verfügung. Diese Struktur ermöglicht eine einfache Skalierung von verschiedensten Geräten. 
-	
-	% OPC UA
-		% - Interoperabilität
-		
 	% Aufbau
 	% Aufgaben
 	% Standards und Anforderungen
+	
+	 \ac{OPC UA} ist ein Unternehmensunabhängiger, offener Standard zur Kommunikation von Informationen und Daten zwischen Maschinen im Industriellen Umfeld. Das Protokoll wurde 2008 von der OPC Foundation veröffentlicht und nimmt sich zur Aufgabe, die Interoperabilität von Systemen zu fördern. Es verwendet eine Service orientierte Architektur und kann auf verschiedensten Betriebssystemen verwendet werden. OPC UA ist sehr gut Skalierbar und kann deshalb als Kommunikationsprotokoll bei kleinen \ac{IoT} Systemen als auch bei komplexen Cloud Systemen zur Anwendung kommen.
+	
+	 OPC UA baut auf einem Server-Client-Modell auf, wobei der Client die Anfragen an den Server senden muss. Der Client fragt den Server nach Daten und analysiert diese währen der Server stellt die Daten zur Verfügung. Diese Struktur ermöglicht eine einfache Skalierung von verschiedensten Geräten. 
+	
+	% TODO Hier muss noch was zwischen
+	
+	
+	 Das Ziel von OPC UA und auch im weitergetragenen Sinne von Umati ist das erreichen von Interoperabilität im Industriellen Bereich. Interoperabilität beschreibt die Standardisierung von Kommunikation zwischen Systemen. Allgemein kann diese in 4 Stufen eingeteilt werden wobei jede Ebene auf die darunterliegende aufbaut. Im Schaubild \ref{fig:Interoperabilität} sind die vier Ebenen Strukturelle, Syntaktische, Semantische und Organisatorische Interoperabilität abgebildet.
+	
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=0.9\textwidth]{res/diagramms/Interoperabilität.pdf}
+		\caption{Die vier Ebenden der Interoperabilität}
+		\label{fig:Interoperabilität}
+	\end{figure}
+
+	Die strukturelle Interoperabilität beschreibt Verbindungen zwischen den Systemen weshalb sie auch oft als Konnektivität bezeichnet wird. Der Datenaustausch kann nur erfolgen wenn die beteiligten System miteinander Verbunden sind und ein geeignetes \ac{API} implementieren. Diese Verbundenheit kann über ein Netzwerk mit TCP/IP oder HTTP erreicht werden oder kann ein Übertragungsmedium wir USB festlegen.
+	
+	Sind Systeme syntaktisch Interoperabel, nutzen und verstehen sie die Struktur der Daten. Hierfür können festgelegte Standards wie XML oder Json verwendet werden. 
+	
+	Die Semantische Interoperabilität beschreibt das vereinheitlichte Verständnis der Daten. Kommunizieren zwei Systeme miteinander, so müssen Sie unter den Selben Daten auch das selbe Verstehen. Ein Beispiel für einen Standard der Semantische Interoperabilität umsetzt ist der "International Classification of Diseases". Bei diesem geht es um die Kommunikation von Krankheiten zwischen Ärzten und wurde von der WHO eingeführt. Jede Krankheit hat einen festgelegten Code, wodurch eine eindeutige Kommunikation gewährleistet ist.
+	
+	OPC UA legt anhand des Information Models den Syntax und die Semantik der Daten fest, wodurch die syntaktische Interoperabilität gewährleistet ist. Die semantische Interoperailität wird anhand der Companion Standards erweitert. Diese beschreiben Technologie-spezifische Informationsmodelle. Diese Standards entstanden durch intensive Kooperation und Zusammenarbeit mit Organisationen um die Standards möglichst umfassend aufzustellen. %\cite{}
+	
+	OPC UA entstand aus dem zuvor entwickelten Standard OPC Classics. Der alte Standdard setzte die Kommunikation im Bereich der Automatisierung bereits sehr gut um. Der Nachteil an Classics war jedoch die fehlende Plattformunabhängigkeit. OPC UA unterstützt heute jegliche Betriebsysteme für Clients als auch für die Server. Der Vorgänger musste auf einem Windowssystem betreiben werden. Auch die Kommunikation war auf die von Microsoft entwickelte Technologien \ac{COM} und \ac{DCOM} basiert. Durch die Ablösung dieses Standards durch OPC UA wird über TCP/IP und SOAP kommuniziert, welche beide Plattformunabhängig sind und somit kann zunehmend OPC UA auch auf anderen Plattformen wie Linux, Mac und Android angewandt werden.
+	
+		\subsection{Architektur} % Noch nicht Final: Struktur? Aufbau?
+		
+		
+		
+		\begin{figure}[h]
+			\centering
+			\includegraphics[width=0.9\textwidth]{res/diagramms/OPCUA.pdf}
+			\caption{Kommunikationsstruktur OPC UA}
+			\label{fig:OPCUA}
+		\end{figure}
+		
+		
+		\subsection{Sicherheit}
+		
 	
 	\section{Umati}
 	
