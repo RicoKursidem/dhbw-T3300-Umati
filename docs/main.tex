@@ -33,7 +33,9 @@
 	% added Value to data
 	% automated posibilities
 	
-	% Lesermotivation 
+	% Lesermotivation : Kann Umati einen Mehrwert in Industrie 4.0 bringen?
+	
+	% Industrie 4.0 Abbildung
 	
 	\section{Problemstellung und Ziel}
 	
@@ -72,15 +74,11 @@
 	
 	\section{Aufbau der Arbeit}
 	
-	% Methodik - kurz
-	% Aufbau ->
-		% Analyse: Marktanalyse und Informationssammlung über Lösungen
-		% Implementierung des Prototypen
-		% Integration in ACAS
-		% Erstellen von Materialien für Messen und Demos
-				% Schulung des Personals
+	Nachfolgend werden Thematiken beschrieben dir zum Grundlegenden Verständnis der Arbeit beitragen (Kapitel \ref{ch:Grundlagen}). Daraufhin werden die Methodiken beschrieben, mit denen die Informationen für dies Arbeit erhoben wurden (Kapitel \ref{ch:Methodiken}). Im Hauptteil der Arbeit (Kapitel \ref{ch:Ergebnisse}) wird der Ablauf beschrieben. Es werden zunächst Informationen zur Entscheidungsfindung eingeholt und in Analysen in Relation gesetzt und daraufhin wird die Entwicklung des Prototypen beschrieben. Die Arbeit schließt mit einer Diskussion der gefundenen Ergebnisse und einem Fazit (Kapitel \ref{ch:Diskussion_Fazit}).
+
+	% TODO: Messematerial wenn in kapitel behandelt noch anhängen
 	
-\chapter{Grundlagen}
+\chapter{Grundlagen}\label{ch:Grundlagen}
 	% (16 Seiten)
 	
 	% Stand der Technik
@@ -117,13 +115,23 @@
 	
 	Die Semantische Interoperabilität beschreibt das vereinheitlichte Verständnis der Daten. Kommunizieren zwei Systeme miteinander, so müssen Sie unter den Selben Daten auch das selbe Verstehen. Ein Beispiel für einen Standard der Semantische Interoperabilität umsetzt ist der "International Classification of Diseases". Bei diesem geht es um die Kommunikation von Krankheiten zwischen Ärzten und wurde von der WHO eingeführt. Jede Krankheit hat einen festgelegten Code, wodurch eine eindeutige Kommunikation gewährleistet ist.
 	
-	OPC UA legt anhand des Information Models den Syntax und die Semantik der Daten fest, wodurch die syntaktische Interoperabilität gewährleistet ist. Die semantische Interoperailität wird anhand der Companion Standards erweitert. Diese beschreiben Technologie-spezifische Informationsmodelle. Diese Standards entstanden durch intensive Kooperation und Zusammenarbeit mit Organisationen um die Standards möglichst umfassend aufzustellen. %\cite{}
+	OPC UA legt anhand des Information Models den Syntax und die Semantik der Daten fest, wodurch die syntaktische Interoperabilität gewährleistet ist. Die semantische Interoperabilität wird anhand der Companion Standards erweitert. Diese beschreiben Technologie-spezifische Informationsmodelle. Diese Standards entstanden durch intensive Kooperation und Zusammenarbeit mit Organisationen um die Standards möglichst umfassend aufzustellen. %\cite{}
 	
-	OPC UA entstand aus dem zuvor entwickelten Standard OPC Classics. Der alte Standdard setzte die Kommunikation im Bereich der Automatisierung bereits sehr gut um. Der Nachteil an Classics war jedoch die fehlende Plattformunabhängigkeit. OPC UA unterstützt heute jegliche Betriebsysteme für Clients als auch für die Server. Der Vorgänger musste auf einem Windowssystem betreiben werden. Auch die Kommunikation war auf die von Microsoft entwickelte Technologien \ac{COM} und \ac{DCOM} basiert. Durch die Ablösung dieses Standards durch OPC UA wird über TCP/IP und SOAP kommuniziert, welche beide Plattformunabhängig sind und somit kann zunehmend OPC UA auch auf anderen Plattformen wie Linux, Mac und Android angewandt werden.
+	OPC UA entstand aus dem zuvor entwickelten Standard OPC Classics. Der alte Standard setzte die Kommunikation im Bereich der Automatisierung bereits sehr gut um. Der Nachteil an Classics war jedoch die fehlende Plattformunabhängigkeit. OPC UA unterstützt heute jegliche Betriebssysteme für Clients als auch für die Server. Der Vorgänger musste auf einem Windowssystem betreiben werden. Auch die Kommunikation war auf die von Microsoft entwickelte Technologien \ac{COM} und \ac{DCOM} basiert. Durch die Ablösung dieses Standards durch OPC UA wird über TCP/IP und SOAP kommuniziert, welche beide Plattformunabhängig sind und somit kann zunehmend OPC UA auch auf anderen Plattformen wie Linux, Mac und Android angewandt werden.
 	
-		\subsection{Companion Spezifikationen}
+		\subsection{Struktur}
 		
+		OPC UA ist eine Sammlung von Standards welche in unterschiedlichen Spezifikationen definiert sind. Diese gliedern sich in eine hierarchische Struktur, welche dann bei der Implementierung aufeinander aufbauen. In Abbildung \ref{fig:OPCUA_Framework} ist die Struktur des UA Framework abgebildet. Im unteren Teil und somit der Grundbaustein dies Modells stehen Spezifikationen zum Transport und der Service Discovery. Diese beschreiben über welche Medien Daten transportiert wird und wie erkannt werden kann, welche Services angeboten existieren, die den OPC UA Standard implementieren.
 		
+		Zur Infrastruktur, welche im allgemeinen die Konnektivität gewährleistet, ist auch die Spezifikation für den Datenzugang (Information Access) definiert. Außerdem werden auch weitere Standards beschrieben um die Sicherheit und Robustheit des Systems zu gewährleisten.
+		
+		Auf den Standards der Infrastruktur bauen die Spezifikationen der Informationsmodelle auf. Diese bestehen aus den offiziellen OPC UA Spezifikationen und den darauf aufbauenden Companion und Vendor Informationsmodellen. 
+		
+		Die offiziellen Standards befassen sich mit dem allgemeinen Austausch von Daten. Hierzu gehören der Austausch von Echtzeitdaten (DA), historischen Daten (HA) und Alarmen (AC). Neben diesen Hauptfaktoren werden auch andere Standards festgelegt, die das offizielle OPC UA Information Modell bilden. 
+		
+		Auf dem OPC UA Standard setzen die Industry Standard Information Modelle auf. Diese sind von mehreren Teilhabern entwickelte Standards, die beispielsweiße innerhalb einer bestimmten Branche oder Industrie-Gruppen verwendet werden. Diese Standards stehen in den Companion Spezifikationen. Beispielsweise gibt es einzelen Spezifikationen für AutoID Systeme oder Spritzgussmaschinen, die Abwandlungen und Spezialisierungen haben, die auf ihren Bereich angepasst sind.
+		
+		Auf der obersten Ebene des Schaubilds in Abbildung \ref{fig:OPCUA_Framework} sind die Vendor Informations Modelle dargestellt. Diese sind weitere Standards, die die Companion Standards erweitern und innerhalb einer Maschinenumgebung eines Erstellers umgesetzt werden. In diesen Standards sind Veränderungen individueller Hersteller definiert, damit eine weitere Spezialisierung über die Companion Spezifikationen hinaus stattfinden kann.
 		
 		\begin{figure}[h]
 			\centering
@@ -132,9 +140,15 @@
 			\label{fig:OPCUA_Framework}
 		\end{figure}
 	
-		\subsection{Architektur} % Noch nicht Final: Struktur? Aufbau?
+		\subsection{Kommunikationsaufbau} % Noch nicht Final: Struktur? Aufbau?
 		
 		OPC UA besteht aus drei Komponenten deren Zusammenwirkung in Abbildung \ref{fig:OPCUA_Structure} abgebildet ist. Mehrere Field Connections, die die Sensorik oder SPS darstellen mit welchen kommuniziert werden soll. Die Daten sollen zu den OPC UA Clients geleitet werden. Dies können \ac{HMI} oder MES Systeme sein, die die Daten der Maschinen auswerten oder Steuerungsbefehle absenden möchten. OPC UA Standardisiert diese Kommunikation über den OPC UA Server. Dieser setzt den OPC UA Standard um und stellt die notwendigen APIs zur Verfügung.
+				
+		Der OPC UA Server implementiert die proprietären Kommunikationsprotokolle, die vom Maschinenhersteller entwickelt wurden, um mit den Anlagen und den Field Conections zu Kommunizieren. Je nach art der Daten die die Maschine weiter gibt, werden die Daten auf dem OPC UA Server abgespeichert oder an den Client weiter gegeben. Ein OPC UA Server kann in zwei Formen entstehen. Der Hersteller kann seiner Maschine die OPC UA Standards bereits bei der Entwicklung einprogrammieren. Damit ist der Server in der Maschine integriert und die Maschine ist so von beginn an OPC UA fähig. Sollte der Hersteller die Spezifikationen jedoch nicht implementieren, kann der Server auch zusätzlich zwischen die Maschine und den Client geschallten werden. Durch die Unabhängigkeit des Herstellers sind diese Server oft mit mehr Kommunikationsprotokollen ausgestattet, was deren Möglichkeiten mit der Maschine zu interagieren erhöht. 
+		
+		Die Kommunikation mit dem Client läuft dabei 1 zu 1 ab. Allerdings kann auch ein 1 zu n Kommunikationsmodell über Publish and Subscribe implementiert werden. Um diese Funktion jedoch zu nutzen, muss der Server mit der OPC UA Pub/Sub Spezifikation erweitert werden.
+		
+		Der Client kann die Daten über die standardisierte API des OPC UA Servers abfragen. Es können Echtzeitdaten, Historische Daten abgerufen werden. Außerdem gibt es eine Spezifikation, wie Alarmierungslogik umgesetzt werden soll. Dies wird anhand der Implementation auf Serverebene deutlich vereinfacht, da sie dann Hersteller unabhängig ist.
 		
 		\begin{figure}[h]
 			\centering
@@ -142,14 +156,6 @@
 			\caption{Kommunikationsstruktur OPC UA}
 			\label{fig:OPCUA_Structure}
 		\end{figure}
-		
-		Der OPC UA Server implementiert die proprietären Kommunikationsprotokolle, die vom Maschinenhersteller entwickelt wurden, um mit den Anlagen und den Field Conections zu Kommunizieren. Je nach art der Daten die die Maschine weiter gibt, werden die Daten auf dem OPC UA Server abgespeichert oder an den Client weiter gegeben. Ein OPC UA Server kann in zwei Formen entstehen. Der Hersteller kann seiner Maschine die OPC UA Standards bereits bei der Entwicklung einprogrammieren. Damit ist der Server in der Maschine integriert und die Maschine ist so von beginn an OPC UA fähig. Sollte der Hersteller die Spezifikationen jedoch nicht implementieren, kann der Server auch zusätzlich zwischen die Maschine und den Client geschallten werden. Durch die Unabhängigkeit des Herstellers sind diese Server oft mit mehr Kommunikationsprotokollen ausgestattet, was deren Möglichkeiten mit der Maschine zu interagieren erhöht. 
-		
-		Die Kommunikation mit dem Client läuft dabei 1 zu 1 ab. Allerdings kann auch ein 1 zu n Kommunikationsmodell über Publish and Subscribe implementiert werden. Um diese Funktion jedoch zu nutzen, muss der Server mit der OPC UA Pub/Sub Spezifikation erweitert werden.
-		
-		Der Client kann die Daten über die standardisierte API des OPC UA Servers abfragen. Es können Echtzeitdaten, Historische Daten abgerufen werden. Außerdem gibt es eine Spezifikation, wie Alarmierungslogik umgesetzt werden soll. Dies wird anhand der Implementation auf Serverebene deutlich vereinfacht, da sie dann Hersteller unabhängig ist.
-		
-		
 		
 		\subsection{Sicherheit}
 		
@@ -172,8 +178,9 @@
 			% Anmeldung
 		
 		% Marktanalyse: Bereits vorhandene Lösungen	
-	
-\chapter{Methodik}
+
+
+\chapter{Methodik}\label{ch:Methodiken}
 	% (8 Seiten)
 	
 	
@@ -189,7 +196,7 @@
 	
 	\section{Zeitplanung}
 	
-\chapter{Ergebnisse}
+\chapter{Ergebnisse}\label{ch:Ergebnisse}
 	
 	% (8 Seiten)
 	
@@ -232,7 +239,7 @@
 
 	
 	
-	\chapter{Diskussion und Fazit}
+	\chapter{Diskussion und Fazit}\label{ch:Diskussion_Fazit}
 	
 		% (2-5 Seiten)	
 	
