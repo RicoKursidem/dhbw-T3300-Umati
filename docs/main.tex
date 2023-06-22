@@ -121,20 +121,40 @@
 	
 	OPC UA entstand aus dem zuvor entwickelten Standard OPC Classics. Der alte Standdard setzte die Kommunikation im Bereich der Automatisierung bereits sehr gut um. Der Nachteil an Classics war jedoch die fehlende Plattformunabhängigkeit. OPC UA unterstützt heute jegliche Betriebsysteme für Clients als auch für die Server. Der Vorgänger musste auf einem Windowssystem betreiben werden. Auch die Kommunikation war auf die von Microsoft entwickelte Technologien \ac{COM} und \ac{DCOM} basiert. Durch die Ablösung dieses Standards durch OPC UA wird über TCP/IP und SOAP kommuniziert, welche beide Plattformunabhängig sind und somit kann zunehmend OPC UA auch auf anderen Plattformen wie Linux, Mac und Android angewandt werden.
 	
-		\subsection{Architektur} % Noch nicht Final: Struktur? Aufbau?
+		\subsection{Companion Spezifikationen}
 		
 		
 		
 		\begin{figure}[h]
 			\centering
+			\includegraphics[width=0.9\textwidth]{res/diagramms/companionSpezifikations.pdf}
+			\caption{Aufbau des OPC UA Standards, \\ Angelehnt an: http://wiki.opcfoundation.org/images/8/8c/UA\_Framework.JPG} %TODO anständig machen
+			\label{fig:OPCUA_Framework}
+		\end{figure}
+	
+		\subsection{Architektur} % Noch nicht Final: Struktur? Aufbau?
+		
+		OPC UA besteht aus drei Komponenten deren Zusammenwirkung in Abbildung \ref{fig:OPCUA_Structure} abgebildet ist. Mehrere Field Connections, die die Sensorik oder SPS darstellen mit welchen kommuniziert werden soll. Die Daten sollen zu den OPC UA Clients geleitet werden. Dies können \ac{HMI} oder MES Systeme sein, die die Daten der Maschinen auswerten oder Steuerungsbefehle absenden möchten. OPC UA Standardisiert diese Kommunikation über den OPC UA Server. Dieser setzt den OPC UA Standard um und stellt die notwendigen APIs zur Verfügung.
+		
+		\begin{figure}[h]
+			\centering
 			\includegraphics[width=0.9\textwidth]{res/diagramms/OPCUA.pdf}
 			\caption{Kommunikationsstruktur OPC UA}
-			\label{fig:OPCUA}
+			\label{fig:OPCUA_Structure}
 		\end{figure}
+		
+		Der OPC UA Server implementiert die proprietären Kommunikationsprotokolle, die vom Maschinenhersteller entwickelt wurden, um mit den Anlagen und den Field Conections zu Kommunizieren. Je nach art der Daten die die Maschine weiter gibt, werden die Daten auf dem OPC UA Server abgespeichert oder an den Client weiter gegeben. Ein OPC UA Server kann in zwei Formen entstehen. Der Hersteller kann seiner Maschine die OPC UA Standards bereits bei der Entwicklung einprogrammieren. Damit ist der Server in der Maschine integriert und die Maschine ist so von beginn an OPC UA fähig. Sollte der Hersteller die Spezifikationen jedoch nicht implementieren, kann der Server auch zusätzlich zwischen die Maschine und den Client geschallten werden. Durch die Unabhängigkeit des Herstellers sind diese Server oft mit mehr Kommunikationsprotokollen ausgestattet, was deren Möglichkeiten mit der Maschine zu interagieren erhöht. 
+		
+		Die Kommunikation mit dem Client läuft dabei 1 zu 1 ab. Allerdings kann auch ein 1 zu n Kommunikationsmodell über Publish and Subscribe implementiert werden. Um diese Funktion jedoch zu nutzen, muss der Server mit der OPC UA Pub/Sub Spezifikation erweitert werden.
+		
+		Der Client kann die Daten über die standardisierte API des OPC UA Servers abfragen. Es können Echtzeitdaten, Historische Daten abgerufen werden. Außerdem gibt es eine Spezifikation, wie Alarmierungslogik umgesetzt werden soll. Dies wird anhand der Implementation auf Serverebene deutlich vereinfacht, da sie dann Hersteller unabhängig ist.
+		
 		
 		
 		\subsection{Sicherheit}
 		
+		%TODO Security beschreiben
+		% Wenn bei Umati sich etwas ändert, dann dort noch ein Kapitel puschen
 	
 	\section{Umati}
 	
