@@ -82,19 +82,11 @@
 	
 	\section{OPC UA}
 	
-	%OPC UA
-	% - Interoperabilität
-	
-	% Aufbau
-	% Aufgaben
-	% Standards und Anforderungen
-	
 	 \ac{OPC UA} ist ein unternehmensunabhängiger, offener Standard zur Kommunikation von Informationen und Daten zwischen Maschinen im industriellen Umfeld. Das Protokoll wurde 2008 von der OPC Foundation veröffentlicht und nimmt sich zur Aufgabe, die Interoperabilität von Systemen zu fördern. Es verwendet eine \ac{SOA} und kann auf verschiedensten Betriebssystemen verwendet werden. OPC UA ist sehr gut skalierbar und kann deshalb als Kommunikationsprotokoll bei kleinen \ac{IoT} Systemen als auch bei komplexen Cloud-Systemen zur Anwendung kommen. 
 	 
 	 OPC UA baut auf einem Server-Client-Modell auf, wobei der Client die Anfragen an den Server senden muss. Der Client fragt den Server nach Daten und analysiert diese während der Server stellt die Daten zur Verfügung. Diese Struktur ermöglicht eine einfache Skalierung von verschiedensten Geräten. 
 	 
 	 % TODO Hier muss noch was zwischen, vill vertikale Integration beschreiben
-	 
 	 
 	 Das Ziel von OPC UA und auch im weitergetragenen Sinne von Umati ist das Erreichen von Interoperabilität im Industriellen Bereich. Interoperabilität beschreibt die Standardisierung von Kommunikation zwischen Systemen. Allgemein kann diese in 4 Stufen eingeteilt werden, wobei jede Ebene auf die darunterliegende aufbaut. Im Schaubild \ref{fig:Interoperabilität} sind die vier Ebenen Strukturelle, Syntaktische, semantische und Organisatorische Interoperabilität abgebildet.
 	 
@@ -194,8 +186,6 @@
 		
 		% Kennzahlen, wer nutzt schon, was sind bisherige Meinungen dazu
 		
-		
-	
 		\subsection{VDMA}
 		
 		\ac{VDMA} ist der größte Industrieverbund in Europa und hat Umati ins leben gerufen hat. Der Verband wurde 1892 gegründet und hat seinen Sitz in Frankfurt am Main. Neben der Vertretung der Interessen Industrieller Unternehmen in Deutschland und Europa gegenüber der Politik, erarbeitet der VDMA auch Standards und tauscht Know-How zwischen seinen 3.600 Mitgliedsunternehmen aus. \cite{noauthor_verband_nodate} In dem Interessenverband sind Firmen aus den Bereichen Maschinenbau, Anlagenbau und der Zulieferindustrie welche sich Kompetenzen und Informationen in verschiedensten Themenbereichen von Bildung \& Modernem Arbeiten über Digitalisierung bis zu Rechtlichen Feldern teilen. \cite{noauthor_themenubersicht_nodate}
@@ -215,14 +205,16 @@
 		
 		\subsection{OPC UA for Machinery}
 		
-		\texttt{OPC 40001-1/VDMA 40001-1} wurde von VDMA und VDM zusammen mit der OPC Foundation entwickelt. Es ist die Base Spezifikation auf der andere in diesem Bereich aufbauen sollen. Sie wurde im September 2020 veröffentlicht und seit dem aktualisiert worden. Der Standard wird auch in Zukunft erweitert werden um mehr Use Cases abzudecken.
+		\texttt{OPC 40001-1/VDMA 40001-1}, auch OPC UA for Machinery, wurde von VDMA und VDM zusammen mit der OPC Foundation entwickelt. Es ist die Base Spezifikation auf der andere in diesem Bereich aufbauen sollen. Sie wurde im September 2020 veröffentlicht und seit dem aktualisiert worden. Der Standard wird auch in Zukunft erweitert werden um mehr Use Cases abzudecken.
+		
+		Im Allgemeinen deckt dieser Standard fundermentale Bereiche ab. Es wird definiert welche Datentypen genutzt werden können, wie deren Syntax ist und wie sie in Attributen abgespeichert werden können. Es werden Objekte und Klassen festgelegt, wie diese erstellt und definiert werden sollen. Darüber hinaus beschreibt die Spezifikation auch wie ein Client im System die Maschinen an den OPC UA Servern finden kann. 
 		
 		% OPCUA 40001 (for Machinery)
 		
+		% Datentypen, aufbau von Atrributen und Objekten oder wie kann ich was finden -> Maschinen an Servern. 
+		
 		% für was speziell gemacht
 		% Was ist festgelegt
-			
-
 
 \chapter{Methodik}\label{ch:Methodiken}
 	% (8 Seiten)
