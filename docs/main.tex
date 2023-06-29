@@ -25,7 +25,7 @@
 	\mainmatter
 	\pagebreak
 %	\conclusionpng
-	\chapter{Einführung}
+	\chapter{Einführung}\label{ch:Einführung}
 	% (4 Seiten)
 	
 	Zunehmend leben wir in einer immer stärker vernetzten Welt. Globalisierte Unternehmen mit Lieferketten, die den ganzen Planeten umspannen. Unternehmen mit Kunden und Zulieferern in verschiedensten Ländern. In der Industrie ist es dabei besonders wichtig, dass alle Teilnehmer an Wertschöpfungsketten, Arbeitsgruppen und Verträgen dasselbe Verständnis von Daten haben. Wir versuchen möglichst viele Bereiche der Produktion und Kommunikation zu standardisieren und somit weltweite Verständigung mit minimalen Missverständnissen zu erreichen. In Zeiten der Industrie 4.0 nehmen Standardisierungen einen noch wichtigeren Platz ein. Die Vernetzung von Fertigungsanlagen über Unternehmensgrenzen hinaus und zwischen verschiedenen Anlagen von unterschiedlichen Herstellern. 
@@ -51,7 +51,7 @@
 	
 	\section{Unternehmen}
 	
-	  Diese Arbeit wird mit dem Dualen Partner \textit{AZO Gmbh \& Co. KG} durchgeführt. AZO bietet maßgeschneiderte Lösungen für die automatisierte Förderung, Lagerung und Dosierung von Rohstoffen weltweit an. Dabei werden Anlagen für die Bereiche der Chemie-, Nahrungsmittel-, Pharma-, Kosmetik und Kunststoffindustrie gefertigt. Diese Projekte umfassen die Planung, Fertigung und Montage, sowie die Automatisierung der Anlagen.
+	 Diese Arbeit wird mit dem Dualen Partner \textit{AZO Gmbh \& Co. KG} durchgeführt. AZO bietet maßgeschneiderte Lösungen für die automatisierte Förderung, Lagerung und Dosierung von Rohstoffen weltweit an. Dabei werden Anlagen für die Bereiche der Chemie-, Nahrungsmittel-, Pharma-, Kosmetik und Kunststoffindustrie gefertigt. Diese Projekte umfassen die Planung, Fertigung und Montage, sowie die Automatisierung der Anlagen.
 	 
 	 AZO entwickelt ein eigenes MES-System ACAS, welches die Kommunikation zwischen Anlagen von AZO, aber auch Anlagen von anderen Herstellern, mit den Kunden vereinheitlichen und verbessern soll. Dabei soll ein umfassendes System entstehen, welches Steuerung, Visualisierung und Überwachung der Produktion übernehmen und in einer zentralen Software bündeln soll.
 	 
@@ -72,6 +72,7 @@
 	\section{Aufbau der Arbeit}
 	
 	Nachfolgend werden Thematiken beschrieben dir zum grundlegenden Verständnis der Arbeit beitragen (Kapitel \ref{ch:Grundlagen}). Daraufhin werden die Methodiken beschrieben, mit denen die Informationen für diese Arbeit erhoben wurden (Kapitel \ref{ch:Methodiken}). Im Hauptteil der Arbeit (Kapitel \ref{ch:Ergebnisse}) wird der Ablauf beschrieben. Es werden zunächst Informationen zur Entscheidungsfindung eingeholt und in Analysen in Relation gesetzt und daraufhin wird die Entwicklung des Prototyps beschrieben. Die Arbeit schließt mit einer Diskussion der gefundenen Ergebnisse und einem Fazit (Kapitel \ref{ch:Diskussion_Fazit}).
+	
 	% TODO: Messematerial wenn in kapitel behandelt noch anhängen
 	
 \chapter{Grundlagen}\label{ch:Grundlagen}
@@ -86,9 +87,7 @@
 	 
 	 OPC UA baut auf einem Server-Client-Modell auf, wobei der Client die Anfragen an den Server senden muss. Der Client fragt den Server nach Daten und analysiert diese während der Server stellt die Daten zur Verfügung. Diese Struktur ermöglicht eine einfache Skalierung von verschiedensten Geräten. 
 	 
-	 % TODO Hier muss noch was zwischen, vill vertikale Integration beschreiben
-	 
-	 Das Ziel von OPC UA und auch im weitergetragenen Sinne von Umati ist das Erreichen von Interoperabilität im Industriellen Bereich. Interoperabilität beschreibt die Standardisierung von Kommunikation zwischen Systemen. Allgemein kann diese in 4 Stufen eingeteilt werden, wobei jede Ebene auf die darunterliegende aufbaut. Im Schaubild \ref{fig:Interoperabilität} sind die vier Ebenen Strukturelle, Syntaktische, semantische und Organisatorische Interoperabilität abgebildet.
+	 Das Ziel von OPC UA und auch im weitergetragenen Sinne von Umati ist das Erreichen von Interoperabilität im industriellen Bereich. Interoperabilität beschreibt die Standardisierung von Kommunikation zwischen Systemen. Allgemein kann diese in 4 Stufen eingeteilt werden, wobei jede Ebene auf die darunterliegende aufbaut. Im Schaubild \ref{fig:Interoperabilität} sind die vier Ebenen Strukturelle, Syntaktische, semantische und Organisatorische Interoperabilität abgebildet.
 	 
 	 \begin{figure}[H]
 	 	\centering
@@ -101,7 +100,7 @@
 	 
 	 Sind Systeme syntaktisch interoperabel, nutzen und verstehen sie die Struktur der Daten. Hierfür können festgelegte Standards wie XML oder Json verwendet werden. \cite{mielebacher_verteilte_2021-1}
 	 
-	 Die Semantische Interoperabilität beschreibt das vereinheitlichte Verständnis der Daten. Kommunizieren zwei Systeme miteinander, so müssen Sie unter denselben Daten auch dasselbe verstehen. Ein Beispiel für einen Standard der Semantische Interoperabilität umsetzt, ist der "International Classification of Diseases". Bei diesem geht es um die Kommunikation von Krankheiten zwischen Ärzten und wurde von der WHO eingeführt. Jede Krankheit hat einen festgelegten Code, wodurch eine eindeutige Kommunikation gewährleistet ist. \cite{mielebacher_verteilte_2021-1}
+	 Die Semantische Interoperabilität beschreibt das vereinheitlichte Verständnis der Daten. Kommunizieren zwei Systeme miteinander, so müssen Sie unter denselben Daten auch dasselbe verstehen. Ein Beispiel für einen Standard, der semantische Interoperabilität umsetzt, ist der "International Classification of Diseases". Bei diesem geht es um die Kommunikation von Krankheiten zwischen Ärzten und wurde von der WHO eingeführt. Jede Krankheit hat einen festgelegten Code, wodurch eine eindeutige Kommunikation gewährleistet ist. \cite{mielebacher_verteilte_2021-1}
 	 
 	 OPC UA legt anhand des Information-Models die Syntax und Semantik der Daten fest, wodurch die syntaktische Interoperabilität gewährleistet ist. Die semantische Interoperabilität wird anhand der Companion Standards erweitert. Diese beschreiben Technologie-spezifische Informationsmodelle. Diese Standards entstanden durch intensive Kooperation und Zusammenarbeit mit Organisationen, um die Standards möglichst umfassend aufzustellen. \cite{mielebacher_verteilte_2021-1}
 	 
@@ -129,7 +128,7 @@
 			\label{fig:OPCUA_Framework}
 		\end{figure}
 	
-		\subsection{Kommunikationsaufbau} % Noch nicht Final: Struktur? Aufbau?
+		\subsection{Kommunikationsaufbau} 
 		
 		OPC UA besteht aus drei Komponenten, deren Zusammenwirkung in Abbildung \ref{fig:OPCUA_Structure} abgebildet ist. Mehrere Field Connections, die die Sensorik oder SPS darstellen, mit welchen kommuniziert werden soll. Die Daten sollen zu den OPC UA Clients geleitet werden. Dies können \ac{HMI} oder MES-Systeme sein, die die Daten der Maschinen auswerten oder Steuerungsbefehle absenden möchten. OPC UA standardisiert diese Kommunikation über den OPC UA Server. Dieser setzt den OPC UA Standard um und stellt die notwendigen APIs zur Verfügung. \cite{rinke_was_2022}
 		
@@ -150,17 +149,26 @@
 		
 		% (0,5 bis 1 Seite)
 		
-		%TODO Security beschreiben
+		Eines der Ziele von OPC UA ist es, eine sichere Verbindung und Kommunikation zu ermöglichen. Deshalb trägt bereits die zweite Spezifikation von OPC UA den Namen 
+		\glqq Security Modell\grqq. Hierin ist festgelegt, welche Sicherheitsmechanismen bei der Nutzung von OPC UA angewendet werden sollen.
+		
+		Die OPC Foundation beschreibt Unified Architecture sicher und Firewall freundlich. OPC UA unterstützt Security auf Transport- und Applikationsebene anhand von selbst entworfenen Protokollen und Erweiterungen von bereits bestehenden Standards. Die Codierung findet auf binärer Ebene statt, wobei die Kommunikation über HTTPS abläuft. Die Authentifizierung von Clients und Servern findet über X509 Zertifikate statt, wobei der Entwickler der UA Anwendung die Anbindung an einen Zertifikatsspeicher selbst übernehmen kann. \cite{noauthor_unified_nodate, noauthor_opc_nodate}
+		
+		Auf Applikationsebene gibt es Sicherheitsmechanismen, welche dir Authentifikation und Autorisierung der Nutzer bearbeiten. Hierbei kommen Passwörtern, Zertifikaten, Webtokens und weiteres zum Einsatz. Außerdem können mit Rechten für Nutzer weitere Einschränkungen auf den Zugriff einzelner Nutzer gelegt werden. Zuzüglich können Aktivitäten von Nutzern und dem System geloggt werden, um die Nachvollziebarkeit zu erhöhen und die Sicherheit des Systems zu stärken. \cite{noauthor_unified_nodate, noauthor_opc_nodate}
+		
+		Das Bundesamt für Sicherheit in der Informatik führte 2017 eine Sicherheitsanalyse in Kooperation mit TÜV Süd aus und konnte kleine systematischen Fehler in der Sicherheit entdecken. Sie schreiben OPC UA eine hohe Sicherheit zu, wenn die  Mode Sign und security Mode SignAndEncrypt verwendet werden. \cite{damm_opc_2017}
+		
+		
 		% Wenn bei Umati sich etwas ändert, dann dort noch ein Kapitel puschen
 	
 	\section{Umati}
 		
 		
-		Umati ist eine globale Initiative zur Standardisierung von Interfaces zur Kommunikation zwischen Produktionsanlagen. Sie wird vom \ac{VDMA} und dem \ac{VDW} verwaltet und vorangetrieben von den Zahlreichen Mitgliedern der beiden Vereinigungen. Das Ziel ist es die Kommunikation zwischen Maschinen möglichst einfach, sicher und einfach zu gestalten. Es soll eine Plug \& Play Umgebung entstehen in der neue Maschinen in eine Anlage durch bloßes einstecken ins Kommunikationsnetzwerk integriert werden können. Die Umati Initiative entwickelt Standards, welche weltweit zum Einsatz kommen sollen um eine startke internationale Gemeinschaft um diesen Standard zu erreichen. \cite{noauthor_umati_2023}
+		Umati ist eine globale Initiative zur Standardisierung von Interfaces zur Kommunikation zwischen Produktionsanlagen. Sie wird vom \ac{VDMA} und dem \ac{VDW} verwaltet und vorangetrieben von den zahlreichen Mitgliedern der beiden Vereinigungen. Das Ziel ist es, die Kommunikation zwischen Maschinen möglichst einfach, sicher und einfach zu gestalten. Es soll eine Plug \& Play Umgebung entstehen, in der neue Maschinen in eine Anlage durch bloßes Einstecken ins Kommunikationsnetzwerk integriert werden können. Die Umati Initiative entwickelt Standards, welche weltweit zum Einsatz kommen sollen, um eine starke internationale Gemeinschaft um diesen Standard zu erreichen. \cite{noauthor_umati_2023}
 		
-		Umati baut auf den OPC UA Standards der OPC Foundation auf. OPC UA bildet dabei die Basis und definiert wie kommuniziert werden soll und was. Es legt fest die Rahmenbedingungen für Konnektivität und syntaktische Interoperabilität. Da dieser Standard kostenfrei zur Verfügung steht, ist es die optimale Voraussetzung um weiterreichende Spezifikation auf ihn aufzubauen. \cite{noauthor_umati_2023}
+		Umati baut auf den OPC UA Standards der OPC Foundation auf. OPC UA bildet dabei die Basis und definiert, wie kommuniziert werden soll und was. Es legt fest, die Rahmenbedingungen für Konnektivität und syntaktische Interoperabilität. Da dieser Standard kostenfrei zur Verfügung steht, ist es die optimale Voraussetzung, um weiterreichende Spezifikation auf ihn aufzubauen. \cite{noauthor_umati_2023}
 		
-		Umati soll vor allem die vertikale und horizontale Integration im Unternehmen erleichtern. In Abbildung \ref{fig:Automatisierungspyramide} ist die Automatisierungspyramide nach Siepmann abgebildet. Je tiefer die Pyramide nach unten geht, desto vielfältiger sind die Systeme. Während ein Unternehmen nur ein \ac{ERP} System verwendet, kann es zahlreiche SPS und noch mehr Ein- und Ausgabesensoren geben. Diese müssen vertikal Integriert werden. Dafür werden Daten von den unteren Ebenen in die Systeme weiter oben zur Verarbeitung überreicht. Bei der horizontalen Integration kommunizieren gleichartige Systeme miteinander. Beispielsweise wenn mehrere SPS Daten austauschen oder Daten Abteilungsübergreifend übergeben werden, wie bei einem Datenfluss von SCM zu CRM System sein. 
+		Umati soll vor allem die vertikale und horizontale Integration im Unternehmen erleichtern. In Abbildung \ref{fig:Automatisierungspyramide} ist die Automatisierungspyramide nach Siepmann abgebildet. Je tiefer die Pyramide nach unten geht, desto vielfältiger sind die Systeme. Während ein Unternehmen nur ein \ac{ERP} System verwendet, kann es zahlreiche SPS und noch mehr Ein- und Ausgabesensoren geben. Diese müssen vertikal integriert werden. Dafür werden Daten von den unteren Ebenen in die Systeme weiter oben zur Verarbeitung überreicht. Bei der horizontalen Integration kommunizieren gleichartige Systeme miteinander. Beispielsweise wenn mehrere SPS Daten austauschen oder Daten Abteilungsübergreifend übergeben werden, wie bei einem Datenfluss von SCM zu CRM System sein. 
 		
 		\begin{figure}[H]
 			\centering
@@ -169,13 +177,13 @@
 			\label{fig:Automatisierungspyramide}
 		\end{figure}
 		
-		Umati legt standardisierte Interfaces fest, mit denen die vertikale und horizontale Integration möglichst einfach umgesetzt wird. Dadurch kann die Wertschöpfung aus Daten kostengünstiger ablaufen und die Analyse, Verarbeitung und Verwertung von Daten wie es in der Industrie 4.0 üblich ist besser ablaufen. Umati hat bereits Vorführungen auf Messen veranstaltet, welche die Funktionsfähigkeit einer Umati Umsetzung demonstrieren. Umati standardisiert dabei die Integration von Maschinen, deren Installation und ganze IT Produktionsumgebungen. \cite{noauthor_about_nodate}
-	
+		Umati legt standardisierte Interfaces fest, mit denen die vertikale und horizontale Integration möglichst einfach umgesetzt wird. Dadurch kann die Wertschöpfung aus Daten kostengünstiger ablaufen und die Analyse, Verarbeitung und Verwertung von Daten, wie es in der Industrie 4.0 üblich ist, besser ablaufen. Umati hat bereits Vorführungen auf Messen veranstaltet, welche die Funktionsfähigkeit einer Umati Umsetzung demonstrieren. Umati standardisiert dabei die Integration von Maschinen, deren Installation und ganze IT Produktionsumgebungen. \cite{noauthor_about_nodate}
+		
 		% Umati aufbau
 		
 		OPC UA hatte bereits Standards, welche in die Richtung von den Umati gehen anhand der Companion Spezifikationen definiert. Allerdings wuchs der Umfang dieser Spezifikationen über die Jahre stark an, weshalb sich Umati die Aufgabe setzt, diese Spezifikationen zu zentralisieren und somit einen gemeinsamen Standard zu erzeugen, welcher von allen Mitgliedern verwendet wird.
 		
-		Umati selbst besteht aus verschiedenen Modulen welche alle Standards für verschiedene Bereiche definieren. In Abbildung \ref{fig:OPCUA_for_machinery} sind alle Interfaces abgebildet, welche auf der Base Spezifikation OPC 40001 aufbauen. Dieser wird auch OPC 40001 UA for Machinery genannt und ist für die Anlagenbau Industrie gedacht. Umati befindet sich noch in der Entwicklung und ist noch nicht vollständig fertiggestellt, deshalb gibt es Interfaces, welche noch nicht umgesetzt, sondern nur geplant sind. \cite{noauthor_machinery_nodate}
+		Umati selbst besteht aus verschiedenen Modulen, welche alle Standards für verschiedene Bereiche definieren. In Abbildung \ref{fig:OPCUA_for_machinery} sind alle Interfaces abgebildet, welche auf der Base Spezifikation OPC 40001 aufbauen. Dieser wird auch OPC 40001 UA for Machinery genannt und ist für die Anlagenbauindustrie gedacht. Umati befindet sich noch in der Entwicklung und ist noch nicht vollständig fertiggestellt, deshalb gibt es Interfaces, welche noch nicht umgesetzt, sondern nur geplant sind. \cite{noauthor_machinery_nodate}
 		
 		\begin{figure}[H]
 			\centering
@@ -188,21 +196,21 @@
 		
 		\subsection{VDMA}
 		
-		\ac{VDMA} ist der größte Industrieverbund in Europa und hat Umati ins leben gerufen hat. Der Verband wurde 1892 gegründet und hat seinen Sitz in Frankfurt am Main. Neben der Vertretung der Interessen Industrieller Unternehmen in Deutschland und Europa gegenüber der Politik, erarbeitet der VDMA auch Standards und tauscht Know-How zwischen seinen 3.600 Mitgliedsunternehmen aus. \cite{noauthor_verband_nodate} In dem Interessenverband sind Firmen aus den Bereichen Maschinenbau, Anlagenbau und der Zulieferindustrie welche sich Kompetenzen und Informationen in verschiedensten Themenbereichen von Bildung \& Modernem Arbeiten über Digitalisierung bis zu Rechtlichen Feldern teilen. \cite{noauthor_themenubersicht_nodate}
+		\ac{VDMA} ist der größte Industrieverbund in Europa und hat Umati ins Leben gerufen hat. Der Verband wurde 1892 gegründet und hat seinen Sitz in Frankfurt am Main. Neben der Vertretung der Interessen industrieller Unternehmen in Deutschland und Europa gegenüber der Politik, erarbeitet der VDMA auch Standards und tauscht Know-How zwischen seinen 3.600 Mitgliedsunternehmen aus. \cite{noauthor_verband_nodate} In dem Interessenverband sind Firmen aus den Bereichen Maschinenbau, Anlagenbau und der Zulieferindustrie, welche sich Kompetenzen und Informationen in verschiedensten Themenbereichen von Bildung \& Modernem Arbeiten über Digitalisierung bis zu rechtlichen Feldern teilen. \cite{noauthor_themenubersicht_nodate}
 		
-		Der VDMA wirkt vor allem mit Förderungen in Bereichen, die Innovation bringen. Beispielweise fördert der Verband Technologien in den Bereichen Industrie 4.0, Digitalisierung und nutzt Lobbyarbeit um seine Mitglieder auch politisch zu unterstützen. Außerdem veranstaltet der VDMA Messen zur Netzwerkbildung und zum demonstrieren von neusten Technologien seiner Mitglieder. Im allgemeinen verfolgt der Verband die Stärkung der Europäischen Maschinenbaubranche und die Verbesserung der Wettbewerbsfähigkeit auf Internationaler Ebene. \cite{noauthor_themenubersicht_nodate}
+		Der VDMA wirkt vor allem mit Förderungen in Bereichen, die Innovation bringen. Beispielweise fördert der Verband Technologien in den Bereichen Industrie 4.0, Digitalisierung und nutzt Lobbyarbeit, um seine Mitglieder auch politisch zu unterstützen. Außerdem veranstaltet der VDMA Messen zur Netzwerkbildung und zum Demonstrieren von neusten Technologien seiner Mitglieder. Im Allgemeinen verfolgt der Verband die Stärkung der europäischen Maschinenbaubranche und die Verbesserung der Wettbewerbsfähigkeit auf internationaler Ebene. \cite{noauthor_themenubersicht_nodate}
 		
-		AZO, der Partner dieser Arbeit, ist auch ein Mitglied des VDMA. Da AZO ein Mittelständiges Unternehmen im Anlagenbau ist, setzt sich der VDMA genau für diese Interessen ein und möchte mit Umati eine Plug \& Play Umgebung im Anlagenbau ermöglichen. Der VDMA möchte eine erhöhte Interoperabilität zwischen den Maschinen ihrer Mitglieder bewirken und so die Wettbewerbsfähigkeit des Europäischen Markts stärken, aber auch in der Standardisierung der Internationale Industrie mitwirken. 
+		AZO, der Partner dieser Arbeit, ist auch ein Mitglied des VDMA. Da AZO ein mittelständisches Unternehmen im Anlagenbau ist, setzt sich der VDMA genau für diese Interessen ein und möchte mit Umati eine Plug \& Play Umgebung im Anlagenbau ermöglichen. Der VDMA möchte eine erhöhte Interoperabilität zwischen den Maschinen ihrer Mitglieder bewirken und so die Wettbewerbsfähigkeit des europäischen Markts stärken, aber auch in der Standardisierung der internationalen Industrie mitwirken. 
 		
 		\subsection{OPC UA for Machinery}
 		
-		\texttt{OPC 40001-1/VDMA 40001-1}, auch OPC UA for Machinery, wurde von VDMA und VDM zusammen mit der OPC Foundation entwickelt. Es ist die Base Spezifikation auf der andere in diesem Bereich aufbauen sollen. Sie wurde im September 2020 veröffentlicht und seit dem aktualisiert worden. Der Standard wird auch in Zukunft erweitert werden um mehr Use Cases abzudecken.
+		\texttt{OPC 40001-1/VDMA 40001-1}, auch OPC UA for Machinery, wurde von VDMA und VDM zusammen mit der OPC Foundation entwickelt. Es ist die Base Spezifikation, auf der andere in diesem Bereich aufbauen sollen. Sie wurde im September 2020 veröffentlicht und seit dem aktualisiert worden. Der Standard wird auch in Zukunft erweitert werden, um mehr Use Cases abzudecken.
 		
-		Im Allgemeinen deckt dieser Standard fundamentale Bereiche ab. Es wird definiert welche Datentypen genutzt werden können, wie deren Syntax ist und wie sie in Attributen abgespeichert werden können. Es werden Objekte und Klassen festgelegt, wie diese erstellt und definiert werden sollen. Darüber hinaus beschreibt die Spezifikation auch wie ein Client im System die Maschinen an den OPC UA Servern finden kann. 
+		Im Allgemeinen deckt dieser Standard fundamentale Bereiche ab. Es wird definiert, welche Datentypen genutzt werden können, wie deren Syntax ist und wie sie in Attributen abgespeichert werden können. Es werden Objekte und Klassen festgelegt, wie diese erstellt und definiert werden sollen. Darüber hinaus beschreibt die Spezifikation auch, wie ein Client im System die Maschinen an den OPC UA Servern finden kann. 
 		
 		% OPCUA 40001 (for Machinery)
 		
-		% Datentypen, aufbau von Atrributen und Objekten oder wie kann ich was finden -> Maschinen an Servern. 
+		% Datentypen, aufbau von Atrributen und Objekten oder wie kann ich was finden -> Maschinen an Servern.
 		
 		% für was speziell gemacht
 		% Was ist festgelegt
@@ -210,15 +218,16 @@
 \chapter{Methodik}\label{ch:Methodiken}
 	% (8 Seiten)
 	
-	
 	% Forschungsmethodik - Deduktiv??? - Konstruktiv???
 	
 	\section{Literaturrecherche}
+	
+	Um die Informationen der vorangegangenen Kapitel \ref{ch:Einführung} und \ref{ch:Grundlagen} wurden aus offizieller Literatur entnommen. Zu den Informationen zu OPC UA wurden die offiziellen Spezifikationen und empfohlene Literatur der OPC Foundation verwendet. Dasselbe Vorgehen wurde für die theoretische Vorarbeit von Umati genutzt. Den offiziellen Spezifikationen und der vorgeschlagenen Literatur von VDMA und der entsprechenden Webseite wurden alle Informationen zum Standard entnommen.
+	
 	% Datenerhebung - Literaturrecherche
 	% Stichwort recherche
 	
 	% Über die Hersteller empfolene Literatur
-	
 	
 	\section{Evaluation}
 	
