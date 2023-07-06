@@ -18,7 +18,6 @@
 	
 	\section*{Deutsch}
 	
-	
 	\section*{English}
 	
 	
@@ -156,7 +155,7 @@
 		
 		Auf Applikationsebene gibt es Sicherheitsmechanismen, welche dir Authentifikation und Autorisierung der Nutzer bearbeiten. Hierbei kommen Passwörtern, Zertifikaten, Webtokens und weiteres zum Einsatz. Außerdem können mit Rechten für Nutzer weitere Einschränkungen auf den Zugriff einzelner Nutzer gelegt werden. Zuzüglich können Aktivitäten von Nutzern und dem System geloggt werden, um die Nachvollziebarkeit zu erhöhen und die Sicherheit des Systems zu stärken. \cite{noauthor_unified_nodate, noauthor_opc_nodate}
 		
-		Das Bundesamt für Sicherheit in der Informatik führte 2017 eine Sicherheitsanalyse in Kooperation mit TÜV Süd aus und konnte kleine systematischen Fehler in der Sicherheit entdecken. Sie schreiben OPC UA eine hohe Sicherheit zu, wenn die  Mode Sign und security Mode SignAndEncrypt verwendet werden. \cite{damm_opc_2017}
+		Das Bundesamt für Sicherheit in der Informationstechnik führte 2017 eine Sicherheitsanalyse in Kooperation mit TÜV Süd aus und konnte kleine systematischen Fehler in der Sicherheit entdecken. Sie schreiben OPC UA eine hohe Sicherheit zu, wenn die  Mode Sign und security Mode SignAndEncrypt verwendet werden. \cite{damm_opc_2017}
 		
 		
 		% Wenn bei Umati sich etwas ändert, dann dort noch ein Kapitel puschen
@@ -235,17 +234,37 @@
 		\label{fig:ISO25010}
 	\end{figure}
 	
+	Die Punkte \textit{Functional Suitability}, \textit{Performance Efficiency}, \textit{Usability} und \textit{Reliability} sind die Hauptkriterien die für den Messeprototypen besonders wichtig sind. 
+	
+	
+	
 	% Demo matreial
 	
 	%TODO: Reflexion
 	
 	% Anforderungen 1 - ganz erfüllt ,....
-	
+	 
 	% Funktiondsfähiger Prototyp
 	
 	% ISO 9126, ISO 25010
 	
 	\section{Experteninterview}
+	
+	Im Zuge der Ausarbeitung der Anforderungen an Umati und den Prototyp bot sich die Durchführung eines Experteninterviews an. Es wurde ein semistrukturiertes Interview mit dem AZO Mitarbeiter %TODO Name
+	durchgeführt. Die Motivation des Interviews war es, Anforderungen für einen Prototypen zu erarbeiten und dabei die wichtigsten Punkte zu erörtern. Zusätzlich soll ein Meinungsbild und das erwartete Potential des Experten in Bezug auf Umati eingeholt werden. 
+	
+	\begin{itemize}
+		\item \textbf{Frage 1.1}: Wie lange arbeiten Sie bereits bei AZO?
+		\item \textbf{Frage 1.2}: Was sind Ihre Aufgaben?
+		\item \textbf{Frage 2.1}: Wie lange haben Sie schon mit M2M Kommunikation und OPC UA zu tun?
+		\item \textbf{Frage 2.2}: Beim Entwickeln eines Standards für Schnittstellen im Bereich der M2M Kommunikation, was sind dabei die wichtigsten Aspekte?
+		\item \textbf{Frage 2.3}: In Bezug auf [Antwort von davor], auf was muss besonders geachtet werden? %TODO: Einfügen
+		\item \textbf{Frage 3.1}: Erkennen Sie ein Verbesserungspotential mit OPC UA in die Richtung in die Umati Vorteile verspricht?
+		\item \textbf{Frage 3.2}: Denken Sie, Umati hat das Potential sich durchzusetzen? (Was halten Sie von Umati)?
+	\end{itemize}
+	
+	%TODO: Was muss Hier rein? Leitfaden? Fragen? Grund für Fragen? 
+	%TODO: -> Interview Ergebnisse in Anhang? Und Teilweise in Anforderungsanalyse?
 	
 	\section{Zeitplanung}
 	
@@ -257,7 +276,7 @@
 		\caption{Grantt-Diagramm zum Projektablauf}
 		\label{fig:Grantt}
 	\end{figure}
-
+	
 	%TODO: Reflexion
 	
 \chapter{Ergebnisse}\label{ch:Ergebnisse}
@@ -266,7 +285,28 @@
 	
 	\section{Anforderungsanalyse}
 	
+		% Experteninterview
+		\subsection{Vorgehen}
+		
+		% Ablaufdiagramm
+		
+		\subsection{Prototyp}
+		Als Grundlage des Umatiprototypen soll eine Maschine simuliert werden. Es soll keine echte Maschine verwendet werden, da diese eventuell an bestimmten Zeitpunkten ausgeschaltet oder betriebsunfähig sein könnte. Außerdem ist eine Tatsächliche Maschine oder Anlage deutlich kostenintensiver als eine Serverbasierte Simulation. Die simulierte Maschine soll eine Anlage von AZO darstellen, die auch tatsächlich im Einsatz ist. %TODO: welche Maschine machen wir?
+		
+		Der Prototyp soll mehrere Funktionen umsetzen. Die Umati Spezifikation soll implementiert werden und soll damit das Senden und Empfangen von Daten ermöglichen. Außerdem soll die Wirkung der Steuerungsnachrichten an die Maschine nachvollziehbar visualisiert werden. %TODO: Anzahl der Möglichkeiten -> Angezeigte Parameter, Mögliche Steuerung
+		
+		Bei der Entwicklung des Prototypen soll die Umsetzbarkeit der Schnittstelle über NodeRed geprüft werden. Dies ist von Interesse da NodeRed bei AZO bereits breitgefächert für die M2M Kommunikation angewandt wird. %TODO: Bezug auf ISO 25010
+		
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=0.9\textwidth]{res/analysen/Evaluation.pdf}
+			\caption{Grantt-Diagramm zum Projektablauf}
+			\label{fig:evaluation}
+		\end{figure}
+		
+	
 	\section{Lösungsansätze}
+	
 		% Nach was suche ich, Kriterienentwurf
 		% Was bracuh ich Hard Soft
 		
