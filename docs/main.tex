@@ -250,20 +250,50 @@
 	
 	\section{Experteninterview}
 	
-	Im Zuge der Ausarbeitung der Anforderungen an Umati und den Prototyp bot sich die Durchführung eines Experteninterviews an. Es wurde ein semistrukturiertes Interview mit dem AZO Mitarbeiter %TODO Name
-	durchgeführt. Die Motivation des Interviews war es, Anforderungen für einen Prototypen zu erarbeiten und dabei die wichtigsten Punkte zu erörtern. Zusätzlich soll ein Meinungsbild und das erwartete Potential des Experten in Bezug auf Umati eingeholt werden. 
+	Im Zuge der Ausarbeitung der Anforderungen an Umati und den Prototyp bot sich die Durchführung eines Experteninterviews an. Es wurde ein semistrukturiertes Interview mit den AZO Mitarbeitern %TODO Name
+	durchgeführt. Ein semistrukturiertes Interview, auch Leitfaden-gestütztes Interview genannt, geht einen Kompromiss zwischen dem Strukturierten und dem Unstrukturierten Interview ein. Anders als im strukturierten Interview werden die Fragen nicht fest definiert und die Reihenfolge muss nicht zwingend eingehalten werden. Dadurch entsteht ein dynamischeres Gespräch mit dem Experten und der Interviewende kann genauer auf die Spezialbereiche des Experten eingehen. Allerdings verliert die semistrukturierte Methode die Vergleichbarkeit zwischen Interviews, da nicht jede Frage unbedingt bei jedem Interviewten gestellt wird. Um sich von einem unstrukturiertes Interview abzuheben wird bei der Vorbereitung ein Leitfaden erstellt, welcher als Hilfsmittel während des Interviews verwendet werden soll. Dieser spannt den Themenbereich und zweigt die Richtung für das Interview auf. Der Interviewende kann dass Interview thematisch steuern, während der Experte frei sprechen kann. \cite{wesel_semi-strukturierte_2010}
 	
+	% Die Motivation des Interviews war es, Anforderungen für einen Prototypen zu erarbeiten und dabei die wichtigsten Punkte zu erörtern. Zusätzlich soll ein Meinungsbild und das erwartete Potential des Experten in Bezug auf Umati eingeholt werden. 
+	
+	Um ein semistrukturiertes Interview ordnungsgemäß durchführen zu können muss ein Leitfaden entwickelt werden. Dieser soll dem Interview einen klaren Ablauf geben, aber nicht jede Frage bereits vorschreiben. Im Paper Semi-strukturierte Interviews im Software-Engineering werden die 4 Phasen des Experteninterviews beschrieben, welche im Leitfaden widergespiegelt werden sollen. \cite{wesel_semi-strukturierte_2010}
+	
+	In der Einführung soll der Interviewte vorgestellt werden und seine Funktionen und Aufgaben beleuchtet werden. Zusätzlich sollen noch Begriffserklärungen stattfinden, um einen Austausch auf gemeinsamen Verständnis zu gewährleisten. \cite{wesel_semi-strukturierte_2010}
+	
+	Phase zwei ist die Exploration der derzeitigen Situation. Hierbei muss die derzeitige Infrastruktur behandelt werden und auf den Arbeitskontext eingegangen werden. Außerdem soll ein Bild der derzeitigen Bedingungen, Probleme und Einschränkungen gezeichnet werden. Im Fall des Interviews zu Umati werden hier vorallem Fragen zur Maschine-zu-Maschine Kommunikation und den bis jetzt verwendeten OPC UA Spezifikationen bei AZO. \cite{wesel_semi-strukturierte_2010}
+	
+	In der dritten Phase wird dann die zukünftige Situation betrachtet. Hierbei sollen Wünsche und Erwartungen zusammengetragen werden, welche bestimmte Lösungen oder Werkzeuge erreichen können. Der Interviewte kann hier auch eigene Ideen einbringen. Hier kann in Bezug auf Umati die Erwartungen zum neuen Standard ausgedrückt werden und mögliche Anforderungen an den Standard zusammengetragen werden. Dies ist der wichtigste Teil des Interviews, da aus den Antworten aus dieser Phase die Anforderungen an den Prototypen herausgearbeitet werden können. \cite{wesel_semi-strukturierte_2010}
+	
+	In der letzten Phase, dem Abschluss, wird der Inhalt des Interviews vom Interviewer zusammengefasst. Daraufhin hat der Interviewte die Möglichkeit, die Vollständigkeit durch weitere Kommentare zu sichern und kann Feedback an den Interviewer geben. Das Interview endet mit einem Dank und dem Abschied. \cite{wesel_semi-strukturierte_2010}
+	
+	%TODO Einleitung Leitfaden
+	
+	\textbf{Phase 1: Einführung}
 	\begin{itemize}
-		\item \textbf{Frage 1.1}: Wie lange arbeiten Sie bereits bei AZO?
-		\item \textbf{Frage 1.2}: Was sind Ihre Aufgaben?
-		\item \textbf{Frage 2.1}: Wie lange haben Sie schon mit M2M Kommunikation und OPC UA zu tun?
-		\item \textbf{Frage 2.2}: Beim Entwickeln eines Standards für Schnittstellen im Bereich der M2M Kommunikation, was sind dabei die wichtigsten Aspekte?
-		\item \textbf{Frage 2.3}: In Bezug auf [Antwort von davor], auf was muss besonders geachtet werden? %TODO: Einfügen
-		\item \textbf{Frage 3.1}: Erkennen Sie ein Verbesserungspotential mit OPC UA in die Richtung in die Umati Vorteile verspricht?
-		\item \textbf{Frage 3.2}: Denken Sie, Umati hat das Potential sich durchzusetzen? (Was halten Sie von Umati)?
+		\item \textbf{Frage 1}: Wie lange arbeiten Sie bereits bei AZO?
+		\item \textbf{Frage 2}: Was sind Ihre Aufgaben?
+		\item \textbf{Frage 3}: Wie lange haben Sie schon mit M2M Kommunikation und OPC UA zu tun?
+		
+		\item \textbf{Begriffsklärungen}: Umati
+	\end{itemize}
+	\textbf{Phase 2: Exploration der derzeitigen Situation}
+	\begin{itemize}
+		\item \textbf{Frage 1}: Wie wird OPC UA bei AZO verwendet?
+		\item \textbf{Frage 2}: Welche Protokolle sprechen die OPC UA Server mit den Maschinen?
+		\item \textbf{Frage 3}: Weisen die Companion Spezifikationen Probleme auf? Gibt es Einschränkungen bei der Kommunikation mit OPC UA?
+	\end{itemize}
+	\textbf{Phase 3: Exploration zukünftiger Situationen}
+	\begin{itemize}
+		\item \textbf{Frage 1}: Erkennen Sie ein Verbesserungspotential mit OPC UA in die Richtung in die Umati Vorteile verspricht?
+		\item \textbf{Frage 2}: Was sind Ihre Wünsche/Erwartungen an einen Standard wie Umati? 
+		\item \textbf{Frage 3}: Denken Sie, Umati hat das Potential sich durchzusetzen?
+	\end{itemize}
+	\textbf{Phase 4: Abschluss}
+	\begin{itemize}
+		\item \textbf{1}: Zusammenfassung
+		\item \textbf{2}: Ergänzungen \& Feedback
+		\item \textbf{3}: Abschied und Dank
 	\end{itemize}
 	
-	%TODO: Was muss Hier rein? Leitfaden? Fragen? Grund für Fragen? 
 	%TODO: -> Interview Ergebnisse in Anhang? Und Teilweise in Anforderungsanalyse?
 	
 	\section{Zeitplanung}
@@ -291,7 +321,7 @@
 		% Ablaufdiagramm
 		
 		\subsection{Prototyp}
-		Als Grundlage des Umatiprototypen soll eine Maschine simuliert werden. Es soll keine echte Maschine verwendet werden, da diese eventuell an bestimmten Zeitpunkten ausgeschaltet oder betriebsunfähig sein könnte. Außerdem ist eine Tatsächliche Maschine oder Anlage deutlich kostenintensiver als eine Serverbasierte Simulation. Die simulierte Maschine soll eine Anlage von AZO darstellen, die auch tatsächlich im Einsatz ist. %TODO: welche Maschine machen wir?
+		Als Grundlage des Umati-Prototypen soll eine Maschine simuliert werden. Es soll keine echte Maschine verwendet werden, da diese eventuell an bestimmten Zeitpunkten ausgeschaltet oder betriebsunfähig sein könnte. Außerdem ist eine Tatsächliche Maschine oder Anlage deutlich kostenintensiver als eine Serverbasierte Simulation. Die simulierte Maschine soll eine Anlage von AZO darstellen, die auch tatsächlich im Einsatz ist. %TODO: welche Maschine machen wir?
 		
 		Der Prototyp soll mehrere Funktionen umsetzen. Die Umati Spezifikation soll implementiert werden und soll damit das Senden und Empfangen von Daten ermöglichen. Außerdem soll die Wirkung der Steuerungsnachrichten an die Maschine nachvollziehbar visualisiert werden. %TODO: Anzahl der Möglichkeiten -> Angezeigte Parameter, Mögliche Steuerung
 		
@@ -300,7 +330,7 @@
 		\begin{figure}[H]
 			\centering
 			\includegraphics[width=0.9\textwidth]{res/analysen/Evaluation.pdf}
-			\caption{Grantt-Diagramm zum Projektablauf}
+			\caption{}%TODO
 			\label{fig:evaluation}
 		\end{figure}
 		
@@ -352,5 +382,9 @@
 	
 	\frontmatter
 	\printbibliography
+
+	\chapter*{Interview}
+	
+	\textbf{text}
 
 \end{document}
