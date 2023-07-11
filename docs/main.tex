@@ -143,6 +143,15 @@
 			\caption{Kommunikationsstruktur OPC UA}
 			\label{fig:OPCUA_Structure}
 		\end{figure}
+	
+		% TODO Kommunikationsprotokolle Analyse Anteile, verwendung
+		
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=0.9\textwidth]{res/network-shares.png}
+			\caption{2022 Industrial network market shares according to HMS Networks \cite{noauthor_2022_nodate}} 
+			\label{fig:share}
+		\end{figure}
 		
 		\subsection{Sicherheit}
 		
@@ -214,7 +223,9 @@
 	
 	\section{Literaturrecherche}
 	
-	Um die Informationen der vorangegangenen Kapitel \ref{ch:Einführung} und \ref{ch:Grundlagen} wurden aus offizieller Literatur entnommen. Zu den Informationen zu OPC UA wurden die offiziellen Spezifikationen und empfohlene Literatur der OPC Foundation verwendet. Dasselbe Vorgehen wurde für die theoretische Vorarbeit von Umati genutzt. Den offiziellen Spezifikationen und der vorgeschlagenen Literatur von VDMA und der entsprechenden Webseite wurden alle Informationen zum Standard entnommen.
+	Die Informationen der vorangegangenen Kapitel \ref{ch:Einführung} und \ref{ch:Grundlagen} wurden aus offizieller Literatur entnommen. Zu den Informationen zu OPC UA wurden die offiziellen Spezifikationen und empfohlene Literatur der OPC Foundation verwendet. Dasselbe Vorgehen wurde für die theoretische Vorarbeit von Umati genutzt. Die meisten Informationen zum neuen Standard wurden der offiziellen Webseite des VDMA entnommen. Außerdem sind dort auch Literaturempfehlungen ausgeschrieben welche ebenfalls verwendet wurden. Um theoretische Grundlagen und Konzepterklärungen zu recherchieren, wurden Vorlesungsmaterialien der DHBW Mosbach verwendet.
+	
+	
 	
 	% Datenerhebung - Literaturrecherche
 	% Stichwort recherche
@@ -234,26 +245,22 @@
 		\label{fig:ISO25010}
 	\end{figure}
 	
-	Die Punkte \textit{Functional Suitability}, \textit{Performance Efficiency}, \textit{Usability} und \textit{Reliability} sind die Hauptkriterien die für den Messeprototypen besonders wichtig sind. 
+	Die Punkte \textit{Functional Suitability}, \textit{Performance Efficiency}, \textit{Usability} und \textit{Reliability} sind die Hauptkriterien die für den Messeprototypen besonders wichtig sind. Die anderen Kriterien sind ebenfalls von wichtigkeit, können jedoch den anderen nachgestellt werden, da der Prototyp nur demonstrativen Nutzen hat. 
 	
+	% TODO: Quantifizierbare Ziele setzen
 	
+	Das Demomaterial welches für die Messe ausgelegt werden soll, muss visuell anschaulich sein und die Kernfunktionen von Umati präsentieren. Es geht darum das Interesse der Messebesucher zu wecken und genug Informationen für ein allgemeines Bild über die Funktionen und Ziele von Umati zu erreichen. 
 	
-	% Demo matreial
+	% TODO: Quantifizierbare Ziele setzen
 	
 	%TODO: Reflexion
-	
-	% Anforderungen 1 - ganz erfüllt ,....
-	 
-	% Funktiondsfähiger Prototyp
-	
-	% ISO 9126, ISO 25010
 	
 	\section{Experteninterview}
 	
 	Im Zuge der Ausarbeitung der Anforderungen an Umati und den Prototyp bot sich die Durchführung eines Experteninterviews an. Es wurde ein semistrukturiertes Interview mit den AZO Mitarbeitern %TODO Name
 	durchgeführt. Ein semistrukturiertes Interview, auch Leitfaden-gestütztes Interview genannt, geht einen Kompromiss zwischen dem Strukturierten und dem Unstrukturierten Interview ein. Anders als im strukturierten Interview werden die Fragen nicht fest definiert und die Reihenfolge muss nicht zwingend eingehalten werden. Dadurch entsteht ein dynamischeres Gespräch mit dem Experten und der Interviewende kann genauer auf die Spezialbereiche des Experten eingehen. Allerdings verliert die semistrukturierte Methode die Vergleichbarkeit zwischen Interviews, da nicht jede Frage unbedingt bei jedem Interviewten gestellt wird. Um sich von einem unstrukturiertes Interview abzuheben wird bei der Vorbereitung ein Leitfaden erstellt, welcher als Hilfsmittel während des Interviews verwendet werden soll. Dieser spannt den Themenbereich und zweigt die Richtung für das Interview auf. Der Interviewende kann dass Interview thematisch steuern, während der Experte frei sprechen kann. \cite{wesel_semi-strukturierte_2010}
 	
-	% Die Motivation des Interviews war es, Anforderungen für einen Prototypen zu erarbeiten und dabei die wichtigsten Punkte zu erörtern. Zusätzlich soll ein Meinungsbild und das erwartete Potential des Experten in Bezug auf Umati eingeholt werden. 
+	Die Motivation des Interviews war es, Anforderungen für einen Prototypen zu erarbeiten und dabei die wichtigsten Punkte zu erörtern. Zusätzlich soll ein Meinungsbild und das erwartete Potential des Experten in Bezug auf Umati eingeholt werden. 
 	
 	Um ein semistrukturiertes Interview ordnungsgemäß durchführen zu können muss ein Leitfaden entwickelt werden. Dieser soll dem Interview einen klaren Ablauf geben, aber nicht jede Frage bereits vorschreiben. Im Paper Semi-strukturierte Interviews im Software-Engineering werden die 4 Phasen des Experteninterviews beschrieben, welche im Leitfaden widergespiegelt werden sollen. \cite{wesel_semi-strukturierte_2010}
 	
@@ -269,11 +276,11 @@
 	
 	\textbf{Phase 1: Einführung}
 	\begin{itemize}
+		\item \textbf{Begriffsklärungen}: Umati
+		
 		\item \textbf{Frage 1}: Wie lange arbeiten Sie bereits bei AZO?
 		\item \textbf{Frage 2}: Was sind Ihre Aufgaben?
 		\item \textbf{Frage 3}: Wie lange haben Sie schon mit M2M Kommunikation und OPC UA zu tun?
-		
-		\item \textbf{Begriffsklärungen}: Umati
 	\end{itemize}
 	\textbf{Phase 2: Exploration der derzeitigen Situation}
 	\begin{itemize}
@@ -283,8 +290,8 @@
 	\end{itemize}
 	\textbf{Phase 3: Exploration zukünftiger Situationen}
 	\begin{itemize}
-		\item \textbf{Frage 1}: Erkennen Sie ein Verbesserungspotential mit OPC UA in die Richtung in die Umati Vorteile verspricht?
-		\item \textbf{Frage 2}: Was sind Ihre Wünsche/Erwartungen an einen Standard wie Umati? 
+		\item \textbf{Frage 1}: Erkennen Sie ein Verbesserungspotential bei OPC UA?
+		\item \textbf{Frage 2}: Was sind Ihre Wünsche/Erwartungen an einen Standard wie Umati?
 		\item \textbf{Frage 3}: Denken Sie, Umati hat das Potential sich durchzusetzen?
 	\end{itemize}
 	\textbf{Phase 4: Abschluss}
@@ -294,7 +301,7 @@
 		\item \textbf{3}: Abschied und Dank
 	\end{itemize}
 	
-	%TODO: -> Interview Ergebnisse in Anhang? Und Teilweise in Anforderungsanalyse?
+	%TODO: -> Interview Ergebnisse in Anhang! Und Teilweise in Anforderungsanalyse!
 	
 	\section{Zeitplanung}
 	
@@ -323,7 +330,16 @@
 		\subsection{Prototyp}
 		Als Grundlage des Umati-Prototypen soll eine Maschine simuliert werden. Es soll keine echte Maschine verwendet werden, da diese eventuell an bestimmten Zeitpunkten ausgeschaltet oder betriebsunfähig sein könnte. Außerdem ist eine Tatsächliche Maschine oder Anlage deutlich kostenintensiver als eine Serverbasierte Simulation. Die simulierte Maschine soll eine Anlage von AZO darstellen, die auch tatsächlich im Einsatz ist. %TODO: welche Maschine machen wir?
 		
-		Der Prototyp soll mehrere Funktionen umsetzen. Die Umati Spezifikation soll implementiert werden und soll damit das Senden und Empfangen von Daten ermöglichen. Außerdem soll die Wirkung der Steuerungsnachrichten an die Maschine nachvollziehbar visualisiert werden. %TODO: Anzahl der Möglichkeiten -> Angezeigte Parameter, Mögliche Steuerung
+		Als Beispiel wird ein RoLog simuliert, der bei der automatischen Kleinstmengendosierung von Schüttgütern zum Einsatz kommt. In Abbildung \ref{fig:RoLog} ist ein virtualisierter Aufbau der Anlage abgebildet. Der Roboterarm in der Mitte lagert seine Ressourcenbehälter auf den Schränken an der Seite der Anlage, lagert neue Behälter aus oder ein über die Laufbänder an der Hinterseite (Oben-Links) und dosiert in die Ausgabe an der Front (Vorne-Rechts) des Aufbaus. \cite{noauthor_azo_nodate}
+		
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=0.7\textwidth]{res/RoLog.png}
+			\caption{RoLog von AZO Gmbh \& Co. KG \cite{noauthor_azo_nodate}}
+			\label{fig:RoLog}
+		\end{figure}
+		
+		Der Prototyp soll mehrere Funktionen umsetzen. Die Umati Spezifikation soll implementiert werden und soll damit das Senden und Empfangen von Daten ermöglichen. Außerdem soll die Wirkung der Steuerungsnachrichten an die Maschine nachvollziehbar visualisiert werden. In Abbildung \ref{fig:evaluation} sind die Anforderungen an den Prototypen abgebildet. Die Funktionalität beinhaltet dabei das der RoLog mindestens 3 Parameter absenden muss und einen Parameter lesen können muss. Es wird ein Ablauf einer Dosierung eines Rezeptes umgesetzt. Zunächst soll der RoLog durch eine Eingabe gestartet werden. Daraufhin soll er ein Rezept dosieren und einen Alarm ausgeben, wenn er fertig ist. Parallel dazu soll der Zustand der Anlage permanent übertragen werden. %TODO Anforderungen mit Prototyp abstimmen
 		
 		Bei der Entwicklung des Prototypen soll die Umsetzbarkeit der Schnittstelle über NodeRed geprüft werden. Dies ist von Interesse da NodeRed bei AZO bereits breitgefächert für die M2M Kommunikation angewandt wird. %TODO: Bezug auf ISO 25010
 		
@@ -337,7 +353,13 @@
 	
 	\section{Lösungsansätze}
 	
-		% Nach was suche ich, Kriterienentwurf
+		% Umati Webserver
+		% DataFeed
+		% Selbstentwurf
+			% Low Code
+			% High Code
+		
+		
 		% Was bracuh ich Hard Soft
 		
 		% Literaturrecherche an anderen Implementationen (Umati und 5G)
