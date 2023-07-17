@@ -27,23 +27,23 @@
 	\chapter{Einführung}\label{ch:Einführung}
 	% (4 Seiten)
 	
-	Zunehmend leben wir in einer immer stärker vernetzten Welt. Globalisierte Unternehmen mit Lieferketten, die den ganzen Planeten umspannen. Unternehmen mit Kunden und Zulieferern in verschiedensten Ländern. In der Industrie ist es dabei besonders wichtig, dass alle Teilnehmer an Wertschöpfungsketten, Arbeitsgruppen und Verträgen dasselbe Verständnis von Daten haben. Wir versuchen möglichst viele Bereiche der Produktion und Kommunikation zu standardisieren und somit weltweite Verständigung mit minimalen Missverständnissen zu erreichen. In Zeiten der Industrie 4.0 nehmen Standardisierungen einen noch wichtigeren Platz ein. Die Vernetzung von Fertigungsanlagen über Unternehmensgrenzen hinaus und zwischen verschiedenen Anlagen von unterschiedlichen Herstellern. 
+	Die moderne Welt wird zunehmend vernetzter. Unternehmen weiten ihre Wertschöpfungsketten global aus und erzeugen so ein weltweites Abhängigkeitsnetz. Unternehmen erweitern Ihren Kundenmarkt auf die gesamte Welt und beziehen von überall Zulieferungen. In der Industrie ist es dabei besonders wichtig, dass alle Teilnehmer an Wertschöpfungsketten, Arbeitsgruppen und Verträgen dasselbe Verständnis von Daten haben. Um ein weltweit, einheitliches und unmissverständliches Kommunikationssystem zu ermöglichen, werden Standards verwendet. In Zeiten der Industrie 4.0 nehmen Standardisierungen einen noch wichtigeren Platz ein als zuvor. Da Anlagen immer mehr aus Maschinen verschiedenster Hersteller zusammengesetzt sind, ist ein gemeinsamer übergreifender Kommunikationsstandard besonders wichtig, um eine fehlerfreie, effiziente und wirtschaftliche Produktion zu ermöglichen.
 	
-	Standardisierung wird verwendet, um effizienteren Austausch und effektivere Prozesse zu ermöglichen. Ein sehr altes Beispiel sind Sprachen. Eine Menge an Regeln, welche zur Kommunikation genutzt werden, auf die sich alle Teilnehmenden geeinigt haben. In dieser Arbeit soll es um die Standardisierung im Bereich der \ac{M2M} Kommunikation gehen. Durch die Herausforderungen von Industrie 4.0 kann ein guter Standard die Integration mehrerer Systeme vereinfachen und Kosten sparen.
+	Standardisierung wird verwendet, um effizienteren Austausch und effektivere Prozesse durchzuführen. Ein sehr altes Beispiel sind Sprachen. Eine Menge an Regeln, welche zur Kommunikation genutzt werden, auf die sich alle Teilnehmenden geeinigt haben. In dieser Arbeit soll es um die Standardisierung im Bereich der \ac{M2M} Kommunikation gehen. Durch die Herausforderungen von Industrie 4.0 kann ein guter Standard die Integration mehrerer Systeme vereinfachen und Kosten sparen.
 	
-	In der M2M Kommunikation existieren bereits Standards, die schon vor Industrie 4.0 entworfen wurden. Dazu gehört auch \ac{OPC UA}. Umati baut auf diesem Standard auf und verspricht weitere Aspekte wie beispielsweise eine Umgebung in der neue Maschinen durch Plug \& Play integriert werden können. Das Ziel dieser Arbeit ist es, die Versprechen von Umati zu überprüfen und in seinem derzeitigen Stand zu bewerten, ob ein Mehrwert aus diesem Standard entspringt, der in der Industrie 4.0 Tragweite hat.  
+	In der M2M Kommunikation existieren bereits Standards, die schon vor Industrie 4.0 entworfen wurden. Dazu gehört auch \ac{OPC UA}. \ac{UMATI} baut auf diesem Standard auf und verspricht weitere Aspekte wie beispielsweise eine Umgebung in der neue Maschinen durch Plug \& Play integriert werden können. Das Ziel von \ac{UMATI} ist es, die zahlreichen Implementationen von OPC UA Schnittstellen zu standardisieren und zusammenzufassen, um so für Produzenten von Anlagen und Software einen gemeinsamen Standard zu finden. Das Ziel dieser Arbeit ist \ac{UMATI} zu analysieren, die Implementation dieses Standards zu erforschen und ein Proof-of-Concept zu entwickeln, der die Fähigkeiten dieser Schnittstelle demonstriert.
 	
 	\section{Problemstellung und Ziel}
 	
 	% (1-2 Seiten)
 	
-	 Durch die zunehmende Automatisierung der Produktion und Fertigung stehen viele Produzenten vor der Aufgabe, zahlreiche Maschinen verschiedenster Hersteller in ihren Fertigungsprozess zu integrieren. Viele dieser Maschinen nutzen verschiedene Kommunikationsprotokolle, Datenformate und Schnittstellen, was die Integration dieser diversen Systeme erschwert. Durch eine komplizierte Integration kann Vendor Locking entstehen. Die Bindung eines Kunden an einen Anbieter, da dieser eine Technologie integriert, die andere Hersteller nicht oder nur extrem schwer integrieren können. Dies kann zu einer Atmosphäre führen, welche für den Kosten weniger Flexibilität und Kontrolle über seine eigene Produktion gibt und gleichzeitig die Kosten steigen lässt. Um dieses Problem zu lösen, müssen sich die Produzenten zu einem Standard zusammenfinden und die Interoperabilität ihrer Systeme gewährleisten. \cite{mielebacher_verteilte_2021}
+	 Durch die zunehmende Automatisierung der Produktion und Fertigung stehen viele Produzenten vor der Aufgabe, zahlreiche Maschinen verschiedenster Hersteller in ihren Fertigungsprozess zu integrieren. Viele dieser Maschinen nutzen verschiedene Kommunikationsprotokolle, Datenformate und Schnittstellen, was die Integration dieser diversen Systeme erschwert. Durch eine komplizierte Integration kann Vendor Lock-in entstehen. Dieses Konzept beschreibt die Bindung eines Kunden an einen Anbieter, da dieser eine Technologie oder Kommunikationsstrategie integriert, die andere Hersteller nicht oder nur extrem schwer integrieren können. Dies kann zu einer Atmosphäre führen, welche für den Kunden weniger Flexibilität und Kontrolle über seine eigene Produktion gibt und gleichzeitig die Kosten steigen lässt. Um dieses Problem zu lösen, müssen sich die Produzenten zu einem Standard zusammenfinden und die Interoperabilität ihrer Systeme zu gewährleisten. \cite{mielebacher_verteilte_2021}
 	 
-	 Für AZO als Anlagenproduzent ist es von großem Interesse, mit Anlagen und Maschinen anderer Hersteller kommunizieren zu können und dabei die Integration möglich einfach zu realisieren. Auch für Entwickler von \ac(MES) bedeutet die Standardisierung von Kommunikationsprotokollen eine schnellere und einfachere Entwicklung, was zu niedrigeren Entwicklungskosten führt und die Robustheit der Systeme erhöhen kann. AZO hat, um diese Standardisierung zu erreichen, an der Ausarbeitung von \ac{UMATI} zugesagt. Dieser Standard möchte die Kommunikation zwischen Maschinen und der darüber liegenden Datenverarbeitung definieren und basiert auf dem offenen Standard \ac{OPC UA}.
+	 Für AZO als Anlagenproduzent ist es von großem Interesse, mit Anlagen und Maschinen anderer Hersteller kommunizieren zu können und dabei die Integration möglich einfach zu realisieren. Auch für Entwickler von \ac(MES) bedeutet die Standardisierung von Kommunikationsprotokollen eine schnellere und einfachere Entwicklung, was zu niedrigeren Entwicklungskosten führt und die Robustheit der Systeme erhöht. AZO nimmt an der Entwicklung von \ac{UMATI} teil, um diese Standardisierung zu erreichen. Dieser Standard möchte die Schnittstellen für die Kommunikation zwischen Maschinen und auch mit der darüber liegenden Datenverarbeitung definieren und basiert auf dem offenen Standard \ac{OPC UA}.
 	 
-	 Das Ziel dieser Arbeit ist es, UMATI in einem Testumfeld aufzubauen und eine Proof of Konzept System aufzubauen. Um dies zu erreichen, soll zunächst eine Marktanalyse durchgeführt werden und mögliche Lösungen zum Versenden und Empfangen von Daten zwischen Maschine und MES zu finden. Diese sollen anhand von selbst entwickelten Kriterien abgewogen und bewertet werden. Die vielversprechendsten Umsetzungen sollen in einem Testsystem implementiert werden und für zukünftige Demonstrationen auf Messen für AZO zur Verfügung gestellt werden. Außerdem soll evaluiert werden, ob UMATI auch in der Low-Code Plattform Node Red angewendet werden kann und wenn möglich, das entstehende System als Open-Source Lösung der Öffentlichkeit zur Verfügung zu stellen.
+	 Das Ziel dieser Arbeit ist es, \ac{UMATI} in einem Testumfeld anhand eines Proof-of-Conzept aufzubauen. Um dies zu erreichen, soll zunächst eine Marktanalyse durchgeführt werden und mögliche Lösungen zum Versenden und Empfangen von Daten zwischen Maschine und \ac(MES) zu finden. Diese sollen anhand von selbst entwickelten Kriterien abgewogen und bewertet werden. Die vielversprechendsten Umsetzungen sollen in einem Testsystem implementiert werden und für zukünftige Demonstrationen auf Messen für AZO zur Verfügung gestellt werden. Außerdem soll evaluiert werden, ob \ac{UMATI} auch in der Low-Code Plattform Node Red angewendet werden kann und wenn möglich, das entstehende System als Open-Source Lösung der Öffentlichkeit zur Verfügung zu stellen.
 	 
-	 Der Prototyp soll ebenfalls eine Integration in ACAS umfassen. Damit kann gezeigt werden, dass UMATI eine Möglichkeit ist, die Kommunikation von AZO Anlagen und ACAS zu realisieren. Diese Integration muss im Nachgang weiter evaluiert werden, um festzustellen, ob UMATI als Standardisierung eine gute Lösung ist.
+	 Der Prototyp soll ebenfalls eine Integration in ACAS umfassen. Damit kann gezeigt werden, dass die Schnittstellen von AZO Anlagen mit \ac{UMATI} realisierbar sind. Diese Integration muss im Nachgang weiter evaluiert werden, um festzustellen, ob UMATI als Standardisierung eine geeignete Lösung ist.
 	
 	%TODO Relevanz für AZO und Wissenschaft
 	%TODO Sicherheitsrelevanz
@@ -70,7 +70,7 @@
 	
 	\section{Aufbau der Arbeit}
 	
-	Nachfolgend werden Thematiken beschrieben dir zum grundlegenden Verständnis der Arbeit beitragen (Kapitel \ref{ch:Grundlagen}). Daraufhin werden die Methodiken beschrieben, mit denen die Informationen für diese Arbeit erhoben wurden (Kapitel \ref{ch:Methodiken}). Im Hauptteil der Arbeit (Kapitel \ref{ch:Ergebnisse}) wird der Ablauf beschrieben. Es werden zunächst Informationen zur Entscheidungsfindung eingeholt und in Analysen in Relation gesetzt und daraufhin wird die Entwicklung des Prototyps beschrieben. Die Arbeit schließt mit einer Diskussion der gefundenen Ergebnisse und einem Fazit (Kapitel \ref{ch:Diskussion_Fazit}).
+	Nachfolgend werden Thematiken beschrieben die zum grundlegenden Verständnis der Arbeit beitragen (Kapitel \ref{ch:Grundlagen}). Daraufhin werden die Methodiken beschrieben, mit denen die Informationen für diese Arbeit erhoben wurden (Kapitel \ref{ch:Methodiken}). Im Hauptteil der Arbeit (Kapitel \ref{ch:Ergebnisse}) wird der restliche Ablauf der Arbeit beschrieben. Es werden zunächst Informationen zur Entscheidungsfindung eingeholt und in Analysen in Relation gesetzt und daraufhin wird die Entwicklung des Prototyps beschrieben. Die Arbeit schließt mit einer Diskussion der gefundenen Ergebnisse und einem Fazit (Kapitel \ref{ch:Diskussion_Fazit}).
 	
 	% TODO: Messematerial wenn in kapitel behandelt noch anhängen
 	
@@ -91,7 +91,7 @@
 	 \begin{figure}[H]
 	 	\centering
 	 	\includegraphics[width=0.9\textwidth]{res/diagramms/Interoperabilität.pdf}
-	 	\caption{Die vier Ebenden der Interoperabilität}
+	 	\caption{Die vier Ebenen der Interoperabilität}
 	 	\label{fig:Interoperabilität}
 	 \end{figure}
 	 
@@ -99,7 +99,7 @@
 	 
 	 Sind Systeme syntaktisch interoperabel, nutzen und verstehen sie die Struktur der Daten. Hierfür können festgelegte Standards wie XML oder Json verwendet werden. \cite{mielebacher_verteilte_2021-1}
 	 
-	 Die Semantische Interoperabilität beschreibt das vereinheitlichte Verständnis der Daten. Kommunizieren zwei Systeme miteinander, so müssen Sie unter denselben Daten auch dasselbe verstehen. Ein Beispiel für einen Standard, der semantische Interoperabilität umsetzt, ist der "International Classification of Diseases". Bei diesem geht es um die Kommunikation von Krankheiten zwischen Ärzten und wurde von der WHO eingeführt. Jede Krankheit hat einen festgelegten Code, wodurch eine eindeutige Kommunikation gewährleistet ist. \cite{mielebacher_verteilte_2021-1}
+	 Die semantische Interoperabilität beschreibt das vereinheitlichte Verständnis der Daten. Kommunizieren zwei Systeme miteinander, so müssen Sie unter denselben Daten auch dasselbe verstehen. Ein Beispiel für einen Standard, der semantische Interoperabilität umsetzt, ist der "International Classification of Diseases". Bei diesem geht es um die Kommunikation von Krankheiten zwischen Ärzten und wurde von der WHO eingeführt. Jede Krankheit hat einen festgelegten Code, wodurch eine eindeutige Kommunikation gewährleistet ist. \cite{mielebacher_verteilte_2021-1}
 	 
 	 OPC UA legt anhand des Information-Models die Syntax und Semantik der Daten fest, wodurch die syntaktische Interoperabilität gewährleistet ist. Die semantische Interoperabilität wird anhand der Companion Standards erweitert. Diese beschreiben Technologie-spezifische Informationsmodelle. Diese Standards entstanden durch intensive Kooperation und Zusammenarbeit mit Organisationen, um die Standards möglichst umfassend aufzustellen. \cite{mielebacher_verteilte_2021-1}
 	 
@@ -146,6 +146,8 @@
 	
 		% TODO Kommunikationsprotokolle Analyse Anteile, verwendung
 		
+		
+		
 		\begin{figure}[H]
 			\centering
 			\includegraphics[width=0.9\textwidth]{res/network-shares.png}
@@ -171,12 +173,14 @@
 	
 	\section{Umati}
 		
-		
+		%Einführung
 		Umati ist eine globale Initiative zur Standardisierung von Interfaces zur Kommunikation zwischen Produktionsanlagen. Sie wird vom \ac{VDMA} und dem \ac{VDW} verwaltet und vorangetrieben von den zahlreichen Mitgliedern der beiden Vereinigungen. Das Ziel ist es, die Kommunikation zwischen Maschinen möglichst einfach, sicher und einfach zu gestalten. Es soll eine Plug \& Play Umgebung entstehen, in der neue Maschinen in eine Anlage durch bloßes Einstecken ins Kommunikationsnetzwerk integriert werden können. Die Umati Initiative entwickelt Standards, welche weltweit zum Einsatz kommen sollen, um eine starke internationale Gemeinschaft um diesen Standard zu erreichen. \cite{noauthor_umati_2023}
 		
-		Umati baut auf den OPC UA Standards der OPC Foundation auf. OPC UA bildet dabei die Basis und definiert, wie kommuniziert werden soll und was. Es legt fest, die Rahmenbedingungen für Konnektivität und syntaktische Interoperabilität. Da dieser Standard kostenfrei zur Verfügung steht, ist es die optimale Voraussetzung, um weiterreichende Spezifikation auf ihn aufzubauen. \cite{noauthor_umati_2023}
+		%OPC UA in UMATI
+		\ac{UMATI} baut auf den OPC UA Standards der OPC Foundation auf. OPC UA bildet dabei die Basis und definiert, wie und was kommuniziert werden soll. Es legt fest, was die Rahmenbedingungen für Konnektivität und syntaktische Interoperabilität sind. \cite{noauthor_umati_2023} OPC UA ermöglicht es die Semantische Interoperabilität über Companion Spezifications zu versichern. Diese werden auch schon in der Industrie eingesetzt weshalb sich \ac{UMATI} die Aufgabe gemacht hat, die verschiedenen Spezifikationen zu vereinheitlichen damit beispielsweise die Identifizierung einer Maschine immer gleich abläuft.
 		
-		Umati soll vor allem die vertikale und horizontale Integration im Unternehmen erleichtern. In Abbildung \ref{fig:Automatisierungspyramide} ist die Automatisierungspyramide nach Siepmann abgebildet. Je tiefer die Pyramide nach unten geht, desto vielfältiger sind die Systeme. Während ein Unternehmen nur ein \ac{ERP} System verwendet, kann es zahlreiche SPS und noch mehr Ein- und Ausgabesensoren geben. Diese müssen vertikal integriert werden. Dafür werden Daten von den unteren Ebenen in die Systeme weiter oben zur Verarbeitung überreicht. Bei der horizontalen Integration kommunizieren gleichartige Systeme miteinander. Beispielsweise wenn mehrere SPS Daten austauschen oder Daten Abteilungsübergreifend übergeben werden, wie bei einem Datenfluss von SCM zu CRM System sein. 
+		% Automatisierungspyramide
+		Umati soll vor allem die vertikale und horizontale Integration im Unternehmen erleichtern. In Abbildung \ref{fig:Automatisierungspyramide} ist die Automatisierungspyramide nach Siepmann abgebildet. Je tiefer die Ebene in der Pyramide liegt, desto vielfältiger sind die Systeme dieser Ebene. Während ein Unternehmen nur ein \ac{ERP} System verwendet, kann es zahlreiche SPS und noch mehr Ein- und Ausgabesensoren geben. Diese müssen vertikal integriert werden. Dafür werden Daten von den unteren Ebenen in die Systeme weiter oben zur Verarbeitung überreicht. Bei der horizontalen Integration kommunizieren gleichartige Systeme miteinander. Beispielsweise wenn mehrere SPS Daten austauschen oder Daten Abteilungsübergreifend übergeben werden, wie bei einem Datenfluss von SCM zu CRM System sein. 
 		
 		\begin{figure}[H]
 			\centering
@@ -187,9 +191,10 @@
 		
 		Umati legt standardisierte Interfaces fest, mit denen die vertikale und horizontale Integration möglichst einfach umgesetzt wird. Dadurch kann die Wertschöpfung aus Daten kostengünstiger ablaufen und die Analyse, Verarbeitung und Verwertung von Daten, wie es in der Industrie 4.0 üblich ist, besser ablaufen. Umati hat bereits Vorführungen auf Messen veranstaltet, welche die Funktionsfähigkeit einer Umati Umsetzung demonstrieren. Umati standardisiert dabei die Integration von Maschinen, deren Installation und ganze IT Produktionsumgebungen. \cite{noauthor_about_nodate}
 		
-		% Umati aufbau
+		%TODO: Umati aufbau
 		
-		OPC UA hatte bereits Standards, welche in die Richtung von den Umati gehen anhand der Companion Spezifikationen definiert. Allerdings wuchs der Umfang dieser Spezifikationen über die Jahre stark an, weshalb sich Umati die Aufgabe setzt, diese Spezifikationen zu zentralisieren und somit einen gemeinsamen Standard zu erzeugen, welcher von allen Mitgliedern verwendet wird.
+		% Companion Specifikations
+		Die Semantische Interoperabilität wurde bereits mit OPC UA über die Companion Spezifikationen erreicht. Allerdings entstehen diese Standards in gesonderten Arbeitsgruppen welche auf die Teilnehmer zugeschnitten sind. Dadurch entstehen viele Spezifikationen in vielen verschiedenen Branchen und Maschinen können nicht mehr ohne Übersetzung kommunizieren. Umati versucht diesen Umstand durch das Zusammenfassung dieser Spezifikationen zu beheben. Es sollen Maschinen entstehen, die alle die selbe Sprache sprechen und so einfach in neue IT 
 		
 		Umati selbst besteht aus verschiedenen Modulen, welche alle Standards für verschiedene Bereiche definieren. In Abbildung \ref{fig:OPCUA_for_machinery} sind alle Interfaces abgebildet, welche auf der Base Spezifikation OPC 40001 aufbauen. Dieser wird auch OPC 40001 UA for Machinery genannt und ist für die Anlagenbauindustrie gedacht. Umati befindet sich noch in der Entwicklung und ist noch nicht vollständig fertiggestellt, deshalb gibt es Interfaces, welche noch nicht umgesetzt, sondern nur geplant sind. \cite{noauthor_machinery_nodate}
 		
@@ -241,7 +246,7 @@
 	\begin{figure}[H]
 		\centering
 		\includegraphics[width=0.9\textwidth]{res/diagramms/iso25010.png}
-		\caption{} 
+		\caption{Softwarebewertungskriterien ISO 25010} 
 		\label{fig:ISO25010}
 	\end{figure}
 	
@@ -255,51 +260,53 @@
 	
 	%TODO: Reflexion
 	
-	\section{Experteninterview}
+	%\section{Experteninterview}
 	
-	Im Zuge der Ausarbeitung der Anforderungen an Umati und den Prototyp bot sich die Durchführung eines Experteninterviews an. Es wurde ein semistrukturiertes Interview mit den AZO Mitarbeitern %TODO Name
-	durchgeführt. Ein semistrukturiertes Interview, auch Leitfaden-gestütztes Interview genannt, geht einen Kompromiss zwischen dem Strukturierten und dem Unstrukturierten Interview ein. Anders als im strukturierten Interview werden die Fragen nicht fest definiert und die Reihenfolge muss nicht zwingend eingehalten werden. Dadurch entsteht ein dynamischeres Gespräch mit dem Experten und der Interviewende kann genauer auf die Spezialbereiche des Experten eingehen. Allerdings verliert die semistrukturierte Methode die Vergleichbarkeit zwischen Interviews, da nicht jede Frage unbedingt bei jedem Interviewten gestellt wird. Um sich von einem unstrukturiertes Interview abzuheben wird bei der Vorbereitung ein Leitfaden erstellt, welcher als Hilfsmittel während des Interviews verwendet werden soll. Dieser spannt den Themenbereich und zweigt die Richtung für das Interview auf. Der Interviewende kann dass Interview thematisch steuern, während der Experte frei sprechen kann. \cite{wesel_semi-strukturierte_2010}
+	%Im Zuge der Ausarbeitung der Anforderungen an Umati und den Prototyp bot sich die Durchführung eines Experteninterviews an. Es wurde ein semistrukturiertes Interview mit den AZO Mitarbeitern %TODO Name 
+	%durchgeführt. Ein semistrukturiertes Interview, auch Leitfaden-gestütztes Interview genannt, geht einen Kompromiss zwischen dem Strukturierten und dem Unstrukturierten Interview ein. Anders als im strukturierten Interview werden die Fragen nicht fest definiert und die Reihenfolge muss nicht zwingend eingehalten werden. Dadurch entsteht ein dynamischeres Gespräch mit dem Experten und der Interviewende kann genauer auf die Spezialbereiche des Experten eingehen. Allerdings verliert die semistrukturierte Methode die Vergleichbarkeit zwischen Interviews, da nicht jede Frage unbedingt bei jedem Interviewten gestellt wird. Um sich von einem unstrukturiertes Interview abzuheben wird bei der Vorbereitung ein Leitfaden erstellt, welcher als Hilfsmittel während des Interviews verwendet werden soll. Dieser spannt den Themenbereich und zweigt die Richtung für das Interview auf. Der Interviewende kann dass Interview thematisch steuern, während der Experte frei sprechen kann. \cite{wesel_semi-strukturierte_2010}
 	
-	Die Motivation des Interviews war es, Anforderungen für einen Prototypen zu erarbeiten und dabei die wichtigsten Punkte zu erörtern. Zusätzlich soll ein Meinungsbild und das erwartete Potential des Experten in Bezug auf Umati eingeholt werden. 
+	%Die Motivation des Interviews war es, Anforderungen für einen Prototypen zu erarbeiten und dabei die wichtigsten Punkte zu erörtern. Zusätzlich soll ein Meinungsbild und das erwartete Potential des Experten in Bezug auf Umati eingeholt werden. 
 	
-	Um ein semistrukturiertes Interview ordnungsgemäß durchführen zu können muss ein Leitfaden entwickelt werden. Dieser soll dem Interview einen klaren Ablauf geben, aber nicht jede Frage bereits vorschreiben. Im Paper Semi-strukturierte Interviews im Software-Engineering werden die 4 Phasen des Experteninterviews beschrieben, welche im Leitfaden widergespiegelt werden sollen. \cite{wesel_semi-strukturierte_2010}
+	%Um ein semistrukturiertes Interview ordnungsgemäß durchführen zu können muss ein Leitfaden entwickelt werden. Dieser soll dem Interview einen klaren Ablauf geben, aber nicht jede Frage bereits vorschreiben. Im Paper Semi-strukturierte Interviews im Software-Engineering werden die 4 Phasen des Experteninterviews beschrieben, welche im Leitfaden widergespiegelt werden sollen. \cite{wesel_semi-strukturierte_2010}
 	
-	In der Einführung soll der Interviewte vorgestellt werden und seine Funktionen und Aufgaben beleuchtet werden. Zusätzlich sollen noch Begriffserklärungen stattfinden, um einen Austausch auf gemeinsamen Verständnis zu gewährleisten. \cite{wesel_semi-strukturierte_2010}
+	%In der Einführung soll der Interviewte vorgestellt werden und seine Funktionen und Aufgaben beleuchtet werden. Zusätzlich sollen noch Begriffserklärungen stattfinden, um einen Austausch auf gemeinsamen Verständnis zu gewährleisten. \cite{wesel_semi-strukturierte_2010}
 	
-	Phase zwei ist die Exploration der derzeitigen Situation. Hierbei muss die derzeitige Infrastruktur behandelt werden und auf den Arbeitskontext eingegangen werden. Außerdem soll ein Bild der derzeitigen Bedingungen, Probleme und Einschränkungen gezeichnet werden. Im Fall des Interviews zu Umati werden hier vorallem Fragen zur Maschine-zu-Maschine Kommunikation und den bis jetzt verwendeten OPC UA Spezifikationen bei AZO. \cite{wesel_semi-strukturierte_2010}
+	%Phase zwei ist die Exploration der derzeitigen Situation. Hierbei muss die derzeitige Infrastruktur behandelt werden und auf den Arbeitskontext eingegangen werden. Außerdem soll ein Bild der derzeitigen Bedingungen, Probleme und Einschränkungen gezeichnet werden. Im Fall des Interviews zu Umati werden hier vorallem Fragen zur Maschine-zu-Maschine Kommunikation und den bis jetzt verwendeten OPC UA Spezifikationen bei AZO. \cite{wesel_semi-strukturierte_2010}
 	
-	In der dritten Phase wird dann die zukünftige Situation betrachtet. Hierbei sollen Wünsche und Erwartungen zusammengetragen werden, welche bestimmte Lösungen oder Werkzeuge erreichen können. Der Interviewte kann hier auch eigene Ideen einbringen. Hier kann in Bezug auf Umati die Erwartungen zum neuen Standard ausgedrückt werden und mögliche Anforderungen an den Standard zusammengetragen werden. Dies ist der wichtigste Teil des Interviews, da aus den Antworten aus dieser Phase die Anforderungen an den Prototypen herausgearbeitet werden können. \cite{wesel_semi-strukturierte_2010}
+	%In der dritten Phase wird dann die zukünftige Situation betrachtet. Hierbei sollen Wünsche und Erwartungen zusammengetragen werden, welche bestimmte Lösungen oder Werkzeuge erreichen können. Der Interviewte kann hier auch eigene Ideen einbringen. Hier kann in Bezug auf Umati die Erwartungen zum neuen Standard ausgedrückt werden und mögliche Anforderungen an den Standard zusammengetragen werden. Dies ist der wichtigste Teil des Interviews, da aus den Antworten aus dieser Phase die Anforderungen an den Prototypen herausgearbeitet werden können. \cite{wesel_semi-strukturierte_2010}
 	
-	In der letzten Phase, dem Abschluss, wird der Inhalt des Interviews vom Interviewer zusammengefasst. Daraufhin hat der Interviewte die Möglichkeit, die Vollständigkeit durch weitere Kommentare zu sichern und kann Feedback an den Interviewer geben. Das Interview endet mit einem Dank und dem Abschied. \cite{wesel_semi-strukturierte_2010}
+	%In der letzten Phase, dem Abschluss, wird der Inhalt des Interviews vom Interviewer zusammengefasst. Daraufhin hat der Interviewte die Möglichkeit, die Vollständigkeit durch weitere Kommentare zu sichern und kann Feedback an den Interviewer geben. Das Interview endet mit einem Dank und dem Abschied. \cite{wesel_semi-strukturierte_2010}
 	
-	%TODO Einleitung Leitfaden
+	%%TODO Einleitung Leitfaden
 	
-	\textbf{Phase 1: Einführung}
-	\begin{itemize}
-		\item \textbf{Begriffsklärungen}: Umati
+	%\textbf{Phase 1: Einführung}
+	%\begin{itemize}
+		%\item \textbf{Begriffsklärungen}: Umati
 		
-		\item \textbf{Frage 1}: Wie lange arbeiten Sie bereits bei AZO?
-		\item \textbf{Frage 2}: Was sind Ihre Aufgaben?
-		\item \textbf{Frage 3}: Wie lange haben Sie schon mit M2M Kommunikation und OPC UA zu tun?
-	\end{itemize}
-	\textbf{Phase 2: Exploration der derzeitigen Situation}
-	\begin{itemize}
-		\item \textbf{Frage 1}: Wie wird OPC UA bei AZO verwendet?
-		\item \textbf{Frage 2}: Welche Protokolle sprechen die OPC UA Server mit den Maschinen?
-		\item \textbf{Frage 3}: Weisen die Companion Spezifikationen Probleme auf? Gibt es Einschränkungen bei der Kommunikation mit OPC UA?
-	\end{itemize}
-	\textbf{Phase 3: Exploration zukünftiger Situationen}
-	\begin{itemize}
-		\item \textbf{Frage 1}: Erkennen Sie ein Verbesserungspotential bei OPC UA?
-		\item \textbf{Frage 2}: Was sind Ihre Wünsche/Erwartungen an einen Standard wie Umati?
-		\item \textbf{Frage 3}: Denken Sie, Umati hat das Potential sich durchzusetzen?
-	\end{itemize}
-	\textbf{Phase 4: Abschluss}
-	\begin{itemize}
-		\item \textbf{1}: Zusammenfassung
-		\item \textbf{2}: Ergänzungen \& Feedback
-		\item \textbf{3}: Abschied und Dank
-	\end{itemize}
+		%\item \textbf{Frage 1}: Wie lange arbeiten Sie bereits bei AZO?
+		%\item \textbf{Frage 2}: Was sind Ihre Aufgaben?
+		%\item \textbf{Frage 3}: Wie lange haben Sie schon mit M2M Kommunikation und OPC UA zu tun?
+	%\end{itemize}
+	%\textbf{Phase 2: Exploration der derzeitigen Situation}
+	%\begin{itemize}
+		%TODO: Probleme bei der kommunikation mit einer Maschine 
+		%TODO: Spezifischen Daten (Gleichartige daten, viele verschiedene Daten, ...)
+		%\item \textbf{Frage 1}: Wie wird OPC UA bei AZO verwendet?
+		%\item \textbf{Frage 2}: Welche Protokolle sprechen die OPC UA Server mit den Maschinen?
+		%\item \textbf{Frage 3}: Weisen die Companion Spezifikationen Probleme auf? Gibt es Einschränkungen bei der Kommunikation mit OPC UA?
+	%\end{itemize}
+	%\textbf{Phase 3: Exploration zukünftiger Situationen}
+	%\begin{itemize}
+		%\item \textbf{Frage 1}: Erkennen Sie ein Verbesserungspotential bei OPC UA? 
+		%\item \textbf{Frage 2}: Was sind Ihre Wünsche/Erwartungen an einen Standard wie Umati?
+		%\item \textbf{Frage 3}: Was wären Funktionen, welche besonders Relevant wären bei Umati?
+	%\end{itemize}
+	%\textbf{Phase 4: Abschluss}
+	%\begin{itemize}
+		%\item \textbf{1}: Zusammenfassung
+		%\item \textbf{2}: Ergänzungen \& Feedback
+		%\item \textbf{3}: Abschied und Dank
+	%\end{itemize}
 	
 	%TODO: -> Interview Ergebnisse in Anhang! Und Teilweise in Anforderungsanalyse!
 	
@@ -346,23 +353,52 @@
 		\begin{figure}[H]
 			\centering
 			\includegraphics[width=0.9\textwidth]{res/analysen/Evaluation.pdf}
-			\caption{}%TODO
+			\caption{wichtigste Bewertungskriterien des Prototypen}
 			\label{fig:evaluation}
 		\end{figure}
 		
 	
 	\section{Lösungsansätze}
 	
-		% Umati Webserver
-		% DataFeed
-		% Selbstentwurf
-			% Low Code
-			% High Code
+		\subsection{Umati Server}
+		
+		Der VDMA und VDA, die Operatoren von Umati, haben eine Kollektion von Repositories auf Github, auf welchen multiple Implementationsmöglichkeiten eines Umati Servers dargestellt sind. \cite{noauthor_github_nodate} All diese Projekte sind bereits auf Vollständigkeit geprüft und garantieren so die volle umsetzen der Umati-Standards, oder zumindest einer angegebenen Umati Spezifikation. Beispielsweise kann ein Sample-Server verwendet werden, um einen Umatiserver aufzusetzen, der pseudo-zufällige Werte generiert und diese zur Abfrageung bereit stellt. Dieses Repository implementiert zum Zeitpunkt der Abfrage im August 2023 die Spezifikationen \textit{Machine Tool}, \textit{Woodworking}, \textit{Geometrical Measurement Systems} und \textit{Additive Manufacturing} und simuliert Maschinen, welche die notwendigen und optionalen Variablen implementieren, die sie festlegen.
+		
+		%TODO: Auf interesanteste Repositories eingehen
+
+		\subsection{OPC UA Server - DataFeed}
 		
 		
-		% Was bracuh ich Hard Soft
 		
-		% Literaturrecherche an anderen Implementationen (Umati und 5G)
+		
+		\subsection{Eigenimplementierung}
+		
+		Da der Umati Server auf dem Offenen Standard OPC UA aufbaut, kann ein Server auch selbst implementiert werden. Dies hat verschiedene Vor- und Nachteile welche beachtet und auf das Ziel der Implementierung angewandt werden müssen. 
+		
+		Eigenimplementierungen sind meist Anpassungsfähiger und flexibler, um auf Situationsspezifische Anforderungen zu reagieren. Sie können spezifisch auf den gewünschten Zweck hin optimiert und verbessert werden. Dies kann auch eine einfachere Integration in eine bereits bestehende Umgebung garantieren, da die Anwendung auf diese Umgebung hin angepasst werden kann.
+		
+		Allerdings kann es auch zu Nachteilen führen. Eigenimplementationen haben, vor allem bei nicht sehr erfahrenen Entwicklern, ein hohes Risiko auf Fehleranfälligkeiten oder Sicherheitslücken. Bei eingekauften Lösungen profitiert die Anwendung im Normalfall von Erfahrungswerten und dem Umstand, dass diese Lösung sich bereits am Markt behaupten musste. Die Fehlende Erfahrung kann auch zu einem Programm führen, welches kaum optimiert und komplex ist, was die Wartbarkeit und Nutzerfreundlichkeit vermindert. Soll die Lösung zu kommerziellen Zwecken eingesetzt werden oder hat hohe Anforderungen an Sicherheit, Zugverlässlichkeit und Robustheit sollte auf eine Eigenimplementation verzichtet werden, da auch der Support für das Produkt wegfällt.
+		
+		Trotz der Nachteile sollte die Umsetzung einer Eigenimplementierung, vor allem zu Demonstrationszwecken, in Betracht gezogen werden. Hierbei gibt es Low-Code und High-Code Ansätze. Bei High-Code Implementierungen wird die Funktionalität in Code hergestellt. Beispielsweise kann ein OPC UA Server nur anhand von Python implementiert werden. Low-Code Ansätze bedienen sich dabei einem Visuellen Programmierstil. Hierbei wird in besonderen IDEs die Programmierung über Bausteine und möglichst wenig selbst implementierten Code umgesetzt. Beispiele für solche Umgebungen sind NodeRed oder Microsoft Power Apps. 
+		
+			\subsubsection{High-Code}
+			
+			Die OPC Foundation stellt ihren Mitgliedern mehrere Implementierungen des OPC UA Servers zur Verfügung. Es kann zwischen C, .NET und Java entschieden werden, wobei alle drei Implementierungen von der OPC Foundation gewartet werden. Die Handhabung der Schnittstellen bleiben größtenteils gleich und damit die Funktionalität der verschiedenen Implementationen der selben Logik folgt, werden alle drei regelmäßig gegeneinander getestet.
+			
+			%TODO: C
+			
+			%TODO: .NET 
+			
+			%TODO: Java
+			
+			%TODO: UMATI Implementation, Anpassung oder so.
+			
+			\subsubsection{Low-Code}
+			
+			
+			% Was bracuh ich Hard Soft
+			
+			% Literaturrecherche an anderen Implementationen (Umati und 5G)
 	
 	\section{Marktanalyse}
 	
