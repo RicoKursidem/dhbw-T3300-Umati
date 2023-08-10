@@ -157,11 +157,11 @@
 			\label{fig:OPCUA_Structure}
 		\end{figure}
 		
-		In der Automation werden verschiedenste Methoden verwendet, um Endpunkte an eine Anlage anzubinden. In Abbildung \ref{fig:share} sind der Anteil der Verschiedenen Netzwerktypen in der Industrie 2022 veröffentlicht von HMS Networks. Die drei größten Felder sind Fieldbus, Kabellos (Wireless) und Industrielles Ethernet (Industrial Ethernet) wobei der größte Anteil an letzteres mit 66\% geht. OPC UA vereint diese Kommunikationsprotokolle in einem Server und so können Clients die Daten über den OPC UA Server auslesen und müssen nicht für jede Maschine ein eigenes Protokoll implementieren. \cite{noauthor_2022_nodate}
+		In der Automation werden verschiedenste Methoden verwendet, um Endpunkte an eine Anlage anzubinden. In Abbildung \ref{fig:share} sind der Anteil der Verschiedenen Netzwerktypen in der Industrie 2022 veröffentlicht von HMS Networks. Die drei größten Felder sind Fieldbus, Kabellos (Wireless) und Industrielles Ethernet (Industrial Ethernet) wobei letzteres den größte Anteil ausmacht mit 66\%. OPC UA vereint diese Kommunikationsprotokolle in einem Server und so können Clients die Daten über den OPC UA Server auslesen und müssen nicht für jede Maschine ein eigenes Protokoll implementieren. \cite{noauthor_2022_nodate}
 		
-		Anders Hansson, Chief Marketing Officer von HMS Networks erklärt sich den Wachstum des Industriellen Netzwerkmarktes aufgrund der steigenden nachfrage in der modernen Industrie, nachhaltig, effizient und produktiv zu bleiben und gleichzeitig flexibele und qualitative Fertigung zu ermöglichen. Die Netzwerke zur Kommunikation sind dabei ein Schlüsselfaktor um die genannten Punkte zu erreichen. \cite{noauthor_2022_nodate}
+		Anders Hansson, Chief Marketing Officer von HMS Networks erklärt sich den Wachstum des Industriellen Netzwerkmarktes aufgrund der steigenden nachfrage in der modernen Industrie, nachhaltig, effizient und produktiv zu bleiben und gleichzeitig flexibele und qualitative Fertigung zu ermöglichen. Die Netzwerke zur Kommunikation sind dabei ein Schlüsselfaktor um die genannten Punkte zu erreichen. \cite{noauthor_2022_nodate}Bei einem instgesamten Wachstum der Nutzung dieser Systeme um 8\% zeigen die Entwicklungen in diesen Bereichen eine deutliche Relevanz für die Automatisierung von und Kommunikation mit Maschinen. 
 		
-		% TODO Kommunikationsprotokolle Analyse Anteile, verwendung
+		% TODO Kommunikationsprotokolle Analyse Anteile, verwendung AZO
 		
 		\begin{figure}[H]
 			\centering
@@ -175,18 +175,20 @@
 		
 		\subsection{Sicherheit}
 		
-		% (0,5 bis 1 Seite)
-		
+		%Einführung
 		Eines der Ziele von OPC UA ist es, eine sichere Verbindung und Kommunikation zu ermöglichen. Deshalb trägt bereits die zweite Spezifikation von OPC UA den Namen \glqq Security Modell\grqq. Hierin ist festgelegt, welche Sicherheitsmechanismen bei der Nutzung von OPC UA angewendet werden sollen.
 		
-		Die OPC Foundation beschreibt Unified Architecture sicher und Firewall freundlich. OPC UA unterstützt Security auf Transport- und Applikationsebene anhand von selbst entworfenen Protokollen und Erweiterungen von bereits bestehenden Standards. Die Codierung findet auf binärer Ebene statt, wobei die Kommunikation über HTTPS abläuft. Die Authentifizierung von Clients und Servern findet über X509 Zertifikate statt, wobei der Entwickler der UA Anwendung die Anbindung an einen Zertifikatsspeicher selbst übernehmen kann. \cite{noauthor_unified_nodate, noauthor_opc_nodate}
+		% Allgemeines
+		Die OPC Foundation beschreibt Unified Architecture sicher und Firewall freundlich, da OPC UA über den Port 443 kommuniziert, der meist nicht blockiert ist. OPC UA unterstützt Security auf Transport- und Applikationsebene anhand von selbst entworfenen Protokollen und Erweiterungen von bereits bestehenden Standards. Die Codierung findet auf binärer Ebene statt, wobei die Kommunikation über HTTPS abläuft. Die Authentifizierung von Clients und Servern findet über X509 Zertifikate statt, wobei der Entwickler der UA Anwendung die Anbindung an einen Zertifikatsspeicher selbst übernehmen kann. \cite{noauthor_unified_nodate, noauthor_opc_nodate}
 		
+		% Authentifizierung/Autorisierung
 		Auf Applikationsebene gibt es Sicherheitsmechanismen, welche dir Authentifikation und Autorisierung der Nutzer bearbeiten. Hierbei kommen Passwörtern, Zertifikaten, Webtokens und weiteres zum Einsatz. Außerdem können mit Rechten für Nutzer weitere Einschränkungen auf den Zugriff einzelner Nutzer gelegt werden. Zuzüglich können Aktivitäten von Nutzern und dem System geloggt werden, um die Nachvollziebarkeit zu erhöhen und die Sicherheit des Systems zu stärken. \cite{noauthor_unified_nodate, noauthor_opc_nodate}
 		
+		%Bundesamt Studie
 		Das Bundesamt für Sicherheit in der Informationstechnik führte 2017 eine Sicherheitsanalyse in Kooperation mit TÜV Süd aus und konnte kleine systematischen Fehler in der Sicherheit entdecken. Sie schreiben OPC UA eine hohe Sicherheit zu, wenn die  Mode Sign und security Mode SignAndEncrypt verwendet werden. \cite{damm_opc_2017}
 		
 		
-		% Wenn bei Umati sich etwas ändert, dann dort noch ein Kapitel puschen
+		%Wenn bei Umati sich etwas ändert, dann dort noch ein Kapitel puschen
 	
 	\section{Umati}
 		
@@ -208,8 +210,6 @@
 		
 		Umati legt standardisierte Interfaces fest, mit denen die vertikale und horizontale Integration möglichst einfach umgesetzt wird. Dadurch kann die Wertschöpfung aus Daten kostengünstiger ablaufen und die Analyse, Verarbeitung und Verwertung von Daten, wie es in der Industrie 4.0 üblich ist, besser ablaufen. Umati hat bereits Vorführungen auf Messen veranstaltet, welche die Funktionsfähigkeit einer Umati Umsetzung demonstrieren. Umati standardisiert dabei die Integration von Maschinen, deren Installation und ganze IT Produktionsumgebungen. \cite{noauthor_about_nodate}
 		
-		%TODO: Umati aufbau
-		
 		% Companion Specifikations
 		Die Semantische Interoperabilität wurde bereits mit OPC UA über die Companion Spezifikationen erreicht. Allerdings entstehen diese Standards in gesonderten Arbeitsgruppen welche auf die Teilnehmer zugeschnitten sind. Dadurch entstehen viele Spezifikationen in vielen verschiedenen Branchen und Maschinen können nicht mehr ohne Übersetzung kommunizieren. Umati versucht diesen Umstand durch das Zusammenfassung dieser Spezifikationen zu beheben. Es sollen Maschinen entstehen, die alle die selbe Sprache sprechen und so einfach in neue IT 
 		
@@ -226,19 +226,25 @@
 		
 		\subsection{VDMA}
 		
-		\ac{VDMA} ist der größte Industrieverbund in Europa und hat Umati ins Leben gerufen hat. Der Verband wurde 1892 gegründet und hat seinen Sitz in Frankfurt am Main. Neben der Vertretung der Interessen industrieller Unternehmen in Deutschland und Europa gegenüber der Politik, erarbeitet der VDMA auch Standards und tauscht Know-How zwischen seinen 3.600 Mitgliedsunternehmen aus. \cite{noauthor_verband_nodate} In dem Interessenverband sind Firmen aus den Bereichen Maschinenbau, Anlagenbau und der Zulieferindustrie, welche sich Kompetenzen und Informationen in verschiedensten Themenbereichen von Bildung \& Modernem Arbeiten über Digitalisierung bis zu rechtlichen Feldern teilen. \cite{noauthor_themenubersicht_nodate}
+		%Allgemin
+		\ac{VDMA} ist der größte Industrieverbund in Europa und eines seiner Ziele ist es, Umati International zu verbreiten. Der Verband wurde 1892 gegründet und hat seinen Sitz in Frankfurt am Main. Neben der Vertretung der Interessen industrieller Unternehmen in Deutschland und Europa gegenüber der Politik, erarbeitet der VDMA auch Standards und tauscht Know-How zwischen seinen 3.600 Mitgliedsunternehmen aus. \cite{noauthor_verband_nodate} In dem Interessenverband sind Firmen aus den Bereichen Maschinenbau, Anlagenbau und der Zulieferindustrie, welche sich Kompetenzen und Informationen in verschiedensten Themenbereichen von Bildung \& Modernem Arbeiten über Digitalisierung bis zu rechtlichen Feldern teilen. \cite{noauthor_themenubersicht_nodate}
 		
+		%VDMA Wirken
 		Der VDMA wirkt vor allem mit Förderungen in Bereichen, die Innovation bringen. Beispielweise fördert der Verband Technologien in den Bereichen Industrie 4.0, Digitalisierung und nutzt Lobbyarbeit, um seine Mitglieder auch politisch zu unterstützen. Außerdem veranstaltet der VDMA Messen zur Netzwerkbildung und zum Demonstrieren von neusten Technologien seiner Mitglieder. Im Allgemeinen verfolgt der Verband die Stärkung der europäischen Maschinenbaubranche und die Verbesserung der Wettbewerbsfähigkeit auf internationaler Ebene. \cite{noauthor_themenubersicht_nodate}
 		
+		%AZO
 		AZO, der Partner dieser Arbeit, ist auch ein Mitglied des VDMA. Da AZO ein mittelständisches Unternehmen im Anlagenbau ist, setzt sich der VDMA genau für diese Interessen ein und möchte mit Umati eine Plug \& Play Umgebung im Anlagenbau ermöglichen. Der VDMA möchte eine erhöhte Interoperabilität zwischen den Maschinen ihrer Mitglieder bewirken und so die Wettbewerbsfähigkeit des europäischen Markts stärken, aber auch in der Standardisierung der internationalen Industrie mitwirken. 
 		
 		\subsection{OPC UA for Machinery}
 		
-		\texttt{OPC 40001-1/VDMA 40001-1}, auch OPC UA for Machinery, wurde von VDMA und VDM zusammen mit der OPC Foundation entwickelt. Es ist die Base Spezifikation, auf der andere in diesem Bereich aufbauen sollen. Sie wurde im September 2020 veröffentlicht und seit dem aktualisiert worden. Der Standard wird auch in Zukunft erweitert werden, um mehr Use Cases abzudecken.
+		\texttt{OPC 40001-1/VDMA 40001-1}, auch OPC UA for Machinery, wurde von VDMA und VDM zusammen mit der OPC Foundation entwickelt. Es ist die fundamentale Spezifikation, auf der andere in diesem Bereich aufbauen sollen. Sie wurde im September 2020 veröffentlicht und seit dem mehrfach aktualisiert worden. Der Standard wird auch in Zukunft erweitert werden, um mehr Use Cases abzudecken. Die neuste Version zum Zeitpunkt des Entwurfs dieser Arbeit ist aus August 2023.
 		
-		Im Allgemeinen deckt dieser Standard fundamentale Bereiche ab. Es wird definiert, welche Datentypen genutzt werden können, wie deren Syntax ist und wie sie in Attributen abgespeichert werden können. Es werden Objekte und Klassen festgelegt, wie diese erstellt und definiert werden sollen. Darüber hinaus beschreibt die Spezifikation auch, wie ein Client im System die Maschinen an den OPC UA Servern finden kann. 
+		Im Allgemeinen deckt dieser Standard fundamentale Bereiche ab. Es wird definiert, welche Datentypen genutzt werden können, wie deren Syntax ist und wie sie in Attributen abgespeichert werden können. Es werden Objekte und Klassen festgelegt und deren Verhalten und Funktionalität. Darüber hinaus beschreibt die Spezifikation auch, wie ein Client im System die Maschinen an den OPC UA Servern finden kann. 
 		
 		%TODO: Variablen und Struktur die 40001 definiert erklären, in gut
+		OPC for Machinery implementiert keinen festen Typ um als einen Einstiegspunkt für den OPC UA Server. Daher muss auf die Basisspezifikation OPC 40001-1 eine weitere Spezifikation aufgesetzt werden. Im fall dieser Arbeit wird ein Roboter simuliert, weshalb die Spezifikation OPC 40010 Robotics anbietet. Als Mindestanforderung muss Part 1 der Robticsspezifikation imlementiert werden. Dadurch ergibt sich eine anzahl an Variablen, Funktionen und Strukturen, welche in den Simulationsserver implementiert werden und in Kapitel \ref{TOOD: auf anforderungen oder so verweisen}
+		
+		OPC UA for Machinery definiert, das jede Maschine innerhalb eines Ordners \textit{Machiners} 
 
 \chapter{Methodik}\label{ch:Methodiken}
 	% (8 Seiten)
@@ -248,8 +254,6 @@
 	\section{Literaturrecherche}
 	
 	Die Informationen der vorangegangenen Kapitel \ref{ch:Einführung} und \ref{ch:Grundlagen} wurden aus offizieller Literatur entnommen. Zu den Informationen zu OPC UA wurden die offiziellen Spezifikationen und empfohlene Literatur der OPC Foundation verwendet. Dasselbe Vorgehen wurde für die theoretische Vorarbeit von Umati genutzt. Die meisten Informationen zum neuen Standard wurden der offiziellen Webseite des VDMA entnommen. Außerdem sind dort auch Literaturempfehlungen ausgeschrieben welche ebenfalls verwendet wurden. Um theoretische Grundlagen und Konzepterklärungen zu recherchieren, wurden Vorlesungsmaterialien der DHBW Mosbach verwendet.
-	
-	
 	
 	% Datenerhebung - Literaturrecherche
 	% Stichwort recherche
@@ -308,8 +312,8 @@
 	%\end{itemize}
 	%\textbf{Phase 2: Exploration der derzeitigen Situation}
 	%\begin{itemize}
-		%TODO: Probleme bei der kommunikation mit einer Maschine 
-		%TODO: Spezifischen Daten (Gleichartige daten, viele verschiedene Daten, ...)
+		%%TODO: Probleme bei der kommunikation mit einer Maschine 
+		%%TODO: Spezifischen Daten (Gleichartige daten, viele verschiedene Daten, ...)
 		%\item \textbf{Frage 1}: Wie wird OPC UA bei AZO verwendet?
 		%\item \textbf{Frage 2}: Welche Protokolle sprechen die OPC UA Server mit den Maschinen?
 		%\item \textbf{Frage 3}: Weisen die Companion Spezifikationen Probleme auf? Gibt es Einschränkungen bei der Kommunikation mit OPC UA?
@@ -327,11 +331,11 @@
 		%\item \textbf{3}: Abschied und Dank
 	%\end{itemize}
 	
-	%TODO: -> Interview Ergebnisse in Anhang! Und Teilweise in Anforderungsanalyse!
+	%%TODO: -> Interview Ergebnisse in Anhang! Und Teilweise in Anforderungsanalyse!
 	
 	\section{Zeitplanung}
 	
-	Die Bearbeitungszeit dieser Arbeit sind 12 Wochen. Startend am 19.06.2023 bis zum 11.09.2023. In Abbildung \ref{fig:Grantt} ist ein Grantt-Diagramm zur Zeitplanung abgebildet. In den ersten 4 Wochen sollen die Theoretische Grundlagen und die Analysen der Arbeit abgeschlossen sein um die Praxis am 10.07.2023 beginnen kann. Von Woche 5 bis 10 soll die Implementation und Integration des Prototypen stattfinden. Den gesamten Prozess schätze ich auf gemeinsam 5 Wochen wobei eine zusätzliche Woche als Puffer eingeplant wird, sollte es Verzögerungen wie Krankheit oder Bereitstellungsschwierigkeiten geben. Am 21.08.2023 soll die Arbeit abgabebereit sein und für eine Korrekturlesung bereitgestellt werden. Parallel zur Korrekturlesung sollen die Messedokumente und Schulungsunterlagen angefertigt werden. Die letzten eineinhalb Wochen sollen dann genutzt werden, um die Arbeit zu Korrigieren.
+	Die Bearbeitungszeit dieser Arbeit sind 12 Wochen, von Montag dem 19.06.2023 bis Montag den 11.09.2023. In Abbildung \ref{fig:Grantt} ist ein Grantt-Diagramm zur Zeitplanung abgebildet. In den ersten 4 Wochen sollen die Theoretische Grundlagen und die Analysen der Arbeit abgeschlossen sein, damit die Praxis am 10.07.2023 beginnen kann. Von Woche 5 bis 10 soll die Implementation und Integration des Prototypen stattfinden. Den gesamten Prozess kann auf gemeinsam 5 Wochen geschätzt werden,  wobei eine zusätzliche Woche als Puffer eingeplant wird, sollte es Verzögerungen wie Krankheit oder Bereitstellungsschwierigkeiten geben. Am 21.08.2023 soll die Arbeit abgabebereit sein und für eine Korrekturlesung bereitgestellt werden. Parallel zur Korrekturlesung sollen die Messedokumente und Schulungsunterlagen angefertigt werden. Die letzten eineinhalb Wochen sollen dann genutzt werden, um die Arbeit zu Korrigieren.
 	
 	\begin{figure}[H]
 		\centering
@@ -353,9 +357,8 @@
 		% Ablaufdiagramm
 		
 		\subsection{Prototyp}
-		Als Grundlage des Umati-Prototypen soll eine Maschine simuliert werden. Es soll keine echte Maschine verwendet werden, da diese eventuell an bestimmten Zeitpunkten ausgeschaltet oder betriebsunfähig sein könnte. Außerdem ist eine Tatsächliche Maschine oder Anlage deutlich kostenintensiver als eine Serverbasierte Simulation. Die simulierte Maschine soll eine Anlage von AZO darstellen, die auch tatsächlich im Einsatz ist. %TODO: welche Maschine machen wir?
-		
-		Als Beispiel wird ein RoLog simuliert, der bei der automatischen Kleinstmengendosierung von Schüttgütern zum Einsatz kommt. In Abbildung \ref{fig:RoLog} ist ein virtualisierter Aufbau der Anlage abgebildet. Der Roboterarm in der Mitte lagert seine Ressourcenbehälter auf den Schränken an der Seite der Anlage, lagert neue Behälter aus oder ein über die Laufbänder an der Hinterseite (Oben-Links) und dosiert in die Ausgabe an der Front (Vorne-Rechts) des Aufbaus. \cite{noauthor_azo_nodate}
+		% Prototyp
+		Als Grundlage des Umati-Prototypen soll eine Maschine simuliert werden. Es soll keine echte Maschine verwendet werden, da diese eventuell an bestimmten Zeitpunkten ausgeschaltet oder betriebsunfähig sein könnte. Außerdem ist eine reale laufende Maschine oder Anlage deutlich kostenintensiver als eine Serverbasierte Simulation. Die simulierte Maschine soll eine Anlage von AZO darstellen, die auch tatsächlich im Einsatz ist. Als Beispiel wird ein RoLog simuliert, der bei der automatischen Kleinstmengendosierung von Schüttgütern zum Einsatz kommt. In Abbildung \ref{fig:RoLog} ist ein virtualisierter Aufbau der Anlage abgebildet. Der Roboterarm in der Mitte lagert seine Ressourcenbehälter auf den Schränken an der Seite der Anlage, lagert neue Behälter über die Laufbänder an der Hinterseite (Oben-Links) aus oder ein und dosiert in die Ausgabe an der Front (Vorne-Rechts) des Aufbaus. \cite{noauthor_azo_nodate}
 		
 		\begin{figure}[H]
 			\centering
@@ -364,6 +367,7 @@
 			\label{fig:RoLog}
 		\end{figure}
 		
+		%Funktionalitäten in Simulation
 		Der Prototyp soll mehrere Funktionen umsetzen. Die Umati Spezifikation soll implementiert werden und soll damit das Senden und Empfangen von Daten ermöglichen. Außerdem soll die Wirkung der Steuerungsnachrichten an die Maschine nachvollziehbar visualisiert werden. In Abbildung \ref{fig:evaluation} sind die Anforderungen an den Prototypen abgebildet. Die Funktionalität beinhaltet dabei das der RoLog mindestens 3 Parameter absenden muss und einen Parameter lesen können muss. Es wird ein Ablauf einer Dosierung eines Rezeptes umgesetzt. Zunächst soll der RoLog durch eine Eingabe gestartet werden. Daraufhin soll er ein Rezept dosieren und einen Alarm ausgeben, wenn er fertig ist. Parallel dazu soll der Zustand der Anlage permanent übertragen werden. %TODO Anforderungen mit Prototyp abstimmen
 		
 		Bei der Entwicklung des Prototypen soll die Umsetzbarkeit der Schnittstelle über NodeRed geprüft werden. Dies ist von Interesse da NodeRed bei AZO bereits breitgefächert für die M2M Kommunikation angewandt wird. %TODO: Bezug auf ISO 25010
@@ -381,6 +385,19 @@
 		\subsection{Umati Server}
 		
 		Der VDMA und VDA, die Operatoren von Umati, haben eine Kollektion von Repositories auf Github, auf welchen multiple Implementationsmöglichkeiten eines Umati Servers dargestellt sind. \cite{noauthor_github_nodate} All diese Projekte sind bereits auf Vollständigkeit geprüft und garantieren so die volle umsetzen der Umati-Standards, oder zumindest einer angegebenen Umati Spezifikation. Beispielsweise kann ein Sample-Server verwendet werden, um einen Umatiserver aufzusetzen, der pseudo-zufällige Werte generiert und diese zur Abfrageung bereit stellt. Dieses Repository implementiert zum Zeitpunkt der Abfrage im August 2023 die Spezifikationen \textit{Machine Tool}, \textit{Woodworking}, \textit{Geometrical Measurement Systems} und \textit{Additive Manufacturing} und simuliert Maschinen, welche die notwendigen und optionalen Variablen implementieren, die sie festlegen.
+		
+		Das Ziel ist eine AZO Maschine auf der umati Demonstrationsseite (https://umati.app) anzuzeigen. In Abbildung \ref{fig:uamti.app} wird die Struktur des Datenaustausches mit der umati Webseite bildlich dargestellt. Die Daten entstehen in der Simulation des RoLogs, der AZO Maschine. Dieser stellt einen Roboter dar, dessen OPC UA Server die Robotics Spezifikation implementieren soll (OPC 40010). Umati empfängt Daten über einen MQTT Server und synchronisiert diese Daten dann mit dem umati.app Dashboard. Um aus dem OPC UA Server die Daten an den in der Cloud befindlichen MQTT Server zu senden, kann ein vorgefertigter Dockercontainer der VDMA verwendet werden, um den Transport zu übernehmen. Der Datenbroker kann auf dem umati Github Repository gefunden werden.
+		
+		Andere Firmen können ihre Daten über den selben Prozess auf das umati Dashboard laden. So entsteht eine Demonstration das eine Oberfläche die Möglichkeit besitzt, Maschinendaten aus verschiedensten Quellen un Herstellern integrieren kann. 
+		
+		Sind die Daten auf dem Umati Server können mit von VDMA gesendeten Anmeldedaten die daten über einen MQTT Client gelesen werden und daraufhin in das lokale MES System integriert werden.
+				
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=0.9\textwidth]{res/umatiAppStruktur.pdf}
+			\caption{wichtigste Bewertungskriterien des Prototypen}
+			\label{fig:uamti.app}
+		\end{figure}
 		
 		%TODO: Auf interesanteste Repositories eingehen
 
