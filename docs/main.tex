@@ -246,6 +246,28 @@
 		
 		OPC UA for Machinery definiert, das jede Maschine innerhalb eines Ordners \textit{Machiners} 
 
+
+	\section{Weitere Technologien}
+		\subsection{Docker}
+		
+		Docker ist eine Open-Source Virtualisierungstechnologie. Ihr primärer nutzen ist das Anbieten, das Entwickeln und Verwalten von Anwendungen auf einem Serverumfeld. Dabei werden alle Services in eigenen Containern verwaltet, was es ermöglicht einzelne Teile einer Anwendung neu zu starten, sie einfach zu skalieren oder gefahrlos zu beenden. Durch die Containerisierung der Services können alle Anwendungen Betriebssystemunabhängig gehostet werden, wobei ein funktionierende Installation der Docker Engine benötigt wird. 
+		
+		Die Container werden immer über ein Image, einen Bauplan für einen laufenden Container, erstellt. Es können auch mehrere Container über Docker Compose Files gestartet werden, in denen alle Startparameter, sowie die verwendeten Prots des Hostststems festgelegt werden können. 
+		
+		Docker hat sich im Bereich der Containersysteme durchgesetzt, da es eine zugängliche Schnittstelle zu dieser Art des Servicedeployment bietet. Durch die einfache Handhabe und den leicht zugänglichen Dockerhub, ein Image Repository in dem geprüfte und populäre Services durch nur einen Befehl heruntergeladen werden können, ist Docker die beste Lösung für diese Art des Servicemanagments geworden.
+		
+		In diesem Projekt stellt Docker die beste Auswahl dar, da es bereits eine bestehende Docker Umgebung gibt, und der Prototyp später auch in dieser Umgebung laufen soll. Außerdem ermöglicht Docker den Austausch einzelner Komponenten was die Anwendung für zukünftige Anpassungen sehr offen macht.
+		
+		\subsection{MQTT}
+		
+		Das \ac{MQTT} ist eine Nachrichtenprotokoll das sich durch seine Robusten Eigenschaften vor allem für unzuverlässige Umgebungen eignet. Es ist entwickelt worden um mit Geräten mit hoher Latenz, geringer Bandbreite oder labilem Netzwerk zu kommunizieren. Es eignet sich vor allem für \ac{M2M} Kommunikation und den \ac{IoT} Bereich, da es besondere Akku und Leistungssparen ist. 
+		
+		\ac{MQTT} baut auf einer Subscribe and Publish Architektur auf. Ein Eingabegerät, beispielsweise ein Temperatursensor, erhebt seine Daten und reicht sie an einen MQTT Broker weiter, welcher die Daten veröffentlicht (Publish). Möchte ein Client auf die Daten zugreifen, muss er den korrekten \textit{Topic} unter dem die Daten liegen abonnieren und erhält daraufhin alle Änderungen des Datensatzes (Subscribe).
+		
+		Der\ac{MQTT} Broker übernimmt das Versenden der Daten an alle Clients. Für einen Client sehen die Topics nach einer hierarchischen Struktur aus. Sollte die Verbindung zu einem Client unterbrochen werden, puffert der Broker die Veränderungen an den Daten und sendet diese, wenn der Client wieder verfügbar ist.
+		
+		%TODO: \subsection{Grafana}
+		
 \chapter{Methodik}\label{ch:Methodiken}
 	% (8 Seiten)
 	
@@ -353,6 +375,11 @@
 	\section{Anforderungsanalyse}
 	
 		\subsection{Vorgehen}
+		% Ziel
+		
+		Das Zeil bei der Umsetzung der Aufgabe ist es, ein Proof of Concept zu entwerfen und so die Umsetzbarkeit zu beweisen. Dabei sollen Daten an die vom VDMA zur Verfügung gestellte Webseite versendet werden und dort angezeigt werden. Das Web-Dashboard, \textit{umati.app}, soll zeigen, dass multiple Anlagenhersteller ihre Maschinen anhand von Umati an einen Client senden können und die Informationen alle angezeigt werden. Dafür nutzt das Dashboard eine Weltkarte, auf der die Maschinen als Marker auftauchen, wo deren Informationen und Variablen genauer eingesehen werden können.
+		
+		Zunächt werden allgemein die Informationen der Maschine an den Server gesendet, danach sollen Werte übertragen werden, welche sich in kurzen Abständen verändern. Es soll die Umsetzbarkeit von Methoden analysiert und das Auslesen von Daten in eine AZO Umgebung realisiert werden. Das gesamte Projekt soll in Docker umgesetzt werden, um das Projekt möglichst modular und interoperabel zu gestalten.
 		
 		% Ablaufdiagramm
 		
@@ -380,24 +407,17 @@
 		\end{figure}
 		
 	
-	\section{Lösungsansätze}
+	\section{Lösungsansatz}
 	
-		\subsection{Umati Server}
+		\subsection{Struktur}
 		
-		Der VDMA und VDA, die Operatoren von Umati, haben eine Kollektion von Repositories auf Github, auf welchen multiple Implementationsmöglichkeiten eines Umati Servers dargestellt sind. \cite{noauthor_github_nodate} All diese Projekte sind bereits auf Vollständigkeit geprüft und garantieren so die volle umsetzen der Umati-Standards, oder zumindest einer angegebenen Umati Spezifikation. Beispielsweise kann ein Sample-Server verwendet werden, um einen Umatiserver aufzusetzen, der pseudo-zufällige Werte generiert und diese zur Abfrageung bereit stellt. Dieses Repository implementiert zum Zeitpunkt der Abfrage im August 2023 die Spezifikationen \textit{Machine Tool}, \textit{Woodworking}, \textit{Geometrical Measurement Systems} und \textit{Additive Manufacturing} und simuliert Maschinen, welche die notwendigen und optionalen Variablen implementieren, die sie festlegen.
+		
 		
 		Das Ziel ist eine AZO Maschine auf der umati Demonstrationsseite (https://umati.app) anzuzeigen. In Abbildung \ref{fig:uamti.app} wird die Struktur des Datenaustausches mit der umati Webseite bildlich dargestellt. Die Daten entstehen in der Simulation des RoLogs, der AZO Maschine. Dieser stellt einen Roboter dar, dessen OPC UA Server die Robotics Spezifikation implementieren soll (OPC 40010). Umati empfängt Daten über einen MQTT Server und synchronisiert diese Daten dann mit dem umati.app Dashboard. Um aus dem OPC UA Server die Daten an den in der Cloud befindlichen MQTT Server zu senden, kann ein vorgefertigter Dockercontainer der VDMA verwendet werden, um den Transport zu übernehmen. Der Datenbroker kann auf dem umati Github Repository gefunden werden.
 		
 		Andere Firmen können ihre Daten über den selben Prozess auf das umati Dashboard laden. So entsteht eine Demonstration das eine Oberfläche die Möglichkeit besitzt, Maschinendaten aus verschiedensten Quellen un Herstellern integrieren kann. 
 		
-		Sind die Daten auf dem Umati Server können mit von VDMA gesendeten Anmeldedaten die daten über einen MQTT Client gelesen werden und daraufhin in das lokale MES System integriert werden.
-				
-		\begin{figure}[H]
-			\centering
-			\includegraphics[width=0.9\textwidth]{res/umatiAppStruktur.pdf}
-			\caption{wichtigste Bewertungskriterien des Prototypen}
-			\label{fig:uamti.app}
-		\end{figure}
+		Sind die Daten auf dem Umati Server können sie anhand der von VDMA gesendeten Anmeldedaten über einen MQTT Client gelesen werden und daraufhin in das lokale MES System integriert werden.
 		
 		%TODO: Auf interesanteste Repositories eingehen
 
@@ -408,17 +428,17 @@
 		
 		\subsection{Eigenimplementierung}
 		
-		Da der Umati Server auf dem Offenen Standard OPC UA aufbaut, kann ein Server auch selbst implementiert werden. Dies hat verschiedene Vor- und Nachteile welche beachtet und auf das Ziel der Implementierung angewandt werden müssen. 
+		%Da der Umati Server auf dem Offenen Standard OPC UA aufbaut, kann ein Server auch selbst implementiert werden. Dies hat verschiedene Vor- und Nachteile welche beachtet und auf das Ziel der Implementierung angewandt werden müssen. 
 		
-		Eigenimplementierungen sind meist Anpassungsfähiger und flexibler, um auf Situationsspezifische Anforderungen zu reagieren. Sie können spezifisch auf den gewünschten Zweck hin optimiert und verbessert werden. Dies kann auch eine einfachere Integration in eine bereits bestehende Umgebung garantieren, da die Anwendung auf diese Umgebung hin angepasst werden kann.
+		%Eigenimplementierungen sind meist Anpassungsfähiger und flexibler, um auf Situationsspezifische Anforderungen zu reagieren. Sie können spezifisch auf den gewünschten Zweck hin optimiert und verbessert werden. Dies kann auch eine einfachere Integration in eine bereits bestehende Umgebung garantieren, da die Anwendung auf diese Umgebung hin angepasst werden kann.
 		
-		Allerdings kann es auch zu Nachteilen führen. Eigenimplementationen haben, vor allem bei nicht sehr erfahrenen Entwicklern, ein hohes Risiko auf Fehleranfälligkeiten oder Sicherheitslücken. Bei eingekauften Lösungen profitiert die Anwendung im Normalfall von Erfahrungswerten und dem Umstand, dass diese Lösung sich bereits am Markt behaupten musste. Die Fehlende Erfahrung kann auch zu einem Programm führen, welches kaum optimiert und komplex ist, was die Wartbarkeit und Nutzerfreundlichkeit vermindert. Soll die Lösung zu kommerziellen Zwecken eingesetzt werden oder hat hohe Anforderungen an Sicherheit, Zugverlässlichkeit und Robustheit sollte auf eine Eigenimplementation verzichtet werden, da auch der Support für das Produkt wegfällt.
+		%Allerdings kann es auch zu Nachteilen führen. Eigenimplementationen haben, vor allem bei nicht sehr erfahrenen Entwicklern, ein hohes Risiko auf Fehleranfälligkeiten oder Sicherheitslücken. Bei eingekauften Lösungen profitiert die Anwendung im Normalfall von Erfahrungswerten und dem Umstand, dass diese Lösung sich bereits am Markt behaupten musste. Die Fehlende Erfahrung kann auch zu einem Programm führen, welches kaum optimiert und komplex ist, was die Wartbarkeit und Nutzerfreundlichkeit vermindert. Soll die Lösung zu kommerziellen Zwecken eingesetzt werden oder hat hohe Anforderungen an Sicherheit, Zugverlässlichkeit und Robustheit sollte auf eine Eigenimplementation verzichtet werden, da auch der Support für das Produkt wegfällt.
 		
-		Trotz der Nachteile sollte die Umsetzung einer Eigenimplementierung, vor allem zu Demonstrationszwecken, in Betracht gezogen werden. Hierbei gibt es Low-Code und High-Code Ansätze. Bei High-Code Implementierungen wird die Funktionalität in Code hergestellt. Beispielsweise kann ein OPC UA Server nur anhand von Python implementiert werden. Low-Code Ansätze bedienen sich dabei einem Visuellen Programmierstil. Hierbei wird in besonderen IDEs die Programmierung über Bausteine und möglichst wenig selbst implementierten Code umgesetzt. Beispiele für solche Umgebungen sind NodeRed oder Microsoft Power Apps. 
+		%Trotz der Nachteile sollte die Umsetzung einer Eigenimplementierung, vor allem zu Demonstrationszwecken, in Betracht gezogen werden. Hierbei gibt es Low-Code und High-Code Ansätze. Bei High-Code Implementierungen wird die Funktionalität in Code hergestellt. Beispielsweise kann ein OPC UA Server nur anhand von Python implementiert werden. Low-Code Ansätze bedienen sich dabei einem Visuellen Programmierstil. Hierbei wird in besonderen IDEs die Programmierung über Bausteine und möglichst wenig selbst implementierten Code umgesetzt. Beispiele für solche Umgebungen sind NodeRed oder Microsoft Power Apps. 
 		
 			\subsubsection{High-Code}
 			
-			Die OPC Foundation stellt ihren Mitgliedern mehrere Implementierungen des OPC UA Servers zur Verfügung. Es kann zwischen C, .NET und Java entschieden werden, wobei alle drei Implementierungen von der OPC Foundation gewartet werden. Die Handhabung der Schnittstellen bleiben größtenteils gleich und damit die Funktionalität der verschiedenen Implementationen der selben Logik folgt, werden alle drei regelmäßig gegeneinander getestet.
+			%Die OPC Foundation stellt ihren Mitgliedern mehrere Implementierungen des OPC UA Servers zur Verfügung. Es kann zwischen C, .NET und Java entschieden werden, wobei alle drei Implementierungen von der OPC Foundation gewartet werden. Die Handhabung der Schnittstellen bleiben größtenteils gleich und damit die Funktionalität der verschiedenen Implementationen der selben Logik folgt, werden alle drei regelmäßig gegeneinander getestet.
 			
 			%TODO: C
 			
@@ -450,10 +470,49 @@
 	
 	\section{Implementierung eines Prototyps}
 	
-		\subsection{Aufbau der Umgebung}
+		\subsection{Struktur}
 		
-		\subsection{Implementierung}
+		% VDMA Repositories
+		Der VDMA und VDA, die Operatoren von Umati, haben eine Kollektion von Repositories auf Github, auf welchen multiple Implementationsmöglichkeiten eines Umati Servers dargestellt sind. \cite{noauthor_github_nodate} All diese Projekte sind bereits auf Vollständigkeit geprüft und garantieren so die volle umsetzen der Umati-Standards, oder zumindest einer angegebenen Umati Spezifikation. Beispielsweise kann ein Sample-Server verwendet werden, um einen Umatiserver aufzusetzen, der pseudo-zufällige Werte generiert und diese zur Abfrageung bereit stellt. Dieses Repository implementiert zum Zeitpunkt der Abfrage im August 2023 die Spezifikationen \textit{Machine Tool}, \textit{Woodworking}, \textit{Geometrical Measurement Systems} und \textit{Additive Manufacturing} und simuliert Maschinen, welche die notwendigen und optionalen Variablen implementieren, die sie festlegen.
 		
+		% Relevanz
+		Dieses Verzeichnis beinhaltet auch weitere Implementierungen von Demonstrationsservern in verschiedenen Programmiersprachen umd mit abweichenden Companionspezifikationen von umati. Für dieses Projekt sind vor allem der Sample-Server-node-opcua und Dashboard-OPCUA-Client von relevanz. 
+		
+		% Die zwei Repositories
+		Der Sample Server stellt mit Standardeinstellungen einen OPC UA Server zur verfügung, der mehrere Maschinen im Hintergurnd nach den verschiedenen Spezifikationen simuliert. Es existiert Beispielsweise ein Simulation, die einen Roboter darstellt, der seine die Geschwindigkeit und die Position des Arms mit pseudo-zufälligen Werten beschreibt und in kurzen Abständen ändert. Das Dashboard fungiert als übersetzer zwischen dem MQTT Broker welcher umati.app nutzt und dem zuvor OPC UA Server, welcher die Maschine simuliert.
+		
+		% umati.app
+		Die Daten der simulierten Maschine soll auf die umati.app des VDMA gestreamt werden und dort genau wie die bereits vorhandenen Maschinen angezeigt werden. Dafür müssen die daten in einen \ac{MQTT} Server gespeicher werden, welcher dann im Hintergrund die Kommunikation mit der Webanwendung übernimmt. 
+		
+		% Struktur des Datenfluss
+		In Abbildung \ref{fig:umati.app} wird der Datenfluss visuall abgebildet. Die Daten entstehen in der Simulation des RoLogs, welcher einen OPC UA Server nutzt, um Seine Daten zu versenden. Dank der Implementierung der umati Spezifikation kann der OPC UA Client des VDMA den  RoLog erkennen und dessen Daten an den \ac{MQTT} Server der umati.app weiterleiten. Dort werden die Daten so verarbeitet, dass sie auf dem Dashboard im Internet angezeigt werden können. Andere Teilnehmer an dem Projekt können über den selben Prozess ihre Daten an den \ac{MQTT} Server senden, und so entsteht Dashboard, mit mehreren Maschinen von verschiedensten Anbietern.
+		
+		% Retrieve
+		Der MQTT Server der umati.app kann auch abonniert werden, um die Daten in ein eigenes Projekt zu überführen. Alternativ, um den Weg über das Internet zu vermeiden kann der OPC UA Client des VDMA auch umkonfiguriert werden, um auf einen lokalen \ac{MQTT} Server zu senden. 
+		
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=0.9\textwidth]{res/umatiAppStruktur.pdf}
+			\caption{Datenfluss und Struktur des Prototypen}
+			\label{fig:umati.app}
+		\end{figure}
+		
+		
+		\subsection{Sicherheit}
+		
+		Die Demonstration über die Umati Webapplikation dient nur Messezwecken und sollte nicht für eine 
+		
+		\subsection{OPC UA Server}
+			
+		Der OPC UA Server besteht aus zwei Komponenten. Der Simulation des Roboters und die Implementierung der Umati Spezifikation OPC 40010 - Robotics. Um den OPC UA Server zu Verfügung zu stellen wurden mehrere Ansätze verwendet die in diesem Kapitel diskutiert werden. In der letzten Demo wird ein Sample Server aus dem Umati Github Repository verwendet.
+		
+			
+			\subsubsection{dataFeed Server}
+			\subsubsection{Eigenimplementierung}
+			\subsubsection{Sample Server - Umati}			
+			
+			\subsubsection{OPC UA Client}
+			\subsubsection{MQTT Broker}
 			% Proof of Konzept
 			% Proof of Konzept mit Node Red
 			
