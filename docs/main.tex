@@ -500,19 +500,35 @@
 		
 		\subsection{Sicherheit}
 		
-		Die Demonstration über die Umati Webapplikation dient nur Messezwecken und sollte nicht für eine 
+		Die Demonstration über die Umati Webapplikation dient nur Messezwecken und sollte nicht für die Produktion verwendet werden. Der Aufbau einer Umati Umgebung sollte in einem lokalen Umfeld passieren, mit den maximalen Authentifizierungsmöglichkeiten die umati zulässt. %TODO: Das ist doch nix
 		
 		\subsection{OPC UA Server}
 			
-		Der OPC UA Server besteht aus zwei Komponenten. Der Simulation des Roboters und die Implementierung der Umati Spezifikation OPC 40010 - Robotics. Um den OPC UA Server zu Verfügung zu stellen wurden mehrere Ansätze verwendet die in diesem Kapitel diskutiert werden. In der letzten Demo wird ein Sample Server aus dem Umati Github Repository verwendet.
+		Der OPC UA Server besteht aus zwei Komponenten. Der Simulation des Roboters und die Implementierung der Umati Spezifikation OPC 40010 - Robotics. Um den OPC UA Server zu Verfügung zu stellen wurden mehrere Ansätze verwendet die in diesem Kapitel diskutiert werden. Die für diese Arbeit am besten geeignetste Lösung ist die Verwendung eines Sample Server Forks des umati Repositories der mit den Daten eines RoLogs oder zu simulierenden Maschine beschrieben wird. 
 		
-			
 			\subsubsection{dataFeed Server}
+			
+			DataFeed wurde von Softing Industrial Automation GmbH entwickelt welche ein „All-in-One“-Datenintegrationslösung für die OPC UA-Kommunikation anbieten.
+			
+			Mit dem dataFeed Tool können einfache OPC UA Server implementiert werden, welche Variablen und einzelne Attribute übermitteln können. Umati verlangt eine  Objektbasierte Strukturierung der Daten, welche anhand der limitierten von dataFeed nicht umsetzbar ist.
+			
 			\subsubsection{Eigenimplementierung}
+			
+			% Eigenimplementierung in HighCode Plattform C#
+			% zu zeitintensiv aber hoch individualisierbar
+			% Sollte auch das Ziel sein, vorallem wenn die Simulation richtig gut werden soll
+			
+			
+			% Eigenimplementierung in LowCode Plattform NodeRed
+			% Muss ich noch rechachieren
+			
+			
 			\subsubsection{Sample Server - Umati}			
 			
-			\subsubsection{OPC UA Client}
-			\subsubsection{MQTT Broker}
+			
+			
+		\subsection{OPC UA Client}
+		\subsection{MQTT Broker}
 			% Proof of Konzept
 			% Proof of Konzept mit Node Red
 			
