@@ -1,0 +1,53 @@
+{
+    "MachineCacheFile": "MachineCache_datahub.json",
+    "MachinesFilter": [],
+    "ObjectTypeNamespaces": [
+      "http://opcfoundation.org/UA/",
+      "http://opcfoundation.org/UA/IA/",
+      "http://opcfoundation.org/UA/DI/",
+      "http://opcfoundation.org/UA/Machinery/",
+      "http://opcfoundation.org/UA/Robotics/"
+    ],
+    "NamespaceInformations": [
+      {
+        "Namespace": "http://opcfoundation.org/UA/Robotics/",
+          "Types": [
+          {
+            "Uri": "http://opcfoundation.org/UA/Robotics/",
+            "Id": "i=1002",
+            "$comment": "MotionDeviceSystemType"
+          },
+          {
+            "Uri": "http://opcfoundation.org/UA/Robotics/",
+            "Id": "i=1004",
+            "$comment": "MotionDeviceType"
+          },{
+            "Uri": "http://opcfoundation.org/UA/Robotics/",
+            "Id": "i=1003",
+            "$comment": "ControllerType"
+          }
+        ],
+        "IdentificationType": {
+          "Uri": "http://opcfoundation.org/UA/Machinery/",
+          "Id": "i=1012",
+          "$comment": "MachineIdentificationType"
+        }
+      }
+    ],
+    "OpcUa": {
+      "Endpoint": "opc.tcp://172.28.0.62:4840/UA", //Adresse zum OPC UA Server
+      "Username": "",
+      "Password": "",
+      "Security": 1
+    },
+    "Mqtt": { 
+      "Hostname": "umati.app",
+      "Port": 443,
+      "Username": "", // <UserName>
+      "Password": "", // <Password>
+      "Prefix": "umati/v2",
+      "ClientId": "", // <UserName>
+      "Protocol": "wss"
+    }
+  }
+  

@@ -1,0 +1,9 @@
+version: '3'
+
+services:
+  opcua-rolog:
+    build: .
+    ports:
+      - "4840:4840"
+
+ 

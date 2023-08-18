@@ -497,7 +497,7 @@
 			\label{fig:umati.app}
 		\end{figure}
 		
-		
+		 
 		\subsection{Sicherheit}
 		
 		Die Demonstration über die Umati Webapplikation dient nur Messezwecken und sollte nicht für die Produktion verwendet werden. Der Aufbau einer Umati Umgebung sollte in einem lokalen Umfeld passieren, mit den maximalen Authentifizierungsmöglichkeiten die umati zulässt. %TODO: Das ist doch nix
@@ -519,17 +519,61 @@
 			% Sollte auch das Ziel sein, vorallem wenn die Simulation richtig gut werden soll
 			
 			
+			
 			% Eigenimplementierung in LowCode Plattform NodeRed
 			% Muss ich noch rechachieren
 			
 			
 			\subsubsection{Sample Server - Umati}			
 			
+			Die schnellste und robusteste Lösung für den Upload der Daten auf die Umati app ist es, den von Andreas Heine entwickelten Sample-Server-Node-opcua aus dem umati Verzeichnis auf Github zu verwenden. Diese erstellt eine Simulation von mehreren Maschinen und deren OPC UA Servern, welche alle eine andere Schnittsteller der umati Spezifikationen anbieten. Das Projekt umfasst die Spezifikationen OPC 40010 UA for Robotics, OPC 40550 UA for Woodworking, OPC 40501 UA for Machine Tools und noch weitere auf einzelne Herrsteller spezialisierte Schnittstellen. Der Sample Server kann in einem Dockercontainer gestartet werden kann daraufhin über den Port 4840 als OPC UA Server angesprochen werden. Um den Container mit einer VDMA Sample Maschine zu starten kann folgender Docker Befehl ausgeführt werden:
 			
+			\begin{lstlisting}[numbers=none, language=bash, frame=single]
+docker run -it -p 4840:4840 -e PORT=4840 -e IP=127.0.0.1 --name sampleserver-node-opcua ghcr.io/andreasheine/sampleserver-node-opcua:main
+			\end{lstlisting}
+			
+			Die Werte und variablen die die Maschine Anzeigt, wie beispielsweise Name, Location und Hersteller können in einer XML-Datei angepasst werden. Unter dem Ordner \textit{models} können für jede Art der Maschine Werte geändert werden. Um diese dann auch verwenden zu können, wurde ein Ford des Reposetories von Andreas Heine erstellt und die Werte in den XML FIles verändert. Um den Container einfach starten zu können wurde folgendes Docker Compose File erstellt:
+			
+			\lstinputlisting[frame=single]{res/code/compose-rolog.yaml}
+			
+			Dieses Docker Compose File startet einen Container mit dem Namen \textit{opcua-rolog} aus dem Ordner in dem es Abgespeichert ist. Diese Datei sollte im Selben Ordner wie das Dockerfile des Forks für den Sample Server liegen. Es verbindet den Port 4840 des Hostsystems mit dem Port 4840 des Containers. Wird nun eine Anfrage an den Port des Hostsystems gesendet, reicht dieser sie an den Port des Containers weiter. Dieser Port kann auch eine anderer sein, sollte 4840 bereits belegt sein (Beispiel: "4841:4840" um den Port 4841 des Hostsystems zu verwenden). Der Container kann mit einem Docker Compose Befehl gestartet werden. 
+			
+			\begin{lstlisting}[numbers=none, language=bash, frame=single]
+docker-compose -f docker-compose.yaml up
+			\end{lstlisting}
+			
+			%TODO: Server Erklären
 			
 		\subsection{OPC UA Client}
+		
+		Der OPC UA Client hat die Aufgabe die Daten des Servers zu erfragen und sie an den MQTT Broker weiter zu geben. Der Client muss die umati Spezifikationen lesen können und die Identifikation der Maschinen durchführen.
+		
+			\subsubsection{umati Dashboard OPC UA Client}
+			
+			Für den Upload der Daten auf die umati.app Webseite, ist der vorgefertigte Client des VDMAs gedacht. Dieser verwendet eine Konfigurationsdatei um zu definieren, welche Spezifikationen er implementieren muss, welchen OPC UA Server er ansprechen kann und wo der MQTT Server liegt, welcher verwendet werden soll. In Anhang I ist die Konfigurationsdatei aufgeführt. Sie beinhaltet alle Wichtigen Informationen um einen Server zu starten, der die Robotics Spezifikation implementieren soll. Von besonderer Wichtigkeit sind die beiden Felder \textit{OpcUa} und \textit{Mqtt}. Die Variable \textit{OpcUa} zeigt auf den OPC UA Server, welcher als Dockercontainer gestartet wurde. Es können auch Authentifizierungsmöglichkeiten von umati verwendet werden, wobei die Anmeldedaten und die Authentifizierungsart eingetragen werden müssen.
+			
+			\lstinputlisting[firstline=37,lastline=42,frame=single]{res/code/config.json}
+			
+			In der Konfigurationsdatei muss ein MQTT Broker angegeben werden, an den die Daten gesendet werden sollen. Zum Testen der Umati Schnittstelle und des Aufbaus der Container kann hier zunächst ein lokaler Server eingetragen werden. Funktioniert die gesamte Übertragung der Daten, können die Informationen mit den Anmeldedaten des umati MQTT Brokers ausgetauscht werden. Im folgenden Codebeispiel sind die Daten für die Verbindung mit dem umati MQTT Broker angegeben.
+			
+			\lstinputlisting[firstline=43,lastline=51,frame=single]{res/code/config.json}
+			
+			Der MQTT Broker sitzt unter der adresse \textit{umati.app} an dem Port \textit{443} und nutzt einen Web Sockert zur Kommunikation. Die Anmeldedaten müssen beim VDMA angefragt werden und die \ac{MoU} unterzeichnet werden.
+			
+			\subsubsection{NodeRed}
+			
+			%TODO Muss ich noch schaun
+			
+			\subsubsection{Eigenimplementation}
+			
+			%TODO: KP man
+			
+		
 		\subsection{MQTT Broker}
 			% Proof of Konzept
+			
+			
+			
 			% Proof of Konzept mit Node Red
 			
 			% Probleme und Lösungen
@@ -550,6 +594,9 @@
 	\frontmatter
 	\printbibliography
 	
-	\textbf{text}
+	\pagebreak
+	\section*{Anhang I: configuration.json} \label{Anhang1} %TODO: Überschrift aus Inhalt raus
+	\lstinputlisting{res/code/config.json}
+	\pagebreak
 
 \end{document}
