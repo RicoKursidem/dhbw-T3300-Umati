@@ -526,6 +526,7 @@
 			
 			\subsubsection{Sample Server - Umati}			
 			
+			
 			Die schnellste und robusteste Lösung für den Upload der Daten auf die Umati app ist es, den von Andreas Heine entwickelten Sample-Server-Node-opcua aus dem umati Verzeichnis auf Github zu verwenden. Diese erstellt eine Simulation von mehreren Maschinen und deren OPC UA Servern, welche alle eine andere Schnittsteller der umati Spezifikationen anbieten. Das Projekt umfasst die Spezifikationen OPC 40010 UA for Robotics, OPC 40550 UA for Woodworking, OPC 40501 UA for Machine Tools und noch weitere auf einzelne Herrsteller spezialisierte Schnittstellen. Der Sample Server kann in einem Dockercontainer gestartet werden kann daraufhin über den Port 4840 als OPC UA Server angesprochen werden. Um den Container mit einer VDMA Sample Maschine zu starten kann folgender Docker Befehl ausgeführt werden:
 			
 			\begin{lstlisting}[numbers=none, language=bash, frame=single]
@@ -541,6 +542,7 @@ docker run -it -p 4840:4840 -e PORT=4840 -e IP=127.0.0.1 --name sampleserver-nod
 			\begin{lstlisting}[numbers=none, language=bash, frame=single]
 docker-compose -f docker-compose.yaml up
 			\end{lstlisting}
+			
 			
 			%TODO: Server Erklären
 			
@@ -560,21 +562,13 @@ docker-compose -f docker-compose.yaml up
 			
 			Der MQTT Broker sitzt unter der adresse \textit{umati.app} an dem Port \textit{443} und nutzt einen Web Sockert zur Kommunikation. Die Anmeldedaten müssen beim VDMA angefragt werden und die \ac{MoU} unterzeichnet werden.
 			
-			\subsubsection{NodeRed}
-			
-			%TODO Muss ich noch schaun
-			
 			\subsubsection{Eigenimplementation}
 			
-			%TODO: KP man
+			Eigenimplementierungen eines OPC UA Client ist sehr Zeit- und Resasourcenintensiv. Die Daten können jedoch auf jede erwünschte weise ausgegeben werden. Allerdings wiegt hier der Nachteil schwerer, da das Projekt Zeitlich sehr strikt begrenzt ist. Da es bereits entwickelte Möglichkeiten für einen OPC UA Client des VDMAs gibt, lohnt sich die Eigenimplementierung nicht. Die selben Prinzipien können auch auf eine Implementierung in Node Red angewandt werden.
 			
 		
 		\subsection{MQTT Broker}
-			% Proof of Konzept
-			
-			
-			
-			% Proof of Konzept mit Node Red
+			% MQTT Broker der Daten speichert und veröffentlicht
 			
 			% Probleme und Lösungen
 		
