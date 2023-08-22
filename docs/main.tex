@@ -402,7 +402,7 @@
 		
 			\subsubsection{OPC UA Server - DataFeed}
 				
-			Die Softing Industrial Automation GmbH bietet zahlreiche Tools an, um mit OPC UA Servern zu Kommunizieren und auch diese zu entwickeln. Sie bieten unter dem Namen dataFEED OPC Suite Base einProdukt an, welches die Kommunikation mit OPC UA und OPC Classic und die Cloud-Anbindungen übernimmt. Dabei ermöglichen sie die Kommunikation mit führenden Herstellern von Steuerungen wie  Siemens SIMATIC S7, Rockwell ControlLogix, B\&R, Mitsubishi sowie auf Modbus-Steuerungen. \ref{noauthor_datafeed_nodate}
+			Die Softing Industrial Automation GmbH bietet zahlreiche Tools an, um mit OPC UA Servern zu Kommunizieren und auch diese zu entwickeln. Sie bieten unter dem Namen dataFEED OPC Suite Base einProdukt an, welches die Kommunikation mit OPC UA und OPC Classic und die Cloud-Anbindungen übernimmt. Dabei ermöglichen sie die Kommunikation mit führenden Herstellern von Steuerungen wie  Siemens SIMATIC S7, Rockwell ControlLogix, B\&R, Mitsubishi sowie auf Modbus-Steuerungen. \cite{noauthor_datafeed_nodate}
 			
 			Bei AZO wird diese Suite verwendet, weshalb die Implementierung eines OPC UA Servers mit Umati über dataFEED in frage kam. Allerdings lässt der Baukasten zum Entwurf der OPC UA Server keine Objekte zu, welche notwendig sind, um Umati zu Implementieren.
 					
@@ -420,8 +420,7 @@
 			Trotz der Nachteile sollte die Umsetzung einer Eigenimplementierung, vor allem zu Demonstrationszwecken, in Betracht gezogen werden. Hierbei gibt es Low-Code und High-Code Ansätze. Bei High-Code Implementierungen wird die Funktionalität in Code hergestellt. Beispielsweise kann ein OPC UA Server nur anhand von Python oder C\# Frameworks implementiert werden. Low-Code Ansätze bedienen sich dabei einem Visuellen Programmierstil. Die Programierung findet über IDEs statt, welche mehr auf Bausteinartige Programmierung setzen. Beispiele für solche Umgebungen sind NodeRed oder Microsoft Power Apps. 
 			
 			\paragraph{Implementierung mit C\#}
-			
-			Die OPC Foundation stellt ein Framework für die Entwicklung von OPC Servern auf C\# Basis zu Verfügung. Die OPC UA.NET Standard Bibliothek ermöglicht die Entwicklung von OPC Servern und Clients. Eine Eigenimplementierung mit diesem Framework würde einen sehr individualisierbaren und flexiblen Server ergeben, welcher den RoLog in seiner exakten Funktion darstellen könnte. Allerdings ist die Implementierung sehr zeitintensiv und benötigt Expertiese auf dem Bereich. 
+			Die OPC Foundation stellt ein Framework für die Entwicklung von OPC Servern auf C\# Basis zu Verfügung. Die OPC UA.NET Standard Bibliothek ermöglicht die Entwicklung von OPC Servern und Clients. Eine Eigenimplementierung mit diesem Framework würde einen sehr individualisierbaren und flexiblen Server ergeben, welcher den RoLog in seiner exakten Funktion darstellen könnte. Allerdings ist die Implementierung sehr zeitintensiv und benötigt Expertiese auf dem Bereich. \cite{noauthor_opc_nodate-1}
 			
 			Um eine einwandfreie Simulation eines RoLogs als Basis der Prototypen zu verwenden, sollte diese Implementierung in Betracht gezogen werden. Allerdings ist diese Form um einen ersten \ac{PoC} für Umati zu entwerfen zu aufwendig.
 			
@@ -429,12 +428,11 @@
 			% Sollte auch das Ziel sein, vorallem wenn die Simulation richtig gut werden soll
 			
 			\paragraph{Implementierung in einer SPS}
+			Die Implementierung einer OPC UA Schnittstelle kann auch direkt auf einer SPS durchgeführt werden. Siemens SPS stellen einen integrierten OPC UA Server zu Verfügung welcher direkt an der Anlage laufen kann. Es gibt auch die Möglichkeit, Maschinen zu Simulieren und mit kleinen Programmen deren Verhalten zu bestimmen. Der Server der SIMATIC S7 SPS von Simens kann Objekte und Klassenstrukturen darstellen. \cite{noauthor_tia_2019}
 			
-			Die Implementierung einer OPC UA Schnittstelle kann auch direkt auf einer SPS durchgeführt werden. Siemens SPS stellen einen integrierten OPC UA Server zu Verfügung welcher direkt an der Anlage laufen kann. Es gibt auch die Möglichkeit, Maschinen zu Simulieren und mit kleinen Programmen deren Verhalten zu bestimmen. Der Server der SIMATIC S7 SPS von Simens kann Objekte und Klassenstrukturen darstellen. \ref{noauthor_tia_2019}
+			Die Entwicklung eines solchen Servers ist sehr Zeitaufwendig und benötigt Expertise im entwickeln von OPC UA Servern auf SPS. Es ist denkbar Maschinen die Umatifähig sein sollen, auf dieser Ebene als OPC UA Server zu entwickeln, allerdings für eine Demonstration von Umati zu Umfangreich.
 			
-			Die Entwicklung eines solchen Servers ist jedock sehr Zeitaufwendig und benötigt Expertise im entwickeln von OPC UA Servern auf SPS. Es ist denkbar Maschinen die Umatifähig sein sollen, auf dieser Ebene als OPC UA Server zu entwickeln, allerdings für eine Demonstration von Umati zu Umfangreich.
-			
-			\subsubsection{Vorgefertigte OPC UA Server mit Umati Fähigkeiten}
+			\subsubsection{Vorgefertigte OPC UA Server mit Umati}
 			
 			
 			
