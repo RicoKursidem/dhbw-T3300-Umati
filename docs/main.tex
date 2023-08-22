@@ -1,6 +1,7 @@
-\documentclass[a4paper, 12pt, oneside]{scrbook}
+\documentclass[a4paper, 12pt, oneside, toc=listofnumbered, bibliography=totoc]{scrbook}
 \input{settings.tex}
 \addbibresource{Bachelorarbeit.bib}
+\setuptoc{toc}{numbered}
 
 \begin{document}
 	\frontmatter
@@ -8,7 +9,7 @@
 	\input{prefix/abbreviation.tex}
 	\tableofcontents
 	\listoffigures
-	\listoftables
+	%\listoftables
 	%\lstlistoflistings
 	\nocite{*}
 
@@ -31,26 +32,23 @@
 	
 	Standardisierung wird verwendet, um effizienteren Austausch und effektivere Prozesse durchzuführen. Ein sehr altes Beispiel sind Sprachen. Eine Menge an Regeln, welche zur Kommunikation genutzt werden, auf die sich alle Teilnehmenden geeinigt haben. In dieser Arbeit soll es um die Standardisierung im Bereich der \ac{M2M} Kommunikation gehen. Durch die Herausforderungen von Industrie 4.0 kann ein guter Standard die Integration mehrerer Systeme vereinfachen und Kosten sparen.
 	
-	In der M2M Kommunikation existieren bereits Standards, die schon vor Industrie 4.0 entworfen wurden. Dazu gehört auch \ac{OPC UA}. \ac{UMATI} baut auf diesem Standard auf und verspricht weitere Aspekte wie beispielsweise eine Umgebung in der neue Maschinen durch Plug \& Play integriert werden können. Das Ziel von \ac{UMATI} ist es, die zahlreichen Implementationen von OPC UA Schnittstellen zu standardisieren und zusammenzufassen, um so für Produzenten von Anlagen und Software einen gemeinsamen Standard zu finden. Das Ziel dieser Arbeit ist \ac{UMATI} zu analysieren, die Implementation dieses Standards zu erforschen und ein Proof-of-Concept zu entwickeln, der die Fähigkeiten dieser Schnittstelle demonstriert.
+	In der M2M Kommunikation existieren bereits Standards, die schon vor Industrie 4.0 entworfen wurden. Dazu gehört \ac{OPC UA}. \ac{Umati} baut auf diesem Standard auf und definiert weitere Aspekte wie beispielsweise eine Plug \& Play Umgebung. Das Ziel von \ac{Umati} ist es, die zahlreichen Implementationen von OPC UA Schnittstellen zu standardisieren und zusammenzufassen, um so für Produzenten von Anlagen und Software einen gemeinsamen Standard zu finden. Das Ziel dieser Arbeit ist \ac{Umati} zu analysieren, die Implementation dieses Standards zu erforschen und ein Proof-of-Concept zu entwickeln, der die Fähigkeiten dieser Schnittstelle demonstriert.
 	
 	\section{Problemstellung und Ziel}
 	
 	% (1-2 Seiten)
 	
-	 Durch die zunehmende Automatisierung der Produktion und Fertigung stehen viele Produzenten vor der Aufgabe, zahlreiche Maschinen verschiedenster Hersteller in ihren Fertigungsprozess zu integrieren. Viele dieser Maschinen nutzen verschiedene Kommunikationsprotokolle, Datenformate und Schnittstellen, was die Integration dieser diversen Systeme erschwert. Durch eine komplizierte Integration kann Vendor Lock-in entstehen. Dieses Konzept beschreibt die Bindung eines Kunden an einen Anbieter, da dieser eine Technologie oder Kommunikationsstrategie integriert, die andere Hersteller nicht oder nur extrem schwer integrieren können. Dies kann zu einer Atmosphäre führen, welche für den Kunden weniger Flexibilität und Kontrolle über seine eigene Produktion gibt und gleichzeitig die Kosten steigen lässt. Um dieses Problem zu lösen, müssen sich die Produzenten zu einem Standard zusammenfinden und die Interoperabilität ihrer Systeme zu gewährleisten. \cite{mielebacher_verteilte_2021}
+	 Durch die zunehmende Automatisierung der Produktion und Fertigung stehen viele Produzenten vor der Aufgabe, zahlreiche Maschinen verschiedenster Hersteller in ihren Fertigungsprozess zu integrieren. Viele dieser Maschinen nutzen verschiedene Kommunikationsprotokolle, Datenformate und Schnittstellen, welche die Integration dieser diversen Systeme erschwert. Durch eine komplizierte Integration kann Vendor Lock-in entstehen. Dieses Konzept beschreibt die Bindung eines Kunden an einen Anbieter, da dieser eine Technologie oder Kommunikationsstrategie integriert, die andere Hersteller nicht oder nur extrem schwer integrieren können. Dies führt zu weniger Flexibilität und Kontrolle für den Kunden über das Projekt und steigert dessen Kosten. Um dieses Problem zu lösen, müssen sich die Produzenten zu einem Standard zusammenfinden und die Interoperabilität ihrer Systeme zu gewährleisten. \cite{mielebacher_verteilte_2021}
 	 
-	 Für AZO als Anlagenproduzent ist es von großem Interesse, mit Anlagen und Maschinen anderer Hersteller kommunizieren zu können und dabei die Integration möglich einfach zu realisieren. Auch für Entwickler von \ac(MES) bedeutet die Standardisierung von Kommunikationsprotokollen eine schnellere und einfachere Entwicklung, was zu niedrigeren Entwicklungskosten führt und die Robustheit der Systeme erhöht. AZO nimmt an der Entwicklung von \ac{UMATI} teil, um diese Standardisierung zu erreichen. Dieser Standard möchte die Schnittstellen für die Kommunikation zwischen Maschinen und auch mit der darüber liegenden Datenverarbeitung definieren und basiert auf dem offenen Standard \ac{OPC UA}.
+	 Für AZO als Anlagenproduzent ist es von großem Interesse, mit Anlagen und Maschinen anderer Hersteller kommunizieren zu können und dabei die Integration einfach zu realisieren. Für Entwickler von \ac(MES) bedeutet die Standardisierung von Kommunikationsprotokollen eine schnellere und einfachere Entwicklung, was zu niedrigeren Entwicklungskosten führt und die Robustheit der Systeme erhöht. AZO nimmt an der Entwicklung von \ac{Umati} teil, um diese Standardisierung zu erreichen. Dieser Standard möchte die Schnittstellen für die Kommunikation zwischen Maschinen und mit der darüber liegenden Datenverarbeitung definieren und basiert auf dem offenen Standard \ac{OPC UA}.
 	 
-	 Das Ziel dieser Arbeit ist es, \ac{UMATI} in einem Testumfeld anhand eines Proof-of-Conzept aufzubauen. Um dies zu erreichen, soll zunächst eine Marktanalyse durchgeführt werden und mögliche Lösungen zum Versenden und Empfangen von Daten zwischen Maschine und \ac(MES) zu finden. Diese sollen anhand von selbst entwickelten Kriterien abgewogen und bewertet werden. Die vielversprechendsten Umsetzungen sollen in einem Testsystem implementiert werden und für zukünftige Demonstrationen auf Messen für AZO zur Verfügung gestellt werden. Außerdem soll evaluiert werden, ob \ac{UMATI} auch in der Low-Code Plattform Node Red angewendet werden kann und wenn möglich, das entstehende System als Open-Source Lösung der Öffentlichkeit zur Verfügung zu stellen.
+	 Das Ziel dieser Arbeit ist es, \ac{Umati} in einem Testumfeld anhand eines Proof-of-Conzept aufzubauen. Um dies zu erreichen, soll zunächst eine Marktanalyse durchgeführt werden, um mögliche Lösungen zum Versenden und Empfangen von Daten zwischen Maschine und \ac(MES) zu finden. Diese sollen anhand von selbst entwickelten Kriterien abgewogen und bewertet werden. Die vielversprechendsten Umsetzungen sollen in einem Testsystem implementiert werden und für zukünftige Demonstrationen auf Messen für AZO zur Verfügung gestellt werden.
 	 
-	 Der Prototyp soll ebenfalls eine Integration in ACAS umfassen. Damit kann gezeigt werden, dass die Schnittstellen von AZO Anlagen mit \ac{UMATI} realisierbar sind. Diese Integration muss im Nachgang weiter evaluiert werden, um festzustellen, ob UMATI als Standardisierung eine geeignete Lösung ist.
-	
-	%TODO Relevanz für AZO und Wissenschaft
-	%TODO Sicherheitsrelevanz
+	 Dabei sollen zwei Systeme entstehen. Der VDMA bietet ein Web-Dashboard unter umati.app an, auf dem Zahlreiche Hersteller ihre Maschinen bereits Anbinden. Hier soll eine Simulierte Maschine von AZO ebenfalls dargestellt werden. Außerdem soll eine Interne Demonstration aufgebaut werden, die eine Umatifähige Maschine in die bestehende Infrastruktur Integriert und die Informationen Visualisieren kann.
 	
 	\section{Unternehmen}
 	
-	 Diese Arbeit wird mit dem Dualen Partner \textit{AZO Gmbh \& Co. KG} durchgeführt. AZO bietet maßgeschneiderte Lösungen für die automatisierte Förderung, Lagerung und Dosierung von Rohstoffen weltweit an. Dabei werden Anlagen für die Bereiche der Chemie-, Nahrungsmittel-, Pharma-, Kosmetik und Kunststoffindustrie gefertigt. Diese Projekte umfassen die Planung, Fertigung und Montage, sowie die Automatisierung der Anlagen.
+	 Diese Arbeit wird mit dem Dualen Partner \textit{AZO Gmbh \& Co. KG} durchgeführt. AZO bietet maßgeschneiderte Lösungen für die automatisierte Förderung, Lagerung und Dosierung von Rohstoffen weltweit an. Dabei werden Anlagen für die Bereiche der Chemie-, Nahrungsmittel-, Pharma-, Kosmetik und Kunststoffindustrie gefertigt. Diese Projekte umfassen die Planung, Fertigung und Montage sowie die Automatisierung der Anlagen.
 	 
 	 AZO entwickelt ein eigenes MES-System ACAS, welches die Kommunikation zwischen Anlagen von AZO, aber auch Anlagen von anderen Herstellern, mit den Kunden vereinheitlichen und verbessern soll. Dabei soll ein umfassendes System entstehen, welches Steuerung, Visualisierung und Überwachung der Produktion übernehmen und in einer zentralen Software bündeln soll.
 	 
@@ -60,19 +58,20 @@
 	
 	\section{Forschungsfragen}
 	
-	Die Standardisierung der Integration von verschiedensten Maschinen in eine Umgebung ist nötig und kann zu verstärkten Effizienzsteigerungen und Aufwandsersparnis führen. Für Anlagenbauer verspricht die Nutzung von Umati, diese Integration in einen schnellen und effizienten Prozess zu wandeln. Um das Potenzial von Umati zu evaluieren, wurden folgende Schwerpunkte betrachtet:
+	Die Standardisierung der Integration von verschiedensten Maschinen ist nötig und kann zu verstärkten Effizienzsteigerungen und Aufwandsersparnis führen. Für Anlagenbauer verspricht die Nutzung von \ac{Umati}, diese Integration in einen schnellen und effizienten Prozess zu wandeln. Um das Potenzial von \ac{Umati} zu evaluieren, wurden folgende Schwerpunkte betrachtet:
 	
 	\begin{itemize}
-		\item \textbf{Q1}: Welche Herausforderungen ergeben sich bei der Umsetzung von Umati?
-		\item \textbf{Q2}: Welche Lösungen zur Umsetzung von Umati sind am Wirtschaftlichsten?
-		\item \textbf{Q3}: Wie kann die Datenkommunikation von Anlage und ACAS bestmöglich implementiert werden?
+		\item \textbf{Q1}: Welche Herausforderungen ergeben sich bei der Umsetzung von \ac{Umati}?
+		\item \textbf{Q2}: Welche Lösungen zur Umsetzung von \ac{Umati} sind am Wirtschaftlichsten?
+		\item \textbf{Q3}: Wie kann die Datenkommunikation zwischen Anlage und Visualisierungplattform bestmöglich implementiert werden?
 	\end{itemize}
 	
 	\section{Aufbau der Arbeit}
 	
-	Nachfolgend werden Thematiken beschrieben die zum grundlegenden Verständnis der Arbeit beitragen (Kapitel \ref{ch:Grundlagen}). Daraufhin werden die Methodiken beschrieben, mit denen die Informationen für diese Arbeit erhoben wurden (Kapitel \ref{ch:Methodiken}). Im Hauptteil der Arbeit (Kapitel \ref{ch:Ergebnisse}) wird der restliche Ablauf der Arbeit beschrieben. Es werden zunächst Informationen zur Entscheidungsfindung eingeholt und in Analysen in Relation gesetzt und daraufhin wird die Entwicklung des Prototyps beschrieben. Die Arbeit schließt mit einer Diskussion der gefundenen Ergebnisse und einem Fazit (Kapitel \ref{ch:Diskussion_Fazit}).
+	Zu Beginn der Arbeit werden alle Grundlegenden Technologien und Themenbereiche beschrieben, die zum Verständnis benötigt werden (Kapitel \ref{ch:Grundlagen}). Daraufhin werden die Methodiken beschrieben, mit denen die Informationen für diese Arbeit erhoben wurden (Kapitel \ref{ch:Methodiken}). Im Hauptteil der Arbeit (Kapitel \ref{ch:Ergebnisse}) werden die Vorbereitenden Schritte für die Projekte sowie deren Durchführung behandelt. Die Implementation der Programme wird in Kapitel \ref{ch:Implementierung} in zwei Teilen behandelt, wobei die Implementation des Firmeninternen Prototyps aus Kapitel \ref{ch:Implementierung-Intern} auf die Ergebnisse aus Kapitel \ref{ch:Implementierung-Web} stützt. Die Arbeit schließt mit einer Diskussion der gefundenen Ergebnisse und einem Fazit (Kapitel \ref{ch:Diskussion_Fazit}).
 	
 	% TODO: Messematerial wenn in kapitel behandelt noch anhängen
+	% TODO: Ganz am Schluss nochmal lesen
 	
 \chapter{Grundlagen}\label{ch:Grundlagen}
 	% (16 Seiten)
@@ -89,7 +88,7 @@
 	OPC UA baut auf einem Server-Client-Modell auf, wobei der Client die Anfragen an den Server senden muss. Der Client fragt den Server nach Daten und analysiert diese während der Server die Daten der dahinterliegenden Anlagen in übertragbare Strukturen bringt und sie zur Verfügung stellt. Da der jeder Client an mehreren Servern Daten erheben kann, wird das System gut skalier- und erweiterbar.
 	
 	%Interoperabilität
-	Das Ziel von OPC UA und auch im weitergetragenen Sinne von Umati ist das Erreichen von Interoperabilität von Maschinen im industriellen Bereich. Interoperabilität beschreibt die Standardisierung von Kommunikation zwischen Systemen. Allgemein kann diese in 4 Stufen eingeteilt werden, wobei jede Ebene auf die darunterliegende aufbaut. Im Schaubild \ref{fig:Interoperabilität} sind die vier Ebenen Strukturelle, Syntaktische, semantische und Organisatorische Interoperabilität abgebildet.
+	Das Ziel von OPC UA und auch im weitergetragenen Sinne von \ac{Umati} ist das Erreichen von Interoperabilität von Maschinen im industriellen Bereich. Interoperabilität beschreibt die Standardisierung von Kommunikation zwischen Systemen. Allgemein kann diese in 4 Stufen eingeteilt werden, wobei jede Ebene auf die darunterliegende aufbaut. Im Schaubild \ref{fig:Interoperabilität} sind die vier Ebenen strukturelle, syntaktische, semantische und organisatorische Interoperabilität abgebildet.
 	 
 	 \begin{figure}[H]
 	 	\centering
@@ -146,7 +145,7 @@
 		Der OPC UA Server implementiert die proprietären Kommunikationsprotokolle, die vom Maschinenhersteller entwickelt wurden, um mit den Anlagen und den Field Conections zu kommunizieren. Je nach Art der Daten, die die Maschine weiter gibt, werden die Daten auf dem OPC UA Server abgespeichert oder an den Client weiter gegeben. Ein OPC UA Server kann in zwei Formen entstehen. Der Hersteller kann seiner Maschine die OPC UA Standards bereits bei der Entwicklung einprogrammieren. Damit ist der Server in der Maschine integriert und die Maschine ist so von Beginn an OPC UA fähig. Manche SPS Geräte implementieren auch die Möglichkeit einen OPC Server direkt auf der Maschine zu konfigurieren. Sollte der Hersteller die Spezifikationen jedoch nicht implementieren, kann der Server auch zusätzlich zwischen die Maschine und den Client geschallten werden. Durch die Unabhängigkeit des Herstellers sind diese Server oft mit mehr Kommunikationsprotokollen ausgestattet, was deren Möglichkeiten, mit der Maschine zu interagieren erhöht. \cite{rinke_was_2022}
 		
 		%Pub/Sub
-		Die Kommunikation mit dem Client läuft dabei 1 zu 1 ab. Allerdings kann auch ein 1 zu n Kommunikationsmodell über Publish and Subscribe implementiert werden. Um diese Funktion jedoch zu nutzen, muss der Server mit der OPC UA Pub/Sub Spezifikation erweitert werden. \cite{mielebacher_verteilte_2021}
+		Die Kommunikation mit dem Client läuft dabei 1 zu 1 ab. Allerdings kann auch ein 1:n Kommunikationsmodell über Publish and Subscribe implementiert werden. Um diese Funktion jedoch zu nutzen, muss der Server mit der OPC UA Pub/Sub Spezifikation erweitert werden. \cite{mielebacher_verteilte_2021}
 		
 		Der Client kann die Daten über die standardisierte API des OPC UA Servers abfragen. Es können Echtzeitdaten, historische Daten abgerufen werden. Außerdem gibt es eine Spezifikation, wie Alarmierungslogik umgesetzt werden soll. Dies wird anhand der Implementation auf Serverebene deutlich vereinfacht, da sie dann Hersteller unabhängig ist. \cite{rinke_was_2022}
 		
@@ -159,7 +158,7 @@
 		
 		In der Automation werden verschiedenste Methoden verwendet, um Endpunkte an eine Anlage anzubinden. In Abbildung \ref{fig:share} sind der Anteil der Verschiedenen Netzwerktypen in der Industrie 2022 veröffentlicht von HMS Networks. Die drei größten Felder sind Fieldbus, Kabellos (Wireless) und Industrielles Ethernet (Industrial Ethernet) wobei letzteres den größte Anteil ausmacht mit 66\%. OPC UA vereint diese Kommunikationsprotokolle in einem Server und so können Clients die Daten über den OPC UA Server auslesen und müssen nicht für jede Maschine ein eigenes Protokoll implementieren. \cite{noauthor_2022_nodate}
 		
-		Anders Hansson, Chief Marketing Officer von HMS Networks erklärt sich den Wachstum des Industriellen Netzwerkmarktes aufgrund der steigenden nachfrage in der modernen Industrie, nachhaltig, effizient und produktiv zu bleiben und gleichzeitig flexibele und qualitative Fertigung zu ermöglichen. Die Netzwerke zur Kommunikation sind dabei ein Schlüsselfaktor um die genannten Punkte zu erreichen. \cite{noauthor_2022_nodate}Bei einem instgesamten Wachstum der Nutzung dieser Systeme um 8\% zeigen die Entwicklungen in diesen Bereichen eine deutliche Relevanz für die Automatisierung von und Kommunikation mit Maschinen. 
+		Anders Hansson, Chief Marketing Officer von HMS Networks erklärt sich den Wachstum des Industriellen Netzwerkmarktes aufgrund der steigenden nachfrage in der modernen Industrie, nachhaltig, effizient und produktiv zu bleiben und gleichzeitig flexibele und qualitative Fertigung zu ermöglichen. Die Netzwerke zur Kommunikation sind dabei ein Schlüsselfaktor um die genannten Punkte zu erreichen \cite{noauthor_2022_nodate}. Bei einem instgesamten Wachstum der Nutzung dieser Systeme um 8\% zeigen die Entwicklungen in diesen Bereichen eine deutliche Relevanz für die Automatisierung von und Kommunikation mit Maschinen. 
 		
 		% TODO Kommunikationsprotokolle Analyse Anteile, verwendung AZO
 		
@@ -171,15 +170,15 @@
 		\end{figure}
 	
 		%Nachrichtenaufbau
-		OPC UA nutzt einen Objektorientierten Ansatz zum Datenaustausch. Dabei werden hierarchische Daten übergeben. Jedes Objekt kann aus Attributen und Methoden bestehen. Die Attribute beinhalten Werte welche gelesen werden können, währen die Methoden vom Client aufgerufen werden können um der Maschine eine Nachricht zu senden. 
+		OPC UA nutzt einen objektorientierten Ansatz zum Datenaustausch. Dabei werden hierarchische Daten übergeben. Jedes Objekt kann aus Attributen und Methoden bestehen. Die Attribute beinhalten Werte welche gelesen werden können, währen die Methoden vom Client aufgerufen werden können, um der Maschine eine Nachricht zu senden. 
 		
 		\subsection{Sicherheit}
 		
 		%Einführung
-		Eines der Ziele von OPC UA ist es, eine sichere Verbindung und Kommunikation zu ermöglichen. Deshalb trägt bereits die zweite Spezifikation von OPC UA den Namen \glqq Security Modell\grqq. Hierin ist festgelegt, welche Sicherheitsmechanismen bei der Nutzung von OPC UA angewendet werden sollen.
+		Eines der Ziele von OPC UA ist es, eine sichere Verbindung und Kommunikation zu ermöglichen. Die zweite Spezifikation von OPC UA mit dem Titel \glqq Security Modell\grqq definiert die Sicherheit und ist Voraussetzung für die anderen Spezifikationen. Hierin ist festgelegt, welche Sicherheitsmechanismen bei der Nutzung von OPC UA angewendet werden sollen.
 		
 		% Allgemeines
-		Die OPC Foundation beschreibt Unified Architecture sicher und Firewall freundlich, da OPC UA über den Port 443 kommuniziert, der meist nicht blockiert ist. OPC UA unterstützt Security auf Transport- und Applikationsebene anhand von selbst entworfenen Protokollen und Erweiterungen von bereits bestehenden Standards. Die Codierung findet auf binärer Ebene statt, wobei die Kommunikation über HTTPS abläuft. Die Authentifizierung von Clients und Servern findet über X509 Zertifikate statt, wobei der Entwickler der UA Anwendung die Anbindung an einen Zertifikatsspeicher selbst übernehmen kann. \cite{noauthor_unified_nodate, noauthor_opc_nodate}
+		Die OPC Foundation beschreibt Unified Architecture mit den Attributen sicher und Firewall freundlich, da OPC UA über den Port 443 kommuniziert, der meist nicht durch Firewalls blockiert wird. OPC UA unterstützt Security auf Transport- und Applikationsebene anhand von selbst entworfenen Protokollen und Erweiterungen von bereits bestehenden Standards. Die Codierung findet auf binärer Ebene statt, wobei die Kommunikation über HTTPS abläuft. Die Authentifizierung von Clients und Servern findet über X509 Zertifikate statt, wobei der Entwickler der UA Anwendung die Anbindung an einen Zertifikatsspeicher selbst übernehmen kann. \cite{noauthor_unified_nodate, noauthor_opc_nodate}
 		
 		% Authentifizierung/Autorisierung
 		Auf Applikationsebene gibt es Sicherheitsmechanismen, welche dir Authentifikation und Autorisierung der Nutzer bearbeiten. Hierbei kommen Passwörtern, Zertifikaten, Webtokens und weiteres zum Einsatz. Außerdem können mit Rechten für Nutzer weitere Einschränkungen auf den Zugriff einzelner Nutzer gelegt werden. Zuzüglich können Aktivitäten von Nutzern und dem System geloggt werden, um die Nachvollziebarkeit zu erhöhen und die Sicherheit des Systems zu stärken. \cite{noauthor_unified_nodate, noauthor_opc_nodate}
@@ -190,16 +189,16 @@
 		
 		%Wenn bei Umati sich etwas ändert, dann dort noch ein Kapitel puschen
 	
-	\section{Umati}
+	\section{\ac{Umati}}
 		
 		%Einführung
-		Umati ist eine globale Initiative zur Standardisierung von Interfaces zur Kommunikation zwischen Produktionsanlagen. Sie wird vom \ac{VDMA} und dem \ac{VDW} verwaltet und vorangetrieben von den zahlreichen Mitgliedern der beiden Vereinigungen. Das Ziel ist es, die Kommunikation zwischen Maschinen möglichst einfach, sicher und einfach zu gestalten. Es soll eine Plug \& Play Umgebung entstehen, in der neue Maschinen in eine Anlage durch bloßes Einstecken ins Kommunikationsnetzwerk integriert werden können. Die Umati Initiative entwickelt Standards, welche weltweit zum Einsatz kommen sollen, um eine starke internationale Gemeinschaft um diesen Standard zu erreichen. \cite{noauthor_umati_2023}
+		\ac{Umati} ist eine globale Initiative zur Standardisierung von Schnittstellen zur Kommunikation zwischen Produktionsanlagen. Sie wird vom \ac{VDMA} und dem \ac{VDW} verwaltet, die durch ihre zahlreichen Mitglieder den Standard schnell vorantreiben können. Das Ziel ist es, die Kommunikation zwischen Maschinen möglichst einfach, sicher und einfach zu gestalten. Es soll eine Plug \& Play Umgebung entstehen, in der neue Maschinen in eine Anlage durch bloßes Einstecken ins Kommunikationsnetzwerk integriert werden können. Die \ac{Umati} Initiative entwickelt Standards, welche weltweit zum Einsatz kommen sollen, um eine starke internationale Gemeinschaft um diesen Standard zu erreichen. \cite{noauthor_umati_2023}
 		
 		%OPC UA in UMATI
-		\ac{UMATI} baut auf den OPC UA Standards der OPC Foundation auf. OPC UA bildet dabei die Basis und definiert, wie und was kommuniziert werden soll. Es legt fest, was die Rahmenbedingungen für Konnektivität und syntaktische Interoperabilität sind. \cite{noauthor_umati_2023} OPC UA ermöglicht es die Semantische Interoperabilität über Companion Spezifications zu versichern. Diese werden auch schon in der Industrie eingesetzt weshalb sich \ac{UMATI} die Aufgabe gemacht hat, die verschiedenen Spezifikationen zu vereinheitlichen damit beispielsweise die Identifizierung einer Maschine immer gleich abläuft.
+		\ac{Umati} baut auf den OPC UA Standards der OPC Foundation auf. OPC UA bildet dabei die Basis und definiert, wie und was kommuniziert werden soll. Es legt fest, was die Rahmenbedingungen für Konnektivität und syntaktische Interoperabilität sind. \cite{noauthor_umati_2023} OPC UA ermöglicht es die semantische Interoperabilität über Companion Spezifications zu versichern. Diese werden auch schon in der Industrie eingesetzt weshalb sich \ac{Umati} die Aufgabe gemacht hat, die verschiedenen Spezifikationen zu vereinheitlichen damit beispielsweise die Identifizierung einer Maschine immer gleich abläuft.
 		
 		% Automatisierungspyramide
-		Umati soll vor allem die vertikale und horizontale Integration im Unternehmen erleichtern. In Abbildung \ref{fig:Automatisierungspyramide} ist die Automatisierungspyramide nach Siepmann abgebildet. Je tiefer die Ebene in der Pyramide liegt, desto vielfältiger sind die Systeme dieser Ebene. Während ein Unternehmen nur ein \ac{ERP} System verwendet, kann es zahlreiche SPS und noch mehr Ein- und Ausgabesensoren geben. Diese müssen vertikal integriert werden. Dafür werden Daten von den unteren Ebenen in die Systeme weiter oben zur Verarbeitung überreicht. Bei der horizontalen Integration kommunizieren gleichartige Systeme miteinander. Beispielsweise wenn mehrere SPS Daten austauschen oder Daten Abteilungsübergreifend übergeben werden, wie bei einem Datenfluss von SCM zu CRM System sein. 
+		\ac{Umati} soll vor allem die vertikale und horizontale Integration im Unternehmen erleichtern. In Abbildung \ref{fig:Automatisierungspyramide} ist die Automatisierungspyramide nach Siepmann abgebildet. Je tiefer die Ebene in der Pyramide liegt, desto vielfältiger sind die Systeme dieser Ebene. Während ein Unternehmen nur ein \ac{ERP} System verwendet, kann es zahlreiche SPS und noch mehr Ein- und Ausgabesensoren geben. Diese müssen vertikal integriert werden. Dafür werden Daten von den unteren Ebenen in die Systeme weiter oben zur Verarbeitung überreicht. Bei der horizontalen Integration kommunizieren gleichartige Systeme miteinander. Beispielsweise wenn mehrere SPS Daten austauschen oder Daten Abteilungsübergreifend übergeben werden, wie bei einem Datenfluss von SCM zu CRM System sein. 
 		
 		\begin{figure}[H]
 			\centering
@@ -208,12 +207,12 @@
 			\label{fig:Automatisierungspyramide}
 		\end{figure}
 		
-		Umati legt standardisierte Interfaces fest, mit denen die vertikale und horizontale Integration möglichst einfach umgesetzt wird. Dadurch kann die Wertschöpfung aus Daten kostengünstiger ablaufen und die Analyse, Verarbeitung und Verwertung von Daten, wie es in der Industrie 4.0 üblich ist, besser ablaufen. Umati hat bereits Vorführungen auf Messen veranstaltet, welche die Funktionsfähigkeit einer Umati Umsetzung demonstrieren. Umati standardisiert dabei die Integration von Maschinen, deren Installation und ganze IT Produktionsumgebungen. \cite{noauthor_about_nodate}
+		\ac{Umati} legt standardisierte Schnittellen fest, mit denen die vertikale und horizontale Integration möglichst einfach umgesetzt wird. Dadurch kann die Wertschöpfung aus Daten kostengünstiger ablaufen und die Analyse, Verarbeitung und Verwertung von Daten, wie es in der Industrie 4.0 üblich ist, besser ablaufen. \ac{Umati} hat bereits Vorführungen auf Messen veranstaltet, welche die Funktionsfähigkeit einer \ac{Umati} Umsetzung demonstrieren. \ac{Umati} standardisiert dabei die Integration von Maschinen, deren Installation und ganze IT Produktionsumgebungen. \cite{noauthor_about_nodate}
 		
 		% Companion Specifikations
-		Die Semantische Interoperabilität wurde bereits mit OPC UA über die Companion Spezifikationen erreicht. Allerdings entstehen diese Standards in gesonderten Arbeitsgruppen welche auf die Teilnehmer zugeschnitten sind. Dadurch entstehen viele Spezifikationen in vielen verschiedenen Branchen und Maschinen können nicht mehr ohne Übersetzung kommunizieren. Umati versucht diesen Umstand durch das Zusammenfassung dieser Spezifikationen zu beheben. Es sollen Maschinen entstehen, die alle die selbe Sprache sprechen und so einfach in neue IT 
+		Die semantische Interoperabilität wurde bereits mit OPC UA über die Companion Spezifikationen erreicht. Allerdings entstehen diese Standards in gesonderten Arbeitsgruppen welche auf die Teilnehmer zugeschnitten sind. Dadurch entstehen viele Spezifikationen in vielen verschiedenen Branchen und Maschinen können nicht mehr ohne Übersetzung kommunizieren. \ac{Umati} versucht diesen Umstand durch das Zusammenfassung dieser Spezifikationen zu beheben. Es sollen Maschinen entstehen, die alle die selbe Sprache sprechen und so einfach in neue IT 
 		
-		Umati selbst besteht aus verschiedenen Modulen, welche alle Standards für verschiedene Bereiche definieren. In Abbildung \ref{fig:OPCUA_for_machinery} sind alle Interfaces abgebildet, welche auf der Base Spezifikation OPC 40001 aufbauen. Dieser wird auch OPC 40001 UA for Machinery genannt und ist für die Anlagenbauindustrie gedacht. Umati befindet sich noch in der Entwicklung und ist noch nicht vollständig fertiggestellt, deshalb gibt es Interfaces, welche noch nicht umgesetzt, sondern nur geplant sind. \cite{noauthor_machinery_nodate}
+		\ac{Umati} selbst besteht aus verschiedenen Modulen, welche alle Standards für verschiedene Bereiche definieren. In Abbildung \ref{fig:OPCUA_for_machinery} sind alle Interfaces abgebildet, welche auf der Base Spezifikation OPC 40001 aufbauen. Dieser wird auch OPC 40001 UA for Machinery genannt und ist für die Anlagenbauindustrie gedacht. \ac{Umati} befindet sich noch in der Entwicklung und ist noch nicht vollständig fertiggestellt, deshalb gibt es Interfaces, welche noch nicht umgesetzt, sondern nur geplant sind. \cite{noauthor_machinery_nodate}
 		
 		\begin{figure}[H]
 			\centering
@@ -227,13 +226,13 @@
 		\subsection{VDMA}
 		
 		%Allgemin
-		\ac{VDMA} ist der größte Industrieverbund in Europa und eines seiner Ziele ist es, Umati International zu verbreiten. Der Verband wurde 1892 gegründet und hat seinen Sitz in Frankfurt am Main. Neben der Vertretung der Interessen industrieller Unternehmen in Deutschland und Europa gegenüber der Politik, erarbeitet der VDMA auch Standards und tauscht Know-How zwischen seinen 3.600 Mitgliedsunternehmen aus. \cite{noauthor_verband_nodate} In dem Interessenverband sind Firmen aus den Bereichen Maschinenbau, Anlagenbau und der Zulieferindustrie, welche sich Kompetenzen und Informationen in verschiedensten Themenbereichen von Bildung \& Modernem Arbeiten über Digitalisierung bis zu rechtlichen Feldern teilen. \cite{noauthor_themenubersicht_nodate}
+		\ac{VDMA} ist der größte Industrieverbund in Europa und eines seiner Ziele ist es, \ac{Umati} International zu verbreiten. Der Verband wurde 1892 gegründet und hat seinen Sitz in Frankfurt am Main. Neben der Vertretung der Interessen industrieller Unternehmen in Deutschland und Europa gegenüber der Politik, erarbeitet der VDMA auch Standards und tauscht Know-How zwischen seinen 3.600 Mitgliedsunternehmen aus. \cite{noauthor_verband_nodate} In dem Interessenverband sind Firmen aus den Bereichen Maschinenbau, Anlagenbau und der Zulieferindustrie, welche sich Kompetenzen und Informationen in verschiedensten Themenbereichen von Bildung \& Modernem Arbeiten über Digitalisierung bis zu rechtlichen Feldern teilen. \cite{noauthor_themenubersicht_nodate}
 		
 		%VDMA Wirken
 		Der VDMA wirkt vor allem mit Förderungen in Bereichen, die Innovation bringen. Beispielweise fördert der Verband Technologien in den Bereichen Industrie 4.0, Digitalisierung und nutzt Lobbyarbeit, um seine Mitglieder auch politisch zu unterstützen. Außerdem veranstaltet der VDMA Messen zur Netzwerkbildung und zum Demonstrieren von neusten Technologien seiner Mitglieder. Im Allgemeinen verfolgt der Verband die Stärkung der europäischen Maschinenbaubranche und die Verbesserung der Wettbewerbsfähigkeit auf internationaler Ebene. \cite{noauthor_themenubersicht_nodate}
 		
 		%AZO
-		AZO, der Partner dieser Arbeit, ist auch ein Mitglied des VDMA. Da AZO ein mittelständisches Unternehmen im Anlagenbau ist, setzt sich der VDMA genau für diese Interessen ein und möchte mit Umati eine Plug \& Play Umgebung im Anlagenbau ermöglichen. Der VDMA möchte eine erhöhte Interoperabilität zwischen den Maschinen ihrer Mitglieder bewirken und so die Wettbewerbsfähigkeit des europäischen Markts stärken, aber auch in der Standardisierung der internationalen Industrie mitwirken. 
+		AZO, der Partner dieser Arbeit, ist auch ein Mitglied des VDMA. Da AZO ein mittelständisches Unternehmen im Anlagenbau ist, setzt sich der VDMA genau für diese Interessen ein und möchte mit \ac{Umati} eine Plug \& Play Umgebung im Anlagenbau ermöglichen. Der VDMA möchte eine erhöhte Interoperabilität zwischen den Maschinen ihrer Mitglieder bewirken und so die Wettbewerbsfähigkeit des europäischen Markts stärken, aber auch in der Standardisierung der internationalen Industrie mitwirken. 
 		
 		\subsection{OPC UA for Machinery}
 		
@@ -250,17 +249,17 @@
 	\section{Weitere Technologien}
 		\subsection{Docker}
 		
-		Docker ist eine Open-Source Virtualisierungstechnologie. Ihr primärer nutzen ist das Anbieten, das Entwickeln und Verwalten von Anwendungen auf einem Serverumfeld. Dabei werden alle Services in eigenen Containern verwaltet, was es ermöglicht einzelne Teile einer Anwendung neu zu starten, sie einfach zu skalieren oder gefahrlos zu beenden. Durch die Containerisierung der Services können alle Anwendungen Betriebssystemunabhängig gehostet werden, wobei ein funktionierende Installation der Docker Engine benötigt wird. 
+		Docker ist eine Open-Source Virtualisierungstechnologie. Ihr primärer nutzen ist das Anbieten, das Entwickeln und Verwalten von Anwendungen auf einem Serverumfeld. Dabei werden alle Services in eigenen Containern verwaltet, was es ermöglicht einzelne Teile einer Anwendung neu zu starten, sie einfach zu skalieren und einzelne Teile zu beenden, ohne das gesamt System zu beenden. Die Container sind auf die Docker-Engine angewiesen, welche zahlreiche Betriebssysteme unterstützt. Ist eine Anwendung containerized, kann sie auf jeder dieser Betriebssysteme auf Basis einer Docker-Engine gestartet werden. \cite{noauthor_install_2023}
 		
-		Die Container werden immer über ein Image, einen Bauplan für einen laufenden Container, erstellt. Es können auch mehrere Container über Docker Compose Files gestartet werden, in denen alle Startparameter, sowie die verwendeten Prots des Hostststems festgelegt werden können. 
+		Ein Container wird über ein Docker Image gestartet. Ein Image ist der Bauplan einer Anwendung. In einem Docker Compose File können mehrere Container gestartet werden und deren Startparameter festgelegt werden. Zu diesen Parametert gehören benötigte Ports, Umgebungsvariablen für innerhalb des Containers und welche Version des Images verwendet werden soll. Es können auch virtuelle Netzwerke festgelegt werden, welche die Container auch voneinander abgrenzen. 
 		
-		Docker hat sich im Bereich der Containersysteme durchgesetzt, da es eine zugängliche Schnittstelle zu dieser Art des Servicedeployment bietet. Durch die einfache Handhabe und den leicht zugänglichen Dockerhub, ein Image Repository in dem geprüfte und populäre Services durch nur einen Befehl heruntergeladen werden können, ist Docker die beste Lösung für diese Art des Servicemanagments geworden.
+		Docker hat sich im Bereich der Containersysteme durchgesetzt, da es eine zugängliche Schnittstelle zu dieser Art des Servicedeployment bietet. Docker bietet eine einfache Handhabe und Automatisierte Prozesse zum starten und beenden von Services. Docker Hub trug zum Durchbruch der Virtualisierungslösung ebenfalls bei. Dies ist ein Repository im Internet, in dem zahlreiche Images abgelegt werden können. Die Verwendung von Docker hub erfolgt über einen Nativen Docker Befehl, der das Image herunter läd und zur Nutzung bereitstellt. 
 		
-		In diesem Projekt stellt Docker die beste Auswahl dar, da es bereits eine bestehende Docker Umgebung gibt, und der Prototyp später auch in dieser Umgebung laufen soll. Außerdem ermöglicht Docker den Austausch einzelner Komponenten was die Anwendung für zukünftige Anpassungen sehr offen macht.
+		Docker ist die grundlegende Technologie für diese Arbeit. Es wird verwendet um die einzelnen Komponenten des Prototypen zu verbinden. Docker eignet sich durch seine einfache Handhabe und die bereits bestehende Expertise im Unternehmen für die Entwicklung des Prototypen. Auch für die Integration in die AZO Infrastruktur bietet sich Docker an, da bereits eine Dockerumgebung für andere Services besteht. 
 		
 		\subsection{MQTT}
 		
-		Das \ac{MQTT} ist eine Nachrichtenprotokoll das sich durch seine Robusten Eigenschaften vor allem für unzuverlässige Umgebungen eignet. Es ist entwickelt worden um mit Geräten mit hoher Latenz, geringer Bandbreite oder labilem Netzwerk zu kommunizieren. Es eignet sich vor allem für \ac{M2M} Kommunikation und den \ac{IoT} Bereich, da es besondere Akku und Leistungssparen ist. 
+		Das \ac{MQTT} ist eine Nachrichtenprotokoll, dass sich durch seine Robusten Eigenschaften vor allem für unzuverlässige Umgebungen eignet. Es ist entwickelt worden um mit Geräten mit hoher Latenz, geringer Bandbreite oder labilem Netzwerk zu kommunizieren. Es eignet sich vor allem für \ac{M2M}-Kommunikation und den \ac{IoT} Bereich, da es besondere Akku und Leistungssparen ist. 
 		
 		\ac{MQTT} baut auf einer Subscribe and Publish Architektur auf. Ein Eingabegerät, beispielsweise ein Temperatursensor, erhebt seine Daten und reicht sie an einen MQTT Broker weiter, welcher die Daten veröffentlicht (Publish). Möchte ein Client auf die Daten zugreifen, muss er den korrekten \textit{Topic} unter dem die Daten liegen abonnieren und erhält daraufhin alle Änderungen des Datensatzes (Subscribe).
 		
@@ -275,7 +274,7 @@
 	
 	\section{Literaturrecherche}
 	
-	Die Informationen der vorangegangenen Kapitel \ref{ch:Einführung} und \ref{ch:Grundlagen} wurden aus offizieller Literatur entnommen. Zu den Informationen zu OPC UA wurden die offiziellen Spezifikationen und empfohlene Literatur der OPC Foundation verwendet. Dasselbe Vorgehen wurde für die theoretische Vorarbeit von Umati genutzt. Die meisten Informationen zum neuen Standard wurden der offiziellen Webseite des VDMA entnommen. Außerdem sind dort auch Literaturempfehlungen ausgeschrieben welche ebenfalls verwendet wurden. Um theoretische Grundlagen und Konzepterklärungen zu recherchieren, wurden Vorlesungsmaterialien der DHBW Mosbach verwendet.
+	Die Informationen der vorangegangenen Kapitel \ref{ch:Einführung} und \ref{ch:Grundlagen} wurden aus offizieller Literatur der Hersteller entnommen. Zu den Informationen zu OPC UA wurden die offiziellen Spezifikationen und empfohlene Literatur der OPC Foundation verwendet. Dasselbe Vorgehen wurde für die theoretische Vorarbeit von \ac{Umati} genutzt. Die meisten Informationen zum neuen Standard wurden der offiziellen Webseite des VDMA entnommen. Zusätzlich wurden die vom VDMA empfohlenen Literaturen für OPC UA und Umati verwendet. Um theoretische Grundlagen und Konzepterklärungen zu recherchieren, wurden Vorlesungsmaterialien der DHBW Mosbach verwendet.
 	
 	% Datenerhebung - Literaturrecherche
 	% Stichwort recherche
@@ -286,7 +285,7 @@
 	
 	% Evaluation des Ergebnisses
 	
-	Das Ergebnis dieser Arbeit wird ein Prototyp zur Demonstration der Umati Spezifikation sein. Dieser Prototyp muss anhand bestimmter Kriterien bewertet werden. Diese können aus dem Standard ISO 25010 für Softwarequalität entnommen werden. In Abbildung \ref{fig:ISO25010} sind die Softwarequalitätskriterien strukturiert abgebildet, wie sie im ISO-Standard definiert sind. 
+	Das Ergebnis dieser Arbeit ist ein Prototyp zur Demonstration der \ac{Umati} Spezifikation. Dieser Prototyp wurde anhand bestimmter Kriterien bewertet. Diese wurden aus dem Standard ISO 25010 für Softwarequalität entnommen. In Abbildung \ref{fig:ISO25010} sind die Softwarequalitätskriterien strukturiert abgebildet, wie sie im ISO-Standard definiert sind. 
 	
 	\begin{figure}[H]
 		\centering
@@ -295,69 +294,21 @@
 		\label{fig:ISO25010}
 	\end{figure}
 	
-	Die Punkte \textit{Functional Suitability}, \textit{Performance Efficiency}, \textit{Usability} und \textit{Reliability} sind die Hauptkriterien die für den Messeprototypen besonders wichtig sind. Die anderen Kriterien sind ebenfalls von wichtigkeit, können jedoch den anderen nachgestellt werden, da der Prototyp nur demonstrativen Nutzen hat. 
 	
+	
+	Die Punkte \textit{Functional Suitability}, \textit{Performance Efficiency}, \textit{Usability} und \textit{Reliability} sind die Hauptkriterien die für den Messeprototypen besonders wichtig sind. Die anderen Kriterien sind ebenfalls von Wichtigkeit, können jedoch den anderen nachgestellt werden, da der Prototyp nur demonstrativen Nutzen hat. 
+	% TODO: Warum???
 	% TODO: Quantifizierbare Ziele setzen
 	
-	Das Demomaterial welches für die Messe ausgelegt werden soll, muss visuell anschaulich sein und die Kernfunktionen von Umati präsentieren. Es geht darum das Interesse der Messebesucher zu wecken und genug Informationen für ein allgemeines Bild über die Funktionen und Ziele von Umati zu erreichen. 
+	Das Demomaterial welches für die Messe ausgelegt werden soll, muss visuell anschaulich sein und die Kernfunktionen von \ac{Umati} präsentieren. Es geht darum das Interesse der Messebesucher zu wecken und genug Informationen für ein allgemeines Bild über die Funktionen und Ziele von \ac{Umati} zu erreichen. 
 	
 	% TODO: Quantifizierbare Ziele setzen
 	
 	%TODO: Reflexion
 	
-	%\section{Experteninterview}
-	
-	%Im Zuge der Ausarbeitung der Anforderungen an Umati und den Prototyp bot sich die Durchführung eines Experteninterviews an. Es wurde ein semistrukturiertes Interview mit den AZO Mitarbeitern %TODO Name 
-	%durchgeführt. Ein semistrukturiertes Interview, auch Leitfaden-gestütztes Interview genannt, geht einen Kompromiss zwischen dem Strukturierten und dem Unstrukturierten Interview ein. Anders als im strukturierten Interview werden die Fragen nicht fest definiert und die Reihenfolge muss nicht zwingend eingehalten werden. Dadurch entsteht ein dynamischeres Gespräch mit dem Experten und der Interviewende kann genauer auf die Spezialbereiche des Experten eingehen. Allerdings verliert die semistrukturierte Methode die Vergleichbarkeit zwischen Interviews, da nicht jede Frage unbedingt bei jedem Interviewten gestellt wird. Um sich von einem unstrukturiertes Interview abzuheben wird bei der Vorbereitung ein Leitfaden erstellt, welcher als Hilfsmittel während des Interviews verwendet werden soll. Dieser spannt den Themenbereich und zweigt die Richtung für das Interview auf. Der Interviewende kann dass Interview thematisch steuern, während der Experte frei sprechen kann. \cite{wesel_semi-strukturierte_2010}
-	
-	%Die Motivation des Interviews war es, Anforderungen für einen Prototypen zu erarbeiten und dabei die wichtigsten Punkte zu erörtern. Zusätzlich soll ein Meinungsbild und das erwartete Potential des Experten in Bezug auf Umati eingeholt werden. 
-	
-	%Um ein semistrukturiertes Interview ordnungsgemäß durchführen zu können muss ein Leitfaden entwickelt werden. Dieser soll dem Interview einen klaren Ablauf geben, aber nicht jede Frage bereits vorschreiben. Im Paper Semi-strukturierte Interviews im Software-Engineering werden die 4 Phasen des Experteninterviews beschrieben, welche im Leitfaden widergespiegelt werden sollen. \cite{wesel_semi-strukturierte_2010}
-	
-	%In der Einführung soll der Interviewte vorgestellt werden und seine Funktionen und Aufgaben beleuchtet werden. Zusätzlich sollen noch Begriffserklärungen stattfinden, um einen Austausch auf gemeinsamen Verständnis zu gewährleisten. \cite{wesel_semi-strukturierte_2010}
-	
-	%Phase zwei ist die Exploration der derzeitigen Situation. Hierbei muss die derzeitige Infrastruktur behandelt werden und auf den Arbeitskontext eingegangen werden. Außerdem soll ein Bild der derzeitigen Bedingungen, Probleme und Einschränkungen gezeichnet werden. Im Fall des Interviews zu Umati werden hier vorallem Fragen zur Maschine-zu-Maschine Kommunikation und den bis jetzt verwendeten OPC UA Spezifikationen bei AZO. \cite{wesel_semi-strukturierte_2010}
-	
-	%In der dritten Phase wird dann die zukünftige Situation betrachtet. Hierbei sollen Wünsche und Erwartungen zusammengetragen werden, welche bestimmte Lösungen oder Werkzeuge erreichen können. Der Interviewte kann hier auch eigene Ideen einbringen. Hier kann in Bezug auf Umati die Erwartungen zum neuen Standard ausgedrückt werden und mögliche Anforderungen an den Standard zusammengetragen werden. Dies ist der wichtigste Teil des Interviews, da aus den Antworten aus dieser Phase die Anforderungen an den Prototypen herausgearbeitet werden können. \cite{wesel_semi-strukturierte_2010}
-	
-	%In der letzten Phase, dem Abschluss, wird der Inhalt des Interviews vom Interviewer zusammengefasst. Daraufhin hat der Interviewte die Möglichkeit, die Vollständigkeit durch weitere Kommentare zu sichern und kann Feedback an den Interviewer geben. Das Interview endet mit einem Dank und dem Abschied. \cite{wesel_semi-strukturierte_2010}
-	
-	%%TODO Einleitung Leitfaden
-	
-	%\textbf{Phase 1: Einführung}
-	%\begin{itemize}
-		%\item \textbf{Begriffsklärungen}: Umati
-		
-		%\item \textbf{Frage 1}: Wie lange arbeiten Sie bereits bei AZO?
-		%\item \textbf{Frage 2}: Was sind Ihre Aufgaben?
-		%\item \textbf{Frage 3}: Wie lange haben Sie schon mit M2M Kommunikation und OPC UA zu tun?
-	%\end{itemize}
-	%\textbf{Phase 2: Exploration der derzeitigen Situation}
-	%\begin{itemize}
-		%%TODO: Probleme bei der kommunikation mit einer Maschine 
-		%%TODO: Spezifischen Daten (Gleichartige daten, viele verschiedene Daten, ...)
-		%\item \textbf{Frage 1}: Wie wird OPC UA bei AZO verwendet?
-		%\item \textbf{Frage 2}: Welche Protokolle sprechen die OPC UA Server mit den Maschinen?
-		%\item \textbf{Frage 3}: Weisen die Companion Spezifikationen Probleme auf? Gibt es Einschränkungen bei der Kommunikation mit OPC UA?
-	%\end{itemize}
-	%\textbf{Phase 3: Exploration zukünftiger Situationen}
-	%\begin{itemize}
-		%\item \textbf{Frage 1}: Erkennen Sie ein Verbesserungspotential bei OPC UA? 
-		%\item \textbf{Frage 2}: Was sind Ihre Wünsche/Erwartungen an einen Standard wie Umati?
-		%\item \textbf{Frage 3}: Was wären Funktionen, welche besonders Relevant wären bei Umati?
-	%\end{itemize}
-	%\textbf{Phase 4: Abschluss}
-	%\begin{itemize}
-		%\item \textbf{1}: Zusammenfassung
-		%\item \textbf{2}: Ergänzungen \& Feedback
-		%\item \textbf{3}: Abschied und Dank
-	%\end{itemize}
-	
-	%%TODO: -> Interview Ergebnisse in Anhang! Und Teilweise in Anforderungsanalyse!
-	
 	\section{Zeitplanung}
 	
-	Die Bearbeitungszeit dieser Arbeit sind 12 Wochen, von Montag dem 19.06.2023 bis Montag den 11.09.2023. In Abbildung \ref{fig:Grantt} ist ein Grantt-Diagramm zur Zeitplanung abgebildet. In den ersten 4 Wochen sollen die Theoretische Grundlagen und die Analysen der Arbeit abgeschlossen sein, damit die Praxis am 10.07.2023 beginnen kann. Von Woche 5 bis 10 soll die Implementation und Integration des Prototypen stattfinden. Den gesamten Prozess kann auf gemeinsam 5 Wochen geschätzt werden,  wobei eine zusätzliche Woche als Puffer eingeplant wird, sollte es Verzögerungen wie Krankheit oder Bereitstellungsschwierigkeiten geben. Am 21.08.2023 soll die Arbeit abgabebereit sein und für eine Korrekturlesung bereitgestellt werden. Parallel zur Korrekturlesung sollen die Messedokumente und Schulungsunterlagen angefertigt werden. Die letzten eineinhalb Wochen sollen dann genutzt werden, um die Arbeit zu Korrigieren.
+	Die Bearbeitungszeit dieser Arbeit beträgt zwölf Wochen, von Montag dem 19.06.2023 bis Montag den 11.09.2023. In Abbildung \ref{fig:Grantt} ist ein Grantt-Diagramm der Zeitplanung abgebildet. In den ersten 4 Wochen sollen die Theoretische Grundlagen und die Analysen der Arbeit abgeschlossen sein, damit die Praxis am 10.07.2023 beginnen kann. Von Woche 5 bis 10 soll die Implementation und Integration des Prototypen stattfinden. Drn gesamte Prozess kann auf gemeinsam 5 Wochen geschätzt werden, wobei eine zusätzliche Woche als Puffer eingeplant wird, sollte es Verzögerungen wie Krankheit oder Bereitstellungsschwierigkeiten geben. Am 21.08.2023 soll die Arbeit abgabebereit sein und für eine Korrekturlesung bereitgestellt werden. Parallel zur Korrekturlesung sollen die Messedokumente und Schulungsunterlagen angefertigt werden. Der letzte Block dient als Puffer für den Abschluss der Arbeit.
 	
 	\begin{figure}[H]
 		\centering
@@ -373,19 +324,22 @@
 	% (8 Seiten)
 	
 	\section{Anforderungsanalyse}
-	
+		
 		\subsection{Vorgehen}
+		%Ziel
+		Das Ziel dieses Projekts ist es, die Umsetzbarkeit eines Umatifähigen OPC UA Servers zu demonstrieren. Es sollen Daten von einer Maschine ausgelesen und Angezeigt werden. Es soll eine Struktur entworfen werden, welche den Datenfluss von OPC UA Server an eine Visualisierungsoberfläche ermöglicht.
+		
+		Zunächst soll der erste Prototyp umgesetzt werden, bei welchem Daten an die offizielle Webseite des VDMAs gesendet werden sollen. Diese Webseite demonstriert, das verschiedenste Hersteller auf einem gemeinsamen Dashboard ihre Maschinen und Anlagen mit Umati integrieren können. AZO möchte eine eigene Maschine dort Anzeigen, welche auf Messen gezeigt werden kann.
+		
+		Der zweite Prototyp ist eine Verbindung zwischen einem OPC UA Server mit der Umati Implementation und einer internen Visualisierung. Hierbei sollen die Daten aus dem OPC UA Server ausgelesen und so transformiert werden, dass sie auf einem Grafana Dashboard angezeigt werden können. AZO visualisiert bereits bestehende Projekte über Grafana und die Umati Maschinen sollen sich so in die bereits bestehende Infrastruktur eingliedern.
+		
+		\subsection{Prototyp 1: Umati Web Dashboard}
+		
 		% Ziel
+		Die Daten eines OPC UA Servers soll an das umati Web Dashboard gesendet werden. Die Seite kann unter dem Link \textit{umati.app} erreicht werden. Sie baut auf einem MQTT Broker auf, welcher alle Daten der Teilnehmer abspeichert und an das Dashboard weiter gibt. Der MQTT Broker liegt an der selben Adresse am Port 443 und benötigt Anmeldekriterien für die Veröffentlichung und das Abfragen von Daten.
 		
-		Das Zeil bei der Umsetzung der Aufgabe ist es, ein Proof of Concept zu entwerfen und so die Umsetzbarkeit zu beweisen. Dabei sollen Daten an die vom VDMA zur Verfügung gestellte Webseite versendet werden und dort angezeigt werden. Das Web-Dashboard, \textit{umati.app}, soll zeigen, dass multiple Anlagenhersteller ihre Maschinen anhand von Umati an einen Client senden können und die Informationen alle angezeigt werden. Dafür nutzt das Dashboard eine Weltkarte, auf der die Maschinen als Marker auftauchen, wo deren Informationen und Variablen genauer eingesehen werden können.
-		
-		Zunächt werden allgemein die Informationen der Maschine an den Server gesendet, danach sollen Werte übertragen werden, welche sich in kurzen Abständen verändern. Es soll die Umsetzbarkeit von Methoden analysiert und das Auslesen von Daten in eine AZO Umgebung realisiert werden. Das gesamte Projekt soll in Docker umgesetzt werden, um das Projekt möglichst modular und interoperabel zu gestalten.
-		
-		% Ablaufdiagramm
-		
-		\subsection{Prototyp}
 		% Prototyp
-		Als Grundlage des Umati-Prototypen soll eine Maschine simuliert werden. Es soll keine echte Maschine verwendet werden, da diese eventuell an bestimmten Zeitpunkten ausgeschaltet oder betriebsunfähig sein könnte. Außerdem ist eine reale laufende Maschine oder Anlage deutlich kostenintensiver als eine Serverbasierte Simulation. Die simulierte Maschine soll eine Anlage von AZO darstellen, die auch tatsächlich im Einsatz ist. Als Beispiel wird ein RoLog simuliert, der bei der automatischen Kleinstmengendosierung von Schüttgütern zum Einsatz kommt. In Abbildung \ref{fig:RoLog} ist ein virtualisierter Aufbau der Anlage abgebildet. Der Roboterarm in der Mitte lagert seine Ressourcenbehälter auf den Schränken an der Seite der Anlage, lagert neue Behälter über die Laufbänder an der Hinterseite (Oben-Links) aus oder ein und dosiert in die Ausgabe an der Front (Vorne-Rechts) des Aufbaus. \cite{noauthor_azo_nodate}
+		Als Grundlage des ersten Prototypen soll eine Maschine simuliert werden. Es soll keine echte Maschine verwendet werden, da diese eventuell an bestimmten Zeitpunkten ausgeschaltet oder betriebsunfähig sein könnte. Außerdem ist eine laufende Maschine oder Anlage deutlich kostenintensiver als eine serverbasierte Simulation. Die simulierte Maschine soll eine Anlage von AZO darstellen, die auch tatsächlich im Einsatz ist. Als Beispiel wird ein RoLog simuliert, der bei der automatischen Kleinstmengendosierung von Schüttgütern zum Einsatz kommt. In Abbildung \ref{fig:RoLog} ist ein virtualisierter Aufbau der Anlage abgebildet. Der Roboterarm in der Mitte lagert seine Ressourcenbehälter auf den Schränken an der Seite der Anlage, lagert neue Behälter über die Laufbänder an der Hinterseite (Oben-Links) aus oder ein und dosiert in die Ausgabe an der Front (Vorne-Rechts) des Aufbaus. \cite{noauthor_azo_nodate}
 		
 		\begin{figure}[H]
 			\centering
@@ -393,73 +347,103 @@
 			\caption{RoLog von AZO Gmbh \& Co. KG \cite{noauthor_azo_nodate}}
 			\label{fig:RoLog}
 		\end{figure}
-		
-		%Funktionalitäten in Simulation
-		Der Prototyp soll mehrere Funktionen umsetzen. Die Umati Spezifikation soll implementiert werden und soll damit das Senden und Empfangen von Daten ermöglichen. Außerdem soll die Wirkung der Steuerungsnachrichten an die Maschine nachvollziehbar visualisiert werden. In Abbildung \ref{fig:evaluation} sind die Anforderungen an den Prototypen abgebildet. Die Funktionalität beinhaltet dabei das der RoLog mindestens 3 Parameter absenden muss und einen Parameter lesen können muss. Es wird ein Ablauf einer Dosierung eines Rezeptes umgesetzt. Zunächst soll der RoLog durch eine Eingabe gestartet werden. Daraufhin soll er ein Rezept dosieren und einen Alarm ausgeben, wenn er fertig ist. Parallel dazu soll der Zustand der Anlage permanent übertragen werden. %TODO Anforderungen mit Prototyp abstimmen
-		
-		Bei der Entwicklung des Prototypen soll die Umsetzbarkeit der Schnittstelle über NodeRed geprüft werden. Dies ist von Interesse da NodeRed bei AZO bereits breitgefächert für die M2M Kommunikation angewandt wird. %TODO: Bezug auf ISO 25010
-		
-		\begin{figure}[H]
-			\centering
-			\includegraphics[width=0.9\textwidth]{res/analysen/Evaluation.pdf}
-			\caption{wichtigste Bewertungskriterien des Prototypen}
-			\label{fig:evaluation}
-		\end{figure}
-		
 	
+		%TODO Text zur Evaluations Kriterien Liste
+		
+		% Evaluationskriterien
+		\begin{itemize}
+			\item \textbf{REQ1}: Kommunikation von OPC UA Server zu Client nach Umati Standard
+			\item \textbf{REQ2}: Daten auf Umati Web-Dashboard
+			\subitem \textbf{REQ2.1}: Visualisierung der Daten, die sich verändern.
+			\subitem \textbf{REQ2.2}: Personalisieren aller Daten nach AZO Gmbh.
+			\subitem \textbf{REQ2.3}: Anpassen der Location auf der Karte.
+			\subitem \textbf{REQ2.3}: Anzeige eines Bild der Maschine.
+			\item \textbf{REQ3}: 
+		\end{itemize}
+		
+		\subsection{Prototyp 1: Umati Web Dashboard}
+		
+		% Ziel
+		Die Daten, welche die Simulation der Maschine generiert, sollen an eine Grafana Instanz gesendet werden. Hier soll erneut eine umatifähiger OPC UA Server verwendet werden. Die Daten sollen in der grafischen Oberfläche von Grafana einfach und fasettenreich ausgelesen und Angezeigt werden können. Das Ziel ist es einen Ablauf zu entwerfen, welcher als Ansatzpunkt für zukünftige Projekte verwendet werden kann. 
+		
+		% Grafana
+		Grafan soll dabei in einem Docker-Container laufen. Grafana bietet Nativ die Möglichkeit, unterschiedliche Datenquellen einzubinden. Eine dieser Datenquellen soll verwendet werden. Es soll ein Dashboard entstehen, welches die Daten der Maschine anzeigt und sich live aktualisiert.
+		
+		%TODO Text zur Evaluations Kriterien Liste
+		
+		% Evaluierungskriterien
+		\begin{itemize}
+			\item \textbf{REQ1}: Kommunikation von OPC UA Server zu Client nach Umati Standard
+			\item \textbf{REQ2}: Grafan muss in einer Docker Instanz laufen.
+			\item \textbf{REQ3}: Dashboard
+			\subitem \textbf{REQ3.1}: Visualisierung der Daten, die sich verändern.
+			\subitem \textbf{REQ3.2}: Einbinden einer Datenquelle, die Grafana Nativ versteht.
+			\item \textbf{REQ4}: 
+		\end{itemize}
+		
+			
+		
 	\section{Lösungsansatz}
 	
-		\subsection{Struktur}
+		\subsection{Grundlagen}
+		% OPC 40001 for Machinery
+		Der OPC UA Server muss mehrere Spezifikationen Implementieren. Als Grundlage muss die Identifikation der Maschinen aus der OPC 40001 for Machinery Spezifikation genutzt werden. Der OPC UA Server erstellt dabei einen Namespace, in dem alle Anlagen einem Ordner mit der Bezeichnung \textit{Machines} untergeordnert sind. Jede Komponente und jede Maschine müssen einen Identifikations Ordner Besitzen. Dieser Ordner ermöglicht es, das OPC UA Clients alle Maschinen finden und sie richtig erkennen. 
 		
+		% OPC 40010 Robotics
+		Da die Basisspezifikation jedoch keinen eigenen Einstioegspunkt definiert, muss eine weitere Spezifikation implementiert werden. Diese Arbeit wird die OPC 40010 Robotics - Vertical Integration Spezifikation implementieren. Diese legt fest, welche Komponenten in welcher art und weise vorhanden sein müssen, um ein Maschine im Roboticsumfeld mit Umati zu betrieben. Es muss ein \textit{MotionDeviceSystem}, ein \textit{Robot} und ein \textit{RobotController} existieren. 
 		
+		% Mandatory Objects
+		Der \textit{Robot} implementiert die Axen und Mototren der Maschine und hat ein Attribut mit den Werten der Geschwindigkeit, Beschleunigung und Position. Der \textit{RobotController} verwaltet das \textit{Robot}-Objekt und speichert noch zusätzliche Informationen ab. Beispielsweise welche Software verwendet wird um den Poboter zu steuern und einige Sicherheitsfeatures. Die \textit{MotionDeviceSystem} verwaltet die \textit{RobotController} und stellt die Anlage im ganzen dar.
 		
-		Das Ziel ist eine AZO Maschine auf der umati Demonstrationsseite (https://umati.app) anzuzeigen. In Abbildung \ref{fig:uamti.app} wird die Struktur des Datenaustausches mit der umati Webseite bildlich dargestellt. Die Daten entstehen in der Simulation des RoLogs, der AZO Maschine. Dieser stellt einen Roboter dar, dessen OPC UA Server die Robotics Spezifikation implementieren soll (OPC 40010). Umati empfängt Daten über einen MQTT Server und synchronisiert diese Daten dann mit dem umati.app Dashboard. Um aus dem OPC UA Server die Daten an den in der Cloud befindlichen MQTT Server zu senden, kann ein vorgefertigter Dockercontainer der VDMA verwendet werden, um den Transport zu übernehmen. Der Datenbroker kann auf dem umati Github Repository gefunden werden.
+		% Aufbau VM
+		Die gesamte Infrastruktur des Projektes wird auf einer VM mit Ubuntu Server 20.04.2 laufen. Auf der VM ist die Docker Engine installiert. Um die Vorgänge auf dem Server besser nachvollziehen zu können ist eine Portainer Instanz als Docker Container installiert. Portainer ist eine grafische Oberfläche die über den Browser erreicht werden kann. Sie ermöglicht den Umgang mit Docker Containern, Images und allem was Docker zu Verfügung stellt sehr einfach. Unter anderem kann eine Console innerhalb der Container gestartet werden, was die Entwicklung extrem vereinfacht. 
 		
-		Andere Firmen können ihre Daten über den selben Prozess auf das umati Dashboard laden. So entsteht eine Demonstration das eine Oberfläche die Möglichkeit besitzt, Maschinendaten aus verschiedensten Quellen un Herstellern integrieren kann. 
+		\subsection{OPC UA Server}
 		
-		Sind die Daten auf dem Umati Server können sie anhand der von VDMA gesendeten Anmeldedaten über einen MQTT Client gelesen werden und daraufhin in das lokale MES System integriert werden.
-		
-		%TODO: Auf interesanteste Repositories eingehen
-
-		\subsection{OPC UA Server - DataFeed}
-		
-		
-		
-		
-		\subsection{Eigenimplementierung}
-		
-		%Da der Umati Server auf dem Offenen Standard OPC UA aufbaut, kann ein Server auch selbst implementiert werden. Dies hat verschiedene Vor- und Nachteile welche beachtet und auf das Ziel der Implementierung angewandt werden müssen. 
-		
-		%Eigenimplementierungen sind meist Anpassungsfähiger und flexibler, um auf Situationsspezifische Anforderungen zu reagieren. Sie können spezifisch auf den gewünschten Zweck hin optimiert und verbessert werden. Dies kann auch eine einfachere Integration in eine bereits bestehende Umgebung garantieren, da die Anwendung auf diese Umgebung hin angepasst werden kann.
-		
-		%Allerdings kann es auch zu Nachteilen führen. Eigenimplementationen haben, vor allem bei nicht sehr erfahrenen Entwicklern, ein hohes Risiko auf Fehleranfälligkeiten oder Sicherheitslücken. Bei eingekauften Lösungen profitiert die Anwendung im Normalfall von Erfahrungswerten und dem Umstand, dass diese Lösung sich bereits am Markt behaupten musste. Die Fehlende Erfahrung kann auch zu einem Programm führen, welches kaum optimiert und komplex ist, was die Wartbarkeit und Nutzerfreundlichkeit vermindert. Soll die Lösung zu kommerziellen Zwecken eingesetzt werden oder hat hohe Anforderungen an Sicherheit, Zugverlässlichkeit und Robustheit sollte auf eine Eigenimplementation verzichtet werden, da auch der Support für das Produkt wegfällt.
-		
-		%Trotz der Nachteile sollte die Umsetzung einer Eigenimplementierung, vor allem zu Demonstrationszwecken, in Betracht gezogen werden. Hierbei gibt es Low-Code und High-Code Ansätze. Bei High-Code Implementierungen wird die Funktionalität in Code hergestellt. Beispielsweise kann ein OPC UA Server nur anhand von Python implementiert werden. Low-Code Ansätze bedienen sich dabei einem Visuellen Programmierstil. Hierbei wird in besonderen IDEs die Programmierung über Bausteine und möglichst wenig selbst implementierten Code umgesetzt. Beispiele für solche Umgebungen sind NodeRed oder Microsoft Power Apps. 
-		
-			\subsubsection{High-Code}
+			\subsubsection{OPC UA Server - DataFeed}
+				
+			Die Softing Industrial Automation GmbH bietet zahlreiche Tools an, um mit OPC UA Servern zu Kommunizieren und auch diese zu entwickeln. Sie bieten unter dem Namen dataFEED OPC Suite Base einProdukt an, welches die Kommunikation mit OPC UA und OPC Classic und die Cloud-Anbindungen übernimmt. Dabei ermöglichen sie die Kommunikation mit führenden Herstellern von Steuerungen wie  Siemens SIMATIC S7, Rockwell ControlLogix, B\&R, Mitsubishi sowie auf Modbus-Steuerungen. \ref{noauthor_datafeed_nodate}
 			
-			%Die OPC Foundation stellt ihren Mitgliedern mehrere Implementierungen des OPC UA Servers zur Verfügung. Es kann zwischen C, .NET und Java entschieden werden, wobei alle drei Implementierungen von der OPC Foundation gewartet werden. Die Handhabung der Schnittstellen bleiben größtenteils gleich und damit die Funktionalität der verschiedenen Implementationen der selben Logik folgt, werden alle drei regelmäßig gegeneinander getestet.
+			Bei AZO wird diese Suite verwendet, weshalb die Implementierung eines OPC UA Servers mit Umati über dataFEED in frage kam. Allerdings lässt der Baukasten zum Entwurf der OPC UA Server keine Objekte zu, welche notwendig sind, um Umati zu Implementieren.
+					
+			\subsubsection{Eigenimplementierung}
+		
+			% Eigenimplementierung in LowCode Plattform NodeRed
+			% Muss ich noch rechachieren
+					
+			Da der Umati Server auf dem Offenen Standard OPC UA aufbaut, kann ein Server auch selbst implementiert werden. Dies hat verschiedene Vor- und Nachteile welche beachtet und auf das Ziel der Implementierung angewandt werden müssen. 
 			
-			%TODO: C
+			Eigenimplementierungen sind meist Anpassungsfähiger und flexibler, um auf Situationsspezifische Anforderungen zu reagieren. Sie können spezifisch auf den gewünschten Zweck hin optimiert und verbessert werden. Dies kann auch eine einfachere Integration in eine bereits bestehende Umgebung garantieren, da die Anwendung auf diese Umgebung hin angepasst werden kann.
 			
-			%TODO: .NET 
+			Allerdings kann es auch zu Nachteilen führen. Eigenimplementationen haben ein hohes Risiko auf Fehleranfälligkeiten oder Sicherheitslücken. Bei eingekauften Lösungen profitiert die Anwendung im Normalfall von Erfahrungswerten des Breitstellers und dem Umstand, dass diese Lösung sich bereits am Markt behaupten musste. Die Fehlende Erfahrung kann auch zu einem Programm führen, welches kaum optimiert und komplex ist, was die Wartbarkeit und Nutzerfreundlichkeit vermindert. Soll die Lösung zu kommerziellen Zwecken eingesetzt werden oder hat hohe Anforderungen an Sicherheit, Zugverlässlichkeit und Robustheit sollte auf eine Eigenimplementation verzichtet werden.
 			
-			%TODO: Java
+			Trotz der Nachteile sollte die Umsetzung einer Eigenimplementierung, vor allem zu Demonstrationszwecken, in Betracht gezogen werden. Hierbei gibt es Low-Code und High-Code Ansätze. Bei High-Code Implementierungen wird die Funktionalität in Code hergestellt. Beispielsweise kann ein OPC UA Server nur anhand von Python oder C\# Frameworks implementiert werden. Low-Code Ansätze bedienen sich dabei einem Visuellen Programmierstil. Die Programierung findet über IDEs statt, welche mehr auf Bausteinartige Programmierung setzen. Beispiele für solche Umgebungen sind NodeRed oder Microsoft Power Apps. 
 			
-			%TODO: UMATI Implementation, Anpassung oder so.
+			\paragraph{Implementierung mit C\#}
 			
-			\subsubsection{Low-Code}
+			Die OPC Foundation stellt ein Framework für die Entwicklung von OPC Servern auf C\# Basis zu Verfügung. Die OPC UA.NET Standard Bibliothek ermöglicht die Entwicklung von OPC Servern und Clients. Eine Eigenimplementierung mit diesem Framework würde einen sehr individualisierbaren und flexiblen Server ergeben, welcher den RoLog in seiner exakten Funktion darstellen könnte. Allerdings ist die Implementierung sehr zeitintensiv und benötigt Expertiese auf dem Bereich. 
+			
+			Um eine einwandfreie Simulation eines RoLogs als Basis der Prototypen zu verwenden, sollte diese Implementierung in Betracht gezogen werden. Allerdings ist diese Form um einen ersten \ac{PoC} für Umati zu entwerfen zu aufwendig.
+			
+			% zu zeitintensiv aber hoch individualisierbar
+			% Sollte auch das Ziel sein, vorallem wenn die Simulation richtig gut werden soll
+			
+			\paragraph{Implementierung in einer SPS}
+			
+			Die Implementierung einer OPC UA Schnittstelle kann auch direkt auf einer SPS durchgeführt werden. Siemens SPS stellen einen integrierten OPC UA Server zu Verfügung welcher direkt an der Anlage laufen kann. Es gibt auch die Möglichkeit, Maschinen zu Simulieren und mit kleinen Programmen deren Verhalten zu bestimmen. Der Server der SIMATIC S7 SPS von Simens kann Objekte und Klassenstrukturen darstellen. \ref{noauthor_tia_2019}
+			
+			Die Entwicklung eines solchen Servers ist jedock sehr Zeitaufwendig und benötigt Expertise im entwickeln von OPC UA Servern auf SPS. Es ist denkbar Maschinen die Umatifähig sein sollen, auf dieser Ebene als OPC UA Server zu entwickeln, allerdings für eine Demonstration von Umati zu Umfangreich.
+			
+			\subsubsection{Vorgefertigte OPC UA Server mit Umati Fähigkeiten}
 			
 			
-			% Was bracuh ich Hard Soft
 			
-			% Literaturrecherche an anderen Implementationen (Umati und 5G)
 	
 	\section{Marktanalyse}
-	
-		% Fertige Lösungen
-		% Node Red selbstimplementierung
-	
+		
+		% Lösungen vom VDMA alle vorstellen
+		% 
+		
 	\section{Wirtschaftlichkeit und Projektanalyse}
 	
 		\subsection{Kostenplanung}
@@ -468,15 +452,36 @@
 			% Beispielswiese an Fallbeispiel -> Durchschnittliche AZO Straße
 			% -> Probleme bei Schnittstellen integrierung.
 	
-	\section{Implementierung eines Prototyps}
+\chapter{Implementierung}\label{ch:Implementierung}
+	
+	\section{Veröffentlichung von Daten auf dem \ac{Umati} Web-Dashboard}\label{ch:Implementierung-Web}
+		
+		\subsection{Struktur}
+		
+		Das Ziel ist eine AZO Maschine auf der \ac{Umati} Demonstrationsseite (https://umati.app) anzuzeigen. In Abbildung \ref{fig:uamti.app} wird die Struktur des Datenaustausches mit der \ac{Umati} Webseite bildlich dargestellt. Die Daten entstehen in der Simulation des RoLogs, der AZO Maschine. Dieser stellt einen Roboter dar, dessen OPC UA Server die Robotics Spezifikation implementieren soll (OPC 40010). \ac{Umati} empfängt Daten über einen MQTT Server und synchronisiert diese Daten dann mit dem umati.app Dashboard. Um aus dem OPC UA Server die Daten an den in der Cloud befindlichen MQTT Server zu senden, kann ein vorgefertigter Dockercontainer der VDMA verwendet werden, um den Transport zu übernehmen. Der Datenbroker kann auf dem \ac{Umati} Github Repository gefunden werden.
+		
+		Andere Firmen können ihre Daten über den selben Prozess auf das \ac{Umati} Dashboard laden. So entsteht eine Demonstration das eine Oberfläche die Möglichkeit besitzt, Maschinendaten aus verschiedensten Quellen un Herstellern integrieren kann. 
+		
+		Sind die Daten auf dem \ac{Umati} Server können sie anhand der von VDMA gesendeten Anmeldedaten über einen MQTT Client gelesen werden und daraufhin in das lokale MES System integriert werden.
+		
+		%TODO: Auf interesanteste Repositories eingehen
+		
+		\subsection{RoLog OPC UA Server}
+		
+		\subsection{Dashboard OPC UA Client}
+		
+		\subsection{MQTT Server und Web-Dashboard}
+	
+	
+	\section{Implementierung eines Prototyps}\label{ch:Implementierung-Intern}
 	
 		\subsection{Struktur}
 		
 		% VDMA Repositories
-		Der VDMA und VDA, die Operatoren von Umati, haben eine Kollektion von Repositories auf Github, auf welchen multiple Implementationsmöglichkeiten eines Umati Servers dargestellt sind. \cite{noauthor_github_nodate} All diese Projekte sind bereits auf Vollständigkeit geprüft und garantieren so die volle umsetzen der Umati-Standards, oder zumindest einer angegebenen Umati Spezifikation. Beispielsweise kann ein Sample-Server verwendet werden, um einen Umatiserver aufzusetzen, der pseudo-zufällige Werte generiert und diese zur Abfrageung bereit stellt. Dieses Repository implementiert zum Zeitpunkt der Abfrage im August 2023 die Spezifikationen \textit{Machine Tool}, \textit{Woodworking}, \textit{Geometrical Measurement Systems} und \textit{Additive Manufacturing} und simuliert Maschinen, welche die notwendigen und optionalen Variablen implementieren, die sie festlegen.
+		Der VDMA und VDA, die Operatoren von \ac{Umati}, haben eine Kollektion von Repositories auf Github, auf welchen multiple Implementationsmöglichkeiten eines \ac{Umati} Servers dargestellt sind. \cite{noauthor_github_nodate} All diese Projekte sind bereits auf Vollständigkeit geprüft und garantieren so die volle umsetzen der \ac{Umati}-Standards, oder zumindest einer angegebenen \ac{Umati} Spezifikation. Beispielsweise kann ein Sample-Server verwendet werden, um einen \ac{Umati}-Server aufzusetzen, der pseudo-zufällige Werte generiert und diese zur Abfrageung bereit stellt. Dieses Repository implementiert zum Zeitpunkt der Abfrage im August 2023 die Spezifikationen \textit{Machine Tool}, \textit{Woodworking}, \textit{Geometrical Measurement Systems} und \textit{Additive Manufacturing} und simuliert Maschinen, welche die notwendigen und optionalen Variablen implementieren, die sie festlegen.
 		
 		% Relevanz
-		Dieses Verzeichnis beinhaltet auch weitere Implementierungen von Demonstrationsservern in verschiedenen Programmiersprachen umd mit abweichenden Companionspezifikationen von umati. Für dieses Projekt sind vor allem der Sample-Server-node-opcua und Dashboard-OPCUA-Client von relevanz. 
+		Dieses Verzeichnis beinhaltet auch weitere Implementierungen von Demonstrationsservern in verschiedenen Programmiersprachen umd mit abweichenden Companionspezifikationen von \ac{Umati}. Für dieses Projekt sind vor allem der Sample-Server-node-opcua und Dashboard-OPCUA-Client von relevanz. 
 		
 		% Die zwei Repositories
 		Der Sample Server stellt mit Standardeinstellungen einen OPC UA Server zur verfügung, der mehrere Maschinen im Hintergurnd nach den verschiedenen Spezifikationen simuliert. Es existiert Beispielsweise ein Simulation, die einen Roboter darstellt, der seine die Geschwindigkeit und die Position des Arms mit pseudo-zufälligen Werten beschreibt und in kurzen Abständen ändert. Das Dashboard fungiert als übersetzer zwischen dem MQTT Broker welcher umati.app nutzt und dem zuvor OPC UA Server, welcher die Maschine simuliert.
@@ -485,7 +490,7 @@
 		Die Daten der simulierten Maschine soll auf die umati.app des VDMA gestreamt werden und dort genau wie die bereits vorhandenen Maschinen angezeigt werden. Dafür müssen die daten in einen \ac{MQTT} Server gespeicher werden, welcher dann im Hintergrund die Kommunikation mit der Webanwendung übernimmt. 
 		
 		% Struktur des Datenfluss
-		In Abbildung \ref{fig:umati.app} wird der Datenfluss visuall abgebildet. Die Daten entstehen in der Simulation des RoLogs, welcher einen OPC UA Server nutzt, um Seine Daten zu versenden. Dank der Implementierung der umati Spezifikation kann der OPC UA Client des VDMA den  RoLog erkennen und dessen Daten an den \ac{MQTT} Server der umati.app weiterleiten. Dort werden die Daten so verarbeitet, dass sie auf dem Dashboard im Internet angezeigt werden können. Andere Teilnehmer an dem Projekt können über den selben Prozess ihre Daten an den \ac{MQTT} Server senden, und so entsteht Dashboard, mit mehreren Maschinen von verschiedensten Anbietern.
+		In Abbildung \ref{fig:umati.app} wird der Datenfluss visuall abgebildet. Die Daten entstehen in der Simulation des RoLogs, welcher einen OPC UA Server nutzt, um Seine Daten zu versenden. Dank der Implementierung der \ac{Umati} Spezifikation kann der OPC UA Client des VDMA den  RoLog erkennen und dessen Daten an den \ac{MQTT} Server der umati.app weiterleiten. Dort werden die Daten so verarbeitet, dass sie auf dem Dashboard im Internet angezeigt werden können. Andere Teilnehmer an dem Projekt können über den selben Prozess ihre Daten an den \ac{MQTT} Server senden, und so entsteht Dashboard, mit mehreren Maschinen von verschiedensten Anbietern.
 		
 		% Retrieve
 		Der MQTT Server der umati.app kann auch abonniert werden, um die Daten in ein eigenes Projekt zu überführen. Alternativ, um den Weg über das Internet zu vermeiden kann der OPC UA Client des VDMA auch umkonfiguriert werden, um auf einen lokalen \ac{MQTT} Server zu senden. 
@@ -500,34 +505,25 @@
 		 
 		\subsection{Sicherheit}
 		
-		Die Demonstration über die Umati Webapplikation dient nur Messezwecken und sollte nicht für die Produktion verwendet werden. Der Aufbau einer Umati Umgebung sollte in einem lokalen Umfeld passieren, mit den maximalen Authentifizierungsmöglichkeiten die umati zulässt. %TODO: Das ist doch nix
+		Die Demonstration über die \ac{Umati} Webapplikation dient nur Messezwecken und sollte nicht für die Produktion verwendet werden. Der Aufbau einer \ac{Umati} Umgebung sollte in einem lokalen Umfeld passieren, mit den maximalen Authentifizierungsmöglichkeiten die \ac{Umati} zulässt. %TODO: Das ist doch nix
 		
 		\subsection{OPC UA Server}
 			
-		Der OPC UA Server besteht aus zwei Komponenten. Der Simulation des Roboters und die Implementierung der Umati Spezifikation OPC 40010 - Robotics. Um den OPC UA Server zu Verfügung zu stellen wurden mehrere Ansätze verwendet die in diesem Kapitel diskutiert werden. Die für diese Arbeit am besten geeignetste Lösung ist die Verwendung eines Sample Server Forks des umati Repositories der mit den Daten eines RoLogs oder zu simulierenden Maschine beschrieben wird. 
+		Der OPC UA Server besteht aus zwei Komponenten. Der Simulation des Roboters und die Implementierung der \ac{Umati} Spezifikation OPC 40010 - Robotics. Um den OPC UA Server zu Verfügung zu stellen wurden mehrere Ansätze verwendet die in diesem Kapitel diskutiert werden. Die für diese Arbeit am besten geeignetste Lösung ist die Verwendung eines Sample Server Forks des \ac{Umati} Repositories der mit den Daten eines RoLogs oder zu simulierenden Maschine beschrieben wird. 
 		
 			\subsubsection{dataFeed Server}
 			
 			DataFeed wurde von Softing Industrial Automation GmbH entwickelt welche ein „All-in-One“-Datenintegrationslösung für die OPC UA-Kommunikation anbieten.
 			
-			Mit dem dataFeed Tool können einfache OPC UA Server implementiert werden, welche Variablen und einzelne Attribute übermitteln können. Umati verlangt eine  Objektbasierte Strukturierung der Daten, welche anhand der limitierten von dataFeed nicht umsetzbar ist.
+			Mit dem dataFeed Tool können einfache OPC UA Server implementiert werden, welche Variablen und einzelne Attribute übermitteln können. \ac{Umati} verlangt eine  Objektbasierte Strukturierung der Daten, welche anhand der limitierten von dataFeed nicht umsetzbar ist.
 			
 			\subsubsection{Eigenimplementierung}
 			
-			% Eigenimplementierung in HighCode Plattform C#
-			% zu zeitintensiv aber hoch individualisierbar
-			% Sollte auch das Ziel sein, vorallem wenn die Simulation richtig gut werden soll
+			
+			\subsubsection{Sample Server - \ac{Umati}}			
 			
 			
-			
-			% Eigenimplementierung in LowCode Plattform NodeRed
-			% Muss ich noch rechachieren
-			
-			
-			\subsubsection{Sample Server - Umati}			
-			
-			
-			Die schnellste und robusteste Lösung für den Upload der Daten auf die Umati app ist es, den von Andreas Heine entwickelten Sample-Server-Node-opcua aus dem umati Verzeichnis auf Github zu verwenden. Diese erstellt eine Simulation von mehreren Maschinen und deren OPC UA Servern, welche alle eine andere Schnittsteller der umati Spezifikationen anbieten. Das Projekt umfasst die Spezifikationen OPC 40010 UA for Robotics, OPC 40550 UA for Woodworking, OPC 40501 UA for Machine Tools und noch weitere auf einzelne Herrsteller spezialisierte Schnittstellen. Der Sample Server kann in einem Dockercontainer gestartet werden kann daraufhin über den Port 4840 als OPC UA Server angesprochen werden. Um den Container mit einer VDMA Sample Maschine zu starten kann folgender Docker Befehl ausgeführt werden:
+			Die schnellste und robusteste Lösung für den Upload der Daten auf die \ac{Umati}-App ist es, den von Andreas Heine entwickelten Sample-Server-Node-opcua aus dem \ac{Umati} Verzeichnis auf Github zu verwenden. Diese erstellt eine Simulation von mehreren Maschinen und deren OPC UA Servern, welche alle eine andere Schnittsteller der \ac{Umati} Spezifikationen anbieten. Das Projekt umfasst die Spezifikationen OPC 40010 UA for Robotics, OPC 40550 UA for Woodworking, OPC 40501 UA for Machine Tools und noch weitere auf einzelne Herrsteller spezialisierte Schnittstellen. Der Sample Server kann in einem Dockercontainer gestartet werden kann daraufhin über den Port 4840 als OPC UA Server angesprochen werden. Um den Container mit einer VDMA Sample Maschine zu starten kann folgender Docker Befehl ausgeführt werden:
 			
 			\begin{lstlisting}[numbers=none, language=bash, frame=single]
 docker run -it -p 4840:4840 -e PORT=4840 -e IP=127.0.0.1 --name sampleserver-node-opcua ghcr.io/andreasheine/sampleserver-node-opcua:main
@@ -548,15 +544,15 @@ docker-compose -f docker-compose.yaml up
 			
 		\subsection{OPC UA Client}
 		
-		Der OPC UA Client hat die Aufgabe die Daten des Servers zu erfragen und sie an den MQTT Broker weiter zu geben. Der Client muss die umati Spezifikationen lesen können und die Identifikation der Maschinen durchführen.
+		Der OPC UA Client hat die Aufgabe die Daten des Servers zu erfragen und sie an den MQTT Broker weiter zu geben. Der Client muss die \ac{Umati} Spezifikationen lesen können und die Identifikation der Maschinen durchführen.
 		
-			\subsubsection{umati Dashboard OPC UA Client}
+			\subsubsection{\ac{Umati} Dashboard OPC UA Client}
 			
-			Für den Upload der Daten auf die umati.app Webseite, ist der vorgefertigte Client des VDMAs gedacht. Dieser verwendet eine Konfigurationsdatei um zu definieren, welche Spezifikationen er implementieren muss, welchen OPC UA Server er ansprechen kann und wo der MQTT Server liegt, welcher verwendet werden soll. In Anhang I ist die Konfigurationsdatei aufgeführt. Sie beinhaltet alle Wichtigen Informationen um einen Server zu starten, der die Robotics Spezifikation implementieren soll. Von besonderer Wichtigkeit sind die beiden Felder \textit{OpcUa} und \textit{Mqtt}. Die Variable \textit{OpcUa} zeigt auf den OPC UA Server, welcher als Dockercontainer gestartet wurde. Es können auch Authentifizierungsmöglichkeiten von umati verwendet werden, wobei die Anmeldedaten und die Authentifizierungsart eingetragen werden müssen.
+			Für den Upload der Daten auf die umati.app Webseite, ist der vorgefertigte Client des VDMAs gedacht. Dieser verwendet eine Konfigurationsdatei um zu definieren, welche Spezifikationen er implementieren muss, welchen OPC UA Server er ansprechen kann und wo der MQTT Server liegt, welcher verwendet werden soll. In Anhang I ist die Konfigurationsdatei aufgeführt. Sie beinhaltet alle Wichtigen Informationen um einen Server zu starten, der die Robotics Spezifikation implementieren soll. Von besonderer Wichtigkeit sind die beiden Felder \textit{OpcUa} und \textit{Mqtt}. Die Variable \textit{OpcUa} zeigt auf den OPC UA Server, welcher als Dockercontainer gestartet wurde. Es können auch Authentifizierungsmöglichkeiten von \ac{Umati} verwendet werden, wobei die Anmeldedaten und die Authentifizierungsart eingetragen werden müssen.
 			
 			\lstinputlisting[firstline=37,lastline=42,frame=single]{res/code/config.json}
 			
-			In der Konfigurationsdatei muss ein MQTT Broker angegeben werden, an den die Daten gesendet werden sollen. Zum Testen der Umati Schnittstelle und des Aufbaus der Container kann hier zunächst ein lokaler Server eingetragen werden. Funktioniert die gesamte Übertragung der Daten, können die Informationen mit den Anmeldedaten des umati MQTT Brokers ausgetauscht werden. Im folgenden Codebeispiel sind die Daten für die Verbindung mit dem umati MQTT Broker angegeben.
+			In der Konfigurationsdatei muss ein MQTT Broker angegeben werden, an den die Daten gesendet werden sollen. Zum Testen der \ac{Umati} Schnittstelle und des Aufbaus der Container kann hier zunächst ein lokaler Server eingetragen werden. Funktioniert die gesamte Übertragung der Daten, können die Informationen mit den Anmeldedaten des \ac{Umati} MQTT Brokers ausgetauscht werden. Im folgenden Codebeispiel sind die Daten für die Verbindung mit dem \ac{Umati} MQTT Broker angegeben.
 			
 			\lstinputlisting[firstline=43,lastline=51,frame=single]{res/code/config.json}
 			
@@ -584,9 +580,8 @@ docker-compose -f docker-compose.yaml up
 	
 		% Disskussion -> Subjektive Bewertung der Spezifikation UMATI, ... Literaturpunkte meine Meinung, Sinnvoll Einzusetzen
 	
-	
-	\frontmatter
 	\printbibliography
+	\frontmatter
 	
 	\pagebreak
 	\section*{Anhang I: configuration.json} \label{Anhang1} %TODO: Überschrift aus Inhalt raus
