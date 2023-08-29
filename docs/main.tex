@@ -40,7 +40,7 @@
 	
 	 Durch die zunehmende Automatisierung der Produktion und Fertigung stehen viele Produzenten vor der Aufgabe, zahlreiche Maschinen verschiedenster Hersteller in ihren Fertigungsprozess zu integrieren. Viele dieser Maschinen nutzen verschiedene Kommunikationsprotokolle, Datenformate und Schnittstellen, welche die Integration dieser diversen Systeme erschwert. Durch eine komplizierte Integration kann Vendor Lock-in entstehen. Dieses Konzept beschreibt die Bindung eines Kunden an einen Anbieter, da dieser eine Technologie oder Kommunikationsstrategie integriert, die andere Hersteller nicht oder nur extrem schwer integrieren können. Dies führt zu weniger Flexibilität und Kontrolle für den Kunden über das Projekt und steigert dessen Kosten. Um dieses Problem zu lösen, müssen sich die Produzenten zu einem Standard zusammenfinden und die Interoperabilität ihrer Systeme zu gewährleisten. \cite{mielebacher_verteilte_2021}
 	 
-	 Für AZO als Anlagenproduzent ist es von großem Interesse, mit Anlagen und Maschinen anderer Hersteller kommunizieren zu können und dabei die Integration einfach zu realisieren. Für Entwickler von \ac(MES) bedeutet die Standardisierung von Kommunikationsprotokollen eine schnellere und einfachere Entwicklung, was zu niedrigeren Entwicklungskosten führt und die Robustheit der Systeme erhöht. AZO nimmt an der Entwicklung von \ac{Umati} teil, um diese Standardisierung zu erreichen. Dieser Standard möchte die Schnittstellen für die Kommunikation zwischen Maschinen und mit der darüber liegenden Datenverarbeitung definieren und basiert auf dem offenen Standard \ac{OPC UA}.
+	 Für AZO als Anlagenproduzent ist es von großem Interesse, mit Anlagen und Maschinen anderer Hersteller kommunizieren zu können und dabei die Integration einfach zu realisieren. Für Entwickler von \ac{MES} bedeutet die Standardisierung von Kommunikationsprotokollen eine schnellere und einfachere Entwicklung, was zu niedrigeren Entwicklungskosten führt und die Robustheit der Systeme erhöht. AZO nimmt an der Entwicklung von \ac{Umati} teil, um diese Standardisierung zu erreichen. Dieser Standard möchte die Schnittstellen für die Kommunikation zwischen Maschinen und mit der darüber liegenden Datenverarbeitung definieren und basiert auf dem offenen Standard \ac{OPC UA}.
 	 
 	 Das Ziel dieser Arbeit ist es, \ac{Umati} in einem Testumfeld anhand eines Proof-of-Conzept aufzubauen. Um dies zu erreichen, soll zunächst eine Marktanalyse durchgeführt werden, um mögliche Lösungen zum Versenden und Empfangen von Daten zwischen Maschine und \ac(MES) zu finden. Diese sollen anhand von selbst entwickelten Kriterien abgewogen und bewertet werden. Die vielversprechendsten Umsetzungen sollen in einem Testsystem implementiert werden und für zukünftige Demonstrationen auf Messen für AZO zur Verfügung gestellt werden.
 	 
@@ -53,8 +53,6 @@
 	 AZO entwickelt ein eigenes MES-System ACAS, welches die Kommunikation zwischen Anlagen von AZO, aber auch Anlagen von anderen Herstellern, mit den Kunden vereinheitlichen und verbessern soll. Dabei soll ein umfassendes System entstehen, welches Steuerung, Visualisierung und Überwachung der Produktion übernehmen und in einer zentralen Software bündeln soll.
 	 
 	 ACAS entsteht in der Entwicklungsabteilung, welche ebenfalls an dieser Arbeit beteiligt ist. Sie fokussiert sich auf die Automatisierung von AZO Anlagen im Bereich von SPS, Steuerungen bis zur Datenverarbeitung und Erhebung auf abstrahierter Ebene. 
-	
-	%TODO: Was stellt mir AZO zur verfügung - System, Server, ...
 	
 	\section{Forschungsfragen}
 	
@@ -71,7 +69,6 @@
 	Zu Beginn der Arbeit werden alle Grundlegenden Technologien und Themenbereiche beschrieben, die zum Verständnis benötigt werden (Kapitel \ref{ch:Grundlagen}). Daraufhin werden die Methodiken beschrieben, mit denen die Informationen für diese Arbeit erhoben wurden (Kapitel \ref{ch:Methodiken}). Im Hauptteil der Arbeit (Kapitel \ref{ch:Ergebnisse}) werden die Vorbereitenden Schritte für die Projekte sowie deren Durchführung behandelt. Die Implementation der Programme wird in Kapitel \ref{ch:Implementierung} in zwei Teilen behandelt, wobei die Implementation des Firmeninternen Prototyps aus Kapitel \ref{ch:Implementierung-Intern} auf die Ergebnisse aus Kapitel \ref{ch:Implementierung-Web} stützt. Die Arbeit schließt mit einer Diskussion der gefundenen Ergebnisse und einem Fazit (Kapitel \ref{ch:Diskussion_Fazit}).
 	
 	% TODO: Messematerial wenn in kapitel behandelt noch anhängen
-	% TODO: Ganz am Schluss nochmal lesen
 	
 \chapter{Grundlagen}\label{ch:Grundlagen}
 	% (16 Seiten)
@@ -97,19 +94,19 @@
 	 	\label{fig:Interoperabilität}
 	 \end{figure}
 	 
-	 %Ebene 1
+	 % Ebene 1
 	 Die strukturelle Interoperabilität beschreibt Verbindungen zwischen den Systemen, weshalb sie auch oft als Konnektivität bezeichnet wird. Der Datenaustausch kann nur erfolgen, wenn die beteiligten Systeme miteinander verbunden sind und ein geeignete Schnittstelle implementieren. Diese Verbundenheit kann über ein Netzwerk mit TCP/IP oder HTTP erreicht werden oder kann ein Übertragungsmedium wie USB festlegen. \cite{mielebacher_verteilte_2021}
 	 
-	 %Ebene 2
+	 % Ebene 2
 	 Sind Systeme syntaktisch interoperabel, nutzen und verstehen sie die Struktur der Daten. Hierfür können festgelegte Standards wie XML oder Json verwendet werden. \cite{mielebacher_verteilte_2021-1}
 	 
-	 %Ebene 3
+	 % Ebene 3
 	 Die semantische Interoperabilität beschreibt das vereinheitlichte Verständnis der Daten. Kommunizieren zwei Systeme miteinander, so müssen Sie unter denselben Werten auch dasselbe verstehen. Ein Beispiel für einen Standard, der semantische Interoperabilität umsetzt, ist der "International Classification of Diseases". Bei diesem geht es um die Kommunikation von Krankheiten zwischen Ärzten und wurde von der WHO eingeführt. Jede Krankheit hat einen festgelegten Code, wodurch eine eindeutige Kommunikation gewährleistet ist. \cite{mielebacher_verteilte_2021-1}
 	 
-	 %Was legt OPC UA fest
+	 % Was legt OPC UA fest
 	 OPC UA legt anhand des Information-Models die Syntax der Daten fest, wodurch die syntaktische Interoperabilität gewährleistet ist. Die semantische Interoperabilität wird anhand der Companion Standards festgelegt, welche auf den OPC UA Standard aufgesetzt werden. Diese beschreiben Technologie-spezifische Informationsmodelle welche von verschiedensten Arbeitsgruppen erstellt werden. Es gibt unterschiedliche Companion Spezifikationen für unterschiedliche Anwendungsgebiete von OPC UA, beispielsweise für bestimmte Maschinengruppen oder Branchen. Sie legen jedoch immer fest, wie bestimmte Daten verstanden werden müssen. %TODO Quelle -> OPC Foundation?
 	 
-	 %OPC Classics
+	 % OPC Classics
 	 OPC UA entstand aus dem zuvor entwickelten Standard OPC Classics. Der alte Standard setzte die Kommunikation im Bereich der Automatisierung bereits sehr gut um. Der Nachteil an Classics war jedoch die fehlende Plattformunabhängigkeit. OPC UA unterstützt heute jegliche Betriebssysteme für Clients als auch für die Server, während der Vorgänger auf einem Windowssystem betreiben werden musste. Auch die Kommunikation war auf die von Microsoft entwickelte Technologien \ac{COM} und \ac{DCOM} ausgelegt. Durch die Ablösung dieses Standards durch OPC UA wird über TCP/IP und SOAP kommuniziert, welche beide Plattformunabhängig sind und somit kann OPC UA auch auf anderen Plattformen wie Linux, Mac und Android ohne Probleme angewandt werden. \cite{mielebacher_verteilte_2021-1}
 	
 		\subsection{Struktur}
@@ -132,7 +129,7 @@
 		\begin{figure}[H]
 			\centering
 			\includegraphics[width=0.9\textwidth]{res/diagramms/companionSpezifikations.pdf}
-			\caption{Aufbau des OPC UA Standards, \\ Angelehnt an: Abbildung 1.7 in \cite{mahnke_opc_2009}} %TODO anständig machen
+			\caption{Aufbau des OPC UA Standards, \\ Angelehnt an: Abbildung 1.7 in \cite{mahnke_opc_2009}}
 			\label{fig:OPCUA_Framework}
 		\end{figure}
 	
@@ -240,11 +237,11 @@
 		
 		Im Allgemeinen deckt dieser Standard fundamentale Bereiche ab. Es wird definiert, welche Datentypen genutzt werden können, wie deren Syntax ist und wie sie in Attributen abgespeichert werden können. Es werden Objekte und Klassen festgelegt und deren Verhalten und Funktionalität. Darüber hinaus beschreibt die Spezifikation auch, wie ein Client im System die Maschinen an den OPC UA Servern finden kann. 
 		
-		%TODO: Variablen und Struktur die 40001 definiert erklären, in gut
-		OPC for Machinery implementiert keinen festen Typ um als einen Einstiegspunkt für den OPC UA Server. Daher muss auf die Basisspezifikation OPC 40001-1 eine weitere Spezifikation aufgesetzt werden. Im fall dieser Arbeit wird ein Roboter simuliert, weshalb die Spezifikation OPC 40010 Robotics anbietet. Als Mindestanforderung muss Part 1 der Robticsspezifikation imlementiert werden. Dadurch ergibt sich eine anzahl an Variablen, Funktionen und Strukturen, welche in den Simulationsserver implementiert werden und in Kapitel \ref{TOOD: auf anforderungen oder so verweisen}
+		OPC for Machinery implementiert keinen festen Typ um als einen Einstiegspunkt für den OPC UA Server. Daher muss auf die Basisspezifikation OPC 40001-1 eine weitere Spezifikation aufgesetzt werden. Im Fall dieser Arbeit wird ein Roboter simuliert, weshalb die Spezifikation OPC 40010 Robotics anbietet. Als Mindestanforderung muss Part 1 der Robtics-Spezifikation implementiert werden. Dadurch ergibt sich eine Anzahl an Variablen, Funktionen und Strukturen, welche in den Simulationsserver implementiert werden.
 		
-		OPC UA for Machinery definiert, das jede Maschine innerhalb eines Ordners \textit{Machiners} 
-
+		OPC UA for Machinery definiert, das jede Maschine und jede Komponente einen Identifikations-AddIn besitzt. In diesem müssen mindestens eine Manufacturer und eine Productinstance Identifikation vorhanden sein. Dies stellt sicher, dass ein OPC UA Client jede Maschine die Veröffentlicht wird finden und erkennen kann.  
+		
+		%TODO: nochmal überprüfen
 
 	\section{Weitere Technologien}
 		\subsection{Docker}
@@ -266,6 +263,9 @@
 		Der\ac{MQTT} Broker übernimmt das Versenden der Daten an alle Clients. Für einen Client sehen die Topics nach einer hierarchischen Struktur aus. Sollte die Verbindung zu einem Client unterbrochen werden, puffert der Broker die Veränderungen an den Daten und sendet diese, wenn der Client wieder verfügbar ist.
 		
 		%TODO: \subsection{Grafana}
+		%TODO: \subsection{InfluxDB}
+		%TODO: \subsection{Telegraf}
+		%TODO: \subsection{NodeRed}
 		
 \chapter{Methodik}\label{ch:Methodiken}
 	% (8 Seiten)
@@ -301,8 +301,6 @@
 	% TODO: Quantifizierbare Ziele setzen
 	
 	Das Demomaterial welches für die Messe ausgelegt werden soll, muss visuell anschaulich sein und die Kernfunktionen von \ac{Umati} präsentieren. Es geht darum das Interesse der Messebesucher zu wecken und genug Informationen für ein allgemeines Bild über die Funktionen und Ziele von \ac{Umati} zu erreichen. 
-	
-	% TODO: Quantifizierbare Ziele setzen
 	
 	%TODO: Reflexion
 	
@@ -420,7 +418,7 @@
 			Trotz der Nachteile sollte die Umsetzung einer Eigenimplementierung, vor allem zu Demonstrationszwecken, in Betracht gezogen werden. Hierbei gibt es Low-Code und High-Code Ansätze. Bei High-Code Implementierungen wird die Funktionalität in Code hergestellt. Beispielsweise kann ein OPC UA Server nur anhand von Python oder C\# Frameworks implementiert werden. Low-Code Ansätze bedienen sich dabei einem Visuellen Programmierstil. Die Programierung findet über IDEs statt, welche mehr auf Bausteinartige Programmierung setzen. Beispiele für solche Umgebungen sind NodeRed oder Microsoft Power Apps. 
 			
 			\paragraph{Implementierung mit C\#}
-			Die OPC Foundation stellt ein Framework für die Entwicklung von OPC Servern auf C\# Basis zu Verfügung. Die OPC UA.NET Standard Bibliothek ermöglicht die Entwicklung von OPC Servern und Clients. Eine Eigenimplementierung mit diesem Framework würde einen sehr individualisierbaren und flexiblen Server ergeben, welcher den RoLog in seiner exakten Funktion darstellen könnte. Allerdings ist die Implementierung sehr zeitintensiv und benötigt Expertiese auf dem Bereich. \cite{noauthor_opc_nodate-1}
+			Die OPC Foundation stellt ein Framework für die Entwicklung von OPC Servern auf C\# Basis zu Verfügung. Die OPC UA.NET Standard Bibliothek ermöglicht die Entwicklung von OPC Servern und Clients. Eine Eigenimplementierung mit diesem Framework würde einen sehr individualisierbaren und flexiblen Server ergeben, welcher den RoLog in seiner exakten Funktion darstellen könnte. Allerdings ist die Implementierung sehr zeitintensiv und benötigt Expertise auf dem Bereich. \cite{noauthor_opc_nodate-1}
 			
 			Um eine einwandfreie Simulation eines RoLogs als Basis der Prototypen zu verwenden, sollte diese Implementierung in Betracht gezogen werden. Allerdings ist diese Form um einen ersten \ac{PoC} für Umati zu entwerfen zu aufwendig.
 			
@@ -439,8 +437,15 @@
 	
 	\section{Marktanalyse}
 		
-		% Lösungen vom VDMA alle vorstellen
-		% 
+		Die Initiatoren von Umati, der \ac{VDMA} und \ac{VDW}, stellen mehrere GitHub Repositorien mit vorgefertigten Projekten zum Thema Umati zu Verfügung \cite{noauthor_github_nodate}. All diese Projekte sind unter dem Namen \textit{umati - universal machine technology interface} zusammengefasst. Hier finden sich auch mehrere Sample Server und Implementierungen von OPC UA Servern in verschiedenen Sprachen. Zum Zeitpunkt dieser Arbeit am 23.08.2023 sind 18 Repositorien in diesem Verzeichnis aufgeführt. Eine davon enthält ein Tutorial zum Erstellen eines Servers für einen Showcase (https://github.com/umati/Showcase). Hier können alle Informationen entnommen werden, die für den Prototyp 1 - Umati Web Dashboard benötigt werden.
+		
+		Das Repository Verzeichnis enthält drei Implementierungen von Sample Servern welche in Rahmen dieser Arbeit gennauer betraschtet wurden. Der \textit{Sample-Server} \linebreak (https://github.com/umati/Sample-Server) ist eine Implementierung mit Maschinensimulation auf Basis von C++. Er Implementiert die Companion-Spezifikationen OPC UA Machine Tool, OPC UA for Woodworking, OPC UA for Geometrical Measuring Systems und OPC UA for Additive Manufacturing. Da die Robotics Spezifikation für diesen Server noch Work-In-Progress ist, muss ein anderer verwendet werden.
+		\% Datenfluss -> Bildbeschreibung
+		Ein anderer Server auf Basis des Python Frameworks asyncio (https://github.com/umati/Sample-Server-asyncio) implementiert die Companion Spezifikationen OPC UA Plastic and Rubber, OPC UA for Woodworking, OPC 40451–1 Tightening und OPC UA for Surface Technology. Auch in diesem Projekt ist die Robotics Spezifikation noch nicht Implementiert.
+		
+		Nach Rücksprache mit Götz Görisch vom VDMA fiell die Entscheidung, welchen Sample Server verwendet werden soll, auf den \textit{Sample-Server-node-opcua}. Dieser OPC UA Server ist mit TypeScript programmiert und hat neben vielen weiteren auch die Robotics Companion-Spezifikation implementiert. Da sich dieser Server in einem Dockercontainer starten lässt und bereits alle Notwendigen Entrypoints für einen Roboter vorhanden sind, wurde dieser Sample-Server für das Projekt verwendet.
+		
+		Für den OPC UA Client stellt der VDMA ebenfalls ein Repository zu Verfügung. Der \textit{Dashboard-OPCUA-Client} (https://github.com/umati/Dashboard-OPCUA-Client) übernimmt die Verbindung zwischen dem OPC UA Server und einem MQTT Broker. Der Container des OPC UA Clients des VDMAs benötigt zum starten eine configuration.json in der die Adressen zum OPC UA Server und dem MQTT Broker stehen. Außerdem beinhaltet diese Datei welche Companion Spezifikationen im angegebenen Namespace gefunden Werden sollen. 
 		
 	\section{Wirtschaftlichkeit und Projektanalyse}
 	
@@ -452,125 +457,166 @@
 	
 \chapter{Implementierung}\label{ch:Implementierung}
 	
-	\section{Veröffentlichung von Daten auf dem \ac{Umati} Web-Dashboard}\label{ch:Implementierung-Web}
+	\section{Veröffentlichung von Daten auf dem Umati Web-Dashboard}\label{ch:Implementierung-Web}
 		
-		\subsection{Struktur}
+		% Ziel und Motivation
+		Das Umati Web-Dashboard ist ein Projekt des VDMAs welches die Funktionalität zur Datenabfrage an Maschinen durch Umati demonstrieren soll. Mitglieder des VDMAs und Interesenten an Umati können eigene Maschinen Umatifähig machen und sie für Ausstellungszwecke auf diesem Web-Dashboard anzeigen lassen. AZO möchte ebenfalls eine eigene Maschine auf diesem Dashboard anzeigen lassen. Dies soll vorallem für Messezwecke umgesetzt werden, aber auch um die grundlegenden Funktionen von Umati zu erforschen.
 		
-		Das Ziel ist eine AZO Maschine auf der \ac{Umati} Demonstrationsseite (https://umati.app) anzuzeigen. In Abbildung \ref{fig:uamti.app} wird die Struktur des Datenaustausches mit der \ac{Umati} Webseite bildlich dargestellt. Die Daten entstehen in der Simulation des RoLogs, der AZO Maschine. Dieser stellt einen Roboter dar, dessen OPC UA Server die Robotics Spezifikation implementieren soll (OPC 40010). \ac{Umati} empfängt Daten über einen MQTT Server und synchronisiert diese Daten dann mit dem umati.app Dashboard. Um aus dem OPC UA Server die Daten an den in der Cloud befindlichen MQTT Server zu senden, kann ein vorgefertigter Dockercontainer der VDMA verwendet werden, um den Transport zu übernehmen. Der Datenbroker kann auf dem \ac{Umati} Github Repository gefunden werden.
-		
-		Andere Firmen können ihre Daten über den selben Prozess auf das \ac{Umati} Dashboard laden. So entsteht eine Demonstration das eine Oberfläche die Möglichkeit besitzt, Maschinendaten aus verschiedensten Quellen un Herstellern integrieren kann. 
-		
-		Sind die Daten auf dem \ac{Umati} Server können sie anhand der von VDMA gesendeten Anmeldedaten über einen MQTT Client gelesen werden und daraufhin in das lokale MES System integriert werden.
-		
-		%TODO: Auf interesanteste Repositories eingehen
-		
-		\subsection{RoLog OPC UA Server}
-		
-		\subsection{Dashboard OPC UA Client}
-		
-		\subsection{MQTT Server und Web-Dashboard}
-	
-	
-	\section{Implementierung eines Prototyps}\label{ch:Implementierung-Intern}
-	
-		\subsection{Struktur}
-		
-		% VDMA Repositories
-		Der VDMA und VDA, die Operatoren von \ac{Umati}, haben eine Kollektion von Repositories auf Github, auf welchen multiple Implementationsmöglichkeiten eines \ac{Umati} Servers dargestellt sind. \cite{noauthor_github_nodate} All diese Projekte sind bereits auf Vollständigkeit geprüft und garantieren so die volle umsetzen der \ac{Umati}-Standards, oder zumindest einer angegebenen \ac{Umati} Spezifikation. Beispielsweise kann ein Sample-Server verwendet werden, um einen \ac{Umati}-Server aufzusetzen, der pseudo-zufällige Werte generiert und diese zur Abfrageung bereit stellt. Dieses Repository implementiert zum Zeitpunkt der Abfrage im August 2023 die Spezifikationen \textit{Machine Tool}, \textit{Woodworking}, \textit{Geometrical Measurement Systems} und \textit{Additive Manufacturing} und simuliert Maschinen, welche die notwendigen und optionalen Variablen implementieren, die sie festlegen.
-		
-		% Relevanz
-		Dieses Verzeichnis beinhaltet auch weitere Implementierungen von Demonstrationsservern in verschiedenen Programmiersprachen umd mit abweichenden Companionspezifikationen von \ac{Umati}. Für dieses Projekt sind vor allem der Sample-Server-node-opcua und Dashboard-OPCUA-Client von relevanz. 
-		
-		% Die zwei Repositories
-		Der Sample Server stellt mit Standardeinstellungen einen OPC UA Server zur verfügung, der mehrere Maschinen im Hintergurnd nach den verschiedenen Spezifikationen simuliert. Es existiert Beispielsweise ein Simulation, die einen Roboter darstellt, der seine die Geschwindigkeit und die Position des Arms mit pseudo-zufälligen Werten beschreibt und in kurzen Abständen ändert. Das Dashboard fungiert als übersetzer zwischen dem MQTT Broker welcher umati.app nutzt und dem zuvor OPC UA Server, welcher die Maschine simuliert.
-		
-		% umati.app
-		Die Daten der simulierten Maschine soll auf die umati.app des VDMA gestreamt werden und dort genau wie die bereits vorhandenen Maschinen angezeigt werden. Dafür müssen die daten in einen \ac{MQTT} Server gespeicher werden, welcher dann im Hintergrund die Kommunikation mit der Webanwendung übernimmt. 
-		
-		% Struktur des Datenfluss
-		In Abbildung \ref{fig:umati.app} wird der Datenfluss visuall abgebildet. Die Daten entstehen in der Simulation des RoLogs, welcher einen OPC UA Server nutzt, um Seine Daten zu versenden. Dank der Implementierung der \ac{Umati} Spezifikation kann der OPC UA Client des VDMA den  RoLog erkennen und dessen Daten an den \ac{MQTT} Server der umati.app weiterleiten. Dort werden die Daten so verarbeitet, dass sie auf dem Dashboard im Internet angezeigt werden können. Andere Teilnehmer an dem Projekt können über den selben Prozess ihre Daten an den \ac{MQTT} Server senden, und so entsteht Dashboard, mit mehreren Maschinen von verschiedensten Anbietern.
-		
-		% Retrieve
-		Der MQTT Server der umati.app kann auch abonniert werden, um die Daten in ein eigenes Projekt zu überführen. Alternativ, um den Weg über das Internet zu vermeiden kann der OPC UA Client des VDMA auch umkonfiguriert werden, um auf einen lokalen \ac{MQTT} Server zu senden. 
+		In Abbildung \ref{fig:umatiApp} ist das Ziel der Anzeige abgebildet. Die uamti.app besteht aus einer Hauptseite auf der Maschinen von verschiedenen Herstellern auf einer Geografischen Karte markiert sind. Diese Markierungen können angeklickt werden um weitere Informationen über die Maschine auszugeben. In Abbildung \ref{fig:umatiApp} ist der ausgewählte RoLog abgebildet. Nach Bedarf kann auf eine Detailansicht navigiert werden, welche die Variablen, Parameter und Eigenschaften der Maschine anzeigt.
 		
 		\begin{figure}[H]
 			\centering
-			\includegraphics[width=0.9\textwidth]{res/umatiAppStruktur.pdf}
-			\caption{Datenfluss und Struktur des Prototypen}
-			\label{fig:umati.app}
+			\includegraphics[width=0.9\textwidth]{res/UmatiApp.png}
+			\caption{Anzeige des RoLog Controllers auf dem Umati Web-Dashboard}
+			\label{fig:umatiApp}
 		\end{figure}
 		
-		 
-		\subsection{Sicherheit}
+		\subsection{Struktur}
 		
-		Die Demonstration über die \ac{Umati} Webapplikation dient nur Messezwecken und sollte nicht für die Produktion verwendet werden. Der Aufbau einer \ac{Umati} Umgebung sollte in einem lokalen Umfeld passieren, mit den maximalen Authentifizierungsmöglichkeiten die \ac{Umati} zulässt. %TODO: Das ist doch nix
+		% Verwendete Komponenten
+		Die Struktur des ersten Prototypen besteht aus zwei Dockercontaineren. Der RoLog ist ein modifizierter Container des \textit{Sample-Server-node-opcua} von Andreas Heine, welcher einen OPC UA Server veröffentlicht, der umati implementiert. Dieser Daten werden vom OPC UA Client ausgelesen. Dieser basiert auf dem Container aus dem \textit{Dashboard-OPCUA-Client} Repository. Der OPC UA Client sendet die Daten weiter an einen MQTT Broker. Dieser kann unter der Adresse \textit{https://umati.app:443/} erreicht werden und veröffentlicht die gesendeten Daten zur Abfrage. Das Frontend des Dashboards synchronisiert sich daraufhin mit dem MQTT Broker, erhält die Daten und zeigt sie auf der Webseite an. In Abbildung \ref{fig:Prototyp1} ist der Aufbau illustriert. Um zu überprüfen ob die Daten auch tatsächlich auf dem MQTT Broker ankommen, kann mit einem MQTT Client auf den Broker zugegriffen werden und die Daten ausgelesen werden.
 		
-		\subsection{OPC UA Server}
-			
-		Der OPC UA Server besteht aus zwei Komponenten. Der Simulation des Roboters und die Implementierung der \ac{Umati} Spezifikation OPC 40010 - Robotics. Um den OPC UA Server zu Verfügung zu stellen wurden mehrere Ansätze verwendet die in diesem Kapitel diskutiert werden. Die für diese Arbeit am besten geeignetste Lösung ist die Verwendung eines Sample Server Forks des \ac{Umati} Repositories der mit den Daten eines RoLogs oder zu simulierenden Maschine beschrieben wird. 
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=0.9\textwidth]{res/implementierung/Prototyp-umatiWeb.pdf}
+			\caption{Struktur des ersten Prototypen}
+			\label{fig:Prototyp1}
+		\end{figure}
 		
-			\subsubsection{dataFeed Server}
-			
-			DataFeed wurde von Softing Industrial Automation GmbH entwickelt welche ein „All-in-One“-Datenintegrationslösung für die OPC UA-Kommunikation anbieten.
-			
-			Mit dem dataFeed Tool können einfache OPC UA Server implementiert werden, welche Variablen und einzelne Attribute übermitteln können. \ac{Umati} verlangt eine  Objektbasierte Strukturierung der Daten, welche anhand der limitierten von dataFeed nicht umsetzbar ist.
-			
-			\subsubsection{Eigenimplementierung}
-			
-			
-			\subsubsection{Sample Server - \ac{Umati}}			
-			
-			
-			Die schnellste und robusteste Lösung für den Upload der Daten auf die \ac{Umati}-App ist es, den von Andreas Heine entwickelten Sample-Server-Node-opcua aus dem \ac{Umati} Verzeichnis auf Github zu verwenden. Diese erstellt eine Simulation von mehreren Maschinen und deren OPC UA Servern, welche alle eine andere Schnittsteller der \ac{Umati} Spezifikationen anbieten. Das Projekt umfasst die Spezifikationen OPC 40010 UA for Robotics, OPC 40550 UA for Woodworking, OPC 40501 UA for Machine Tools und noch weitere auf einzelne Herrsteller spezialisierte Schnittstellen. Der Sample Server kann in einem Dockercontainer gestartet werden kann daraufhin über den Port 4840 als OPC UA Server angesprochen werden. Um den Container mit einer VDMA Sample Maschine zu starten kann folgender Docker Befehl ausgeführt werden:
-			
-			\begin{lstlisting}[numbers=none, language=bash, frame=single]
-docker run -it -p 4840:4840 -e PORT=4840 -e IP=127.0.0.1 --name sampleserver-node-opcua ghcr.io/andreasheine/sampleserver-node-opcua:main
-			\end{lstlisting}
-			
-			Die Werte und variablen die die Maschine Anzeigt, wie beispielsweise Name, Location und Hersteller können in einer XML-Datei angepasst werden. Unter dem Ordner \textit{models} können für jede Art der Maschine Werte geändert werden. Um diese dann auch verwenden zu können, wurde ein Ford des Reposetories von Andreas Heine erstellt und die Werte in den XML FIles verändert. Um den Container einfach starten zu können wurde folgendes Docker Compose File erstellt:
-			
-			\lstinputlisting[frame=single]{res/code/compose-rolog.yaml}
-			
-			Dieses Docker Compose File startet einen Container mit dem Namen \textit{opcua-rolog} aus dem Ordner in dem es Abgespeichert ist. Diese Datei sollte im Selben Ordner wie das Dockerfile des Forks für den Sample Server liegen. Es verbindet den Port 4840 des Hostsystems mit dem Port 4840 des Containers. Wird nun eine Anfrage an den Port des Hostsystems gesendet, reicht dieser sie an den Port des Containers weiter. Dieser Port kann auch eine anderer sein, sollte 4840 bereits belegt sein (Beispiel: "4841:4840" um den Port 4841 des Hostsystems zu verwenden). Der Container kann mit einem Docker Compose Befehl gestartet werden. 
-			
-			\begin{lstlisting}[numbers=none, language=bash, frame=single]
-docker-compose -f docker-compose.yaml up
-			\end{lstlisting}
-			
-			
-			%TODO: Server Erklären
-			
-		\subsection{OPC UA Client}
+		% Requirements - Anmeldedaten
+		Um die Daten auf das Umati Web-Dashboard zu senden, werden mehrere Dinge benötigt. Anmeldedaten um mit dem MQTT Broker zu kommunizieren und es muss eine \ac{MoU} unterschrieben werden. Dafür muss eine Email an \textit{info@umati.org} gesendet werden mit einer Beschreibung der Maschine, die angebunden werden soll. 
 		
-		Der OPC UA Client hat die Aufgabe die Daten des Servers zu erfragen und sie an den MQTT Broker weiter zu geben. Der Client muss die \ac{Umati} Spezifikationen lesen können und die Identifikation der Maschinen durchführen.
+		\subsection{RoLog OPC UA Server}\label{ch:RoLogOPCUA}
 		
-			\subsubsection{\ac{Umati} Dashboard OPC UA Client}
-			
-			Für den Upload der Daten auf die umati.app Webseite, ist der vorgefertigte Client des VDMAs gedacht. Dieser verwendet eine Konfigurationsdatei um zu definieren, welche Spezifikationen er implementieren muss, welchen OPC UA Server er ansprechen kann und wo der MQTT Server liegt, welcher verwendet werden soll. In Anhang I ist die Konfigurationsdatei aufgeführt. Sie beinhaltet alle Wichtigen Informationen um einen Server zu starten, der die Robotics Spezifikation implementieren soll. Von besonderer Wichtigkeit sind die beiden Felder \textit{OpcUa} und \textit{Mqtt}. Die Variable \textit{OpcUa} zeigt auf den OPC UA Server, welcher als Dockercontainer gestartet wurde. Es können auch Authentifizierungsmöglichkeiten von \ac{Umati} verwendet werden, wobei die Anmeldedaten und die Authentifizierungsart eingetragen werden müssen.
-			
-			\lstinputlisting[firstline=37,lastline=42,frame=single]{res/code/config.json}
-			
-			In der Konfigurationsdatei muss ein MQTT Broker angegeben werden, an den die Daten gesendet werden sollen. Zum Testen der \ac{Umati} Schnittstelle und des Aufbaus der Container kann hier zunächst ein lokaler Server eingetragen werden. Funktioniert die gesamte Übertragung der Daten, können die Informationen mit den Anmeldedaten des \ac{Umati} MQTT Brokers ausgetauscht werden. Im folgenden Codebeispiel sind die Daten für die Verbindung mit dem \ac{Umati} MQTT Broker angegeben.
-			
-			\lstinputlisting[firstline=43,lastline=51,frame=single]{res/code/config.json}
-			
-			Der MQTT Broker sitzt unter der adresse \textit{umati.app} an dem Port \textit{443} und nutzt einen Web Sockert zur Kommunikation. Die Anmeldedaten müssen beim VDMA angefragt werden und die \ac{MoU} unterzeichnet werden.
-			
-			\subsubsection{Eigenimplementation}
-			
-			Eigenimplementierungen eines OPC UA Client ist sehr Zeit- und Resasourcenintensiv. Die Daten können jedoch auf jede erwünschte weise ausgegeben werden. Allerdings wiegt hier der Nachteil schwerer, da das Projekt Zeitlich sehr strikt begrenzt ist. Da es bereits entwickelte Möglichkeiten für einen OPC UA Client des VDMAs gibt, lohnt sich die Eigenimplementierung nicht. Die selben Prinzipien können auch auf eine Implementierung in Node Red angewandt werden.
-			
+		% Source
+		Der OPC UA Server mit Simulierter Maschine ist aus dem Repository \textit{Sample-Server-node-opcua} des VDMAs entstanden. Um das Projekt anzupassen wurde ein Fork des Repositories erstellt und lokal abgespeichert. Der Server beinhaltet mehrere Simulierte Maschinen die der OPC UA Client später ignorieren wird, weshalb nur die für die OPC for Robotics Spezifikation relevanten Maschinen angepasst werden müssen. 
+		
+		% Konfiguration Simulation
+		Die Konfiguration der Maschinen findet in XML Dateien statt. Diese liegen im Projekt unter dem Ordner mit der Bezeichnung \textit{models} ab. Alle benötigten Maschinen werden in der \textit{opcroboticstestserver.xml} definiert. Folgende Parameter können angepasst werden:
+		
+		\begin{itemize}
+			\item \textbf{Location} an drei Stellen sollte auf die Position der Maschine geändert werden. ("N 49.4439397 E 9.4087658")
+			\item Die Bezeichnung der Maschinen sollte geändert werden.
+			\subitem Die \textbf{ManufacturerUri} Eigenschaft sollte geändert werden.
+			\subitem Die \textbf{ComponentName} Eigenschaft kann angepasst werden. 
+		\end{itemize}
+		Jede Eigenschaft hat einen Value Abschnitt in den ein personalisierter Wert eingetragen werden kann.
+		
+		% Docker Compose
+		Nach der Anpassung der XML Datei kann ein Dockercontainer erstellt werden, in dem der Server läuft. Um nicht bei jedem neustarten des Containers alle Startparameter erneut an den Befehl anheften zu müssen, wird eine Docker Compose Datei erstellt, die diese Parameter enthält. Die Folgende Docker Compose Datei startet den OPC UA Server.
+		
+		\lstinputlisting[frame=single]{res/code/compose-rolog.yaml}
+		
+		% Starten des Docker Containers
+		Diese Docker Compose Datei startet einen Container mit dem Namen \textit{opcua-rolog} aus dem Ordner in dem sie Abgespeichert ist. Diese Datei muss im selben Ordner wie das Dockerfile des Forks für den Sample Server liegen. Es verbindet den Port 4840 des Hostsystems mit dem Port 4840 des Containers. Wird nun eine Anfrage an den Port des Hostsystems gesendet, reicht dieser sie an den Port des Containers weiter. Dieser Port kann auch eine anderer sein, sollte 4840 bereits belegt sein (Beispiel: "4841:4840" um den Port 4841 des Hostsystems zu verwenden). Der Container kann mit einem Docker Compose Befehl gestartet werden. 
+		
+		\begin{lstlisting}[numbers=none, language=bash, frame=single]
+			docker-compose -f docker-compose.yaml up --build -d
+		\end{lstlisting}
+		
+		% Docker Befehl Beschreibung - Logs
+		Der Befehl führt die Docker Compose Datei mit dem Namen \textit{docker-compose.yaml} aus, dank der \textbf{-f} Flag. Durch \textbf{--build} wird der Container bei jedem ausführen des Befehls neu erstellt, um sicherzustellen, dass alle Veränderungen an den Quelldateien auch im Container verwendet werden. Die Detached Flag \textbf{-d} gibt die Console nach dem starten des Containers wieder frei. Fehlt diese Flag, bleibt die Console in den Logs des Containers. Um im Nachhinein auf die Logs des Containers zugreifen zu können kann folgender Befehl verwendet werden. 
+		   
+		\begin{lstlisting}[numbers=none, language=bash, frame=single]
+			docker logs [Container] --follow
+		\end{lstlisting}
+		
+		% Docker Befehl beschribung
+		\textit{[Container]} muss durch den Container Namen oder die ID des Containers ausgetauscht werden. Das \textbf{--follow} bewirkt, dass die Console im Logging Modus bleibt und nicht nach der letzten Ausgabe den Container wieder Verlässt. Um den Logging Modus zu verlassen, kann die Tastenkombination Strg + C verwendet werden.
+		
+		% Überprüfung 
+		Um zu überprüfen ob der Server die richtigen Daten veröffentlicht, kann ein OPC UA Client verwendet werden. UAExpert bietet eine grafische Oberfläche an, über die durch alle Objekte des OPC Servers gesucht werden kann. In Abbildung \ref{fig:UAExpert} ist der Ordner \textit{Machines} des Sample Servers abgebildet. Im Ordner \textit{Identifikation} lassen sich die Attribute \textit{ManufacturerUri} und \textit{Location} überprüfen.
+		
+		\begin{figure}[H]
+			\centering
+			\includegraphics[height=0.7\linewidth]{res/UAExpert.png}
+			\caption{Veröffentlichte Objekte im Maschines Ordner des Sample Servers}
+			\label{fig:UAExpert}
+		\end{figure}
+		
+		\subsection{Dashboard OPC UA Client}\label{ch:OPCClient}
+		
+		% Configuration
+		Der OPC UA Client hat die Aufgabe, die Daten des Servers an den MQTT Broker weiterzugeben. Für diese Aufgabe stellt der VDMA das \textit{Dashboard-OPCUA-Client} Repository auf GitHub zu Verfügung. Der OPC UA Client läuft in einem Dockercontainer. Er Verbindet sich zunächst mit dem OPC UA Server und identifiziert alle Maschinen die er finden kann. Daraufhin konvertiert er die Daten in eine Json-Datei und schickt sie an den MQTT Broker weiter.
+		
+		% Spezifikationen
+		Der OPC UA Client muss über eine configuration.json so angepasst werden, dass er den richtigen OPC UA Server und MQTT Broker findet. Außerdem wird in dieser Datei ebenfalls festgelegt, nach welchen Spezifikationen während der Identifikation geschaut werden soll. In diesem Fall muss nur nach Maschinen gesucht werden, welche die OPC for Robotics Spezifikation implementieren. In Anhang 1 ist die volle Konfigurationsdatei für einen OPC UA Client für die Robotics Spezifikation.
+		
+		Um den Client mit dem OPC UA Server zu Verbinden muss die Adresse zum Server und die Anmeldedaten, sowie die Anmeldeform eingetragen werden. In diesem Fall liegt OPC UA Server an der Adresse \textit{192.168.0.133} am Port \textit{4840} und Veröffentlicht einen Entrypoint unter \textit{/UA}. Der OPC UA Server verwendet die Anmeldeform 1, was keiner Sicherheitsvorkehrung entspricht. Demnach werden keine Anmeldedaten benötigt. Diese Sicherheitseinstellung ist der Standard für den Sample Server von Umati, sollte in einem Produktionsserver jedoch angehoben werden. Aus diesen Informationen ergibt sich für das Feld \textit{OpcUa} der Konfigurationsdatei folgende Werte:
+		
+		% OPC UA
+		\lstinputlisting[firstline=37,lastline=42,frame=single]{res/code/config.json}
+		
+		Um mit dem MQTT Broker zu kommunizieren muss ein \textit{Mqtt} Feld angelegt werden. In diesem sollten zunächst die Verbindungsdaten zu einem eignen Test MQTT Broker eingetragen werden, um zu überprüfen ob der OPC UA Client reibungslos funktioniert. Ist dies der Fall, können die Daten für den Umati MQTT Broker eingetragen werden. Im folgenden Codebeispiel sind alle Parameter eingetragen, die für die Verbindung mit dem Umati MQTT Broker benötigt werden. Der Nutzername und das Password werden auf Nachfrage vom VDMA bereitgestellt.
+		
+		% MQTT
+		\lstinputlisting[firstline=43,lastline=51,frame=single]{res/code/config.json}
+		
+		\subsection{Umati MQTT Broker und Web-Dashboard}
+	
+		% Web Dashboard beschreiben -> Wo daten -> Wo meine Maschien
+		Die Daten werden in einem vom VDMA entworfenen Json Format vom Client geschrieben und anschließend vom Broker veröffentlicht. 
+		
+		%Aufbau Web Dashboard???
+	
+		\subsection{Security}
+		
+		% Risiken
+		Die Verbindung zum MQTT Broker von Umati ist nicht Sicher. Zur Übermittlung wird http verwendet, welches nicht sicher ist. Auch Intern ist die Sicherheit nicht hoch genug. Der OPC UA Server verlangt keine Authentifizierung. Allerdings laufen über diese Systeme nur Testdaten die keine hohe Sicherheit bedürfen. Sollten jedoch Produktionsdaten und Daten die Kritisch für die Maschinenfunktion sind über die Verbindungen laufen sollte die Authentifizierung angepasst werden. 
+	
+		Der OPC UA Server kann eine seiner Authentifizierungsmöglichkeiten Implementieren. Neben dem Freien Zugang, kann auch mit Nutzername und Passwort oder Zertifikaten gearbeitet werden, um die Sicherheit herzustellen. 
+	
+	\section{Implementierung eines Internen Prototyps}\label{ch:Implementierung-Intern}
+	
+		\subsection{Struktur}
+		
+		% Verwendete Komponenten
+		Der zweite Prototyp baut auf dem ersten auf und nutzt dessen OPC UA Server. Die Daten werden von einem OPC UA Client gelesen, welcher sie weiter an einen lokalen MQTT Broker sendet. Der OPC UA Client ist aus dem selben Image wie der Client aus dem ersten Prototypen, allerdings sendet er die Daten nicht an einen MQTT Broker im Internet, sondern an einen lokalen. Veröffentlicht der MQTT Broker die Daten, greifen zwei verschieden Clients auf die Daten zu. Telegraf und Node Red lesen die Daten aus dem Json Format und schreiben sie in eine Datenbank. Um die Daten zu Visualisieren liest Grafana die Datenbank aus, und stellt alles grafisch dar. In Abbildung \ref{fig:Prototyp2} ist der Fluss der Daten und die beteiligten Komponenten dargestellt. Alle Komponenten laufen in einem Dockercontainer.
+		
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=0.9\textwidth]{res/implementierung/Prototyp-Prototyp.pdf}
+			\caption{Struktur des zweiten Prototypen}
+			\label{fig:Prototyp2}
+		\end{figure}
+		
+		% Portainer
+		Neben dem Prototypen läuft ebenfalls eine Portainer Instanz. Diese ist Nötig, um auf die InfluxDB Datenbank zuzugreifen zu können. 
+		
+		\subsection{OPC UA Server/Client}
+		
+		% Server
+		Um die Daten zu einer internen Visualisierung zu senden, wurde die selbe Datenquelle verwendet. Der OPC UA Server ist der selbe wir schon in Kapitel \ref{ch:RoLogOPCUA} beschrieben. 
+		
+		% Client
+		Der Client wird aus dem selben Repository erstellt, wie auch schon in Kapitel \ref{ch:OPCClient} beschrieben. Allerdings muss nun die \textit{Mqtt}-Konfiguration angepasst werden. Statt der Daten des Umati MQTT Brokers müssen nun die Verbindungsdaten auf einen lokalen MQTT Server eingetragen werden. In diesem Projekt wurde folgende Konfiguration verwendet:
+		
+		\lstinputlisting[firstline=52,lastline=60,frame=single]{res/code/config.json}
+		
+		Der MQTT Broker läuft auf der selben VM mit der Adresse \textit{192.168.0.133} auf dem Port \textit{1883}. Die Daten werden unter dem \textit{umati/v2} Topic veröffentlicht. 
 		
 		\subsection{MQTT Broker}
-			% MQTT Broker der Daten speichert und veröffentlicht
-			
-			% Probleme und Lösungen
 		
-		\subsection{Integration in bestehende Infrastruktur}
-			% Integration in Unternehmensstruktur
-			
-
-	
+		% MQTT Broker Image
+		Wie alle anderen Komponenten des Prototypen ist der MQTT Broker ebenfalls in einen Dockercontainer eingefasst. Er wurde aus dem offiziellen eclipse-mosquitto Image auf Docker Hub erstellt. Der Broker selbst verlangt keine Konfiguration, da die Clients die Daten auf dem Broker veröffentlichen und lesen. Deshalb kann der default Container verwendet werden und muss nur an einem Port veröffentlicht werden.
+		
+		% Befehl zum Starten
+		Um den Broker zu starten, kann folgender Befehl auf dem Hostsystem ausgeführt werden:
+		
+		\begin{lstlisting}[numbers=none, language=bash, frame=single]
+			docker logs [Container] --follow
+		\end{lstlisting}
+		
+		% Überprüfung
+		
+		\subsection{InfluxDB}
+		
+			\subsubsection{NodeRed}
+		
+			\subsubsection{Telegraf}
+		
+		\subsection{Grafana}
+		
 	
 	\chapter{Diskussion und Fazit}\label{ch:Diskussion_Fazit}
 	
@@ -582,7 +628,8 @@ docker-compose -f docker-compose.yaml up
 	\frontmatter
 	
 	\pagebreak
-	\section*{Anhang I: configuration.json} \label{Anhang1} %TODO: Überschrift aus Inhalt raus
+	\chapter{Anhänge} %TODO: Alle Codebeispiele rein, Yaml Files ...
+	\section*{Anhang I: configuration.json} \label{Anhang1}
 	\lstinputlisting{res/code/config.json}
 	\pagebreak
 

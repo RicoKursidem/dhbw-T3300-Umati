@@ -48,6 +48,15 @@
       "Prefix": "umati/v2",
       "ClientId": "", // <UserName>
       "Protocol": "wss"
+    }, 
+    "Mqtt": {
+      "Hostname": "192.168.0.133",
+      "Port": 1883,
+      "Username": "",
+      "Password": "",
+      "Prefix": "umati/v2",
+      "ClientId": "rolog",
+      "Protocol": "mqtt"
     }
   }
   
