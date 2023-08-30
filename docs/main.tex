@@ -372,9 +372,7 @@
 			\subitem \textbf{REQ3.1}: Visualisierung der Daten, die sich verändern.
 			\subitem \textbf{REQ3.2}: Einbinden einer Datenquelle, die Grafana Nativ versteht.
 			\item \textbf{REQ4}: NodeRed soll als Lösung in Betracht gezogen werden.
-		\end{itemize}
-		
-			
+		\end{itemize}			
 		
 	\section{Lösungsansatz}
 	
@@ -424,9 +422,9 @@
 			
 			\subsubsection{Vorgefertigte OPC UA Server mit Umati}
 			
-			% TODO: Vorgefertigte OPC UA Server mit Umati
+			Es können ebenfalls bereits vorhandene OPC UA Server verwendet werden. Da Umati als Kommunikationsstandard noch sehr jung ist und sich noch nicht Weltweit durchgesetzt hat, gibt es nur wenige Implementierungen. Allerdings bietet der VDMA eigene Implementierungen auf deren GitHub an. Dort können mehrere Implementierungen von OPC UA Servern mit Umati Spezifikationen gefunden werden. In Kapitel \ref{Marktanalyse} wird auf die Repositories des VDMAs genauer eingegangen.
 	
-	\section{Marktanalyse}
+	\section{Marktanalyse}\label{Marktanalyse}
 		
 		Die Initiatoren von Umati, der \ac{VDMA} und \ac{VDW}, stellen mehrere GitHub Repositorien mit vorgefertigten Projekten zum Thema Umati zur Verfügung \cite{noauthor_github_nodate}. All diese Projekte sind unter dem Namen \textit{umati - universal machine technology interface} zusammengefasst. Hier finden sich auch mehrere Sample Server und Implementierungen von OPC UA Servern in verschiedenen Sprachen. Zum Zeitpunkt dieser Arbeit am 23.08.2023 sind 18 Repositorien in diesem Verzeichnis aufgeführt. Eine davon enthält ein Tutorial zum Erstellen eines Servers für einen Showcase (https://github.com/umati/Showcase). Hier können alle Informationen entnommen werden, die für den Prototyp 1 - Umati Web Dashboard benötigt werden.
 		
