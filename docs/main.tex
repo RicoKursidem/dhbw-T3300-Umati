@@ -44,7 +44,7 @@
 	 
 	 Das Ziel dieser Arbeit ist es, \ac{Umati} in einem Testumfeld anhand eines Proof-of-Conzept aufzubauen. Um dies zu erreichen, soll zunächst eine Marktanalyse durchgeführt werden, um mögliche Lösungen zum Versenden und Empfangen von Daten zwischen Maschine und \ac(MES) zu finden. Diese sollen anhand von selbst entwickelten Kriterien abgewogen und bewertet werden. Die vielversprechendsten Umsetzungen sollen in einem Testsystem implementiert werden und für zukünftige Demonstrationen auf Messen für AZO zur Verfügung gestellt werden.
 	 
-	 Dabei sollen zwei Systeme entstehen. Der VDMA bietet ein Web-Dashboard unter umati.app an, auf dem Zahlreiche Hersteller ihre Maschinen bereits Anbinden. Hier soll eine Simulierte Maschine von AZO ebenfalls dargestellt werden. Außerdem soll eine Interne Demonstration aufgebaut werden, die eine Umatifähige Maschine in die bestehende Infrastruktur Integriert und die Informationen Visualisieren kann.
+	 Dabei sollen zwei Systeme entstehen. Der VDMA bietet ein Web-Dashboard unter umati.app an, auf dem Zahlreiche Hersteller ihre Maschinen bereits Anbinden. Hier soll eine Simulierte Maschine von AZO ebenfalls dargestellt werden. Außerdem soll eine Interne Demonstration aufgebaut werden, die eine umatifähige Maschine in die bestehende Infrastruktur Integriert und die Informationen Visualisieren kann.
 	
 	\section{Unternehmen}
 	
@@ -60,8 +60,8 @@
 	
 	\begin{itemize}
 		\item \textbf{Q1}: Welche Herausforderungen ergeben sich bei der Umsetzung von \ac{Umati}?
-		\item \textbf{Q2}: Welche Lösungen zur Umsetzung von \ac{Umati} sind am Wirtschaftlichsten?
-		\item \textbf{Q3}: Wie kann die Datenkommunikation zwischen Anlage und Visualisierungplattform bestmöglich implementiert werden?
+		\item \textbf{Q2}: Welche Lösungen zur Umsetzung eines Prototypen von \ac{Umati} sind am Wirtschaftlichsten?
+		\item \textbf{Q3}: Wie kann die Datenkommunikation zwischen Anlage und Visualisierungsplattform bestmöglich implementiert werden?
 	\end{itemize}
 	
 	\section{Aufbau der Arbeit}
@@ -104,7 +104,7 @@
 	 Die semantische Interoperabilität beschreibt das vereinheitlichte Verständnis der Daten. Kommunizieren zwei Systeme miteinander, so müssen Sie unter denselben Werten auch dasselbe verstehen. Ein Beispiel für einen Standard, der semantische Interoperabilität umsetzt, ist der "International Classification of Diseases". Bei diesem geht es um die Kommunikation von Krankheiten zwischen Ärzten und wurde von der WHO eingeführt. Jede Krankheit hat einen festgelegten Code, wodurch eine eindeutige Kommunikation gewährleistet ist. \cite{mielebacher_verteilte_2021-1}
 	 
 	 % Was legt OPC UA fest
-	 OPC UA legt anhand des Information-Models die Syntax der Daten fest, wodurch die syntaktische Interoperabilität gewährleistet ist. Die semantische Interoperabilität wird anhand der Companion Standards festgelegt, welche auf den OPC UA Standard aufgesetzt werden. Diese beschreiben Technologie-spezifische Informationsmodelle welche von verschiedensten Arbeitsgruppen erstellt werden. Es gibt unterschiedliche Companion Spezifikationen für unterschiedliche Anwendungsgebiete von OPC UA, beispielsweise für bestimmte Maschinengruppen oder Branchen. Sie legen jedoch immer fest, wie bestimmte Daten verstanden werden müssen. %TODO Quelle -> OPC Foundation?
+  	 OPC UA legt anhand des Information-Models die Syntax der Daten fest, wodurch die syntaktische Interoperabilität gewährleistet ist. Die semantische Interoperabilität wird anhand der Companion Standards festgelegt, welche auf den OPC UA Standard aufgesetzt werden. Diese beschreiben Technologie-spezifische Informationsmodelle welche von verschiedensten Arbeitsgruppen erstellt werden. Es gibt unterschiedliche Companion Spezifikationen für unterschiedliche Anwendungsgebiete von OPC UA, beispielsweise für bestimmte Maschinengruppen oder Branchen. Sie legen jedoch immer fest, wie bestimmte Daten verstanden werden müssen. \cite{noauthor_machinery_nodate-1}
 	 
 	 % OPC Classics
 	 OPC UA entstand aus dem zuvor entwickelten Standard OPC Classics. Der alte Standard setzte die Kommunikation im Bereich der Automatisierung bereits sehr gut um. Der Nachteil an Classics war jedoch die fehlende Plattformunabhängigkeit. OPC UA unterstützt heute jegliche Betriebssysteme für Clients als auch für die Server, während der Vorgänger auf einem Windowssystem betreiben werden musste. Auch die Kommunikation war auf die von Microsoft entwickelte Technologien \ac{COM} und \ac{DCOM} ausgelegt. Durch die Ablösung dieses Standards durch OPC UA wird über TCP/IP und SOAP kommuniziert, welche beide Plattformunabhängig sind und somit kann OPC UA auch auf anderen Plattformen wie Linux, Mac und Android ohne Probleme angewandt werden. \cite{mielebacher_verteilte_2021-1}
@@ -157,7 +157,7 @@
 		
 		Anders Hansson, Chief Marketing Officer von HMS Networks erklärt sich den Wachstum des Industriellen Netzwerkmarktes aufgrund der steigenden nachfrage in der modernen Industrie, nachhaltig, effizient und produktiv zu bleiben und gleichzeitig flexibele und qualitative Fertigung zu ermöglichen. Die Netzwerke zur Kommunikation sind dabei ein Schlüsselfaktor um die genannten Punkte zu erreichen \cite{noauthor_2022_nodate}. Bei einem instgesamten Wachstum der Nutzung dieser Systeme um 8\% zeigen die Entwicklungen in diesen Bereichen eine deutliche Relevanz für die Automatisierung von und Kommunikation mit Maschinen. 
 		
-		% TODO Kommunikationsprotokolle Analyse Anteile, verwendung AZO
+		% TODO Vill Kommunikationsprotokolle Analyse Anteile, verwendung AZO
 		
 		\begin{figure}[H]
 			\centering
@@ -240,8 +240,6 @@
 		OPC for Machinery implementiert keinen festen Typ um als einen Einstiegspunkt für den OPC UA Server. Daher muss auf die Basisspezifikation OPC 40001-1 eine weitere Spezifikation aufgesetzt werden. Im Fall dieser Arbeit wird ein Roboter simuliert, weshalb die Spezifikation OPC 40010 Robotics anbietet. Als Mindestanforderung muss Part 1 der Robtics-Spezifikation implementiert werden. Dadurch ergibt sich eine Anzahl an Variablen, Funktionen und Strukturen, welche in den Simulationsserver implementiert werden.
 		
 		OPC UA for Machinery definiert, das jede Maschine und jede Komponente einen Identifikations-AddIn besitzt. In diesem müssen mindestens eine Manufacturer und eine Productinstance Identifikation vorhanden sein. Dies stellt sicher, dass ein OPC UA Client jede Maschine die Veröffentlicht wird finden und erkennen kann.  
-		
-		%TODO: nochmal überprüfen
 
 	\section{Weitere Technologien}
 		\subsection{Docker}
@@ -325,19 +323,19 @@
 		
 		\subsection{Vorgehen}
 		%Ziel
-		Das Ziel dieses Projekts ist es, die Umsetzbarkeit eines Umatifähigen OPC UA Servers zu demonstrieren. Es sollen Daten von einer Maschine ausgelesen und Angezeigt werden. Es soll eine Struktur entworfen werden, welche den Datenfluss von OPC UA Server an eine Visualisierungsoberfläche ermöglicht.
+		Das Ziel dieses Projekts ist es, die Umsetzbarkeit eines umatifähigen OPC UA Servers zu demonstrieren. Es sollen Daten von einer Maschine ausgelesen und angezeigt werden. Es soll eine Struktur entworfen werden, welche den Datenfluss von OPC UA Server an eine Visualisierungsoberfläche ermöglicht.
 		
-		Zunächst soll der erste Prototyp umgesetzt werden, bei welchem Daten an die offizielle Webseite des VDMAs gesendet werden sollen. Diese Webseite demonstriert, das verschiedenste Hersteller auf einem gemeinsamen Dashboard ihre Maschinen und Anlagen mit Umati integrieren können. AZO möchte eine eigene Maschine dort Anzeigen, welche auf Messen gezeigt werden kann.
+		Zunächst soll der erste Prototyp umgesetzt werden, bei welchem Daten an die offizielle Webseite des VDMAs gesendet werden sollen. Diese Webseite demonstriert, dass verschiedenste Hersteller auf einem gemeinsamen Dashboard ihre Maschinen und Anlagen mit Umati integrieren können. AZO möchte eine eigene Maschine dort anzeigen, welche auf Messen gezeigt werden kann.
 		
 		Der zweite Prototyp ist eine Verbindung zwischen einem OPC UA Server mit der Umati Implementation und einer internen Visualisierung. Hierbei sollen die Daten aus dem OPC UA Server ausgelesen und so transformiert werden, dass sie auf einem Grafana Dashboard angezeigt werden können. AZO visualisiert bereits bestehende Projekte über Grafana und die Umati Maschinen sollen sich so in die bereits bestehende Infrastruktur eingliedern.
 		
 		\subsection{Prototyp 1: Umati Web Dashboard}
 		
 		% Ziel
-		Die Daten eines OPC UA Servers soll an das umati Web Dashboard gesendet werden. Die Seite kann unter dem Link \textit{umati.app} erreicht werden. Sie baut auf einem MQTT Broker auf, welcher alle Daten der Teilnehmer abspeichert und an das Dashboard weiter gibt. Der MQTT Broker liegt an der selben Adresse am Port 443 und benötigt Anmeldekriterien für die Veröffentlichung und das Abfragen von Daten.
+		Die Daten eines OPC UA Servers sollen an das Umati Web Dashboard gesendet werden. Die Seite kann unter dem Link \textit{umati.app} erreicht werden. Sie baut auf einem MQTT Broker auf, welcher alle Daten der Teilnehmer abspeichert und an das Dashboard weiter gibt. Der MQTT Broker liegt an derselben Adresse am Port 443 und benötigt Anmeldekriterien für die Veröffentlichung und das Abfragen von Daten.
 		
 		% Prototyp
-		Als Grundlage des ersten Prototypen soll eine Maschine simuliert werden. Es soll keine echte Maschine verwendet werden, da diese eventuell an bestimmten Zeitpunkten ausgeschaltet oder betriebsunfähig sein könnte. Außerdem ist eine laufende Maschine oder Anlage deutlich kostenintensiver als eine serverbasierte Simulation. Die simulierte Maschine soll eine Anlage von AZO darstellen, die auch tatsächlich im Einsatz ist. Als Beispiel wird ein RoLog simuliert, der bei der automatischen Kleinstmengendosierung von Schüttgütern zum Einsatz kommt. In Abbildung \ref{fig:RoLog} ist ein virtualisierter Aufbau der Anlage abgebildet. Der Roboterarm in der Mitte lagert seine Ressourcenbehälter auf den Schränken an der Seite der Anlage, lagert neue Behälter über die Laufbänder an der Hinterseite (Oben-Links) aus oder ein und dosiert in die Ausgabe an der Front (Vorne-Rechts) des Aufbaus. \cite{noauthor_azo_nodate}
+		Als Grundlage des ersten Prototyps soll eine Maschine simuliert werden. Es soll keine echte Maschine verwendet werden, da diese eventuell an bestimmten Zeitpunkten ausgeschaltet oder betriebsunfähig sein könnte. Außerdem ist eine laufende Maschine oder Anlage deutlich kostenintensiver als eine serverbasierte Simulation. Die simulierte Maschine soll eine Anlage von AZO darstellen, die auch tatsächlich im Einsatz ist. Als Beispiel wird ein RoLog simuliert, der bei der automatischen Kleinstmengendosierung von Schüttgütern zum Einsatz kommt. In Abbildung \ref{fig:RoLog} ist ein virtualisierter Aufbau der Anlage abgebildet. Der Roboterarm in der Mitte lagert seine Ressourcenbehälter auf den Schränken an der Seite der Anlage, lagert neue Behälter über die Laufbänder an der Hinterseite (Oben-Links) aus oder ein und dosiert in die Ausgabe an der Front (Vorne-Rechts) des Aufbaus. \cite{noauthor_azo_nodate}
 		
 		\begin{figure}[H]
 			\centering
@@ -346,37 +344,34 @@
 			\label{fig:RoLog}
 		\end{figure}
 	
-		%TODO Text zur Evaluations Kriterien Liste
+		Der erste Prototyp hat mehrere Kriterien, die erreicht werden müssen. Folgende Anforderungen wurden für den ersten Prototyp erstellt:
 		
 		% Evaluationskriterien
 		\begin{itemize}
 			\item \textbf{REQ1}: Kommunikation von OPC UA Server zu Client nach Umati Standard
-			\item \textbf{REQ2}: Daten auf Umati Web-Dashboard
+			\item \textbf{REQ2}: Daten auf Umati Web-Dashboard:
 			\subitem \textbf{REQ2.1}: Visualisierung der Daten, die sich verändern.
 			\subitem \textbf{REQ2.2}: Personalisieren aller Daten nach AZO Gmbh.
 			\subitem \textbf{REQ2.3}: Anpassen der Location auf der Karte.
 			\subitem \textbf{REQ2.3}: Anzeige eines Bild der Maschine.
-			\item \textbf{REQ3}: 
 		\end{itemize}
 		
 		\subsection{Prototyp 1: Umati Web Dashboard}
 		
 		% Ziel
-		Die Daten, welche die Simulation der Maschine generiert, sollen an eine Grafana Instanz gesendet werden. Hier soll erneut eine umatifähiger OPC UA Server verwendet werden. Die Daten sollen in der grafischen Oberfläche von Grafana einfach und fasettenreich ausgelesen und Angezeigt werden können. Das Ziel ist es einen Ablauf zu entwerfen, welcher als Ansatzpunkt für zukünftige Projekte verwendet werden kann. 
+		Die Daten, welche die Simulation der Maschine generiert, sollen an eine Grafana Instanz gesendet werden. Hier soll erneut ein umatifähiger OPC UA Server verwendet werden. Die Daten sollen in der grafischen Oberfläche von Grafana einfach und umfangreich ausgelesen und angezeigt werden können. Das Ziel ist es, einen Ablauf zu entwerfen, welcher als Ansatzpunkt für zukünftige Projekte verwendet werden kann. 
 		
 		% Grafana
-		Grafan soll dabei in einem Docker-Container laufen. Grafana bietet Nativ die Möglichkeit, unterschiedliche Datenquellen einzubinden. Eine dieser Datenquellen soll verwendet werden. Es soll ein Dashboard entstehen, welches die Daten der Maschine anzeigt und sich live aktualisiert.
-		
-		%TODO Text zur Evaluations Kriterien Liste
+		Grafana soll dabei in einem Docker-Container laufen. Grafana bietet Nativ die Möglichkeit, unterschiedliche Datenquellen einzubinden. Eine dieser Datenquellen soll verwendet werden. Es soll ein Dashboard entstehen, welches die Daten der Maschine anzeigt und sich live aktualisiert. Aus den Ansätzen folgern diese Anforderungen:
 		
 		% Evaluierungskriterien
 		\begin{itemize}
 			\item \textbf{REQ1}: Kommunikation von OPC UA Server zu Client nach Umati Standard
 			\item \textbf{REQ2}: Grafan muss in einer Docker Instanz laufen.
-			\item \textbf{REQ3}: Dashboard
+			\item \textbf{REQ3}: Dashboard:
 			\subitem \textbf{REQ3.1}: Visualisierung der Daten, die sich verändern.
 			\subitem \textbf{REQ3.2}: Einbinden einer Datenquelle, die Grafana Nativ versteht.
-			\item \textbf{REQ4}: 
+			\item \textbf{REQ4}: NodeRed soll als Lösung in Betracht gezogen werden.
 		\end{itemize}
 		
 			
@@ -385,67 +380,63 @@
 	
 		\subsection{Grundlagen}
 		% OPC 40001 for Machinery
-		Der OPC UA Server muss mehrere Spezifikationen Implementieren. Als Grundlage muss die Identifikation der Maschinen aus der OPC 40001 for Machinery Spezifikation genutzt werden. Der OPC UA Server erstellt dabei einen Namespace, in dem alle Anlagen einem Ordner mit der Bezeichnung \textit{Machines} untergeordnert sind. Jede Komponente und jede Maschine müssen einen Identifikations Ordner Besitzen. Dieser Ordner ermöglicht es, das OPC UA Clients alle Maschinen finden und sie richtig erkennen. 
+		Der OPC UA Server muss mehrere Spezifikationen implementieren. Als Grundlage muss die Identifikation der Maschinen aus der OPC 40001 for Machinery Spezifikation genutzt werden. Der OPC UA Server erstellt dabei einen Namespace, in dem alle Anlagen einem Ordner mit der Bezeichnung \textit{Machines} untergeordnet sind. Jede Komponente und jede Maschine müssen einen Identifikations-Ordner besitzen. Dieser Ordner ermöglicht es, dass OPC UA Clients alle Maschinen finden und sie richtig erkennen. 
 		
 		% OPC 40010 Robotics
-		Da die Basisspezifikation jedoch keinen eigenen Einstioegspunkt definiert, muss eine weitere Spezifikation implementiert werden. Diese Arbeit wird die OPC 40010 Robotics - Vertical Integration Spezifikation implementieren. Diese legt fest, welche Komponenten in welcher art und weise vorhanden sein müssen, um ein Maschine im Roboticsumfeld mit Umati zu betrieben. Es muss ein \textit{MotionDeviceSystem}, ein \textit{Robot} und ein \textit{RobotController} existieren. 
+		Da die Basisspezifikation jedoch keinen eigenen Einstiegspunkt definiert, muss eine weitere Spezifikation implementiert werden. Diese Arbeit wird die OPC 40010 Robotics - Vertical Integration Spezifikation implementieren. Diese legt fest, welche Komponenten in welcher Art und Weise vorhanden sein müssen, um eine Maschine im Roboticsumfeld mit Umati zu betreiben. Es muss ein \textit{MotionDeviceSystem}, ein \textit{Robot} und ein \textit{RobotController} existieren. 
 		
 		% Mandatory Objects
-		Der \textit{Robot} implementiert die Axen und Mototren der Maschine und hat ein Attribut mit den Werten der Geschwindigkeit, Beschleunigung und Position. Der \textit{RobotController} verwaltet das \textit{Robot}-Objekt und speichert noch zusätzliche Informationen ab. Beispielsweise welche Software verwendet wird um den Poboter zu steuern und einige Sicherheitsfeatures. Die \textit{MotionDeviceSystem} verwaltet die \textit{RobotController} und stellt die Anlage im ganzen dar.
+		Der \textit{Robot} implementiert die Achsen und Motoren der Maschine und hat ein Attribut mit den Werten der Geschwindigkeit, Beschleunigung und Position. Der \textit{RobotController} verwaltet das \textit{Robot}-Objekt und speichert noch zusätzliche Informationen ab. Beispielsweise welche Software verwendet wird, um den Roboter zu steuern und einige Sicherheitsfeatures. Die \textit{MotionDeviceSystem} verwaltet die \textit{RobotController} und stellt die Anlage im ganzen dar.
 		
 		% Aufbau VM
-		Die gesamte Infrastruktur des Projektes wird auf einer VM mit Ubuntu Server 20.04.2 laufen. Auf der VM ist die Docker Engine installiert. Um die Vorgänge auf dem Server besser nachvollziehen zu können ist eine Portainer Instanz als Docker Container installiert. Portainer ist eine grafische Oberfläche die über den Browser erreicht werden kann. Sie ermöglicht den Umgang mit Docker Containern, Images und allem was Docker zu Verfügung stellt sehr einfach. Unter anderem kann eine Console innerhalb der Container gestartet werden, was die Entwicklung extrem vereinfacht. 
+		Die gesamte Infrastruktur des Projektes wird auf einer VM mit Ubuntu Server 20.04.2 laufen. Auf der VM ist die Docker Engine installiert. Um die Vorgänge auf dem Server besser nachvollziehen zu können, ist eine Portainer Instanz als Docker Container installiert. Portainer ist eine grafische Oberfläche, die über den Browser erreicht werden kann. Sie ermöglicht den Umgang mit Docker Containern, Images und allem was Docker zur Verfügung stellt sehr einfach. Unter anderem kann eine Konsole innerhalb der Container gestartet werden, was die Entwicklung extrem vereinfacht. 
 		
 		\subsection{OPC UA Server}
 		
 			\subsubsection{OPC UA Server - DataFeed}
 				
-			Die Softing Industrial Automation GmbH bietet zahlreiche Tools an, um mit OPC UA Servern zu Kommunizieren und auch diese zu entwickeln. Sie bieten unter dem Namen dataFEED OPC Suite Base einProdukt an, welches die Kommunikation mit OPC UA und OPC Classic und die Cloud-Anbindungen übernimmt. Dabei ermöglichen sie die Kommunikation mit führenden Herstellern von Steuerungen wie  Siemens SIMATIC S7, Rockwell ControlLogix, B\&R, Mitsubishi sowie auf Modbus-Steuerungen. \cite{noauthor_datafeed_nodate}
-			
-			Bei AZO wird diese Suite verwendet, weshalb die Implementierung eines OPC UA Servers mit Umati über dataFEED in frage kam. Allerdings lässt der Baukasten zum Entwurf der OPC UA Server keine Objekte zu, welche notwendig sind, um Umati zu Implementieren.
+			Die Softing Industrial Automation GmbH bietet zahlreiche Tools an, um mit OPC UA Servern zu Kommunizieren und auch diese zu entwickeln. Sie bieten unter dem Namen dataFEED OPC Suite Base ein Produkt an, welches die Kommunikation mit OPC UA und OPC Classic und die Cloud-Anbindungen übernimmt. Dabei ermöglichen sie die Kommunikation mit führenden Herstellern von Steuerungen wie  Siemens SIMATIC S7, Rockwell ControlLogix, B\&R, Mitsubishi sowie auf Modbus-Steuerungen. \cite{noauthor_datafeed_nodate}
+		
+			Bei AZO wird diese Suite verwendet, weshalb die Implementierung eines OPC UA Servers mit Umati über dataFEED infrage kam. Allerdings lässt der Baukasten zum Entwurf der OPC UA Server keine Objekte zu, welche notwendig sind, um Umati zu implementieren.
 					
 			\subsubsection{Eigenimplementierung}
 		
 			% Eigenimplementierung in LowCode Plattform NodeRed
 			% Muss ich noch rechachieren
 					
-			Da der Umati Server auf dem Offenen Standard OPC UA aufbaut, kann ein Server auch selbst implementiert werden. Dies hat verschiedene Vor- und Nachteile welche beachtet und auf das Ziel der Implementierung angewandt werden müssen. 
+			Da der Umati Server auf dem offenen Standard OPC UA aufbaut, kann ein Server auch selbst implementiert werden. Dies hat verschiedene Vor- und Nachteile, welche beachtet und auf das Ziel der Implementierung angewandt werden müssen. 
 			
-			Eigenimplementierungen sind meist Anpassungsfähiger und flexibler, um auf Situationsspezifische Anforderungen zu reagieren. Sie können spezifisch auf den gewünschten Zweck hin optimiert und verbessert werden. Dies kann auch eine einfachere Integration in eine bereits bestehende Umgebung garantieren, da die Anwendung auf diese Umgebung hin angepasst werden kann.
+			Eigenimplementierungen sind meist anpassungsfähiger und flexibler, um auf Situationsspezifische Anforderungen zu reagieren. Sie können spezifisch auf den gewünschten Zweck hin optimiert und verbessert werden. Dies kann auch eine einfachere Integration in eine bereits bestehende Umgebung garantieren, da die Anwendung auf diese Umgebung hin angepasst werden kann.
 			
-			Allerdings kann es auch zu Nachteilen führen. Eigenimplementationen haben ein hohes Risiko auf Fehleranfälligkeiten oder Sicherheitslücken. Bei eingekauften Lösungen profitiert die Anwendung im Normalfall von Erfahrungswerten des Breitstellers und dem Umstand, dass diese Lösung sich bereits am Markt behaupten musste. Die Fehlende Erfahrung kann auch zu einem Programm führen, welches kaum optimiert und komplex ist, was die Wartbarkeit und Nutzerfreundlichkeit vermindert. Soll die Lösung zu kommerziellen Zwecken eingesetzt werden oder hat hohe Anforderungen an Sicherheit, Zugverlässlichkeit und Robustheit sollte auf eine Eigenimplementation verzichtet werden.
+			Allerdings kann es auch zu Nachteilen führen. Eigenimplementationen haben ein hohes Risiko auf Fehleranfälligkeiten oder Sicherheitslücken. Bei eingekauften Lösungen profitiert die Anwendung im Normalfall von Erfahrungswerten des Breitstellers und dem Umstand, dass diese Lösung sich bereits am Markt behaupten musste. Die fehlende Erfahrung kann auch zu einem Programm führen, welches kaum optimiert und komplex ist, was die Wartbarkeit und Nutzerfreundlichkeit vermindert. Soll die Lösung zu kommerziellen Zwecken eingesetzt werden oder hat hohe Anforderungen an Sicherheit, Zugverlässlichkeit und Robustheit, sollte auf eine Eigenimplementation verzichtet werden.
 			
-			Trotz der Nachteile sollte die Umsetzung einer Eigenimplementierung, vor allem zu Demonstrationszwecken, in Betracht gezogen werden. Hierbei gibt es Low-Code und High-Code Ansätze. Bei High-Code Implementierungen wird die Funktionalität in Code hergestellt. Beispielsweise kann ein OPC UA Server nur anhand von Python oder C\# Frameworks implementiert werden. Low-Code Ansätze bedienen sich dabei einem Visuellen Programmierstil. Die Programierung findet über IDEs statt, welche mehr auf Bausteinartige Programmierung setzen. Beispiele für solche Umgebungen sind NodeRed oder Microsoft Power Apps. 
+			Trotz der Nachteile sollte die Umsetzung einer Eigenimplementierung, vor allem zu Demonstrationszwecken, in Betracht gezogen werden. Hierbei gibt es Low-Code und High-Code Ansätze. Bei High-Code Implementierungen wird die Funktionalität in Code hergestellt. Beispielsweise kann ein OPC UA Server nur anhand von Python oder C\# Frameworks implementiert werden. Low-Code Ansätze bedienen sich dabei einem visuellen Programmierstil. Die Programmierung findet über IDEs statt, welche mehr auf Bausteinartige Programmierung setzen. Beispiele für solche Umgebungen sind NodeRed oder Microsoft Power Apps. 
 			
 			\paragraph{Implementierung mit C\#}
-			Die OPC Foundation stellt ein Framework für die Entwicklung von OPC Servern auf C\# Basis zu Verfügung. Die OPC UA.NET Standard Bibliothek ermöglicht die Entwicklung von OPC Servern und Clients. Eine Eigenimplementierung mit diesem Framework würde einen sehr individualisierbaren und flexiblen Server ergeben, welcher den RoLog in seiner exakten Funktion darstellen könnte. Allerdings ist die Implementierung sehr zeitintensiv und benötigt Expertise auf dem Bereich. \cite{noauthor_opc_nodate-1}
+			Die OPC Foundation stellt ein Framework für die Entwicklung von OPC Servern auf C\# Basis zu Verfügung. Die OPC UA.NET Standard-Bibliothek ermöglicht die Entwicklung von OPC Servern und Clients. Eine Eigenimplementierung mit diesem Framework würde einen sehr individualisierbaren und flexiblen Server ergeben, welcher den RoLog in seiner exakten Funktion darstellen könnte. Allerdings ist die Implementierung sehr zeitintensiv und benötigt Expertise auf dem Bereich. \cite{noauthor_opc_nodate-1}
 			
-			Um eine einwandfreie Simulation eines RoLogs als Basis der Prototypen zu verwenden, sollte diese Implementierung in Betracht gezogen werden. Allerdings ist diese Form um einen ersten \ac{PoC} für Umati zu entwerfen zu aufwendig.
-			
-			% zu zeitintensiv aber hoch individualisierbar
-			% Sollte auch das Ziel sein, vorallem wenn die Simulation richtig gut werden soll
+			Um eine einwandfreie Simulation eines RoLogs als Basis der Prototypen zu verwenden, sollte diese Implementierung in Betracht gezogen werden. Allerdings ist diese Form, um einen ersten \ac{PoC} für Umati zu entwerfen, zu aufwendig.
 			
 			\paragraph{Implementierung in einer SPS}
-			Die Implementierung einer OPC UA Schnittstelle kann auch direkt auf einer SPS durchgeführt werden. Siemens SPS stellen einen integrierten OPC UA Server zu Verfügung welcher direkt an der Anlage laufen kann. Es gibt auch die Möglichkeit, Maschinen zu Simulieren und mit kleinen Programmen deren Verhalten zu bestimmen. Der Server der SIMATIC S7 SPS von Simens kann Objekte und Klassenstrukturen darstellen. \cite{noauthor_tia_2019}
+			Die Implementierung einer OPC UA Schnittstelle kann auch direkt auf einer SPS durchgeführt werden. Siemens SPS stellen einen integrierten OPC UA Server zu Verfügung, welcher direkt an der Anlage laufen kann. Es gibt auch die Möglichkeit, Maschinen zu simulieren und mit kleinen Programmen deren Verhalten zu bestimmen. Der Server der SIMATIC S7 SPS von Simens kann Objekte und Klassenstrukturen darstellen. \cite{noauthor_tia_2019}
 			
-			Die Entwicklung eines solchen Servers ist sehr Zeitaufwendig und benötigt Expertise im entwickeln von OPC UA Servern auf SPS. Es ist denkbar Maschinen die Umatifähig sein sollen, auf dieser Ebene als OPC UA Server zu entwickeln, allerdings für eine Demonstration von Umati zu Umfangreich.
+			Die Entwicklung eines solchen Servers ist sehr zeitaufwendig und benötigt Expertise im Entwickeln von OPC UA Servern auf SPS. Es ist denkbar Maschinen die umatifähig sein sollen, auf dieser Ebene als OPC UA Server zu entwickeln, allerdings für eine Demonstration von Umati zu Umfangreich.
 			
 			\subsubsection{Vorgefertigte OPC UA Server mit Umati}
 			
-			
-			
+			% TODO: Vorgefertigte OPC UA Server mit Umati
 	
 	\section{Marktanalyse}
 		
-		Die Initiatoren von Umati, der \ac{VDMA} und \ac{VDW}, stellen mehrere GitHub Repositorien mit vorgefertigten Projekten zum Thema Umati zu Verfügung \cite{noauthor_github_nodate}. All diese Projekte sind unter dem Namen \textit{umati - universal machine technology interface} zusammengefasst. Hier finden sich auch mehrere Sample Server und Implementierungen von OPC UA Servern in verschiedenen Sprachen. Zum Zeitpunkt dieser Arbeit am 23.08.2023 sind 18 Repositorien in diesem Verzeichnis aufgeführt. Eine davon enthält ein Tutorial zum Erstellen eines Servers für einen Showcase (https://github.com/umati/Showcase). Hier können alle Informationen entnommen werden, die für den Prototyp 1 - Umati Web Dashboard benötigt werden.
+		Die Initiatoren von Umati, der \ac{VDMA} und \ac{VDW}, stellen mehrere GitHub Repositorien mit vorgefertigten Projekten zum Thema Umati zur Verfügung \cite{noauthor_github_nodate}. All diese Projekte sind unter dem Namen \textit{umati - universal machine technology interface} zusammengefasst. Hier finden sich auch mehrere Sample Server und Implementierungen von OPC UA Servern in verschiedenen Sprachen. Zum Zeitpunkt dieser Arbeit am 23.08.2023 sind 18 Repositorien in diesem Verzeichnis aufgeführt. Eine davon enthält ein Tutorial zum Erstellen eines Servers für einen Showcase (https://github.com/umati/Showcase). Hier können alle Informationen entnommen werden, die für den Prototyp 1 - Umati Web Dashboard benötigt werden.
 		
-		Das Repository Verzeichnis enthält drei Implementierungen von Sample Servern welche in Rahmen dieser Arbeit gennauer betraschtet wurden. Der \textit{Sample-Server} \linebreak (https://github.com/umati/Sample-Server) ist eine Implementierung mit Maschinensimulation auf Basis von C++. Er Implementiert die Companion-Spezifikationen OPC UA Machine Tool, OPC UA for Woodworking, OPC UA for Geometrical Measuring Systems und OPC UA for Additive Manufacturing. Da die Robotics Spezifikation für diesen Server noch Work-In-Progress ist, muss ein anderer verwendet werden.
+		Das Repository Verzeichnis enthält drei Implementierungen von Sample-Servern, welche in Rahmen dieser Arbeit genauer betrachtet wurden. Der \textit{Sample-Server} \linebreak (https://github.com/umati/Sample-Server) ist eine Implementierung mit Maschinensimulation auf Basis von C++. Er implementiert die Companion-Spezifikationen OPC UA Machine Tool, OPC UA for Woodworking, OPC UA for Geometrical Measuring Systems und OPC UA for Additive Manufacturing. Da die Robotics Spezifikation für diesen Server noch Work-In-Progress ist, muss ein anderer verwendet werden.
 		\% Datenfluss -> Bildbeschreibung
-		Ein anderer Server auf Basis des Python Frameworks asyncio (https://github.com/umati/Sample-Server-asyncio) implementiert die Companion Spezifikationen OPC UA Plastic and Rubber, OPC UA for Woodworking, OPC 40451–1 Tightening und OPC UA for Surface Technology. Auch in diesem Projekt ist die Robotics Spezifikation noch nicht Implementiert.
+		Ein anderer Server auf Basis des Python-Frameworks asyncio (https://github.com/umati/Sample-Server-asyncio) implementiert die Companion Spezifikationen OPC UA Plastic and Rubber, OPC UA for Woodworking, OPC 40451–1 Tightening und OPC UA for Surface Technology. Auch in diesem Projekt ist die Robotics Spezifikation noch nicht implementiert.
 		
-		Nach Rücksprache mit Götz Görisch vom VDMA fiell die Entscheidung, welchen Sample Server verwendet werden soll, auf den \textit{Sample-Server-node-opcua}. Dieser OPC UA Server ist mit TypeScript programmiert und hat neben vielen weiteren auch die Robotics Companion-Spezifikation implementiert. Da sich dieser Server in einem Dockercontainer starten lässt und bereits alle Notwendigen Entrypoints für einen Roboter vorhanden sind, wurde dieser Sample-Server für das Projekt verwendet.
+		Nach Rücksprache mit Götz Görisch vom VDMA fiel die Entscheidung, welchen Sample Server verwendet werden soll, auf den \textit{Sample-Server-node-opcua}. Dieser OPC UA Server ist mit TypeScript programmiert und hat neben vielen weiteren auch die Robotics Companion-Spezifikation implementiert. Da sich dieser Server in einem Dockercontainer starten lässt und bereits alle notwendigen Entrypoints für einen Roboter vorhanden sind, wurde dieser Sample-Server für das Projekt verwendet.
 		
-		Für den OPC UA Client stellt der VDMA ebenfalls ein Repository zu Verfügung. Der \textit{Dashboard-OPCUA-Client} (https://github.com/umati/Dashboard-OPCUA-Client) übernimmt die Verbindung zwischen dem OPC UA Server und einem MQTT Broker. Der Container des OPC UA Clients des VDMAs benötigt zum starten eine configuration.json in der die Adressen zum OPC UA Server und dem MQTT Broker stehen. Außerdem beinhaltet diese Datei welche Companion Spezifikationen im angegebenen Namespace gefunden Werden sollen. 
+		Für den OPC UA Client stellt der VDMA ebenfalls ein Repository zur Verfügung. Der \textit{Dashboard-OPCUA-Client} (https://github.com/umati/Dashboard-OPCUA-Client) übernimmt die Verbindung zwischen dem OPC UA Server und einem MQTT Broker. Der Container des OPC UA Clients des VDMAs benötigt zum Starten eine configuration.json, in der die Adressen zum OPC UA Server und dem MQTT Broker stehen. Außerdem beinhaltet diese Datei, welche Companion Spezifikationen im angegebenen Namespace gefunden werden sollen. 
 		
 	\section{Wirtschaftlichkeit und Projektanalyse}
 	
@@ -460,9 +451,9 @@
 	\section{Veröffentlichung von Daten auf dem Umati Web-Dashboard}\label{ch:Implementierung-Web}
 		
 		% Ziel und Motivation
-		Das Umati Web-Dashboard ist ein Projekt des VDMAs welches die Funktionalität zur Datenabfrage an Maschinen durch Umati demonstrieren soll. Mitglieder des VDMAs und Interesenten an Umati können eigene Maschinen Umatifähig machen und sie für Ausstellungszwecke auf diesem Web-Dashboard anzeigen lassen. AZO möchte ebenfalls eine eigene Maschine auf diesem Dashboard anzeigen lassen. Dies soll vorallem für Messezwecke umgesetzt werden, aber auch um die grundlegenden Funktionen von Umati zu erforschen.
+		Das Umati Web-Dashboard ist ein Projekt des VDMAs welches die Funktionalität zur Datenabfrage an Maschinen durch Umati demonstrieren soll. Mitglieder des VDMAs und Interessenten an Umati können eigene Maschinen umatifähig machen und sie für Ausstellungszwecke auf diesem Web-Dashboard anzeigen lassen. AZO möchte ebenfalls eine eigene Maschine auf diesem Dashboard anzeigen lassen. Dies soll vor allem für Messezwecke umgesetzt werden, aber auch um die grundlegenden Funktionen von Umati zu erforschen.
 		
-		In Abbildung \ref{fig:umatiApp} ist das Ziel der Anzeige abgebildet. Die uamti.app besteht aus einer Hauptseite auf der Maschinen von verschiedenen Herstellern auf einer Geografischen Karte markiert sind. Diese Markierungen können angeklickt werden um weitere Informationen über die Maschine auszugeben. In Abbildung \ref{fig:umatiApp} ist der ausgewählte RoLog abgebildet. Nach Bedarf kann auf eine Detailansicht navigiert werden, welche die Variablen, Parameter und Eigenschaften der Maschine anzeigt.
+		In Abbildung \ref{fig:umatiApp} ist das Ziel der Anzeige abgebildet. Die uamti.app besteht aus einer Hauptseite, auf der Maschinen von verschiedenen Herstellern auf einer geografischen Karte markiert sind. Diese Markierungen können angeklickt werden, um weitere Informationen über die Maschine auszugeben. In Abbildung \ref{fig:umatiApp} ist der ausgewählte RoLog abgebildet. Nach Bedarf kann auf eine Detailansicht navigiert werden, welche die Variablen, Parameter und Eigenschaften der Maschine anzeigt.
 		
 		\begin{figure}[H]
 			\centering
@@ -474,7 +465,7 @@
 		\subsection{Struktur}
 		
 		% Verwendete Komponenten
-		Die Struktur des ersten Prototypen besteht aus zwei Dockercontaineren. Der RoLog ist ein modifizierter Container des \textit{Sample-Server-node-opcua} von Andreas Heine, welcher einen OPC UA Server veröffentlicht, der umati implementiert. Dieser Daten werden vom OPC UA Client ausgelesen. Dieser basiert auf dem Container aus dem \textit{Dashboard-OPCUA-Client} Repository. Der OPC UA Client sendet die Daten weiter an einen MQTT Broker. Dieser kann unter der Adresse \textit{https://umati.app:443/} erreicht werden und veröffentlicht die gesendeten Daten zur Abfrage. Das Frontend des Dashboards synchronisiert sich daraufhin mit dem MQTT Broker, erhält die Daten und zeigt sie auf der Webseite an. In Abbildung \ref{fig:Prototyp1} ist der Aufbau illustriert. Um zu überprüfen ob die Daten auch tatsächlich auf dem MQTT Broker ankommen, kann mit einem MQTT Client auf den Broker zugegriffen werden und die Daten ausgelesen werden.
+		Die Struktur des ersten Prototyps besteht aus zwei Docker-Containeren. Der RoLog ist ein modifizierter Container des \textit{Sample-Server-node-opcua} von Andreas Heine, welcher einen OPC UA Server veröffentlicht, der Umati implementiert. Dieser Daten werden vom OPC UA Client ausgelesen. Dieser basiert auf dem Container aus dem \textit{Dashboard-OPCUA-Client} Repository. Der OPC UA Client sendet die Daten weiter an einen MQTT Broker. Dieser kann unter der Adresse \textit{https://umati.app:443/} erreicht werden und veröffentlicht die gesendeten Daten zur Abfrage. Das Frontend des Dashboards synchronisiert sich daraufhin mit dem MQTT Broker, erhält die Daten und zeigt sie auf der Webseite an. In Abbildung \ref{fig:Prototyp1} ist der Aufbau illustriert. Um zu überprüfen, ob die Daten auch tatsächlich auf dem MQTT Broker ankommen, kann mit einem MQTT Client auf den Broker zugegriffen werden und die Daten ausgelesen werden.
 		
 		\begin{figure}[H]
 			\centering
@@ -484,12 +475,12 @@
 		\end{figure}
 		
 		% Requirements - Anmeldedaten
-		Um die Daten auf das Umati Web-Dashboard zu senden, werden mehrere Dinge benötigt. Anmeldedaten um mit dem MQTT Broker zu kommunizieren und es muss eine \ac{MoU} unterschrieben werden. Dafür muss eine Email an \textit{info@umati.org} gesendet werden mit einer Beschreibung der Maschine, die angebunden werden soll. 
+		Um die Daten auf das Umati Web-Dashboard zu senden, werden mehrere Dinge benötigt. Anmeldedaten um mit dem MQTT Broker zu kommunizieren und es muss eine \ac{MoU} unterschrieben werden. Dafür muss eine E-Mail an \textit{info@umati.org} gesendet werden, mit einer Beschreibung der Maschine, die angebunden werden soll. 
 		
 		\subsection{RoLog OPC UA Server}\label{ch:RoLogOPCUA}
 		
 		% Source
-		Der OPC UA Server mit Simulierter Maschine ist aus dem Repository \textit{Sample-Server-node-opcua} des VDMAs entstanden. Um das Projekt anzupassen wurde ein Fork des Repositories erstellt und lokal abgespeichert. Der Server beinhaltet mehrere Simulierte Maschinen die der OPC UA Client später ignorieren wird, weshalb nur die für die OPC for Robotics Spezifikation relevanten Maschinen angepasst werden müssen. 
+		Der OPC UA Server mit simulierter Maschine ist aus dem Repository \textit{Sample-Server-node-opcua} des VDMAs entstanden. Um das Projekt anzupassen, wurde ein Fork des Repositories erstellt und lokal abgespeichert. Der Server beinhaltet mehrere simulierte Maschinen, die der OPC UA Client später ignorieren wird, weshalb nur die für die OPC for Robotics Spezifikation relevanten Maschinen angepasst werden müssen. 
 		
 		% Konfiguration Simulation
 		Die Konfiguration der Maschinen findet in XML Dateien statt. Diese liegen im Projekt unter dem Ordner mit der Bezeichnung \textit{models} ab. Alle benötigten Maschinen werden in der \textit{opcroboticstestserver.xml} definiert. Folgende Parameter können angepasst werden:
@@ -500,32 +491,32 @@
 			\subitem Die \textbf{ManufacturerUri} Eigenschaft sollte geändert werden.
 			\subitem Die \textbf{ComponentName} Eigenschaft kann angepasst werden. 
 		\end{itemize}
-		Jede Eigenschaft hat einen Value Abschnitt in den ein personalisierter Wert eingetragen werden kann.
+		Jede Eigenschaft hat einen Value Abschnitt, in den ein personalisierter Wert eingetragen werden kann.
 		
 		% Docker Compose
-		Nach der Anpassung der XML Datei kann ein Dockercontainer erstellt werden, in dem der Server läuft. Um nicht bei jedem neustarten des Containers alle Startparameter erneut an den Befehl anheften zu müssen, wird eine Docker Compose Datei erstellt, die diese Parameter enthält. Die Folgende Docker Compose Datei startet den OPC UA Server.
+		Nach der Anpassung der XML-Datei kann ein Dockercontainer erstellt werden, in dem der Server läuft. Um nicht bei jedem neu starten des Containers alle Startparameter erneut an den Befehl anheften zu müssen, wird eine Docker-Compose Datei erstellt, die diese Parameter enthält. Die folgende Docker-Compose Datei startet den OPC UA Server.
 		
 		\lstinputlisting[frame=single]{res/code/compose-rolog.yaml}
 		
 		% Starten des Docker Containers
-		Diese Docker Compose Datei startet einen Container mit dem Namen \textit{opcua-rolog} aus dem Ordner in dem sie Abgespeichert ist. Diese Datei muss im selben Ordner wie das Dockerfile des Forks für den Sample Server liegen. Es verbindet den Port 4840 des Hostsystems mit dem Port 4840 des Containers. Wird nun eine Anfrage an den Port des Hostsystems gesendet, reicht dieser sie an den Port des Containers weiter. Dieser Port kann auch eine anderer sein, sollte 4840 bereits belegt sein (Beispiel: "4841:4840" um den Port 4841 des Hostsystems zu verwenden). Der Container kann mit einem Docker Compose Befehl gestartet werden. 
-		
+		Diese Docker-Compose Datei startet einen Container mit dem Namen \textit{opcua-rolog} aus dem Ordner in dem sie abgespeichert ist. Diese Datei muss im selben Ordner wie das Dockerfile des Forks für den Sample Server liegen. Es verbindet den Port 4840 des Hostsystems mit dem Port 4840 des Containers. Wird nun eine Anfrage an den Port des Hostsystems gesendet, reicht dieser sie an den Port des Containers weiter. Dieser Port kann auch eine anderer sein, sollte 4840 bereits belegt sein (Beispiel: "4841:4840", um den Port 4841 des Hostsystems zu verwenden). Der Container kann mit einem Docker Compose Befehl gestartet werden. 
+	
 		\begin{lstlisting}[numbers=none, language=bash, frame=single]
 			docker-compose -f docker-compose.yaml up --build -d
 		\end{lstlisting}
-		
+	
 		% Docker Befehl Beschreibung - Logs
-		Der Befehl führt die Docker Compose Datei mit dem Namen \textit{docker-compose.yaml} aus, dank der \textbf{-f} Flag. Durch \textbf{--build} wird der Container bei jedem ausführen des Befehls neu erstellt, um sicherzustellen, dass alle Veränderungen an den Quelldateien auch im Container verwendet werden. Die Detached Flag \textbf{-d} gibt die Console nach dem starten des Containers wieder frei. Fehlt diese Flag, bleibt die Console in den Logs des Containers. Um im Nachhinein auf die Logs des Containers zugreifen zu können kann folgender Befehl verwendet werden. 
-		   
+		Der Befehl führt die Docker-Compose Datei mit dem Namen \textit{docker-compose.yaml} aus, dank der \textbf{-f} Flag. Durch \textbf{--build} wird der Container bei jedem Ausführen des Befehls neu erstellt, um sicherzustellen, dass alle Veränderungen an den Quelldateien auch im Container verwendet werden. Die Detached Flag \textbf{-d} gibt die Konsole nach dem Starten des Containers wieder frei. Fehlt diese Flag, bleibt die Konsole in den Logs des Containers. Um im Nachhinein auf die Logs des Containers zugreifen zu können, kann folgender Befehl verwendet werden. 
+		
 		\begin{lstlisting}[numbers=none, language=bash, frame=single]
 			docker logs [Container] --follow
 		\end{lstlisting}
 		
 		% Docker Befehl beschribung
-		\textit{[Container]} muss durch den Container Namen oder die ID des Containers ausgetauscht werden. Das \textbf{--follow} bewirkt, dass die Console im Logging Modus bleibt und nicht nach der letzten Ausgabe den Container wieder Verlässt. Um den Logging Modus zu verlassen, kann die Tastenkombination Strg + C verwendet werden.
+		\textit{[Container]} muss durch den Container Namen oder die ID des Containers ausgetauscht werden. Das \textbf{--follow} bewirkt, dass die Konsole im Logging Modus bleibt und nicht nach der letzten Ausgabe den Container wieder verlässt. Um den Logging Modus zu verlassen, kann die Tastenkombination Strg + C verwendet werden.
 		
 		% Überprüfung 
-		Um zu überprüfen ob der Server die richtigen Daten veröffentlicht, kann ein OPC UA Client verwendet werden. UAExpert bietet eine grafische Oberfläche an, über die durch alle Objekte des OPC Servers gesucht werden kann. In Abbildung \ref{fig:UAExpert} ist der Ordner \textit{Machines} des Sample Servers abgebildet. Im Ordner \textit{Identifikation} lassen sich die Attribute \textit{ManufacturerUri} und \textit{Location} überprüfen.
+		Um zu überprüfen, ob der Server die richtigen Daten veröffentlicht, kann ein OPC UA Client verwendet werden. UAExpert bietet eine grafische Oberfläche an, über die durch alle Objekte des OPC Servers gesucht werden kann. In Abbildung \ref{fig:UAExpert} ist der Ordner \textit{Machines} des Sample Servers abgebildet. Im Ordner \textit{Identifikation} lassen sich die Attribute \textit{ManufacturerUri} und \textit{Location} überprüfen.
 		
 		\begin{figure}[H]
 			\centering
@@ -537,24 +528,24 @@
 		\subsection{Dashboard OPC UA Client}\label{ch:OPCClient}
 		
 		% Configuration
-		Der OPC UA Client hat die Aufgabe, die Daten des Servers an den MQTT Broker weiterzugeben. Für diese Aufgabe stellt der VDMA das \textit{Dashboard-OPCUA-Client} Repository auf GitHub zu Verfügung. Der OPC UA Client läuft in einem Dockercontainer. Er Verbindet sich zunächst mit dem OPC UA Server und identifiziert alle Maschinen die er finden kann. Daraufhin konvertiert er die Daten in eine Json-Datei und schickt sie an den MQTT Broker weiter.
+		Der OPC UA Client hat die Aufgabe, die Daten des Servers an den MQTT Broker weiterzugeben. Für diese Aufgabe stellt der VDMA das \textit{Dashboard-OPCUA-Client} Repository auf GitHub zur Verfügung. Der OPC UA Client läuft in einem Dockercontainer. Er verbindet sich zunächst mit dem OPC UA Server und identifiziert alle Maschinen, die er finden kann. Daraufhin konvertiert er die Daten in eine Json-Datei und schickt sie an den MQTT Broker weiter.
 		
 		% Spezifikationen
 		Der OPC UA Client muss über eine configuration.json so angepasst werden, dass er den richtigen OPC UA Server und MQTT Broker findet. Außerdem wird in dieser Datei ebenfalls festgelegt, nach welchen Spezifikationen während der Identifikation geschaut werden soll. In diesem Fall muss nur nach Maschinen gesucht werden, welche die OPC for Robotics Spezifikation implementieren. In Anhang 1 ist die volle Konfigurationsdatei für einen OPC UA Client für die Robotics Spezifikation.
 		
-		Um den Client mit dem OPC UA Server zu Verbinden muss die Adresse zum Server und die Anmeldedaten, sowie die Anmeldeform eingetragen werden. In diesem Fall liegt OPC UA Server an der Adresse \textit{192.168.0.133} am Port \textit{4840} und Veröffentlicht einen Entrypoint unter \textit{/UA}. Der OPC UA Server verwendet die Anmeldeform 1, was keiner Sicherheitsvorkehrung entspricht. Demnach werden keine Anmeldedaten benötigt. Diese Sicherheitseinstellung ist der Standard für den Sample Server von Umati, sollte in einem Produktionsserver jedoch angehoben werden. Aus diesen Informationen ergibt sich für das Feld \textit{OpcUa} der Konfigurationsdatei folgende Werte:
+		Um den Client mit dem OPC UA Server zu verbinden, muss die Adresse zum Server und die Anmeldedaten, sowie die Anmeldeform eingetragen werden. In diesem Fall liegt OPC UA Server an der Adresse \textit{192.168.0.133} am Port \textit{4840} und veröffentlicht einen Entrypoint unter \textit{/UA}. Der OPC UA Server verwendet die Anmeldeform 1, was keiner Sicherheitsvorkehrung entspricht. Demnach werden keine Anmeldedaten benötigt. Diese Sicherheitseinstellung ist der Standard für den Sample Server von Umati, sollte in einem Produktionsserver jedoch angehoben werden. Aus diesen Informationen ergibt sich für das Feld \textit{OpcUa} der Konfigurationsdatei folgende Werte:
 		
 		% OPC UA
 		\lstinputlisting[firstline=37,lastline=42,frame=single]{res/code/config.json}
 		
-		Um mit dem MQTT Broker zu kommunizieren muss ein \textit{Mqtt} Feld angelegt werden. In diesem sollten zunächst die Verbindungsdaten zu einem eignen Test MQTT Broker eingetragen werden, um zu überprüfen ob der OPC UA Client reibungslos funktioniert. Ist dies der Fall, können die Daten für den Umati MQTT Broker eingetragen werden. Im folgenden Codebeispiel sind alle Parameter eingetragen, die für die Verbindung mit dem Umati MQTT Broker benötigt werden. Der Nutzername und das Password werden auf Nachfrage vom VDMA bereitgestellt.
+		Um mit dem MQTT Broker zu kommunizieren, muss ein \textit{Mqtt} Feld angelegt werden. In diesem sollten zunächst die Verbindungsdaten zu einem eignen Test MQTT Broker eingetragen werden, um zu überprüfen, ob der OPC UA Client reibungslos funktioniert. Ist dies der Fall, können die Daten für den Umati MQTT Broker eingetragen werden. Im folgenden Codebeispiel sind alle Parameter eingetragen, die für die Verbindung mit dem Umati MQTT Broker benötigt werden. Der Nutzername und das Password werden auf Nachfrage vom VDMA bereitgestellt.
 		
 		% MQTT
 		\lstinputlisting[firstline=43,lastline=51,frame=single]{res/code/config.json}
 		
 		\subsection{Umati MQTT Broker und Web-Dashboard}
-	
-		% Web Dashboard beschreiben -> Wo daten -> Wo meine Maschien
+		
+		% Web Dashboard beschreiben -> Wo daten -> Wo meine Maschinen
 		Die Daten werden in einem vom VDMA entworfenen Json Format vom Client geschrieben und anschließend vom Broker veröffentlicht. 
 		
 		%Aufbau Web Dashboard???
@@ -562,16 +553,16 @@
 		\subsection{Security}
 		
 		% Risiken
-		Die Verbindung zum MQTT Broker von Umati ist nicht Sicher. Zur Übermittlung wird http verwendet, welches nicht sicher ist. Auch Intern ist die Sicherheit nicht hoch genug. Der OPC UA Server verlangt keine Authentifizierung. Allerdings laufen über diese Systeme nur Testdaten die keine hohe Sicherheit bedürfen. Sollten jedoch Produktionsdaten und Daten die Kritisch für die Maschinenfunktion sind über die Verbindungen laufen sollte die Authentifizierung angepasst werden. 
-	
-		Der OPC UA Server kann eine seiner Authentifizierungsmöglichkeiten Implementieren. Neben dem Freien Zugang, kann auch mit Nutzername und Passwort oder Zertifikaten gearbeitet werden, um die Sicherheit herzustellen. 
+		Die Verbindung zum MQTT Broker von Umati ist nicht sicher. Zur Übermittlung wird http verwendet, welches nicht sicher ist. Auch intern ist die Sicherheit nicht hoch genug. Der OPC UA Server verlangt keine Authentifizierung. Allerdings laufen über diese Systeme nur Testdaten, die keine hohe Sicherheit bedürfen. Sollten jedoch Produktionsdaten und Daten, die kritisch für die Maschinenfunktion sind, über die Verbindungen laufen, sollte die Authentifizierung angepasst werden. 
+		
+		Der OPC UA Server kann eine seiner Authentifizierungsmöglichkeiten implementieren. Neben dem freien Zugang, kann auch mit Nutzername und Passwort oder Zertifikaten gearbeitet werden, um die Sicherheit herzustellen. 
 	
 	\section{Implementierung eines Internen Prototyps}\label{ch:Implementierung-Intern}
 	
 		\subsection{Struktur}
 		
 		% Verwendete Komponenten
-		Der zweite Prototyp baut auf dem ersten auf und nutzt dessen OPC UA Server. Die Daten werden von einem OPC UA Client gelesen, welcher sie weiter an einen lokalen MQTT Broker sendet. Der OPC UA Client ist aus dem selben Image wie der Client aus dem ersten Prototypen, allerdings sendet er die Daten nicht an einen MQTT Broker im Internet, sondern an einen lokalen. Veröffentlicht der MQTT Broker die Daten, greifen zwei verschieden Clients auf die Daten zu. Telegraf und Node Red lesen die Daten aus dem Json Format und schreiben sie in eine Datenbank. Um die Daten zu Visualisieren liest Grafana die Datenbank aus, und stellt alles grafisch dar. In Abbildung \ref{fig:Prototyp2} ist der Fluss der Daten und die beteiligten Komponenten dargestellt. Alle Komponenten laufen in einem Dockercontainer.
+		Der zweite Prototyp baut auf dem ersten auf und nutzt dessen OPC UA Server. Die Daten werden von einem OPC UA Client gelesen, welcher sie weiter an einen lokalen MQTT Broker sendet. Der OPC UA Client ist aus demselben Image wie der Client aus dem ersten Prototyp, allerdings sendet er die Daten nicht an einen MQTT Broker im Internet, sondern an einen lokalen. Veröffentlicht der MQTT Broker die Daten, greifen zwei verschieden Clients auf die Daten zu. Telegraf und NodeRed lesen die Daten aus dem Json-Format und schreiben sie in eine Datenbank. Um die Daten zu visualisieren liest Grafana die Datenbank aus, und stellt alles grafisch dar. In Abbildung \ref{fig:Prototyp2} ist der Fluss der Daten und die beteiligten Komponenten dargestellt. Alle Komponenten laufen in einem Dockercontainer.
 		
 		\begin{figure}[H]
 			\centering
@@ -581,43 +572,248 @@
 		\end{figure}
 		
 		% Portainer
-		Neben dem Prototypen läuft ebenfalls eine Portainer Instanz. Diese ist Nötig, um auf die InfluxDB Datenbank zuzugreifen zu können. 
+		Neben dem Prototyp läuft ebenfalls eine Portainer Instanz. Diese ist nötig, um auf die InfluxDB Datenbank zuzugreifen, zu können. 
 		
 		\subsection{OPC UA Server/Client}
 		
 		% Server
-		Um die Daten zu einer internen Visualisierung zu senden, wurde die selbe Datenquelle verwendet. Der OPC UA Server ist der selbe wir schon in Kapitel \ref{ch:RoLogOPCUA} beschrieben. 
+		Um die Daten zu einer internen Visualisierung zu senden, wurde dieselbe Datenquelle verwendet. Der OPC UA Server ist derselbe wie schon in Kapitel \ref{ch:RoLogOPCUA} beschrieben. 
 		
 		% Client
-		Der Client wird aus dem selben Repository erstellt, wie auch schon in Kapitel \ref{ch:OPCClient} beschrieben. Allerdings muss nun die \textit{Mqtt}-Konfiguration angepasst werden. Statt der Daten des Umati MQTT Brokers müssen nun die Verbindungsdaten auf einen lokalen MQTT Server eingetragen werden. In diesem Projekt wurde folgende Konfiguration verwendet:
+		Der Client wird aus demselben Repository erstellt, wie auch schon in Kapitel \ref{ch:OPCClient} beschrieben. Allerdings muss nun die \textit{Mqtt}-Konfiguration angepasst werden. Statt der Daten des Umati MQTT Brokers müssen die Verbindungsdaten auf einem lokalen MQTT Server eingetragen werden. In diesem Projekt wurde folgende Konfiguration verwendet:
 		
 		\lstinputlisting[firstline=52,lastline=60,frame=single]{res/code/config.json}
 		
-		Der MQTT Broker läuft auf der selben VM mit der Adresse \textit{192.168.0.133} auf dem Port \textit{1883}. Die Daten werden unter dem \textit{umati/v2} Topic veröffentlicht. 
+		Der MQTT Broker läuft auf derselben VM mit der Adresse \textit{192.168.0.133} auf dem Port \textit{1883}. Die Daten werden unter dem \textit{umati/v2} Topic veröffentlicht. 
 		
-		\subsection{MQTT Broker}
+		\subsection{MQTT Broker}\label{ch:MQTT Broker}
 		
 		% MQTT Broker Image
-		Wie alle anderen Komponenten des Prototypen ist der MQTT Broker ebenfalls in einen Dockercontainer eingefasst. Er wurde aus dem offiziellen eclipse-mosquitto Image auf Docker Hub erstellt. Der Broker selbst verlangt keine Konfiguration, da die Clients die Daten auf dem Broker veröffentlichen und lesen. Deshalb kann der default Container verwendet werden und muss nur an einem Port veröffentlicht werden.
+		Wie alle anderen Komponenten des Prototyps ist der MQTT Broker ebenfalls in einen Dockercontainer eingefasst. Er wurde aus dem offiziellen eclipse-mosquitto Image auf Docker Hub erstellt. Der Broker selbst verlangt keine Konfiguration, da die Clients die Daten auf dem Broker veröffentlichen und lesen. Deshalb kann der Default-Container verwendet werden und muss nur an einem Port veröffentlicht werden.
 		
 		% Befehl zum Starten
 		Um den Broker zu starten, kann folgender Befehl auf dem Hostsystem ausgeführt werden:
 		
 		\begin{lstlisting}[numbers=none, language=bash, frame=single]
-			docker logs [Container] --follow
+			docker run -it -p 1883:1883 -p 9001:9001 eclipse-mosquitto
 		\end{lstlisting}
+	
+		% Befehlerklärung
+		Der Befehl nutzt zwei Ports, über die eine Verbindung zum Broker aufgebaut werden kann. Über den Port 1883 kann ein Client über das MQTT Protokoll zugreifen. Der Port 9001 ermöglicht die Verbindung über Websockets. Das \textit{-it} Flag steht für --interactive und verhindert, dass der Container beendet wird, wenn er keine Befehle zum Ausführen mehr hat. Tauscht man dieses Flag mit \textit{-itd} aus, wird der Container als interactive und detatched gestartet.
 		
 		% Überprüfung
 		
 		\subsection{InfluxDB}
 		
-			\subsubsection{NodeRed}
+		% Hinführung
+		Um die Daten der Sensoren abzuspeichern wird eine influxDB verwendet. Dies ist ein Datenbank Managment System, das sich auf die Abspeicherung und Effiziente Verarbeitung von Zeitreihen spezialisierte. Auch dieses Projekt besitzt ein offizielles Image auf DockerHub (influxdb) welches für den Prototyp verwendet wird. Die Datenbank wird über ein Docker-Compose Datei gestartet. Der Eintrag des Service ist im folgenden Codeausschnitt der \textit{influx.yaml} abgebildet.
 		
+		\lstinputlisting[firstline=15,lastline=26,frame=single]{res/code/influx.yaml}
+		
+		% Erklärung Docker Compose File
+		Das Docker Compose File erstellt einen Container aus dem influxdb Image der Version 1.8 mit dem Namen \textit{influxdb}. Der restart Parameter ist auf always gestellt, um sicherzustellen, dass der influxdb Container auch nach einem Absturz erneut startet. In den Umgebungsvariablen werden Datenbankname und ein Admin-User angegeben. Die Datenbank läuft auf dem Port \textit{8086} und wird auf den selben Port des Hostsystems geschalten. Der letzte Befehl definiert ein Volume. 
+		
+		% Volumes
+		Volumes sind Speicher, die ein Verzeichnis oder eine Datei innerhalb eines Containers mit einem Verzeichnis des Hostsystems Synchronisieren. Dies ermöglicht die persistente Speicherung von Daten. InfluxDB speichert ebenfalls Daten ab, weshalb ein neues Volume festgelegt werden muss. Am ende der Docker Compose wird ein Volume angelegt, auf das aus dem influxDB Service verwiesen wird. Im folgenden Codesegment werden zwei Volumes erstellt. Eines für die InfluxDB und eines für Grafana, da der Grafanacontainer in der selben Docker Compose Datei erstellt wird.
+		
+		\lstinputlisting[firstline=44,lastline=46,frame=single]{res/code/influx.yaml}
+		
+		Um die Daten der Sensoren abzuspeichern, wird eine InfluxDB verwendet. Dies ist ein Datenbankmanagementsystem, das sich auf die Abspeicherung und effiziente Verarbeitung von Zeitreihen spezialisierte. Auch dieses Projekt besitzt ein offizielles Image auf DockerHub (influxdb) welches für den Prototyp verwendet wird. Die Datenbank wird über ein Docker-Compose Datei gestartet. Der Eintrag des Service ist im folgenden Codeausschnitt der \textit{influx.yaml} abgebildet.
+		
+		\lstinputlisting[firstline=15,lastline=26,frame=single]{res/code/influx.yaml}
+		
+		% Erklärung Docker Compose File
+		Das Docker-Compose File erstellt einen Container aus dem influxdb Image der Version 1.8 mit dem Namen \textit{influxdb}. Der Restart Parameter ist auf always gesetzt, um sicherzustellen, dass der Influxdb-Container auch nach einem Absturz erneut startet. In den Umgebungsvariablen werden Datenbankname und ein Admin-User angegeben. Die Datenbank läuft auf dem Port \textit{8086} und wird auf denselben Port des Hostsystems geschaltet. Der letzte Befehl definiert ein Volume. 
+		
+		% Volumes
+		Volumes sind Speicher, die ein Verzeichnis oder eine Datei innerhalb eines Containers mit einem Verzeichnis des Hostsystems synchronisieren. Dies ermöglicht die persistente Speicherung von Daten. InfluxDB speichert ebenfalls Daten ab, weshalb ein neues Volume festgelegt werden muss. Am Ende der Docker-Compose wird ein Volume angelegt, auf das aus dem InfluxDB-Service verwiesen wird. Im folgenden Codesegment werden zwei Volumes erstellt. Eines für die InfluxDB und eines für Grafana, da der Grafanacontainer in derselben Docker-Compose Datei erstellt wird.
+		
+		\lstinputlisting[firstline=44,lastline=46,frame=single]{res/code/influx.yaml}
+		
+		Um die Daten aus dem MQTT Broker zu lesen und in die InfluxDB zu schreiben, können zwei Methoden verwendet werden. NodeRed ist eine Low-Code-Plattform, mit der grafisch Datenflüsse programmiert werden können. Es verwendet Codeblocks, um Anweisungen zu speichern. Telegraf ist ein Open-Source-Server-Agent und Datenverarbeitungsframework, das von der Firma InfluxData entwickelt wurde. Es wurde speziell für die Erfassung, Verarbeitung und Übertragung von Metriken und Ereignisdaten entwickelt und ist ein wichtiger Bestandteil des InfluxData-Ökosystems. 
+		
+			\subsubsection{NodeRed}
+			
+			NodeRed läuft ebenfalls in einem Docker-Container. Das offizielle Image von NodeRed ist auf DockerHub abgespeichert. Um den Container, in dem die Entwicklungsumgebung für NodeRed läuft, zu starten, wurde erneut eine Docker-Compose Datei erstellt. 
+			
+			\lstinputlisting[firstline=3,lastline=11,frame=single]{res/code/NodeRed.yaml}
+			
+			Es wird ein Node-Red Container aus dem neusten Image erstellt, welches als Umgebungsvariable die Zeitzone benötigt. Um auf den Container zugreifen zu können, wird der Port 1880 des Hostsystems mit dem Container verbunden. Über das Volume werden die Daten des Containers persistent abgespeichert, indem der Ordner \textit{/data} aus dem Container auf einen Speicherort des Hostsystems synchronisiert wird. Dieser Ordner kann frei gewählt werden.
+			
+			Um einen NodeRed Flow zu erstellen, muss über den Browser auf die Adresse des Containers navigiert werden. Diese stellt sich aus der Adresse des Hostsystems und dem durchgegebenen Port des Containers zusammen (192.168.0.133:1880). Es öffnet sich ein Fenster, in dem ein Flow angelegt werden kann.
+			
+			Um mit einer InfluxDB kommunizieren zu können, benötigt man das \textit{node-red-contrib-influxdb} Paket. Dieses kann über das Menü (oben rechts) in den Einstellungen installiert werden. Dafür muss auf den Reiter \textit{Palette} Navigiert werden, und der Paketname gesucht und das Paket installiert werden. Nach erfolgreicher Installation sollten neben den MQTT-Nodes auch die InfluxDB-Nodes, wie in Abbildung \ref{fig:nodes} dargestellt, vorhanden sein.
+			
+			\begin{figure}[H]
+				\centering
+				\includegraphics[width=0.6\textwidth]{res/NodeRedNodes.png}
+				\caption{Node-Red-Nodes des node-red-contrib-influxdb Packages zur Kommunikation mit influxDB (links) und die Standard MQTT Nodes (rechts)}
+				\label{fig:nodes}
+			\end{figure}
+		
+			Der Flow, der die Daten in die InfluxDB schreibt, besteht aus drei Nodes welche in Abbildung \ref{fig:flow} abgebildet sind. Die \textit{mqtt in} Node liest die Daten aus dem MQTT Broker und gibt sie an eine \textit{change} Node weiter. Diese liest die Json-Datei, die sie bekommt, aus und entnimmt alle Parameter, welche relevant für die Darstellung sind. Die letzte Node ist eine \textit{influxdb out}. Sie sendet die Parameter an die InfluxDB und beendet den Flow damit. 
+			
+			\begin{figure}[H]
+				\centering
+				\includegraphics[width=0.9\textwidth]{res/NodeRedFlow.png}
+				\caption{NodeRedFlow zur Datenübertragung von MQTT Broker in InfluxDB}
+				\label{fig:flow}
+			\end{figure}
+			
+			Mit einem Doppelklick öffnet sich das Eigenschaftsfenster der Node. Die Verbindung zum MQTT Broker wird innerhalb der ersten Node anhand der Server Eigenschaft konfiguriert. Die folgende Liste beinhaltet alle Parameter, welche angepasst werden müssen, um sich mit dem zuvor aufgesetzten MQTT Broker (Kapitel \ref{ch:MQTT Broker}) zu verbinden.
+			
+			\begin{itemize}
+				\item \textbf{Server} $\rightarrow$ Bearbeiten:
+				\subitem \textbf{Server}: 192.168.0.133
+				\subitem \textbf{Port}: 1883
+				\item \textbf{Topic}: umati/v2/rolog/ControllerType/nsu=http:\_2F\_2Fvdma.org\_2FOPCRobotics\linebreak TestServer\_2F;i=5002
+				\item \textbf{Ausgang}: Ein analysiertes (parsed) JSON-Objekt
+			\end{itemize}
+			Der Name des Servers und der Node können frei gewählt werden.
+			
+			Die zweite Node liest die richtigen Daten aus den MQTT Daten aus und passt sie für eine eigene Json-Datei an. Dafür müssen zunächst alle Daten aus der \textit{payload} ausgelesen, und in eigene Variablen übersetzt werden. In Abbildung \ref{fig:NodeRedChange} ist auf der rechten Seite das Auslesen und Abspeichern der Motortemperatur abgebildet. Es können auch ganze Objekte in Zwischenvariablen abgespeichert werden. Pfad zur Motortemperatur:
+			
+			\textit{payload["<MotionDeviceIdentifier>"].Robot.PowerTrains["<PowerTrainIdentifier>"]\linebreak.PowerTrain1["<MotorIdentifier>"].Motor1.ParameterSet.MotorTemperature}
+			
+			\begin{figure}[H]
+				\centering
+				\includegraphics[width=0.9\textwidth]{res/NodeRedFlow.png}
+				\caption{Auslesen einer Zwischenvariable (links) und zusammenführen dieser (rechts) in einer Change Node.}
+				\label{fig:NodeRedChange}
+			\end{figure}
+			
+			Das Zusammenführen der Informationen erfolgt durch die Verwendung des JSONata Felds. Hierbei kann ein neues Json-Objekt in die Payload geschrieben und die zuvor erstellten Zwischenvariablen verwendet werden. Es kann auch auf die Zwischenvariablen verzichtet und direkt auf die Json-Datei des MQTT Brokers zugegriffen werden, allerdings vermindert dies die Übersichtlichkeit. Das folgende Codebeispiel beinhaltet den Wert, der in die rechte Regel aus Abbildung \ref{fig:NodeRedChange} eingefügt werden muss.
+			
+			\begin{lstlisting}[numbers=none, frame=single]
+				{
+					"MotorTemperatur": MotorTemp.value,
+					"Axis1-Acc": Axis1.ActualAcceleration.value,
+					"Axis2-Acc": Axis2.ActualAcceleration.value,
+					"Axis1-Pos": Axis1.ActualPosition.value,
+					"Axis2-Pos": Axis2.ActualPosition.value,
+					"Axis1-Speed": Axis1.ActualSpeed.value,
+					"Axis2-Speed": Axis2.ActualSpeed.value
+				}
+			\end{lstlisting}
+		
+			Anhand der Debug-Nodes kann die Payload zwischen jeder Node ausgelesen werden. Dadurch kann sichergestellt werden, dass das Übertragen der Werte durch die \textit{Change}-Node funktioniert hat. 
+			
+			Die letzte Node sendet nun die Json-Datei an die InfluxDB. Folgende Konfigurationen müssen im Eigenschaftenfenster der \textit{influxdb out} angepasst werden:
+			
+			\begin{itemize}
+				\item \textbf{Server} $\rightarrow$ Bearbeiten:
+				\subitem \textbf{Version}: 1.8-flux
+				\subitem \textbf{URL}: http://192.168.0.133:8086
+				\item \textbf{Database}: influx
+				\item \textbf{Measurement}: NodeRed
+			\end{itemize}
+			
+			Sobald die Daten an die InfluxDB gesendet werden, wird eine Database mit der Bezeichnung \textit{influx} und eine Measurment namens \textit{NodeRed} erstellt. Die Daten liegen darin ab und können anschließend von Grafana ausgelesen werden.
+			
 			\subsubsection{Telegraf}
+		
+				Sobald die Daten an die InfluxDB gesendet werden, wird eine Database mit der Bezeichnung \textit{influx} und eine Measurment namens \textit{NodeRed} erstellt. Die Daten liegen darin ab und können anschließend von Grafana ausgelesen werden.
+			
+			\subsubsection{Telegraf}
+			
+			Anstatt von NodeRed kann auch Telegraf verwendet werden, um Daten aus einem MQTT Broker zu lesen und in eine InfluxDB zu speichern. Um einen Dockercontainer mit Telegraf zu erstellen, wurde folgende Konfiguration in einer Docker-Compose gespeichert.
+			
+			\lstinputlisting[firstline=3,lastline=14,frame=single]{res/code/influx.yaml}
+			
+			Diese Konfiguration erstellt einen Container mit der Bezeichnung telegraf aus dem neusten telegraf Image. Für die Kommunikation mit dem Container wird der Port \textit{8125} verwendet. Da Telegraf auf eine laufende InfluxDB voraussetzt, wird der Parameter \textit{depends\_on} auf den Namen des InfluxDB-Containers gesetzt. Beide Anwendungen werden zeitgleich gestartet, da sie in derselben Docker-Compose Datei definiert werden, jedoch wartet Telegraf darauf, dass InfluxDB läuft, bevor er startet. Sollte während der Laufzeit ein Fehler passieren oder die InfluxDB neu gestartet werden, so versucht der Telegraf Container aufgrund des \textit{restart} Parameters immer neu zu starten. Das \textit{links} Keyword verbindet die beiden Container miteinander. Docker öffnet dadurch für die Kommunikation einen sicheren Tunnel.
+			
+			Telegraf muss noch zusätzlich zu den Docker-Compose Informationen eine Konfigurationsdatei mitgegeben werden. Dafür wird ein Volume verwendet, der die Konfigurationsdatei beim Starten in den Container abspeichert. Diese Konfigurationsdatei beinhaltet Datenquelle, den MQTT Broker, und Datenziel, die InfluxDB. Zusätzlich können hier auch Veränderungen an den Daten vorgenommen werden. Beispielsweise kann nur ein bestimmtes Objekt an die InfluxDB weitergegeben werden. 
+			
+			Anhang II beinhaltet die gesamte Konfigurationsdatei. Zunächst müssen allgemeine Umgebungsvariablen für Telegraf gesetzt werden. Dem Agenten muss der eigene Hostname mitgeteilt werden. 
+			
+			\lstinputlisting[firstline=12,lastline=12,frame=single]{res/code/telegraf.conf}
+			
+			Im Folgenden Code ist die Datenquelle konfiguriert. Zunächst muss die Adresse und die Verbindungsintervalle angegeben werden. Außerdem werden alle Topics angegeben, die Telegraf abonnieren soll. In diesem Fall stehen hier die Topics der drei Maschinenkomponenten, die der Umati Server simuliert. Der letzte Parameter beschreibt das Datenformat, in welchem die Daten auf dem MQTT Broker abliegen
+			
+			\lstinputlisting[firstline=22,lastline=34,frame=single]{res/code/telegraf.conf}
+			
+			Um die Daten an die Datenbank zu versenden, muss Adresse, Datenbank und Anmeldekriterien angegeben werden. Der Telegraf Container meldet sich mit den gegebenen Anmeldedaten an und erstellt eine Database \textit{influx} und ein Measurment namens \textit{measurments}. Dort liegen dann alle Daten, die der MQTT Broker veröffentlicht. 
+			
+			\lstinputlisting[firstline=15,lastline=20,frame=single]{res/code/telegraf.conf}
+			
+			Nachdem die Konfigurationsdatei vollständig ist, kann der Container gestartet werden. Stürzt er direkt wieder ab, muss die Verbindung überprüft werden, da Telegraf entweder die InfluxDB oder den MQTT Broker nicht finden kann.
 		
 		\subsection{Grafana}
 		
+		% Docker
+		Der Grafana Container wird gemeinsam mit dem Telegraf und InfluxDB Containern gestartet. Der folgende Codeausschnitt ist aus der Docker-Compose entnommen. Es wird ein Container der neusten Version von Grafana erstellt. Zum Zeitpunkt des Projektes ist Version 8.2.6 die aktuellste. Aus dem Image von DockerHub wird ein Container erstellt, der den Namen grafana-server bekommt. Er wird aufgrund des \textit{depends\_on} nach der influxDB gestartet und öffnet einen sicheren Kommunikationskanal zur Datenbank über \textit{links}. In den Umgebungsvariablen müssen Authentifizierungsdaten für einen Admin angegeben werden und es können Plugins angegeben werden, die installiert werden sollen. Der Container bekommt ein Volume zugeteilt und wird am Port \textit{3000} des Hostsystems veröffentlicht. 
+		
+		\lstinputlisting[firstline=27,lastline=42,frame=single]{res/code/influx.yaml}
+		
+		Ist der Container erfolgreich gestartet, kann über den Browser auf den Port 3000 navigiert werden und die grafische Oberfläche von Grafana öffnet sich. Zunächst muss InfluxDB als Datenquelle eingebunden, im Anschluss ein Dashboard erstellt, und die Anfragen an die Datenbank eingefügt werden. 
+		
+		\subsection{Datenquelle}
+		
+		% Datenquelle
+		Um den zuvor erstellten InfluxDB Container als Quelle einzubinden, muss in den Einstellungen auf \textit{Data sources} navigiert werden. Unter \textit{Add new connection} kann InfluxDB als Abfragesprache, die URL des Containers und die Admin Anmeldedaten eingetragen werden. Außerdem muss die gewünschte Database angegeben werden. Da sich InfluxDB und Grafana im selben Dockernetzwerk befinden, kann als URL \textit{http://influxdb:8086} eingetragen werden. Die Adresse zum Container ist der Containername, wodurch die Kommunikation nur Docker intern stattfindet. Die Database ist \textit{influx}, da der Telegraf Agent und NodeRed die Daten in diese Database speichern.
+		
+		
+		\subsection{Erstellen eines Diagramms}
+		
+		Für ein Diagramm muss ein Dashboard erstellt werden. Dies kann unter dem Menüpunkt \textit{Dashboards} $\rightarrow$ \textit{New} erstellt werden. Auf dem Dashboard kann über die \textit{Add} Schaltfläche ein neues Dashboard erstellt werden.
+		
+		In Abbildung \ref{fig:GrafanaDiagramm} ist das Bearbeitungsfenster für ein Diagramm abgebildet. Es besteht aus drei Komponenten. Einem Test-Diagramm (oben-links), welches die eingegebenen Parameter live übernimmt und darstellt, wie das Diagramm auf dem Dashboard aussehen wird. Eine Design-Toolbar (rechts), welches das Aussehen und die angezeigten Daten des Diagramms visuell verändert. Die Anfragen an die Datenbank werden über das Datenfenster (unten-links) abgesetzt. Es können zwei Arten von Abfragen erstellt werden. Entweder direkte Testabfragen, in denen der Nutzer eine vollständige Abfrage als String absetzen muss und einen Baukasten. Der Baukasten ist deutlich einfacher zu nutzen und vor allem bei einfachen Abfragen sehr hilfreich. Werden die Abfragen jedoch zu komplex, kann es hilfreich sein, einen eigenen Befehl zu formulieren.
+		
+		In Abbildung \ref{fig:GrafanaDiagramm} ist die Abfrage an die InfluxDB abgebildet, die die Beschleunigung einer Roboterachse ausliest. Diese Daten wurden über NodeRed in die Datenbank eingelesen und anhand des Grafana-Baukastens portiert. 
+		
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=0.9\textwidth]{res/Grafana-Diagramm.png}
+			\caption{Bearbeitungsfenster eines Grafana Dashboards.}
+			\label{fig:GrafanaDiagramm}
+		\end{figure}
 	
+		An dem Design des Diagramms wurden keine Veränderungen vorgenommen. Alle Dashboards verwenden die Defaulteinstellungen für Diagramme. Sollten Anpassungen notwendig oder erwünscht sein, können sie im rechten Menü vorgenommen werden.
+		
+			\subsubsection{NodeRed}\label{ch:NodeRedGrafana}
+			
+			Um Daten aus der InfluxDB zu lesen, muss die richtige Datenquelle und Database angegeben werden. Da die Daten bereits in NodeRed transformiert wurden, erfolgt die Abfrage in Grafana sehr einfach. In Abbildung \ref{fig:noderedabfrage} ist die Abfrage über den Baukasten abgebildet. Als \textit{Data source} wird die zuvor angelegte Datenquelle von influx verwendet. Die Tabelle in denen die Daten liegen ist NodeRed und das gewünschte Feld kann über ein Dropdown-Menü ausgewählt werden. 
+		
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=0.9\linewidth]{res/NodeRedAbfrage.png}
+			\caption{Abfrage der Motortemperatur der von NodeRed gelieferten Daten}
+			\label{fig:noderedabfrage}
+		\end{figure}
+		
+		Über das Stiftsymbol auf der rechten Seite des Editors öffnet sich ein Klartextfeld, in dem der Befehl weiter angepasst werden kann. Alle anderen Werte, die über NodeRed in die Datenbank gespeichert wurden, können wie die Motortemperatur angezeigt werden.
+		
+		Das Einlesen der Daten über NodeRed hat den Vorteil, dass die Abfrage in Grafana sehr einfach und leicht lesbar ist. Allerdings benötigt die Konfiguration in NodeRed und das Transformieren der Daten viel manuelle Arbeit. NodeRed ist eine gute Entscheidung, wenn bereits Kenntnisse in NodeRed vorhanden sind und die InfluxDB möglichst wenige Daten abspeichern soll. 
+		
+		\subsubsection{Telegraf}
+		
+		% Abfrage
+		Telegraf überträgt alle Daten der Json, die vom MQTT Broker veröffentlicht werden, in die Datenbank. Die Zeitreihe hat dadurch enorm viele Felder, die Grafana im Anschluss ausfiltern muss. In Abbildung \ref{fig:telegrafabfrage} ist die Abfrage für die Motortemperatur abgebildet. In diesem Fall wird der Texteditor zum Erstellen der Abfrage genutzt, allerdings kann auch der Baukasten verwendet werden, wie in Kapitel \ref{ch:NodeRedGrafana} beschrieben, genutzt werden. Telegraf benennt die Felder nach dem Pfad in der Json und damit entsteht sehr lange Namen. Wie in Kapitel \ref{ch:NodeRedGrafana} muss die Datenquelle \textit{Influx} angegeben werden. Es muss die Database \textit{mqtt\_consumer} und das erwünschte Feld verwendet werden.
+		
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=0.9\linewidth]{res/TelegrafAbfrage.png}
+			\caption{Abfrage der Motortemperatur der von Telegraf gelieferten Daten}
+			\label{fig:telegrafabfrage}
+		\end{figure}
+		
+		Telegraf hat den Vorteil, dass alle Werte aus der Json, die der MQTT Broker veröffentlicht, in Grafana ausgewählt werden können. Zwar kann die Json in der Telegraf Konfigurationsdatei angepasst werden, allerdings ist die mit einem hohen Programmieraufwand verbunden, wenn die Json so komplex ist wie in diesem Beispiel. Der Nachteil von Telegraf ist es, da durch die nicht transformierten Daten, die in die InfluxDB gespeichert werden, auch viele Felder bei Grafana ankommen. Die Abfrage für die Daten im Diagramm werden dadurch schnell unübersichtlich und lange, können jedoch mehr Datenpunkte einfacher integrieren.
+		
+		NodeRed und Telegraf sind beides sinnvolle Ansätze zur Übertragung von Daten in die InfluxDB und Grafana. Ihre Vor- und Nachteile sollten abgewogen werden und je nach Bedürfnis angewandt werden. Bei NodeRed fällt die Auswahl der Felder in den NodeRed-Flow während bei der Methode mit Telegraf die Auswahl erst in Grafana vorgenommen wird.
+		
+		\subsection{Dashboardanpassungen}
+		
+		Um die Dashboards dynamischer zu gestalten, kommen Variablen und Rows zum Einsatz. Dies ist ein Feature von Grafana, welches die dynamische Veränderung von Datenbankanfragen und Designs ermöglicht. Für das finale Dashboard wurde eine Variable angelegt, welche alle möglichen Achsen des Roboters beinhaltet. Variablen in Grafana funktionieren wie Arrays, welche ein oder mehrere Werte beinhalten. Alle Diagramme mit Anfragen für eine Achse werden in einer Row zusammengefasst, welche die zuvor erstellte Variable als \textit{Repeat for} nutzt. Dies bewirkt, dass für jede Achse, welche unter der Variable ausgewählt wurde, eine eigene Row erstellt. Durch das Anpassen der Abfragen kann erreicht werden, dass für jede Achse ein eigenes Diagramm erstellt wird.
+		
+		In Abbildung \ref{fig:variables} ist eine Abfrage an die von NodeRed gelieferten Daten. Durch das Verwenden der Variable \textit{\${AxisName}} wird die Anfrage in jeder Row für jeden Wert der Variable einzeln durchgeführt.
+		
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=0.9\linewidth]{res/variables.png}
+			\caption{Datenbankabfrage mit Verwendung von Variable}
+			\label{fig:variables}
+		\end{figure}
+			
 	\chapter{Diskussion und Fazit}\label{ch:Diskussion_Fazit}
 	
 		% (2-5 Seiten)	
@@ -629,8 +825,11 @@
 	
 	\pagebreak
 	\chapter{Anhänge} %TODO: Alle Codebeispiele rein, Yaml Files ...
-	\section*{Anhang I: configuration.json} \label{Anhang1}
+	\section*{Anhang I: configuration.json}
 	\lstinputlisting{res/code/config.json}
+	\pagebreak
+	\section*{Anhang II: telegraf.conf}
+	\lstinputlisting{res/code/telegraf.conf}
 	\pagebreak
 
 \end{document}
