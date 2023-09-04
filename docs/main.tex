@@ -283,7 +283,7 @@
 	
 	% Evaluation des Ergebnisses
 	
-	Das Ergebnis dieser Arbeit sind zwei Prototypen zur Demonstration der \ac{Umati} Spezifikation. Diese Prototypen werden anhand bestimmter Kriterien bewertet, welche aus dem Standard ISO 25010 für Softwarequalität entnommen wurden. In Abbildung \ref{fig:ISO25010} sind die Softwarequalitätskriterien strukturiert abgebildet, wie sie im ISO-Standard definiert sind. 
+	Das Ergebnis dieser Arbeit sind zwei Prototypen zur Demonstration der \ac{Umati} Spezifikation. Diese Prototypen werden anhand bestimmter Kriterien bewertet, welche aus dem Standard ISO 25010 für Softwarequalität entnommen wurden. Dies ist ein international anerkannter Standard, der die Qualitätsanforderungen und -kriterien für Softwareprodukte und -systeme definiert. In Abbildung \ref{fig:ISO25010} sind die Softwarequalitätskriterien strukturiert abgebildet, wie sie im ISO-Standard definiert sind. 
 	
 	\begin{figure}[H]
 		\centering
@@ -813,9 +813,17 @@
 			
 	\chapter{Fazit und Diskussion}\label{ch:Diskussion_Fazit}
 	
-		% (2-5 Seiten)	
-	
-		% Disskussion -> Subjektive Bewertung der Spezifikation UMATI, ... Literaturpunkte meine Meinung, Sinnvoll Einzusetzen
+		Umati birgt ein erhebliches Potenzial zur Automatisierung. Die Vision, eine vollständig automatisierte Anlage mit Plug \& Play zu realisieren, zeugt von Fortschritt und Innovation. Mit Umati könnte diese Vision bald Wirklichkeit werden. Einzig die bisher aufwendige Umsetzung der Umgebung stellt eine Herausforderung dar, jedoch deutet sich eine Veränderung in naher Zukunft an. Die Demonstrationsprojekte des VDMAs unterstreichen die Eignung von Umati als Standard für die M2M-Kommunikation in automatisierten Umgebungen.
+		
+		Für den Prototypen bietet es sich wirtschaftlich an, die vorgefertigten Docker-Container des VDMAs zu nutzen. Als Erweiterung könnte ein eigen implementierter OPC UA Server mit Umati-Spezifikation genutzt werden, der die Simulation einer Maschine frei konfigurierbar ermöglicht.
+		
+		Für die Kommunikation mit einer Visualisierungsplattform hat sich der Weg über einen MQTT-Broker und die anschließende Übersetzung in eine Datenbank als äußerst effizient erwiesen. Bei der Übertragung von Zeitreihendaten bietet sich InfluxDB mit Telegraf als geeignetste Lösung an. Telegraf verfügt über die Fähigkeit, Daten aus einem MQTT-Broker zu transformieren und benutzerfreundlich in einer InfluxDB abzulegen. NodeRed kann für diese Aufgabe ebenso gut verwendet werden.
+		
+		Diese Arbeit stellt den ersten Schritt auf dem Weg zur Umsetzung von Industrie 4.0 mit Umati als Kommunikationsstandard dar. Die Prototypen bieten einen Einblick in den Datenfluss in einem solchen System. In den nächsten Schritten müssen jedoch noch mehrere Fragen beantwortet werden. Kann Umati Daten an eine Maschine senden? Ist es möglich, diese Daten über den OPC UA Client des VDMAs zu übertragen, oder muss ein eigener OPC UA Client entwickelt werden? In welchem Umfang ermöglicht Umati die standardisierte Datenübertragung an Maschinen?
+		
+		Eine vielversprechende Erweiterung des Prototyps wäre die Entwicklung einer eigenen Simulation mit einem OPC UA Server. Ideal wäre die Implementierung von Umati in einer SPS mit einem OPC UA Server, da dies das Potenzial bietet, Umati in allen Maschinen zu nutzen, die SPS verwenden. Es wäre jedoch zu klären, inwieweit eine SPS eine solche Implementierung zulässt und ob eine Simulation in einer SPS über einen OPC UA Server vergleichbare Ergebnisse wie die des VDMAs liefern kann.
+		
+		Wenn der VDMA weiterhin daran arbeitet, Umati als weltweiten Kommunikationsstandard voranzutreiben, wird Umati zweifellos eine bedeutende Rolle in der Zukunft des Anlagenbaus spielen. OPC UA hat bereits gezeigt, dass dieser Standard großes Potenzial hat. Wenn benutzerfreundliche und leicht konfigurierbare OPC UA Server und Clients entwickelt werden, um die Zugänglichkeit zu diesem Standard zu erhöhen, könnte Umati zu einem weltweiten Kommunikationsstandard heranwachsen. Die Zukunft sieht vielversprechend aus.
 	
 	\printbibliography
 	\frontmatter
