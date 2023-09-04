@@ -42,17 +42,17 @@
 	 
 	 Für AZO als Anlagenproduzent ist es von großem Interesse, mit Anlagen und Maschinen anderer Hersteller kommunizieren zu können und dabei die Integration einfach zu realisieren. Für Entwickler von \ac{MES} bedeutet die Standardisierung von Kommunikationsprotokollen eine schnellere und einfachere Entwicklung, was zu niedrigeren Entwicklungskosten führt und die Robustheit der Systeme erhöht. AZO nimmt an der Entwicklung von \ac{Umati} teil, um diese Standardisierung zu erreichen. Dieser Standard möchte die Schnittstellen für die Kommunikation zwischen Maschinen und mit der darüber liegenden Datenverarbeitung definieren und basiert auf dem offenen Standard \ac{OPC UA}.
 	 
-	 Das Ziel dieser Arbeit ist es, \ac{Umati} in einem Testumfeld anhand eines Proof-of-Conzept aufzubauen. Um dies zu erreichen, soll zunächst eine Marktanalyse durchgeführt werden, um mögliche Lösungen zum Versenden und Empfangen von Daten zwischen Maschine und \ac(MES) zu finden. Diese sollen anhand von selbst entwickelten Kriterien abgewogen und bewertet werden. Die vielversprechendsten Umsetzungen sollen in einem Testsystem implementiert werden und für zukünftige Demonstrationen auf Messen für AZO zur Verfügung gestellt werden.
+	 Das Ziel dieser Arbeit ist es, \ac{Umati} in einem Testumfeld anhand eines Proof-of-Conzept aufzubauen. Um dies zu erreichen, wird zunächst eine Marktanalyse durchgeführt, um mögliche Lösungen zum Versenden und Empfangen von Daten zwischen Maschine und MES zu finden. Diese sollen anhand von selbst entwickelten Kriterien abgewogen und bewertet werden. Die vielversprechendsten Umsetzungen sollen in einem Testsystem implementiert und für zukünftige Demonstrationen auf Messen für AZO zur Verfügung stehen.
 	 
-	 Dabei sollen zwei Systeme entstehen. Der VDMA bietet ein Web-Dashboard unter umati.app an, auf dem Zahlreiche Hersteller ihre Maschinen bereits Anbinden. Hier soll eine Simulierte Maschine von AZO ebenfalls dargestellt werden. Außerdem soll eine Interne Demonstration aufgebaut werden, die eine umatifähige Maschine in die bestehende Infrastruktur Integriert und die Informationen Visualisieren kann.
+	 Dabei sollen zwei Systeme entstehen. Der VDMA bietet ein Web-Dashboard unter umati.app an, auf dem Zahlreiche Hersteller ihre Maschinen bereits Anbinden. Hier soll eine simulierte Maschine von AZO ebenfalls dargestellt werden. Außerdem soll eine interne Demonstration entstehen, die eine umatifähige Maschine in die bestehende Infrastruktur integriert und deren Informationen visualisieren kann.
 	
 	\section{Unternehmen}
 	
-	 Diese Arbeit wird mit dem Dualen Partner \textit{AZO Gmbh \& Co. KG} durchgeführt. AZO bietet maßgeschneiderte Lösungen für die automatisierte Förderung, Lagerung und Dosierung von Rohstoffen weltweit an. Dabei werden Anlagen für die Bereiche der Chemie-, Nahrungsmittel-, Pharma-, Kosmetik und Kunststoffindustrie gefertigt. Diese Projekte umfassen die Planung, Fertigung und Montage sowie die Automatisierung der Anlagen.
+	 Diese Arbeit wird mit dem Dualen Partner \textit{AZO Gmbh + Co. KG} durchgeführt. AZO bietet maßgeschneiderte Lösungen für die automatisierte Förderung, Lagerung und Dosierung von Rohstoffen weltweit an. Dabei werden Anlagen für die Bereiche der Chemie-, Nahrungsmittel-, Pharma-, Kosmetik und Kunststoffindustrie gefertigt. Diese Projekte umfassen die Planung, Fertigung und Montage sowie die Automatisierung der Anlagen.
 	 
-	 AZO entwickelt ein eigenes MES-System ACAS, welches die Kommunikation zwischen Anlagen von AZO, aber auch Anlagen von anderen Herstellern, mit den Kunden vereinheitlichen und verbessern soll. Dabei soll ein umfassendes System entstehen, welches Steuerung, Visualisierung und Überwachung der Produktion übernehmen und in einer zentralen Software bündeln soll.
+	 AZO entwickelt ein eigenes MES-System Kastor (powerd by ACAS), welches die Kommunikation zwischen Anlagen von AZO, aber auch Anlagen von anderen Herstellern, mit den Kunden vereinheitlichen und verbessert. Dabei soll ein umfassendes System entstehen, welches Steuerung, Visualisierung und Überwachung der Produktion übernehmen und in einer zentralen Software bündelt.
 	 
-	 ACAS entsteht in der Entwicklungsabteilung, welche ebenfalls an dieser Arbeit beteiligt ist. Sie fokussiert sich auf die Automatisierung von AZO Anlagen im Bereich von SPS, Steuerungen bis zur Datenverarbeitung und Erhebung auf abstrahierter Ebene. 
+	 Kastor entsteht in der Entwicklungsabteilung, welche ebenfalls an dieser Arbeit beteiligt ist. Sie fokussiert sich auf die Automatisierung von AZO Anlagen im Bereich von SPS, Steuerungen bis zur Datenverarbeitung und Erhebung auf abstrahierter Ebene. 
 	
 	\section{Forschungsfragen}
 	
@@ -66,23 +66,20 @@
 	
 	\section{Aufbau der Arbeit}
 	
-	Zu Beginn der Arbeit werden alle Grundlegenden Technologien und Themenbereiche beschrieben, die zum Verständnis benötigt werden (Kapitel \ref{ch:Grundlagen}). Daraufhin werden die Methodiken beschrieben, mit denen die Informationen für diese Arbeit erhoben wurden (Kapitel \ref{ch:Methodiken}). Im Hauptteil der Arbeit (Kapitel \ref{ch:Ergebnisse}) werden die Vorbereitenden Schritte für die Projekte sowie deren Durchführung behandelt. Die Implementation der Programme wird in Kapitel \ref{ch:Implementierung} in zwei Teilen behandelt, wobei die Implementation des Firmeninternen Prototyps aus Kapitel \ref{ch:Implementierung-Intern} auf die Ergebnisse aus Kapitel \ref{ch:Implementierung-Web} stützt. Die Arbeit schließt mit einer Diskussion der gefundenen Ergebnisse und einem Fazit (Kapitel \ref{ch:Diskussion_Fazit}).
+	Zu Beginn der Arbeit werden alle grundlegenden Technologien und Themenbereiche beschrieben, die zum Verständnis benötigt werden (Kapitel \ref{ch:Grundlagen}). Daraufhin werden die Methodiken beschrieben, mit denen die Informationen für diese Arbeit erhoben wurden (Kapitel \ref{ch:Methodiken}). Im Hauptteil der Arbeit (Kapitel \ref{ch:Ergebnisse}) werden die vorbereitenden Schritte für die Projekte sowie deren Durchführung behandelt. Die Implementation der Programme wird in Kapitel \ref{ch:Implementierung} in zwei Teilen behandelt, wobei die Implementation des firmeninternen Prototyps aus Kapitel \ref{ch:Implementierung-Intern} auf die Ergebnisse aus Kapitel \ref{ch:Implementierung-Web} stützt. Die Arbeit schließt mit einer Diskussion der gefundenen Ergebnisse und einem Fazit (Kapitel \ref{ch:Diskussion_Fazit}).
 	
-	% TODO: Messematerial wenn in kapitel behandelt noch anhängen
+	% TODO: Messematerial wenn in Kapitel behandelt noch anhängen
 	
 \chapter{Grundlagen}\label{ch:Grundlagen}
 	% (16 Seiten)
 	
-	% Stand der Technik
-	
-	
 	\section{OPC UA}
 	
 	%Einführung
-	\ac{OPC UA} ist ein unternehmensunabhängiger, offener Standard zur Kommunikation von Informationen und Daten zwischen Maschinen im industriellen Umfeld. Das Protokoll wurde 2008 von der OPC Foundation veröffentlicht und nimmt sich zur Aufgabe, die Interoperabilität von Systemen zu fördern. Es verwendet eine \ac{SOA} und kann auf verschiedensten Betriebssystemen verwendet werden. OPC UA ist sehr gut skalierbar und kann deshalb als Kommunikationsprotokoll bei kleinen \ac{IoT} Systemen als auch bei komplexen Cloud-Systemen zur Anwendung kommen. 
+	\ac{OPC UA} ist ein unternehmensunabhängiger, offener Standard zur Kommunikation von Informationen und Daten zwischen Maschinen im industriellen Umfeld. Das Protokoll wurde 2008 von der OPC Foundation veröffentlicht und nimmt sich zur Aufgabe, die Interoperabilität von Systemen zu fördern. Es verwendet eine \ac{SOA} und kann auf verschiedensten Betriebssystemen betrieben werden. OPC UA ist sehr gut skalierbar und kann deshalb als Kommunikationsprotokoll bei kleinen \ac{IoT} Systemen als auch bei komplexen Cloud-Systemen zur Anwendung kommen. 
 	 
 	 %Server-Client Modell
-	OPC UA baut auf einem Server-Client-Modell auf, wobei der Client die Anfragen an den Server senden muss. Der Client fragt den Server nach Daten und analysiert diese während der Server die Daten der dahinterliegenden Anlagen in übertragbare Strukturen bringt und sie zur Verfügung stellt. Da der jeder Client an mehreren Servern Daten erheben kann, wird das System gut skalier- und erweiterbar.
+	OPC UA baut auf einem Server-Client-Modell auf, wobei der Client die Anfragen an den Server senden muss. Der Client fragt den Server nach Daten und analysiert diese während der Server die Daten der dahinterliegenden Anlagen in übertragbare Strukturen bringt und sie zur Verfügung stellt. Da jeder Client an mehreren Servern Daten erheben kann, ist das System gut skalier- und erweiterbar.
 	
 	%Interoperabilität
 	Das Ziel von OPC UA und auch im weitergetragenen Sinne von \ac{Umati} ist das Erreichen von Interoperabilität von Maschinen im industriellen Bereich. Interoperabilität beschreibt die Standardisierung von Kommunikation zwischen Systemen. Allgemein kann diese in 4 Stufen eingeteilt werden, wobei jede Ebene auf die darunterliegende aufbaut. Im Schaubild \ref{fig:Interoperabilität} sind die vier Ebenen strukturelle, syntaktische, semantische und organisatorische Interoperabilität abgebildet.
@@ -104,7 +101,7 @@
 	 Die semantische Interoperabilität beschreibt das vereinheitlichte Verständnis der Daten. Kommunizieren zwei Systeme miteinander, so müssen Sie unter denselben Werten auch dasselbe verstehen. Ein Beispiel für einen Standard, der semantische Interoperabilität umsetzt, ist der "International Classification of Diseases". Bei diesem geht es um die Kommunikation von Krankheiten zwischen Ärzten und wurde von der WHO eingeführt. Jede Krankheit hat einen festgelegten Code, wodurch eine eindeutige Kommunikation gewährleistet ist. \cite{mielebacher_verteilte_2021-1}
 	 
 	 % Was legt OPC UA fest
-  	 OPC UA legt anhand des Information-Models die Syntax der Daten fest, wodurch die syntaktische Interoperabilität gewährleistet ist. Die semantische Interoperabilität wird anhand der Companion Standards festgelegt, welche auf den OPC UA Standard aufgesetzt werden. Diese beschreiben Technologie-spezifische Informationsmodelle welche von verschiedensten Arbeitsgruppen erstellt werden. Es gibt unterschiedliche Companion Spezifikationen für unterschiedliche Anwendungsgebiete von OPC UA, beispielsweise für bestimmte Maschinengruppen oder Branchen. Sie legen jedoch immer fest, wie bestimmte Daten verstanden werden müssen. \cite{noauthor_machinery_nodate-1}
+  	 OPC UA legt anhand des Information-Models die Syntax der Daten fest, wodurch die syntaktische Interoperabilität gewährleistet ist. Die semantische Interoperabilität wird anhand der Companion Standards festgelegt, welche auf den OPC UA Standard aufgesetzt werden. Diese beschreiben Technologie-spezifische Informationsmodelle, deren Entwicklung von verschiedensten Arbeitsgruppen übernommen wurden. Es gibt unterschiedliche Companion Spezifikationen für unterschiedliche Anwendungsgebiete von OPC UA, beispielsweise für bestimmte Maschinengruppen oder Branchen. Sie legen jedoch immer fest, wie bestimmte Daten verstanden werden müssen. \cite{noauthor_machinery_nodate-1}
 	 
 	 % OPC Classics
 	 OPC UA entstand aus dem zuvor entwickelten Standard OPC Classics. Der alte Standard setzte die Kommunikation im Bereich der Automatisierung bereits sehr gut um. Der Nachteil an Classics war jedoch die fehlende Plattformunabhängigkeit. OPC UA unterstützt heute jegliche Betriebssysteme für Clients als auch für die Server, während der Vorgänger auf einem Windowssystem betreiben werden musste. Auch die Kommunikation war auf die von Microsoft entwickelte Technologien \ac{COM} und \ac{DCOM} ausgelegt. Durch die Ablösung dieses Standards durch OPC UA wird über TCP/IP und SOAP kommuniziert, welche beide Plattformunabhängig sind und somit kann OPC UA auch auf anderen Plattformen wie Linux, Mac und Android ohne Probleme angewandt werden. \cite{mielebacher_verteilte_2021-1}
@@ -120,7 +117,7 @@
 		Die offiziellen Standards befassen sich mit dem allgemeinen Austausch von Daten. Hierzu gehören der Austausch von Echtzeitdaten (DA), historischen Daten (HA) und Alarmen (AC). Neben diesen Hauptfaktoren werden auch andere Standards festgelegt, die das offizielle OPC UA Information Modell bilden. \cite{mahnke_opc_2009, rinke_was_2022}
 		
 		%Companion Spezifikationen
-		Auf dem OPC UA Standard setzen die Industriestandardinformation Modelle auf. Diese sind von mehreren Teilhabern entwickelte Standards, die beispielsweise innerhalb einer bestimmten Branche oder Industrie-Gruppen verwendet werden. Diese Standards stehen in den Companion Spezifikationen. Beispielsweise gibt es einzelnen Spezifikationen für AutoID Systeme oder Spritzgussmaschinen, die Abwandlungen und Spezialisierungen haben, die auf ihren Bereich angepasst sind. \cite{mahnke_opc_2009, rinke_was_2022}
+		Auf dem OPC UA Standard setzen die Industriestandardinformations Modelle auf. Diese sind von mehreren Teilhabern entwickelte Standards, die beispielsweise innerhalb einer bestimmten Branche oder Industrie-Gruppen verwendet werden. Diese Standards stehen in den Companion Spezifikationen. Beispielsweise gibt es einzelnen Spezifikationen für AutoID Systeme oder Spritzgussmaschinen, die Abwandlungen und Spezialisierungen haben, die auf ihren Bereich angepasst sind. \cite{mahnke_opc_2009, rinke_was_2022}
 		
 		%Vendor Spezifikationen
 		Auf der obersten Ebene des Schaubilds in Abbildung \ref{fig:OPCUA_Framework} sind die Vendor Informationsmodelle dargestellt. Diese sind weitere Standards, die die Companion Standards erweitern und innerhalb einer Maschinenumgebung eines Erstellers umgesetzt werden. In diesen Standards sind Veränderungen individueller Hersteller definiert, damit eine weitere Spezialisierung über die Companion Spezifikationen hinaus stattfinden kann. \cite{mahnke_opc_2009, rinke_was_2022}
@@ -136,15 +133,15 @@
 		\subsection{Kommunikationsaufbau} 
 		
 		%Client/Server/Field
-		OPC UA besteht aus drei Komponenten, deren Zusammenwirkung in Abbildung \ref{fig:OPCUA_Structure} abgebildet ist. Mehrere Field Connections, die die Sensorik oder Maschinen darstellen, mit welchen kommuniziert werden soll. Die Daten sollen zu den OPC UA Clients geleitet werden. Dies können \ac{HMI} oder MES-Systeme sein, die die Daten der Maschinen auswerten oder Steuerungsbefehle absenden möchten. OPC UA standardisiert diese Kommunikation über den OPC UA Server. Dieser setzt den OPC UA Standard um und stellt das notwendige \ac{API} für die Datenabfrage aus der Sicht der Clients zur Verfügung. \cite{rinke_was_2022}
+		OPC UA besteht aus drei Komponenten, deren Zusammenwirkung in Abbildung \ref{fig:OPCUA_Structure} abgebildet ist. Mehrere Field Connections, die die Sensorik oder Maschinen darstellen, mit welchen kommuniziert werden soll, erheben die Daten an der Maschine. Die Daten sollen zu den OPC UA Clients geleitet werden. Dies können \ac{HMI} oder MES-Systeme sein, die die Daten der Maschinen auswerten oder Steuerungsbefehle absenden möchten. OPC UA standardisiert diese Kommunikation über den OPC UA Server. Dieser setzt den OPC UA Standard um und stellt das notwendige \ac{API} für die Datenabfrage aus der Sicht der Clients zur Verfügung. \cite{rinke_was_2022}
 		
 		%Integriert oder nicht
-		Der OPC UA Server implementiert die proprietären Kommunikationsprotokolle, die vom Maschinenhersteller entwickelt wurden, um mit den Anlagen und den Field Conections zu kommunizieren. Je nach Art der Daten, die die Maschine weiter gibt, werden die Daten auf dem OPC UA Server abgespeichert oder an den Client weiter gegeben. Ein OPC UA Server kann in zwei Formen entstehen. Der Hersteller kann seiner Maschine die OPC UA Standards bereits bei der Entwicklung einprogrammieren. Damit ist der Server in der Maschine integriert und die Maschine ist so von Beginn an OPC UA fähig. Manche SPS Geräte implementieren auch die Möglichkeit einen OPC Server direkt auf der Maschine zu konfigurieren. Sollte der Hersteller die Spezifikationen jedoch nicht implementieren, kann der Server auch zusätzlich zwischen die Maschine und den Client geschallten werden. Durch die Unabhängigkeit des Herstellers sind diese Server oft mit mehr Kommunikationsprotokollen ausgestattet, was deren Möglichkeiten, mit der Maschine zu interagieren erhöht. \cite{rinke_was_2022}
+		Der OPC UA Server implementiert die proprietären Kommunikationsprotokolle, die vom Maschinenhersteller entwickelt wurden, um mit den Anlagen und den Field Conections zu kommunizieren. Je nach Art der Daten, die die Maschine weiter gibt, werden die Daten auf dem OPC UA Server abgespeichert oder an den Client weiter gegeben. Ein OPC UA Server kann in zwei Formen entstehen. Der Hersteller kann seiner Maschine die OPC UA Standards bereits bei der Entwicklung einprogrammieren. Damit ist der Server in der Maschine integriert und die Maschine ist so von Beginn an OPC UA fähig. Manche SPS Geräte implementieren auch die Möglichkeit einen OPC Server direkt auf der Maschine zu konfigurieren. Sollte der Hersteller die Spezifikationen jedoch nicht implementieren, kann der Server auch zusätzlich zwischen die Maschine und den Client geschalten werden. Durch die Unabhängigkeit des Herstellers sind diese Server oft mit mehr Kommunikationsprotokollen ausgestattet, was deren Möglichkeiten, mit der Maschine zu interagieren erhöht. \cite{rinke_was_2022}
 		
 		%Pub/Sub
 		Die Kommunikation mit dem Client läuft dabei 1 zu 1 ab. Allerdings kann auch ein 1:n Kommunikationsmodell über Publish and Subscribe implementiert werden. Um diese Funktion jedoch zu nutzen, muss der Server mit der OPC UA Pub/Sub Spezifikation erweitert werden. \cite{mielebacher_verteilte_2021}
 		
-		Der Client kann die Daten über die standardisierte API des OPC UA Servers abfragen. Es können Echtzeitdaten, historische Daten abgerufen werden. Außerdem gibt es eine Spezifikation, wie Alarmierungslogik umgesetzt werden soll. Dies wird anhand der Implementation auf Serverebene deutlich vereinfacht, da sie dann Hersteller unabhängig ist. \cite{rinke_was_2022}
+		Der Client kann die Daten über die standardisierte API des OPC UA Servers abfragen. Es können Echtzeitdaten und historische Daten abgerufen werden. Außerdem gibt es eine Spezifikation, wie Alarmierungslogik umgesetzt werden soll. Dies wird anhand der Implementation auf Serverebene deutlich vereinfacht, da sie dann Hersteller unabhängig ist. \cite{rinke_was_2022}
 		
 		\begin{figure}[H]
 			\centering
@@ -153,11 +150,9 @@
 			\label{fig:OPCUA_Structure}
 		\end{figure}
 		
-		In der Automation werden verschiedenste Methoden verwendet, um Endpunkte an eine Anlage anzubinden. In Abbildung \ref{fig:share} sind der Anteil der Verschiedenen Netzwerktypen in der Industrie 2022 veröffentlicht von HMS Networks. Die drei größten Felder sind Fieldbus, Kabellos (Wireless) und Industrielles Ethernet (Industrial Ethernet) wobei letzteres den größte Anteil ausmacht mit 66\%. OPC UA vereint diese Kommunikationsprotokolle in einem Server und so können Clients die Daten über den OPC UA Server auslesen und müssen nicht für jede Maschine ein eigenes Protokoll implementieren. \cite{noauthor_2022_nodate}
+		In der Automation werden verschiedenste Methoden verwendet, um Endpunkte an eine Anlage anzubinden. In Abbildung \ref{fig:share} sind der Anteil der verschiedenen Netzwerktypen in der Industrie 2022 abgebildet. Die Grafik wurde von HMS Networks veröffentlicht. Die drei größten Felder sind Fieldbus, Kabellos (Wireless) und industrielles Ethernet (Industrial Ethernet) wobei letzteres den größte Anteil ausmacht mit 66\%. OPC UA vereint diese Kommunikationsprotokolle in einem Server und so können Clients die Daten über den OPC UA Server auslesen und müssen nicht für jede Maschine ein eigenes Protokoll implementieren. \cite{noauthor_2022_nodate}
 		
-		Anders Hansson, Chief Marketing Officer von HMS Networks erklärt sich den Wachstum des Industriellen Netzwerkmarktes aufgrund der steigenden nachfrage in der modernen Industrie, nachhaltig, effizient und produktiv zu bleiben und gleichzeitig flexibele und qualitative Fertigung zu ermöglichen. Die Netzwerke zur Kommunikation sind dabei ein Schlüsselfaktor um die genannten Punkte zu erreichen \cite{noauthor_2022_nodate}. Bei einem instgesamten Wachstum der Nutzung dieser Systeme um 8\% zeigen die Entwicklungen in diesen Bereichen eine deutliche Relevanz für die Automatisierung von und Kommunikation mit Maschinen. 
-		
-		% TODO Vill Kommunikationsprotokolle Analyse Anteile, verwendung AZO
+		Anders Hansson, Chief Marketing Officer von HMS Networks erklärt sich den Wachstum des industriellen Netzwerkmarktes aufgrund der steigenden Nachfrage in der modernen Industrie, nachhaltig, effizient und produktiv zu bleiben und gleichzeitig flexibele und qualitative Fertigung zu ermöglichen. Die Netzwerke zur Kommunikation sind dabei ein Schlüsselfaktor um die genannten Punkte zu erreichen \cite{noauthor_2022_nodate}. Bei einem insgesamten Wachstum der Nutzung dieser Systeme um 8\% zeigen die Entwicklungen in diesen Bereichen eine deutliche Relevanz für die Automatisierung von und Kommunikation mit Maschinen. 
 		
 		\begin{figure}[H]
 			\centering
@@ -178,15 +173,15 @@
 		Die OPC Foundation beschreibt Unified Architecture mit den Attributen sicher und Firewall freundlich, da OPC UA über den Port 443 kommuniziert, der meist nicht durch Firewalls blockiert wird. OPC UA unterstützt Security auf Transport- und Applikationsebene anhand von selbst entworfenen Protokollen und Erweiterungen von bereits bestehenden Standards. Die Codierung findet auf binärer Ebene statt, wobei die Kommunikation über HTTPS abläuft. Die Authentifizierung von Clients und Servern findet über X509 Zertifikate statt, wobei der Entwickler der UA Anwendung die Anbindung an einen Zertifikatsspeicher selbst übernehmen kann. \cite{noauthor_unified_nodate, noauthor_opc_nodate}
 		
 		% Authentifizierung/Autorisierung
-		Auf Applikationsebene gibt es Sicherheitsmechanismen, welche dir Authentifikation und Autorisierung der Nutzer bearbeiten. Hierbei kommen Passwörtern, Zertifikaten, Webtokens und weiteres zum Einsatz. Außerdem können mit Rechten für Nutzer weitere Einschränkungen auf den Zugriff einzelner Nutzer gelegt werden. Zuzüglich können Aktivitäten von Nutzern und dem System geloggt werden, um die Nachvollziebarkeit zu erhöhen und die Sicherheit des Systems zu stärken. \cite{noauthor_unified_nodate, noauthor_opc_nodate}
+		Auf Applikationsebene gibt es Sicherheitsmechanismen, welche die Authentifikation und Autorisierung der Nutzer bearbeiten. Hierbei kommen Passwörter, Zertifikate, Webtokens und weiteres zum Einsatz. Außerdem können mit Rechten für Nutzer weitere Einschränkungen auf den Zugriff einzelner Nutzer gelegt werden. Zuzüglich können Aktivitäten von Nutzern und dem System geloggt werden, um die Nachvollziebarkeit zu erhöhen und die Sicherheit des Systems zu stärken. \cite{noauthor_unified_nodate, noauthor_opc_nodate}
 		
 		%Bundesamt Studie
-		Das Bundesamt für Sicherheit in der Informationstechnik führte 2017 eine Sicherheitsanalyse in Kooperation mit TÜV Süd aus und konnte kleine systematischen Fehler in der Sicherheit entdecken. Sie schreiben OPC UA eine hohe Sicherheit zu, wenn die  Mode Sign und security Mode SignAndEncrypt verwendet werden. \cite{damm_opc_2017}
+		Das Bundesamt für Sicherheit in der Informationstechnik führte 2017 eine Sicherheitsanalyse in Kooperation mit TÜV Süd aus und konnte nur kleine systematischen Fehler in der Sicherheit entdecken. Sie schreiben OPC UA eine hohe Sicherheit zu, wenn die  Mode Sign und security Mode SignAndEncrypt verwendet werden. \cite{damm_opc_2017}
 		
 		
 		%Wenn bei Umati sich etwas ändert, dann dort noch ein Kapitel puschen
 	
-	\section{\ac{Umati}}
+	\section{Umati}
 		
 		%Einführung
 		\ac{Umati} ist eine globale Initiative zur Standardisierung von Schnittstellen zur Kommunikation zwischen Produktionsanlagen. Sie wird vom \ac{VDMA} und dem \ac{VDW} verwaltet, die durch ihre zahlreichen Mitglieder den Standard schnell vorantreiben können. Das Ziel ist es, die Kommunikation zwischen Maschinen möglichst einfach, sicher und einfach zu gestalten. Es soll eine Plug \& Play Umgebung entstehen, in der neue Maschinen in eine Anlage durch bloßes Einstecken ins Kommunikationsnetzwerk integriert werden können. Die \ac{Umati} Initiative entwickelt Standards, welche weltweit zum Einsatz kommen sollen, um eine starke internationale Gemeinschaft um diesen Standard zu erreichen. \cite{noauthor_umati_2023}
@@ -195,7 +190,7 @@
 		\ac{Umati} baut auf den OPC UA Standards der OPC Foundation auf. OPC UA bildet dabei die Basis und definiert, wie und was kommuniziert werden soll. Es legt fest, was die Rahmenbedingungen für Konnektivität und syntaktische Interoperabilität sind. \cite{noauthor_umati_2023} OPC UA ermöglicht es die semantische Interoperabilität über Companion Spezifications zu versichern. Diese werden auch schon in der Industrie eingesetzt weshalb sich \ac{Umati} die Aufgabe gemacht hat, die verschiedenen Spezifikationen zu vereinheitlichen damit beispielsweise die Identifizierung einer Maschine immer gleich abläuft.
 		
 		% Automatisierungspyramide
-		\ac{Umati} soll vor allem die vertikale und horizontale Integration im Unternehmen erleichtern. In Abbildung \ref{fig:Automatisierungspyramide} ist die Automatisierungspyramide nach Siepmann abgebildet. Je tiefer die Ebene in der Pyramide liegt, desto vielfältiger sind die Systeme dieser Ebene. Während ein Unternehmen nur ein \ac{ERP} System verwendet, kann es zahlreiche SPS und noch mehr Ein- und Ausgabesensoren geben. Diese müssen vertikal integriert werden. Dafür werden Daten von den unteren Ebenen in die Systeme weiter oben zur Verarbeitung überreicht. Bei der horizontalen Integration kommunizieren gleichartige Systeme miteinander. Beispielsweise wenn mehrere SPS Daten austauschen oder Daten Abteilungsübergreifend übergeben werden, wie bei einem Datenfluss von SCM zu CRM System sein. 
+		\ac{Umati} soll vor allem die vertikale und horizontale Integration im Unternehmen erleichtern. In Abbildung \ref{fig:Automatisierungspyramide} ist die Automatisierungspyramide nach Siepmann abgebildet. Je tiefer die Ebene in der Pyramide liegt, desto vielfältiger sind die Systeme dieser Ebene. Während ein Unternehmen nur ein \ac{ERP} System verwendet, kann es zahlreiche SPS und noch mehr Ein- und Ausgabesensoren geben. Hier muss eine vertikale Integration stattfinden. Dafür werden Daten von den unteren Ebenen in die Systeme weiter oben zur Verarbeitung überreicht. Bei der horizontalen Integration kommunizieren gleichartige Systeme miteinander. Beispielsweise wenn mehrere SPS Daten austauschen oder Daten abteilungsübergreifend übergeben werden, wie bei einem Datenfluss von SCM zu CRM System sein. 
 		
 		\begin{figure}[H]
 			\centering
@@ -207,7 +202,7 @@
 		\ac{Umati} legt standardisierte Schnittellen fest, mit denen die vertikale und horizontale Integration möglichst einfach umgesetzt wird. Dadurch kann die Wertschöpfung aus Daten kostengünstiger ablaufen und die Analyse, Verarbeitung und Verwertung von Daten, wie es in der Industrie 4.0 üblich ist, besser ablaufen. \ac{Umati} hat bereits Vorführungen auf Messen veranstaltet, welche die Funktionsfähigkeit einer \ac{Umati} Umsetzung demonstrieren. \ac{Umati} standardisiert dabei die Integration von Maschinen, deren Installation und ganze IT Produktionsumgebungen. \cite{noauthor_about_nodate}
 		
 		% Companion Specifikations
-		Die semantische Interoperabilität wurde bereits mit OPC UA über die Companion Spezifikationen erreicht. Allerdings entstehen diese Standards in gesonderten Arbeitsgruppen welche auf die Teilnehmer zugeschnitten sind. Dadurch entstehen viele Spezifikationen in vielen verschiedenen Branchen und Maschinen können nicht mehr ohne Übersetzung kommunizieren. \ac{Umati} versucht diesen Umstand durch das Zusammenfassung dieser Spezifikationen zu beheben. Es sollen Maschinen entstehen, die alle die selbe Sprache sprechen und so einfach in neue IT 
+		Die semantische Interoperabilität wurde bereits mit OPC UA über die Companion Spezifikationen erreicht. Allerdings entstehen diese Standards in gesonderten Arbeitsgruppen welche auf die Teilnehmer zugeschnitten sind. Dadurch entstehen viele Spezifikationen in vielen verschiedenen Branchen und Maschinen können nicht mehr ohne Übersetzung kommunizieren. \ac{Umati} versucht diesen Umstand durch das Zusammenfassung dieser Spezifikationen zu beheben. Es sollen Maschinen entstehen, die alle die selbe Sprache sprechen und so einfach in neue IT Umgebungen integriert werden können.
 		
 		\ac{Umati} selbst besteht aus verschiedenen Modulen, welche alle Standards für verschiedene Bereiche definieren. In Abbildung \ref{fig:OPCUA_for_machinery} sind alle Interfaces abgebildet, welche auf der Base Spezifikation OPC 40001 aufbauen. Dieser wird auch OPC 40001 UA for Machinery genannt und ist für die Anlagenbauindustrie gedacht. \ac{Umati} befindet sich noch in der Entwicklung und ist noch nicht vollständig fertiggestellt, deshalb gibt es Interfaces, welche noch nicht umgesetzt, sondern nur geplant sind. \cite{noauthor_machinery_nodate}
 		
@@ -233,37 +228,48 @@
 		
 		\subsection{OPC UA for Machinery}
 		
-		\texttt{OPC 40001-1/VDMA 40001-1}, auch OPC UA for Machinery, wurde von VDMA und VDM zusammen mit der OPC Foundation entwickelt. Es ist die fundamentale Spezifikation, auf der andere in diesem Bereich aufbauen sollen. Sie wurde im September 2020 veröffentlicht und seit dem mehrfach aktualisiert worden. Der Standard wird auch in Zukunft erweitert werden, um mehr Use Cases abzudecken. Die neuste Version zum Zeitpunkt des Entwurfs dieser Arbeit ist aus August 2023.
+		\texttt{OPC 40001-1/VDMA 40001-1}, auch OPC UA for Machinery, wurde von VDMA und VDM zusammen mit der OPC Foundation entwickelt. Es ist die fundamentale Spezifikation, auf der andere in diesem Bereich aufbauen sollen. Sie wurde im September 2020 veröffentlicht und ist seit dem mehrfach aktualisiert worden. Der Standard wird auch in Zukunft erweitert werden, um mehr Use Cases abzudecken. Die neuste Version zum Zeitpunkt des Entwurfs dieser Arbeit ist aus August 2023.
 		
-		Im Allgemeinen deckt dieser Standard fundamentale Bereiche ab. Es wird definiert, welche Datentypen genutzt werden können, wie deren Syntax ist und wie sie in Attributen abgespeichert werden können. Es werden Objekte und Klassen festgelegt und deren Verhalten und Funktionalität. Darüber hinaus beschreibt die Spezifikation auch, wie ein Client im System die Maschinen an den OPC UA Servern finden kann. 
+		Im Allgemeinen deckt dieser Standard fundamentale Bereiche ab. Es wird definiert, welche Datentypen genutzt werden können, wie deren Syntax ist und wie Attribute Daten abspeichern. Es werden Objekte und Klassen festgelegt und deren Verhalten sowie Funktionalität. Darüber hinaus beschreibt die Spezifikation auch, wie ein Client im System die Maschinen an den OPC UA Servern finden kann. 
 		
-		OPC for Machinery implementiert keinen festen Typ um als einen Einstiegspunkt für den OPC UA Server. Daher muss auf die Basisspezifikation OPC 40001-1 eine weitere Spezifikation aufgesetzt werden. Im Fall dieser Arbeit wird ein Roboter simuliert, weshalb die Spezifikation OPC 40010 Robotics anbietet. Als Mindestanforderung muss Part 1 der Robtics-Spezifikation implementiert werden. Dadurch ergibt sich eine Anzahl an Variablen, Funktionen und Strukturen, welche in den Simulationsserver implementiert werden.
+		OPC for Machinery implementiert keinen festen Typ, welcher als ein Einstiegspunkt für den OPC UA Server dienen könnte. Daher muss auf die Basisspezifikation OPC 40001-1 eine weitere Spezifikation aufgesetzt werden. Im Fall dieser Arbeit wird ein Roboter simuliert, weshalb die Spezifikation OPC 40010 Robotics anbietet. Als Mindestanforderung muss Part 1 der Robotics-Spezifikation implementiert werden. Dadurch ergibt sich eine Anzahl an Variablen, Funktionen und Strukturen, welche in den Simulationsserver implementiert werden.
 		
-		OPC UA for Machinery definiert, das jede Maschine und jede Komponente einen Identifikations-AddIn besitzt. In diesem müssen mindestens eine Manufacturer und eine Productinstance Identifikation vorhanden sein. Dies stellt sicher, dass ein OPC UA Client jede Maschine die Veröffentlicht wird finden und erkennen kann.  
+		OPC UA for Machinery definiert, das jede Maschine und jede Komponente einen Identifikations-AddIn besitzt. In diesem müssen mindestens eine Manufacturer und eine Productinstance Identifikation vorhanden sein. Dies stellt sicher, dass ein OPC UA Client jede Maschine die veröffentlicht wird finden und erkennen kann.  
 
 	\section{Weitere Technologien}
 		\subsection{Docker}
 		
-		Docker ist eine Open-Source Virtualisierungstechnologie. Ihr primärer nutzen ist das Anbieten, das Entwickeln und Verwalten von Anwendungen auf einem Serverumfeld. Dabei werden alle Services in eigenen Containern verwaltet, was es ermöglicht einzelne Teile einer Anwendung neu zu starten, sie einfach zu skalieren und einzelne Teile zu beenden, ohne das gesamt System zu beenden. Die Container sind auf die Docker-Engine angewiesen, welche zahlreiche Betriebssysteme unterstützt. Ist eine Anwendung containerized, kann sie auf jeder dieser Betriebssysteme auf Basis einer Docker-Engine gestartet werden. \cite{noauthor_install_2023}
+		Docker ist eine Open-Source Virtualisierungstechnologie. Ihr primärer nutzen ist das Anbieten, das Entwickeln und Verwalten von Anwendungen auf einem Serverumfeld. Dabei werden alle Services in eigenen Containern verwaltet, was es ermöglicht einzelne Teile einer Anwendung neu zu starten, sie einfach zu skalieren und einzelne Teile zu beenden, ohne das gesamt System zu beenden. Die Container sind auf die Docker-Engine angewiesen, welche zahlreiche Betriebssysteme unterstützt. Ist eine Anwendung containerized, kann sie auf jeder Maschine laufen, auf der die Docker Engine installiert ist. Dabei ist es irrelevant, auf welchem Betriebssystem die Engine läuft. \cite{noauthor_install_2023}
 		
-		Ein Container wird über ein Docker Image gestartet. Ein Image ist der Bauplan einer Anwendung. In einem Docker Compose File können mehrere Container gestartet werden und deren Startparameter festgelegt werden. Zu diesen Parametert gehören benötigte Ports, Umgebungsvariablen für innerhalb des Containers und welche Version des Images verwendet werden soll. Es können auch virtuelle Netzwerke festgelegt werden, welche die Container auch voneinander abgrenzen. 
+		Ein Container wird über ein Docker Image gestartet. Ein Image ist der Bauplan einer Anwendung. In einem Docker Compose File können mehrere Container gestartet werden und deren Startparameter festgelegt werden. Zu diesen Parametern gehören benötigte Ports, Umgebungsvariablen für innerhalb des Containers und welche Version des Images verwendet werden soll. Es können auch virtuelle Netzwerke festgelegt werden, welche die Container auch voneinander abgrenzen. 
 		
-		Docker hat sich im Bereich der Containersysteme durchgesetzt, da es eine zugängliche Schnittstelle zu dieser Art des Servicedeployment bietet. Docker bietet eine einfache Handhabe und Automatisierte Prozesse zum starten und beenden von Services. Docker Hub trug zum Durchbruch der Virtualisierungslösung ebenfalls bei. Dies ist ein Repository im Internet, in dem zahlreiche Images abgelegt werden können. Die Verwendung von Docker hub erfolgt über einen Nativen Docker Befehl, der das Image herunter läd und zur Nutzung bereitstellt. 
+		Docker hat sich im Bereich der Containersysteme durchgesetzt, da es eine zugängliche Schnittstelle zu dieser Art des Servicedeployment bietet. Docker bietet eine einfache Handhabe und automatisierte Prozesse zum starten und beenden von Services. Docker Hub trug zum Durchbruch der Virtualisierungslösung ebenfalls bei. Dies ist ein Repository im Internet, in dem zahlreiche Images abgelegt werden können. Die Verwendung von Docker Hub erfolgt über einen nativen Docker Befehl, der das Image herunter läd und zur Nutzung bereitstellt. 
 		
 		Docker ist die grundlegende Technologie für diese Arbeit. Es wird verwendet um die einzelnen Komponenten des Prototypen zu verbinden. Docker eignet sich durch seine einfache Handhabe und die bereits bestehende Expertise im Unternehmen für die Entwicklung des Prototypen. Auch für die Integration in die AZO Infrastruktur bietet sich Docker an, da bereits eine Dockerumgebung für andere Services besteht. 
 		
 		\subsection{MQTT}
 		
-		Das \ac{MQTT} ist eine Nachrichtenprotokoll, dass sich durch seine Robusten Eigenschaften vor allem für unzuverlässige Umgebungen eignet. Es ist entwickelt worden um mit Geräten mit hoher Latenz, geringer Bandbreite oder labilem Netzwerk zu kommunizieren. Es eignet sich vor allem für \ac{M2M}-Kommunikation und den \ac{IoT} Bereich, da es besondere Akku und Leistungssparen ist. 
+		Das \ac{MQTT} ist ein Nachrichtenprotokoll, dass sich durch seine robusten Eigenschaften vor allem für unzuverlässige Umgebungen eignet. Es ist entwickelt worden um mit Geräten mit hoher Latenz, geringer Bandbreite oder labilem Netzwerk zu kommunizieren. Es eignet sich vor allem für \ac{M2M}-Kommunikation und den \ac{IoT} Bereich, da es besonders Akku- und Leistungssparen ist. 
 		
 		\ac{MQTT} baut auf einer Subscribe and Publish Architektur auf. Ein Eingabegerät, beispielsweise ein Temperatursensor, erhebt seine Daten und reicht sie an einen MQTT Broker weiter, welcher die Daten veröffentlicht (Publish). Möchte ein Client auf die Daten zugreifen, muss er den korrekten \textit{Topic} unter dem die Daten liegen abonnieren und erhält daraufhin alle Änderungen des Datensatzes (Subscribe).
 		
-		Der\ac{MQTT} Broker übernimmt das Versenden der Daten an alle Clients. Für einen Client sehen die Topics nach einer hierarchischen Struktur aus. Sollte die Verbindung zu einem Client unterbrochen werden, puffert der Broker die Veränderungen an den Daten und sendet diese, wenn der Client wieder verfügbar ist.
+		Der \ac{MQTT} Broker übernimmt das Versenden der Daten an alle Clients. Für einen Client sehen die Topics nach einer hierarchischen Struktur aus. Sollte die Verbindung zu einem Client unterbrochen werden, puffert der Broker die Veränderungen an den Daten und sendet diese, wenn der Client wieder verfügbar ist.
 		
-		%TODO: \subsection{Grafana}
-		%TODO: \subsection{InfluxDB}
-		%TODO: \subsection{Telegraf}
-		%TODO: \subsection{NodeRed}
+		\subsection{Grafana}
+		
+		Grafana ist eine leistungsstarke Open-Source-Plattform für die Visualisierung und Überwachung von Daten und Metriken in Echtzeit. Sie bietet eine benutzerfreundliche Oberfläche, mit der Benutzer Daten aus verschiedenen Quellen, darunter Datenbanken, APIs und Cloud-Services, abrufen, analysieren und in ansprechenden Dashboards darstellen können. Grafana ist besonders bei DevOps-Teams, Systemadministratoren und Entwicklern beliebt, da es ihnen ermöglicht, wichtige Leistungsindikatoren, Logs und Metriken in Echtzeit zu überwachen, Trends zu erkennen und fundierte Entscheidungen zur Optimierung von Systemen und Anwendungen zu treffen. Die Plattform ist äußerst flexibel und unterstützt eine breite Palette von Datenquellen sowie eine aktive Entwicklergemeinschaft, die ständig neue Plugins und Integrationen entwickelt, um die Funktionalität von Grafana weiter zu erweitern. \cite{noauthor_grafana_nodate}
+		
+		\subsection{InfluxDB}
+		
+		InfluxDB ist eine hochgradig skalierbare, Open-Source-Zeitreihendatenbank, die speziell für die Speicherung, Abfrage und Analyse von Zeitreihendaten entwickelt wurde. Sie eignet sich ideal für Anwendungen, bei denen Datenpunkte mit einem Zeitstempel versehen sind, wie beispielsweise Leistungsüberwachung, IoT-Gerätedaten, Anwendungsprotokolle und mehr. InfluxDB zeichnet sich durch hohe Schreib- und Leseleistung aus, wodurch sie für Echtzeit-Analytik und Überwachungsszenarien gut geeignet ist. Die Datenbank bietet eine leistungsstarke Abfragesprache namens InfluxQL, die komplexe Abfragen und Aggregationen ermöglicht. Zusätzlich bietet InfluxDB Kapazitäten zur kontinuierlichen Datenstromverarbeitung und kann nahtlos mit Visualisierungstools wie Grafana integriert werden. Diese Kombination macht InfluxDB zu einer beliebten Wahl für die Speicherung und Analyse von Zeitreihendaten in einer Vielzahl von Anwendungen. \cite{noauthor_influxdb_2023}
+		
+		\subsection{Telegraf}
+		
+		Telegraf ist ein Open-Source-Tool, das speziell für das Sammeln, Verarbeiten und Übertragen von Metriken und Event-Daten entwickelt wurde. Es ist Teil des TICK-Stacks (Telegraf, InfluxDB, Chronograf und Kapacitor) und wird häufig in Kombination mit InfluxDB für die Zeitreihendatenanalyse verwendet. Telegraf bietet eine breite Palette von Plugins, die es ermöglichen, Metriken aus verschiedenen Quellen wie Systemressourcen, Anwendungen, Cloud-Services, Datenbanken und mehr zu extrahieren. Es ist äußerst leichtgewichtig und ressourceneffizient, was es ideal für den Einsatz in verteilten und containerisierten Umgebungen macht. Telegraf ermöglicht die flexible Konfiguration und Transformation von Daten, bevor sie in InfluxDB oder andere Ziele geschrieben werden. Durch seine umfangreiche Plugin-Unterstützung und seine Integration mit verschiedenen Monitoring- und Analysetools ist Telegraf eine wertvolle Komponente für die Metrikerfassung und -analyse in modernen IT-Umgebungen. \cite{noauthor_telegraf_2022}
+		
+		\subsection{NodeRed}
+		
+		Node-RED ist eine Open-Source-Flow-Basierte-Entwicklungsplattform, die entwickelt wurde, um die Entwicklung von Anwendungen im Bereich des IoT (Internet der Dinge) und der Flusssteuerung zu erleichtern. Es bietet eine visuelle Entwicklungsumgebung, die es Entwicklern ermöglicht, Flüsse von Knoten zu erstellen und zu konfigurieren, um Daten zwischen verschiedenen Geräten zu verarbeiten. Node-RED ist äußerst flexibel und kann problemlos mit einer Vielzahl von Geräten, APIs und Protokollen integriert werden. Es bietet eine umfangreiche Sammlung von Erweiterungen und Erweiterungsmodulen, die die Entwicklung von IoT-Anwendungen und Automatisierungsszenarien beschleunigen. Mit seiner benutzerfreundlichen Oberfläche und seiner leistungsstarken Funktionalität ist Node-RED eine beliebte Wahl für Entwickler, die IoT-Projekte erstellen und komplexe Datenverarbeitungsaufgaben vereinfachen möchten. \cite{noauthor_about_nodate-1}
 		
 \chapter{Methodik}\label{ch:Methodiken}
 	% (8 Seiten)
@@ -293,17 +299,14 @@
 	\end{figure}
 	
 	Die Punkte \textit{Functional Suitability}, \textit{Performance Efficiency}, \textit{Usability} und \textit{Reliability} sind die Hauptkriterien die für die Messeprototypen besonders wichtig sind. Die anderen Kriterien sind ebenfalls von Wichtigkeit, können jedoch den anderen nachgestellt werden, da die Prototypen nur demonstrativen Nutzen hat. 
-	% TODO: Warum???
-	% TODO: Quantifizierbare Ziele setzen
 	
 	Das Demomaterial welches für die Messe ausgelegt werden soll, muss visuell anschaulich sein und die Kernfunktionen von \ac{Umati} präsentieren. Es geht darum das Interesse der Messebesucher zu wecken und genug Informationen für ein allgemeines Bild über die Funktionen und Ziele von \ac{Umati} zu erreichen. 
 	
-	%TODO: Reflexion
-	% Evaluation der Prototypen
+	Die Ausarbeitung der Funktionalen Anforderungen sowie die Evaluation der Prototypen findet in Kapitel \ref{Prototyp:1} und \ref{Prototyp:2} statt.
 	
 	\section{Zeitplanung}
 	
-	Die Bearbeitungszeit dieser Arbeit beträgt zwölf Wochen, von Montag dem 19.06.2023 bis Montag den 11.09.2023. In Abbildung \ref{fig:Grantt} ist ein Grantt-Diagramm der Zeitplanung abgebildet. In den ersten 4 Wochen sollen die Theoretische Grundlagen und die Analysen der Arbeit abgeschlossen sein, damit die Praxis am 10.07.2023 beginnen kann. Von Woche 5 bis 10 soll die Implementation und Integration der Prototypen stattfinden. Der gesamte Prozess kann auf gemeinsam 5 Wochen geschätzt werden, wobei eine zusätzliche Woche als Puffer eingeplant wird, sollte es Verzögerungen wie Krankheit oder Bereitstellungsschwierigkeiten geben. Am 21.08.2023 soll die Arbeit abgabebereit sein und für eine Korrekturlesung bereitgestellt werden. Parallel zur Korrekturlesung sollen die Messedokumente und Schulungsunterlagen angefertigt werden. Der letzte Block dient als Puffer für den Abschluss der Arbeit.
+	Die Bearbeitungszeit dieser Arbeit beträgt zwölf Wochen, von Montag dem 19.06.2023 bis Montag den 11.09.2023. In Abbildung \ref{fig:Grantt} ist ein Grantt-Diagramm der Zeitplanung abgebildet. In den ersten 4 Wochen sollen die theoretische Grundlagen und die Analysen der Arbeit abgeschlossen sein, damit die Praxis am 10.07.2023 beginnen kann. Von Woche 5 bis 10 soll die Implementation und Integration der Prototypen stattfinden. Der gesamte Prozess kann auf gemeinsam 5 Wochen geschätzt werden, wobei eine zusätzliche Woche als Puffer eingeplant wird, sollte es Verzögerungen wie Krankheit oder Bereitstellungsschwierigkeiten geben. Am 21.08.2023 soll die Arbeit abgabebereit sein und für eine Korrekturlesung bereitgestellt werden. Parallel zur Korrekturlesung sollen die Messedokumente und Schulungsunterlagen angefertigt werden. Der letzte Block dient als Puffer für den Abschluss der Arbeit.
 	
 	\begin{figure}[H]
 		\centering
@@ -328,7 +331,7 @@
 		
 		Der zweite Prototyp ist eine Verbindung zwischen einem OPC UA Server mit der Umati Implementation und einer internen Visualisierung. Hierbei sollen die Daten aus dem OPC UA Server ausgelesen und so transformiert werden, dass sie auf einem Grafana Dashboard angezeigt werden können. AZO visualisiert bereits bestehende Projekte über Grafana und die Umati Maschinen sollen sich so in die bereits bestehende Infrastruktur eingliedern.
 		
-		\subsection{Prototyp 1: Umati Web Dashboard}
+		\subsection{Prototyp 1: Umati Web Dashboard}\label{Prototyp:1}
 		
 		% Ziel
 		Die Daten eines OPC UA Servers sollen an das Umati Web Dashboard gesendet werden. Die Seite kann unter dem Link \textit{umati.app} erreicht werden. Sie baut auf einem MQTT Broker auf, welcher alle Daten der Teilnehmer abspeichert und an das Dashboard weiter gibt. Der MQTT Broker liegt an derselben Adresse am Port 443 und benötigt Anmeldekriterien für die Veröffentlichung und das Abfragen von Daten.
@@ -339,7 +342,7 @@
 		\begin{figure}[H]
 			\centering
 			\includegraphics[width=0.7\textwidth]{res/RoLog.png}
-			\caption{RoLog von AZO Gmbh \& Co. KG \cite{noauthor_azo_nodate}}
+			\caption{RoLog von AZO Gmbh + Co. KG \cite{noauthor_azo_nodate}}
 			\label{fig:RoLog}
 		\end{figure}
 	
@@ -347,21 +350,31 @@
 		
 		% Evaluationskriterien
 		\begin{itemize}
-			\item \textbf{REQ1}: Kommunikation von OPC UA Server zu Client nach Umati Standard
-			\item \textbf{REQ2}: Daten auf Umati Web-Dashboard:
-			\subitem \textbf{REQ2.1}: Visualisierung der Daten, die sich verändern.
-			\subitem \textbf{REQ2.2}: Personalisieren aller Daten nach AZO Gmbh.
-			\subitem \textbf{REQ2.3}: Anpassen der Location auf der Karte.
-			\subitem \textbf{REQ2.3}: Anzeige eines Bild der Maschine.
+			\item \textbf{REQ 1}: Kommunikation von OPC UA Server zu Client nach Umati Standard
+			\item \textbf{REQ 2}: Daten auf Umati Web-Dashboard:
+			\subitem \textbf{REQ 2.1}: Visualisierung der Daten, die sich verändern.
+			\subitem \textbf{REQ 2.2}: Personalisieren aller Daten nach AZO Gmbh.
+			\subitem \textbf{REQ 2.3}: Anpassen der Location auf der Karte.
+			\subitem \textbf{REQ 2.3}: Anzeige eines Bild der Maschine.
+			
+			\item \textbf{REQ 3}: Das Senden der Daten von Maschine zu Dashboard dauert weniger als eine Minute.
+			
+			\item \textbf{REQ 4}: Das Starten und Beenden des Prototypen für Testzwecke soll leicht Nachvollziehbar sein. 
+			
+			\item \textbf{REQ 5}: Nach einem Absturz soll das System versuchen, selbst wieder Online zu gehen. 
 		\end{itemize}
+	
+		Im Bereich der Funktionalen Vollständigkeit weist der Erste Prototyp alle Anforderungen auf. Der Prototyp setzt alle Anforderungskriterien der Auflistung zuvor um (REQ 1, REQ 2). Die Performance ist ebenfalls erfüllt. Das System liefert Daten an das Web-Dashboard von Umati innerhalb von einer Minute nach Start der Docker Container (REQ 3). Der Prototyp muss noch auf einem zentralen System gestartet werden, damit er von überall erreichbar ist. Daraufhin muss bei der Demonstration auf einer Messe nur die Verbindung zum Umati Web-Dashboard hergestellt werden. Damit ist REQ 4 erfüllt, solange die Server des VDMAs und die von AZO Online sind. Durch die Verwendung von Docker konnten die Restart Werte so gesetzt werden, dass sich das System neustartet, sollten kleinere Fehler zum Absturz eines Containers führen (REQ 5).
 		
-		\subsection{Prototyp 1: Umati Web Dashboard}
+		Der erste Prototyp erfüllt alle Anforderungen die durch dieses Kapitel erstellt wurden.		
+		
+		\subsection{Prototyp 2: interner Prototyp}\label{Prototyp:2}
 		
 		% Ziel
 		Die Daten, welche die Simulation der Maschine generiert, sollen an eine Grafana Instanz gesendet werden. Hier soll erneut ein umatifähiger OPC UA Server verwendet werden. Die Daten sollen in der grafischen Oberfläche von Grafana einfach und umfangreich ausgelesen und angezeigt werden können. Das Ziel ist es, einen Ablauf zu entwerfen, welcher als Ansatzpunkt für zukünftige Projekte verwendet werden kann. 
 		
 		% Grafana
-		Grafana soll dabei in einem Docker-Container laufen. Grafana bietet Nativ die Möglichkeit, unterschiedliche Datenquellen einzubinden. Eine dieser Datenquellen soll verwendet werden. Es soll ein Dashboard entstehen, welches die Daten der Maschine anzeigt und sich live aktualisiert. Aus den Ansätzen folgern diese Anforderungen:
+		Grafana soll dabei in einem Docker-Container laufen. Grafana bietet nativ die Möglichkeit, unterschiedliche Datenquellen einzubinden. Eine dieser Datenquellen soll verwendet werden. Es soll ein Dashboard entstehen, welches die Daten der Maschine anzeigt und sich live aktualisiert. Aus den Ansätzen folgern diese Anforderungen:
 		
 		% Evaluierungskriterien
 		\begin{itemize}
@@ -369,9 +382,17 @@
 			\item \textbf{REQ2}: Grafan muss in einer Docker Instanz laufen.
 			\item \textbf{REQ3}: Dashboard:
 			\subitem \textbf{REQ3.1}: Visualisierung der Daten, die sich verändern.
-			\subitem \textbf{REQ3.2}: Einbinden einer Datenquelle, die Grafana Nativ versteht.
+			\subitem \textbf{REQ3.2}: Einbinden einer Datenquelle, die Grafana nativ versteht.
 			\item \textbf{REQ4}: NodeRed soll als Lösung in Betracht gezogen werden.
+			
+			\item \textbf{REQ 5}: Das Senden der Daten von Maschine zu Dashboard dauert weniger als eine Minute.
+			
+			\item \textbf{REQ 6}: Das Starten und Beenden des Prototypen für Testzwecke soll leicht Nachvollziehbar sein. 
+			
+			\item \textbf{REQ 7}: Nach einem Absturz soll das System versuchen, selbst wieder Online zu gehen. 
 		\end{itemize}			
+		
+		Im Bereich der Funktionalen Vollständigkeit weist der Erste Prototyp alle Anforderungen auf. Der Prototyp setzt alle Anforderungskriterien der Auflistung zuvor um (REQ 1, REQ 2, REQ 3) und zieht NodeRed als mögliche Lösung des Datenflusses in Betracht (REQ 4). Die Performance ist ebenfalls erfüllt. Das System liefert Daten an das Web-Dashboard von Umati innerhalb von einer Minute nach Start der Docker Container (REQ 5). Der Prototyp muss noch auf einem zentralen System gestartet werden, damit er von überall erreichbar ist. Daraufhin muss bei der Demonstration auf einer Messe nur die Verbindung zum Grafana Server hergestellt werden. Damit ist REQ 6 erfüllt, solange die Server von AZO Online ist. Durch die Verwendung von Docker konnten die Restart Werte so gesetzt werden, dass sich das System neu startet, sollten kleinere Fehler zum Absturz eines Containers führen (REQ 7).
 		
 	\section{Lösungsansatz}
 	
@@ -403,19 +424,19 @@
 					
 			Da der Umati Server auf dem offenen Standard OPC UA aufbaut, kann ein Server auch selbst implementiert werden. Dies hat verschiedene Vor- und Nachteile, welche beachtet und auf das Ziel der Implementierung angewandt werden müssen. 
 			
-			Eigenimplementierungen sind meist anpassungsfähiger und flexibler, um auf Situationsspezifische Anforderungen zu reagieren. Sie können spezifisch auf den gewünschten Zweck hin optimiert und verbessert werden. Dies kann auch eine einfachere Integration in eine bereits bestehende Umgebung garantieren, da die Anwendung auf diese Umgebung hin angepasst werden kann.
+			Eigenimplementierungen sind meist anpassungsfähiger und flexibler, um auf situationsspezifische Anforderungen zu reagieren. Sie können spezifisch auf den gewünschten Zweck hin optimiert und verbessert werden. Dies kann auch eine einfachere Integration in eine bereits bestehende Umgebung garantieren, da die Anwendung auf diese Umgebung hin angepasst werden kann.
 			
 			Allerdings kann es auch zu Nachteilen führen. Eigenimplementationen haben ein hohes Risiko auf Fehleranfälligkeiten oder Sicherheitslücken. Bei eingekauften Lösungen profitiert die Anwendung im Normalfall von Erfahrungswerten des Breitstellers und dem Umstand, dass diese Lösung sich bereits am Markt behaupten musste. Die fehlende Erfahrung kann auch zu einem Programm führen, welches kaum optimiert und komplex ist, was die Wartbarkeit und Nutzerfreundlichkeit vermindert. Soll die Lösung zu kommerziellen Zwecken eingesetzt werden oder hat hohe Anforderungen an Sicherheit, Zugverlässlichkeit und Robustheit, sollte auf eine Eigenimplementation verzichtet werden.
 			
 			Trotz der Nachteile sollte die Umsetzung einer Eigenimplementierung, vor allem zu Demonstrationszwecken, in Betracht gezogen werden. Hierbei gibt es Low-Code und High-Code Ansätze. Bei High-Code Implementierungen wird die Funktionalität in Code hergestellt. Beispielsweise kann ein OPC UA Server nur anhand von Python oder C\# Frameworks implementiert werden. Low-Code Ansätze bedienen sich dabei einem visuellen Programmierstil. Die Programmierung findet über IDEs statt, welche mehr auf Bausteinartige Programmierung setzen. Beispiele für solche Umgebungen sind NodeRed oder Microsoft Power Apps. 
 			
 			\paragraph{Implementierung mit C\#}
-			Die OPC Foundation stellt ein Framework für die Entwicklung von OPC Servern auf C\# Basis zu Verfügung. Die OPC UA.NET Standard-Bibliothek ermöglicht die Entwicklung von OPC Servern und Clients. Eine Eigenimplementierung mit diesem Framework würde einen sehr individualisierbaren und flexiblen Server ergeben, welcher den RoLog in seiner exakten Funktion darstellen könnte. Allerdings ist die Implementierung sehr zeitintensiv und benötigt Expertise auf dem Bereich. \cite{noauthor_opc_nodate-1}
+			Die OPC Foundation stellt ein Framework für die Entwicklung von OPC Servern auf C\# Basis zu Verfügung. Die OPC UA.NET Standard-Bibliothek ermöglicht die Entwicklung von OPC Servern und Clients. Eine Eigenimplementierung mit diesem Framework würde einen sehr individualisierbaren und flexiblen Server ergeben, welcher den RoLog in seiner exakten Funktion darstellen könnte. Allerdings ist die Implementierung sehr zeitintensiv und benötigt Expertise auf dem Bereich.\cite{noauthor_opc_nodate-1}
 			
 			Um eine einwandfreie Simulation eines RoLogs als Basis der Prototypen zu verwenden, sollte diese Implementierung in Betracht gezogen werden. Allerdings ist diese Form, um einen ersten \ac{PoC} für Umati zu entwerfen, zu aufwendig.
 			
 			\paragraph{Implementierung in einer SPS}
-			Die Implementierung einer OPC UA Schnittstelle kann auch direkt auf einer SPS durchgeführt werden. Siemens SPS stellen einen integrierten OPC UA Server zu Verfügung, welcher direkt an der Anlage laufen kann. Es gibt auch die Möglichkeit, Maschinen zu simulieren und mit kleinen Programmen deren Verhalten zu bestimmen. Der Server der SIMATIC S7 SPS von Simens kann Objekte und Klassenstrukturen darstellen. \cite{noauthor_tia_2019}
+			Die Implementierung einer OPC UA Schnittstelle kann auch direkt auf einer SPS durchgeführt werden. Siemens SPS stellen einen integrierten OPC UA Server zu Verfügung, welcher direkt an der Anlage laufen kann. Es gibt auch die Möglichkeit, Maschinen zu simulieren und mit kleinen Programmen deren Verhalten zu bestimmen. Der Server der SIMATIC S7 SPS von Siemens kann Objekte und Klassenstrukturen darstellen. \cite{noauthor_tia_2019}
 			
 			Die Entwicklung eines solchen Servers ist sehr zeitaufwendig und benötigt Expertise im Entwickeln von OPC UA Servern auf SPS. Es ist denkbar Maschinen die umatifähig sein sollen, auf dieser Ebene als OPC UA Server zu entwickeln, allerdings für eine Demonstration von Umati zu Umfangreich.
 			
@@ -428,20 +449,12 @@
 		Die Initiatoren von Umati, der \ac{VDMA} und \ac{VDW}, stellen mehrere GitHub Repositorien mit vorgefertigten Projekten zum Thema Umati zur Verfügung \cite{noauthor_github_nodate}. All diese Projekte sind unter dem Namen \textit{umati - universal machine technology interface} zusammengefasst. Hier finden sich auch mehrere Sample Server und Implementierungen von OPC UA Servern in verschiedenen Sprachen. Zum Zeitpunkt dieser Arbeit am 23.08.2023 sind 18 Repositorien in diesem Verzeichnis aufgeführt. Eine davon enthält ein Tutorial zum Erstellen eines Servers für einen Showcase (https://github.com/umati/Showcase). Hier können alle Informationen entnommen werden, die für den Prototyp 1 - Umati Web Dashboard benötigt werden.
 		
 		Das Repository Verzeichnis enthält drei Implementierungen von Sample-Servern, welche in Rahmen dieser Arbeit genauer betrachtet wurden. Der \textit{Sample-Server} \linebreak (https://github.com/umati/Sample-Server) ist eine Implementierung mit Maschinensimulation auf Basis von C++. Er implementiert die Companion-Spezifikationen OPC UA Machine Tool, OPC UA for Woodworking, OPC UA for Geometrical Measuring Systems und OPC UA for Additive Manufacturing. Da die Robotics Spezifikation für diesen Server noch Work-In-Progress ist, muss ein anderer verwendet werden.
-		\% Datenfluss -> Bildbeschreibung
+		% Datenfluss -> Bildbeschreibung
 		Ein anderer Server auf Basis des Python-Frameworks asyncio (https://github.com/umati/Sample-Server-asyncio) implementiert die Companion Spezifikationen OPC UA Plastic and Rubber, OPC UA for Woodworking, OPC 40451–1 Tightening und OPC UA for Surface Technology. Auch in diesem Projekt ist die Robotics Spezifikation noch nicht implementiert.
 		
 		Nach Rücksprache mit Götz Görisch vom VDMA fiel die Entscheidung, welchen Sample Server verwendet werden soll, auf den \textit{Sample-Server-node-opcua}. Dieser OPC UA Server ist mit TypeScript programmiert und hat neben vielen weiteren auch die Robotics Companion-Spezifikation implementiert. Da sich dieser Server in einem Dockercontainer starten lässt und bereits alle notwendigen Entrypoints für einen Roboter vorhanden sind, wurde dieser Sample-Server für das Projekt verwendet.
 		
 		Für den OPC UA Client stellt der VDMA ebenfalls ein Repository zur Verfügung. Der \textit{Dashboard-OPCUA-Client} (https://github.com/umati/Dashboard-OPCUA-Client) übernimmt die Verbindung zwischen dem OPC UA Server und einem MQTT Broker. Der Container des OPC UA Clients des VDMAs benötigt zum Starten eine configuration.json, in der die Adressen zum OPC UA Server und dem MQTT Broker stehen. Außerdem beinhaltet diese Datei, welche Companion Spezifikationen im angegebenen Namespace gefunden werden sollen. 
-		
-	%\section{Wirtschaftlichkeit und Projektanalyse}
-	
-		%\subsection{Kostenplanung}
-		
-		%\subsection{Fallbeispiel}
-			% Beispielswiese an Fallbeispiel -> Durchschnittliche AZO Straße
-			% -> Probleme bei Schnittstellen integrierung.
 	
 \chapter{Implementierung}\label{ch:Implementierung}
 	
@@ -462,7 +475,7 @@
 		\subsection{Struktur}
 		
 		% Verwendete Komponenten
-		Die Struktur des ersten Prototyps besteht aus zwei Docker-Containeren. Der RoLog ist ein modifizierter Container des \textit{Sample-Server-node-opcua} von Andreas Heine, welcher einen OPC UA Server veröffentlicht, der Umati implementiert. Dieser Daten werden vom OPC UA Client ausgelesen. Dieser basiert auf dem Container aus dem \textit{Dashboard-OPCUA-Client} Repository. Der OPC UA Client sendet die Daten weiter an einen MQTT Broker. Dieser kann unter der Adresse \textit{https://umati.app:443/} erreicht werden und veröffentlicht die gesendeten Daten zur Abfrage. Das Frontend des Dashboards synchronisiert sich daraufhin mit dem MQTT Broker, erhält die Daten und zeigt sie auf der Webseite an. In Abbildung \ref{fig:Prototyp1} ist der Aufbau illustriert. Um zu überprüfen, ob die Daten auch tatsächlich auf dem MQTT Broker ankommen, kann mit einem MQTT Client auf den Broker zugegriffen werden und die Daten ausgelesen werden.
+		Die Struktur des ersten Prototyps besteht aus zwei Docker-Containeren. Der RoLog ist ein modifizierter Container des \textit{Sample-Server-node-opcua} von Andreas Heine, welcher einen OPC UA Server veröffentlicht, der Umati implementiert. Dieser Daten werden vom OPC UA Client ausgelesen. Dieser basiert auf dem Container aus dem \textit{Dashboard-OPCUA-Client} Repository. Der OPC UA Client sendet die Daten weiter an einen MQTT Broker. Dieser kann unter der Adresse \textit{https://umati.app:443/} erreicht werden und veröffentlicht die gesendeten Daten zur Abfrage. Das Frontend des Dashboards synchronisiert sich daraufhin mit dem MQTT Broker, erhält die Daten und zeigt sie auf der Webseite an. In Abbildung \ref{fig:Prototyp1} ist der Aufbau illustriert. Um zu überprüfen, ob die Daten auch tatsächlich auf dem MQTT Broker ankommen, kann mit einem MQTT Client auf den Broker zugegriffen und die Daten ausgelesen werden.
 		
 		\begin{figure}[H]
 			\centering
@@ -535,7 +548,7 @@
 		% OPC UA
 		\lstinputlisting[firstline=37,lastline=42,frame=single]{res/code/config.json}
 		
-		Um mit dem MQTT Broker zu kommunizieren, muss ein \textit{Mqtt} Feld angelegt werden. In diesem sollten zunächst die Verbindungsdaten zu einem eignen Test MQTT Broker eingetragen werden, um zu überprüfen, ob der OPC UA Client reibungslos funktioniert. Ist dies der Fall, können die Daten für den Umati MQTT Broker eingetragen werden. Im folgenden Codebeispiel sind alle Parameter eingetragen, die für die Verbindung mit dem Umati MQTT Broker benötigt werden. Der Nutzername und das Password werden auf Nachfrage vom VDMA bereitgestellt.
+		Um mit dem MQTT Broker zu kommunizieren, wird das \textit{Mqtt} Feld angelegt. In diesem sollten zunächst die Verbindungsdaten zu einem eigenen Test MQTT Broker eingetragen werden, um zu überprüfen, ob der OPC UA Client reibungslos funktioniert. Ist dies der Fall, können die Daten für den Umati MQTT Broker eingetragen werden. Im folgenden Codebeispiel sind alle Parameter eingetragen, die für die Verbindung mit dem Umati MQTT Broker nötig sind. Der Nutzername und das Password für den Umati MQTT Broker stellt der VDMA auf Nachfrage bereit.
 		
 		% MQTT
 		\lstinputlisting[firstline=43,lastline=51,frame=single]{res/code/config.json}
@@ -543,7 +556,7 @@
 		\subsection{Umati MQTT Broker und Web-Dashboard}
 		
 		% Web Dashboard beschreiben -> Wo daten -> Wo meine Maschinen
-		Die Daten werden in einem vom VDMA entworfenen Json Format vom Client geschrieben und anschließend vom Broker veröffentlicht. 
+		Die Daten werden in einem vom VDMA entworfenen Json Format vom Client geschrieben und anschließend vom Broker veröffentlicht. Das Backend des VDMAs schreibt die Daten daraufhin auf das Web-Dashboard. Das Attribut \textit{Location} innerhalb des Identifikationsordners, welcher vom OPC UA Server veröffentlicht wurde, bestimmt, wo das Icon der Maschine auf dem Dashboard erscheint. Das Icon stellt ein kleines Zahnrad dar. Durch klicken auf das Zahnrad werden alle Informationen der Maschine Angezeigt. Verändern sich die Werte im unteren Teil der Anzeige etwa alle 2 Sekunden, hat die Konfiguration und das Senden der Daten erfolgt.
 		
 		%Aufbau Web Dashboard???
 	
@@ -554,12 +567,12 @@
 		
 		Der OPC UA Server kann eine seiner Authentifizierungsmöglichkeiten implementieren. Neben dem freien Zugang, kann auch mit Nutzername und Passwort oder Zertifikaten gearbeitet werden, um die Sicherheit herzustellen. 
 	
-	\section{Implementierung eines Internen Prototyps}\label{ch:Implementierung-Intern}
+	\section{Implementierung eines internen Prototyps}\label{ch:Implementierung-Intern}
 	
 		\subsection{Struktur}
 		
 		% Verwendete Komponenten
-		Der zweite Prototyp baut auf dem ersten auf und nutzt dessen OPC UA Server. Die Daten werden von einem OPC UA Client gelesen, welcher sie weiter an einen lokalen MQTT Broker sendet. Der OPC UA Client ist aus demselben Image wie der Client aus dem ersten Prototyp, allerdings sendet er die Daten nicht an einen MQTT Broker im Internet, sondern an einen lokalen. Veröffentlicht der MQTT Broker die Daten, greifen zwei verschieden Clients auf die Daten zu. Telegraf und NodeRed lesen die Daten aus dem Json-Format und schreiben sie in eine Datenbank. Um die Daten zu visualisieren liest Grafana die Datenbank aus, und stellt alles grafisch dar. In Abbildung \ref{fig:Prototyp2} ist der Fluss der Daten und die beteiligten Komponenten dargestellt. Alle Komponenten laufen in einem Dockercontainer.
+		Der zweite Prototyp baut auf dem ersten auf und nutzt dessen OPC UA Server. Die Daten werden von einem OPC UA Client gelesen, welcher sie weiter an einen lokalen MQTT Broker sendet. Der OPC UA Client ist aus demselben Image wie der Client aus dem ersten Prototyp, allerdings sendet er die Daten nicht an einen MQTT Broker im Internet, sondern an einen lokalen. Veröffentlicht der MQTT Broker die Daten, greifen zwei verschieden Clients auf die Daten zu. Telegraf und NodeRed lesen die Daten aus dem Json-Format und schreiben sie in eine Datenbank. Um die Daten zu visualisieren, liest Grafana die Datenbank aus und stellt alles grafisch dar. In Abbildung \ref{fig:Prototyp2} ist der Fluss der Daten und die beteiligten Komponenten dargestellt. Alle Komponenten laufen in einem Dockercontainer.
 		
 		\begin{figure}[H]
 			\centering
@@ -569,7 +582,7 @@
 		\end{figure}
 		
 		% Portainer
-		Neben dem Prototyp läuft ebenfalls eine Portainer Instanz. Diese ist nötig, um auf die InfluxDB Datenbank zuzugreifen, zu können. 
+		Neben dem Prototyp läuft ebenfalls eine Portainer Instanz. Diese ist nötig, um auf die InfluxDB Datenbank zugreifen, zu können. 
 		
 		\subsection{OPC UA Server/Client}
 		
@@ -603,7 +616,7 @@
 		\subsection{InfluxDB}
 		
 		% Hinführung
-		Um die Daten der Sensoren abzuspeichern wird eine influxDB verwendet. Dies ist ein Datenbank Managment System, das sich auf die Abspeicherung und Effiziente Verarbeitung von Zeitreihen spezialisierte. Auch dieses Projekt besitzt ein offizielles Image auf DockerHub (influxdb) welches für den Prototyp verwendet wird. Die Datenbank wird über ein Docker-Compose Datei gestartet. Der Eintrag des Service ist im folgenden Codeausschnitt der \textit{influx.yaml} abgebildet.
+		Um die Daten der Sensoren abzuspeichern wird eine influxDB verwendet. Dies ist ein Datenbank Managment System, das sich auf die Abspeicherung und effiziente Verarbeitung von Zeitreihen spezialisierte. Auch dieses Projekt besitzt ein offizielles Image auf DockerHub (influxdb) welches für den Prototyp verwendet wird. Die Datenbank wird über ein Docker-Compose Datei gestartet. Der Eintrag des Service ist im folgenden Codeausschnitt der \textit{influx.yaml} abgebildet.
 		
 		\lstinputlisting[firstline=15,lastline=26,frame=single]{res/code/influx.yaml}
 		
@@ -611,19 +624,7 @@
 		Das Docker Compose File erstellt einen Container aus dem influxdb Image der Version 1.8 mit dem Namen \textit{influxdb}. Der restart Parameter ist auf always gestellt, um sicherzustellen, dass der influxdb Container auch nach einem Absturz erneut startet. In den Umgebungsvariablen werden Datenbankname und ein Admin-User angegeben. Die Datenbank läuft auf dem Port \textit{8086} und wird auf den selben Port des Hostsystems geschalten. Der letzte Befehl definiert ein Volume. 
 		
 		% Volumes
-		Volumes sind Speicher, die ein Verzeichnis oder eine Datei innerhalb eines Containers mit einem Verzeichnis des Hostsystems Synchronisieren. Dies ermöglicht die persistente Speicherung von Daten. InfluxDB speichert ebenfalls Daten ab, weshalb ein neues Volume festgelegt werden muss. Am ende der Docker Compose wird ein Volume angelegt, auf das aus dem influxDB Service verwiesen wird. Im folgenden Codesegment werden zwei Volumes erstellt. Eines für die InfluxDB und eines für Grafana, da der Grafanacontainer in der selben Docker Compose Datei erstellt wird.
-		
-		\lstinputlisting[firstline=44,lastline=46,frame=single]{res/code/influx.yaml}
-		
-		Um die Daten der Sensoren abzuspeichern, wird eine InfluxDB verwendet. Dies ist ein Datenbankmanagementsystem, das sich auf die Abspeicherung und effiziente Verarbeitung von Zeitreihen spezialisierte. Auch dieses Projekt besitzt ein offizielles Image auf DockerHub (influxdb) welches für den Prototyp verwendet wird. Die Datenbank wird über ein Docker-Compose Datei gestartet. Der Eintrag des Service ist im folgenden Codeausschnitt der \textit{influx.yaml} abgebildet.
-		
-		\lstinputlisting[firstline=15,lastline=26,frame=single]{res/code/influx.yaml}
-		
-		% Erklärung Docker Compose File
-		Das Docker-Compose File erstellt einen Container aus dem influxdb Image der Version 1.8 mit dem Namen \textit{influxdb}. Der Restart Parameter ist auf always gesetzt, um sicherzustellen, dass der Influxdb-Container auch nach einem Absturz erneut startet. In den Umgebungsvariablen werden Datenbankname und ein Admin-User angegeben. Die Datenbank läuft auf dem Port \textit{8086} und wird auf denselben Port des Hostsystems geschaltet. Der letzte Befehl definiert ein Volume. 
-		
-		% Volumes
-		Volumes sind Speicher, die ein Verzeichnis oder eine Datei innerhalb eines Containers mit einem Verzeichnis des Hostsystems synchronisieren. Dies ermöglicht die persistente Speicherung von Daten. InfluxDB speichert ebenfalls Daten ab, weshalb ein neues Volume festgelegt werden muss. Am Ende der Docker-Compose wird ein Volume angelegt, auf das aus dem InfluxDB-Service verwiesen wird. Im folgenden Codesegment werden zwei Volumes erstellt. Eines für die InfluxDB und eines für Grafana, da der Grafanacontainer in derselben Docker-Compose Datei erstellt wird.
+		Volumes sind Speicher, die ein Verzeichnis oder eine Datei innerhalb eines Containers mit einem Verzeichnis des Hostsystems synchronisieren. Dies ermöglicht die persistente Speicherung von Daten. InfluxDB speichert ebenfalls Daten ab, weshalb ein neues Volume festgelegt werden muss. Am Ende der Docker Compose Datei wird ein Volume angelegt, auf das aus dem influxDB Service verwiesen wird. Im folgenden Codesegment werden zwei Volumes erstellt. Eines für die InfluxDB und eines für Grafana, da der Grafanacontainer in der selben Docker Compose Datei erstellt wird.
 		
 		\lstinputlisting[firstline=44,lastline=46,frame=single]{res/code/influx.yaml}
 		
@@ -639,7 +640,7 @@
 			
 			Um einen NodeRed Flow zu erstellen, muss über den Browser auf die Adresse des Containers navigiert werden. Diese stellt sich aus der Adresse des Hostsystems und dem durchgegebenen Port des Containers zusammen (192.168.0.133:1880). Es öffnet sich ein Fenster, in dem ein Flow angelegt werden kann.
 			
-			Um mit einer InfluxDB kommunizieren zu können, benötigt man das \textit{node-red-contrib-influxdb} Paket. Dieses kann über das Menü (oben rechts) in den Einstellungen installiert werden. Dafür muss auf den Reiter \textit{Palette} Navigiert werden, und der Paketname gesucht und das Paket installiert werden. Nach erfolgreicher Installation sollten neben den MQTT-Nodes auch die InfluxDB-Nodes, wie in Abbildung \ref{fig:nodes} dargestellt, vorhanden sein.
+			Um mit einer InfluxDB kommunizieren zu können, benötigt man das \textit{node-red-contrib-influxdb} Paket. Dieses kann über das Menü (oben rechts) in den Einstellungen installiert werden. Dafür muss auf den Reiter \textit{Palette} navigiert und der Paketname gesucht und das Paket installiert werden. Nach erfolgreicher Installation sollten neben den MQTT-Nodes auch die InfluxDB-Nodes, wie in Abbildung \ref{fig:nodes} dargestellt, vorhanden sein.
 			
 			\begin{figure}[H]
 				\centering
@@ -708,10 +709,6 @@
 			Sobald die Daten an die InfluxDB gesendet werden, wird eine Database mit der Bezeichnung \textit{influx} und eine Measurment namens \textit{NodeRed} erstellt. Die Daten liegen darin ab und können anschließend von Grafana ausgelesen werden.
 			
 			\subsubsection{Telegraf}
-		
-				Sobald die Daten an die InfluxDB gesendet werden, wird eine Database mit der Bezeichnung \textit{influx} und eine Measurment namens \textit{NodeRed} erstellt. Die Daten liegen darin ab und können anschließend von Grafana ausgelesen werden.
-			
-			\subsubsection{Telegraf}
 			
 			Anstatt von NodeRed kann auch Telegraf verwendet werden, um Daten aus einem MQTT Broker zu lesen und in eine InfluxDB zu speichern. Um einen Dockercontainer mit Telegraf zu erstellen, wurde folgende Konfiguration in einer Docker-Compose gespeichert.
 			
@@ -769,7 +766,7 @@
 		
 			\subsubsection{NodeRed}\label{ch:NodeRedGrafana}
 			
-			Um Daten aus der InfluxDB zu lesen, muss die richtige Datenquelle und Database angegeben werden. Da die Daten bereits in NodeRed transformiert wurden, erfolgt die Abfrage in Grafana sehr einfach. In Abbildung \ref{fig:noderedabfrage} ist die Abfrage über den Baukasten abgebildet. Als \textit{Data source} wird die zuvor angelegte Datenquelle von influx verwendet. Die Tabelle in denen die Daten liegen ist NodeRed und das gewünschte Feld kann über ein Dropdown-Menü ausgewählt werden. 
+			Um Daten aus der InfluxDB zu lesen, muss die richtige Datenquelle und Database angegeben werden. Da die Daten bereits in NodeRed transformiert wurden, erfolgt die Abfrage in Grafana sehr einfach. In Abbildung \ref{fig:noderedabfrage} ist die Abfrage über den Baukasten abgebildet. Als \textit{Data source} wird die zuvor angelegte Datenquelle von influx verwendet. Die Daten welche über NodeRed in InfluxDB geschreiben werden, liegen in einer Tabelle mit dem Namen \textit{NodeRed}.  Demnach muss als Tabelle \textit{NodeRed} genutzt werden und das Feld kann im Nachhinein über ein Dropdown-Menü ausgewählt werden.
 		
 		\begin{figure}[H]
 			\centering
@@ -780,12 +777,12 @@
 		
 		Über das Stiftsymbol auf der rechten Seite des Editors öffnet sich ein Klartextfeld, in dem der Befehl weiter angepasst werden kann. Alle anderen Werte, die über NodeRed in die Datenbank gespeichert wurden, können wie die Motortemperatur angezeigt werden.
 		
-		Das Einlesen der Daten über NodeRed hat den Vorteil, dass die Abfrage in Grafana sehr einfach und leicht lesbar ist. Allerdings benötigt die Konfiguration in NodeRed und das Transformieren der Daten viel manuelle Arbeit. NodeRed ist eine gute Entscheidung, wenn bereits Kenntnisse in NodeRed vorhanden sind und die InfluxDB möglichst wenige Daten abspeichern soll. 
+		Das Einlesen der Daten über NodeRed hat den Vorteil, dass die Abfrage in Grafana sehr einfach und leicht lesbar ist. Allerdings benötigt die Konfiguration in NodeRed und das Transformieren der Daten viel manuelle Arbeit. NodeRed ist eine gute Entscheidung, wenn bereits Kenntnisse in NodeRed vorhanden sind. Durch die Auswahl der gewollten Daten vor der Speicherung in die Datenbank, fällt die Tabelle auch deutlich kleiner aus. Unnötige oder nicht gewollte Datenpunkte können noch vor der Speicherung entfernt werden.
 		
 		\subsubsection{Telegraf}
 		
 		% Abfrage
-		Telegraf überträgt alle Daten der Json, die vom MQTT Broker veröffentlicht werden, in die Datenbank. Die Zeitreihe hat dadurch enorm viele Felder, die Grafana im Anschluss ausfiltern muss. In Abbildung \ref{fig:telegrafabfrage} ist die Abfrage für die Motortemperatur abgebildet. In diesem Fall wird der Texteditor zum Erstellen der Abfrage genutzt, allerdings kann auch der Baukasten verwendet werden, wie in Kapitel \ref{ch:NodeRedGrafana} beschrieben, genutzt werden. Telegraf benennt die Felder nach dem Pfad in der Json und damit entsteht sehr lange Namen. Wie in Kapitel \ref{ch:NodeRedGrafana} muss die Datenquelle \textit{Influx} angegeben werden. Es muss die Database \textit{mqtt\_consumer} und das erwünschte Feld verwendet werden.
+		Telegraf überträgt alle Daten der Json, die vom MQTT Broker veröffentlicht werden, in die Datenbank. Die Zeitreihe hat dadurch enorm viele Felder, die Grafana im Anschluss ausfiltern muss. In Abbildung \ref{fig:telegrafabfrage} ist die Abfrage für die Motortemperatur abgebildet. In diesem Fall wird der Texteditor zum Erstellen der Abfrage genutzt, allerdings kann auch der Baukasten verwendet werden, wie in Kapitel \ref{ch:NodeRedGrafana} beschrieben. Telegraf benennt die Felder nach dem Pfad in der Json und damit entstehen sehr lange Namen. Wie in Kapitel \ref{ch:NodeRedGrafana} muss die Datenquelle \textit{Influx} angegeben werden. Es muss die Database \textit{mqtt\_consumer} und das erwünschte Feld verwendet werden.
 		
 		\begin{figure}[H]
 			\centering
