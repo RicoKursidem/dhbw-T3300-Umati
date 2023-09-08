@@ -12,15 +12,34 @@
 	%\listoftables
 	%\lstlistoflistings
 	\nocite{*}
-
 	
+	\pagebreak
+	\begin{center}
+		\large Gender-Disclaimer
+	\end{center}
+	\vspace{0.5cm}
+	
+	\noindent Aus Gründen der besseren Lesbarkeit wird im Folgenden das generische Maskulinum verwendet. Es wird hiermit darauf hingewiesen, dass weibliche und anderweitige Geschlechteridentitäten ausdrücklich mitgemeint werden, soweit es für die Aussage erforderlich ist.
+	
+	\vspace{3cm}
+	\pagebreak
 	
 	\chapter*{Abstract}
-	
 	\section*{Deutsch}
+	
+	In der vorliegenden Arbeit, betitelt \glqq Entwicklung einer Vorgehensweise zur Integration der VDMA-Spezifikation \glq OPC UA for Machinery (OPC 40 001)\grq{} in Maschinen und IT-Systeme\grqq{}, wird der initiierende Schritt zur Implementierung des Umati-Standards untersucht. Das Hauptziel besteht darin, die Funktionalität dieses Standards zu analysieren und eine Methode zur Visualisierung von Daten aus Maschinen mithilfe von Umati zu entwickeln. Die zugrundeliegenden Forschungsfragen lauten: Welche Herausforderungen ergeben sich bei der Integration von Umati? Welche Lösungsansätze sind wirtschaftlich am effizientesten? Wie kann die Kommunikation zwischen Maschinen und Visualisierungsplattformen effektiv umgesetzt werden?
+	
+	Zur Beantwortung dieser Fragen werden zwei Prototypen konzipiert und realisiert. Der erste Prototyp dient zur Veranschaulichung der Umati-Funktionalität über das von VDMA bereitgestellte Web-Dashboard, während der zweite Prototyp eine Methodik zur Datenübertragung von Maschinen zur Visualisierungsplattform implementiert.
+	
+	Es wird erkannt, dass Umati in einer Industrie 4.0-Umgebung ein vielversprechender Kommunikationsstandard sein kann. Die entwickelten Prototypen markieren den ersten Schritt zur Schaffung einer Umati-basierten Umgebung, die in der Industriepraxis Anwendung finden kann.
 	
 	\section*{English}
 	
+	In the work titled \glqq Development of an Approach for Integrating the VDMA Specification \glq OPC UA for Machinery (OPC 40 001)\grq{} in Machinery and IT Systems\grqq{}, the initial step towards implementing the Umati standard is explored. The main objective is to analyze the functionality of this standard and develop a method for visualizing data from machines using Umati. The underlying research questions are: What challenges arise in the integration of Umati? What solution approaches are most economically efficient? How can effective communication be established between machines and visualization platforms?
+	
+	To address these questions, two prototypes are designed and implemented. The first prototype serves to demonstrate Umati functionality through the web dashboard provided by VDMA, while the second prototype implements a methodology for transferring data from machines to visualization platforms.
+	
+	It is recognized that Umati can be a promising communication standard in an Industry 4.0 environment. The developed prototypes represent the initial step toward creating a Umati-based environment that can be applied in industrial practice.
 	
 	\mainmatter
 	\pagebreak
@@ -234,7 +253,7 @@
 		
 		OPC for Machinery implementiert keinen festen Typ, welcher als ein Einstiegspunkt für den OPC UA Server dienen könnte. Daher muss auf die Basisspezifikation OPC 40001-1 eine weitere Spezifikation aufgesetzt werden. Im Fall dieser Arbeit wird ein Roboter simuliert, weshalb die Spezifikation OPC 40010 Robotics anbietet. Als Mindestanforderung muss Part 1 der Robotics-Spezifikation implementiert werden. Dadurch ergibt sich eine Anzahl an Variablen, Funktionen und Strukturen, welche in den Simulationsserver implementiert werden.
 		
-		OPC UA for Machinery definiert, das jede Maschine und jede Komponente einen Identifikations-AddIn besitzt. In diesem müssen mindestens eine Manufacturer und eine Productinstance Identifikation vorhanden sein. Dies stellt sicher, dass ein OPC UA Client jede Maschine die veröffentlicht wird finden und erkennen kann.  
+		OPC UA for Machinery definiert, das jede Maschine und jede Komponente einen Identifi-kations-AddIn besitzt. In diesem müssen mindestens eine Manufacturer und eine Productinstance Identifikation vorhanden sein. Dies stellt sicher, dass ein OPC UA Client jede Maschine die veröffentlicht wird finden und erkennen kann.  
 
 	\section{Weitere Technologien}
 		\subsection{Docker}
@@ -390,8 +409,8 @@
 			\item \textbf{REQ 6}: Das Starten und Beenden des Prototypen für Testzwecke soll leicht Nachvollziehbar sein. 
 			
 			\item \textbf{REQ 7}: Nach einem Absturz soll das System versuchen, selbst wieder Online zu gehen. 
-		\end{itemize}			
-		
+		\end{itemize}
+	
 		Im Bereich der Funktionalen Vollständigkeit weist der Erste Prototyp alle Anforderungen auf. Der Prototyp setzt alle Anforderungskriterien der Auflistung zuvor um (REQ 1, REQ 2, REQ 3) und zieht NodeRed als mögliche Lösung des Datenflusses in Betracht (REQ 4). Die Performance ist ebenfalls erfüllt. Das System liefert Daten an das Web-Dashboard von Umati innerhalb von einer Minute nach Start der Docker Container (REQ 5). Der Prototyp muss noch auf einem zentralen System gestartet werden, damit er von überall erreichbar ist. Daraufhin muss bei der Demonstration auf einer Messe nur die Verbindung zum Grafana Server hergestellt werden. Damit ist REQ 6 erfüllt, solange die Server von AZO Online ist. Durch die Verwendung von Docker konnten die Restart Werte so gesetzt werden, dass sich das System neu startet, sollten kleinere Fehler zum Absturz eines Containers führen (REQ 7).
 		
 		Der zweite Prototyp erfüllt damit alle Anforderungen, die in diesem Kapitel gestellt wurden.
@@ -834,6 +853,9 @@
 	\pagebreak
 	\section*{Anhang II: telegraf.conf}
 	\lstinputlisting{res/code/telegraf.conf}
+	\pagebreak
+	\section*{Anhang III: Flyer}
+	\includepdf[page={1,2}]{res/Flyer/Flyer.pdf}
 	\pagebreak
 
 \end{document}
