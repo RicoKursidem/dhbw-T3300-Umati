@@ -6,40 +6,17 @@
 \begin{document}
 	\frontmatter
 	\input{prefix/title.tex}
-	\input{prefix/abbreviation.tex}
+	\input{prefix/statutorydeclaration.tex}
+	\input{prefix/genderclause.tex}
+	\input{prefix/abstract.tex}
 	\tableofcontents
+	\input{prefix/abbreviation.tex}
 	\listoffigures
 	%\listoftables
 	%\lstlistoflistings
 	\nocite{*}
 	
-	\pagebreak
-	\begin{center}
-		\large Gender-Disclaimer
-	\end{center}
-	\vspace{0.5cm}
 	
-	\noindent Aus Gründen der besseren Lesbarkeit wird im Folgenden das generische Maskulinum verwendet. Es wird hiermit darauf hingewiesen, dass weibliche und anderweitige Geschlechteridentitäten ausdrücklich mitgemeint werden, soweit es für die Aussage erforderlich ist.
-	
-	\vspace{3cm}
-	\pagebreak
-	
-	\chapter*{Abstract}
-	\section*{Deutsch}
-	
-	In der vorliegenden Arbeit, betitelt \glqq Entwicklung einer Vorgehensweise zur Integration der VDMA-Spezifikation \glq OPC UA for Machinery (OPC 40 001)\grq{} in Maschinen und IT-Systeme\grqq{}, wird der initiierende Schritt zur Implementierung des Umati-Standards untersucht. Das Hauptziel besteht darin, die Funktionalität dieses Standards zu analysieren und eine Methode zur Visualisierung von Daten aus Maschinen mithilfe von Umati zu entwickeln. Die zugrundeliegenden Forschungsfragen lauten: Welche Herausforderungen ergeben sich bei der Integration von Umati? Welche Lösungsansätze sind wirtschaftlich am effizientesten? Wie kann die Kommunikation zwischen Maschinen und Visualisierungsplattformen effektiv umgesetzt werden?
-	
-	Zur Beantwortung dieser Fragen werden zwei Prototypen konzipiert und realisiert. Der erste Prototyp dient zur Veranschaulichung der Umati-Funktionalität über das von VDMA bereitgestellte Web-Dashboard, während der zweite Prototyp eine Methodik zur Datenübertragung von Maschinen zur Visualisierungsplattform implementiert.
-	
-	Es wird erkannt, dass Umati in einer Industrie 4.0-Umgebung ein vielversprechender Kommunikationsstandard sein kann. Die entwickelten Prototypen markieren den ersten Schritt zur Schaffung einer Umati-basierten Umgebung, die in der Industriepraxis Anwendung finden kann.
-	
-	\section*{English}
-	
-	In the work titled \glqq Development of an Approach for Integrating the VDMA Specification \glq OPC UA for Machinery (OPC 40 001)\grq{} in Machinery and IT Systems\grqq{}, the initial step towards implementing the Umati standard is explored. The main objective is to analyze the functionality of this standard and develop a method for visualizing data from machines using Umati. The underlying research questions are: What challenges arise in the integration of Umati? What solution approaches are most economically efficient? How can effective communication be established between machines and visualization platforms?
-	
-	To address these questions, two prototypes are designed and implemented. The first prototype serves to demonstrate Umati functionality through the web dashboard provided by VDMA, while the second prototype implements a methodology for transferring data from machines to visualization platforms.
-	
-	It is recognized that Umati can be a promising communication standard in an Industry 4.0 environment. The developed prototypes represent the initial step toward creating a Umati-based environment that can be applied in industrial practice.
 	
 	\mainmatter
 	\pagebreak
@@ -51,7 +28,7 @@
 	
 	Standardisierung wird verwendet, um effizienteren Austausch und effektivere Prozesse durchzuführen. Ein sehr altes Beispiel sind Sprachen. Eine Menge an Regeln, welche zur Kommunikation genutzt werden, auf die sich alle Teilnehmenden geeinigt haben. In dieser Arbeit soll es um die Standardisierung im Bereich der \ac{M2M} Kommunikation gehen. Durch die Herausforderungen von Industrie 4.0 kann ein guter Standard die Integration mehrerer Systeme vereinfachen und Kosten sparen.
 	
-	In der M2M Kommunikation existieren bereits Standards, die schon vor Industrie 4.0 entworfen wurden. Dazu gehört \ac{OPC UA}. \ac{Umati} baut auf diesem Standard auf und definiert weitere Aspekte wie beispielsweise eine Plug \& Play Umgebung. Das Ziel von \ac{Umati} ist es, die zahlreichen Implementationen von OPC UA Schnittstellen zu standardisieren und zusammenzufassen, um so für Produzenten von Anlagen und Software einen gemeinsamen Standard zu finden. Das Ziel dieser Arbeit ist \ac{Umati} zu analysieren, die Implementation dieses Standards zu erforschen und ein Proof-of-Concept zu entwickeln, der die Fähigkeiten dieser Schnittstelle demonstriert.
+	In der M2M Kommunikation existieren bereits Standards, die schon vor Industrie 4.0 entworfen wurden. Dazu gehört \ac{OPC UA}. \ac{Umati} baut auf diesem Standard auf und definiert weitere Aspekte wie beispielsweise eine Plug \& Play Umgebung. Das Ziel von \ac{Umati} ist es, die zahlreichen Implementationen von OPC UA Schnittstellen zu standardisieren und zusammenzufassen, um so für Produzenten von Anlagen und Software einen gemeinsamen Standard zu finden.
 	
 	\section{Problemstellung und Ziel}
 	
@@ -85,9 +62,20 @@
 	
 	\section{Aufbau der Arbeit}
 	
-	Zu Beginn der Arbeit werden alle grundlegenden Technologien und Themenbereiche beschrieben, die zum Verständnis benötigt werden (Kapitel \ref{ch:Grundlagen}). Daraufhin werden die Methodiken beschrieben, mit denen die Informationen für diese Arbeit erhoben wurden (Kapitel \ref{ch:Methodiken}). Im Hauptteil der Arbeit (Kapitel \ref{ch:Ergebnisse}) werden die vorbereitenden Schritte für die Projekte sowie deren Durchführung behandelt. Die Implementation der Programme wird in Kapitel \ref{ch:Implementierung} in zwei Teilen behandelt, wobei die Implementation des firmeninternen Prototyps aus Kapitel \ref{ch:Implementierung-Intern} auf die Ergebnisse aus Kapitel \ref{ch:Implementierung-Web} stützt. Die Arbeit schließt mit einer Diskussion der gefundenen Ergebnisse und einem Fazit (Kapitel \ref{ch:Diskussion_Fazit}).
+	Zu Beginn der Arbeit werden alle grundlegenden Technologien und Themenbereiche beschrieben, die zum Verständnis benötigt werden (Kapitel \ref{ch:Grundlagen}). Daraufhin werden die Methodiken beschrieben, mit denen die Informationen für diese Arbeit erhoben wurden (Kapitel \ref{ch:Methodiken}). Im Hauptteil der Arbeit (Kapitel \ref{ch:Ergebnisse}) werden die vorbereitenden Schritte für die Projekte sowie deren Durchführung behandelt. Die Implementation der Programme wird in Kapitel \ref{ch:Implementierung} in zwei Teilen behandelt, wobei die Implementation des firmeninternen Prototyps aus Kapitel \ref{ch:Implementierung-Intern} auf die Ergebnisse aus Kapitel \ref{ch:Implementierung-Web} stützt. Die Arbeit schließt mit einer Diskussion der gefundenen Ergebnisse und einem Fazit (Kapitel \ref{ch:Diskussion_Fazit}). In Anhang III finden sich die erstellten Flyer für die Auslage an Messen.
 	
-	% TODO: Messematerial wenn in Kapitel behandelt noch anhängen
+	\section{Zeitplanung}
+	
+	Die Bearbeitungszeit dieser Arbeit beträgt zwölf Wochen, von Montag dem 19.06.2023 bis Montag den 11.09.2023. In Abbildung \ref{fig:Grantt} ist ein Grantt-Diagramm der Zeitplanung abgebildet. In den ersten 4 Wochen sollen die theoretische Grundlagen und die Analysen der Arbeit abgeschlossen sein, damit die Praxis am 10.07.2023 beginnen kann. Von Woche 5 bis 10 soll die Implementation und Integration der Prototypen stattfinden. Der gesamte Prozess kann auf gemeinsam 5 Wochen geschätzt werden, wobei eine zusätzliche Woche als Puffer eingeplant wird, sollte es Verzögerungen wie Krankheit oder Bereitstellungsschwierigkeiten geben. Am 21.08.2023 soll die Arbeit abgabebereit sein und für eine Korrekturlesung bereitgestellt werden. Parallel zur Korrekturlesung sollen die Messedokumente und Schulungsunterlagen angefertigt werden. Der letzte Block dient als Puffer für den Abschluss der Arbeit.
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.9\textwidth]{res/analysen/Grantt-Diagramm.pdf}
+		\caption{Grantt-Diagramm zum Projektablauf}
+		\label{fig:Grantt}
+	\end{figure}
+	
+	Der Zeitplan erwies sich als hilfreich, zur Bewertung des momentanen Fortschrittes der Arbeit. Die Ausarbeitung der Einleitung und Grundlagen verliefen nach Zeitplan. Dadurch war das Projekt nach Woche 4 im Zeitplan und das Praxisprojekt konnte rechtzeitig gestartet werden. Durch Verzögerungen bei der Entwicklung des OPC UA Servers und der Entscheidungsfindung, welcher Verwendet werden sollte, schob sich jedoch die Implementationsphase in den Puffer hinein. Dank des Puffers konnte die Arbeit jedoch dennoch Zeitgerecht bis zur Korrekturabgabe fertiggestellt Werden. Die letzten Arbeitspakete konnten ebenfalls vor der finalen Abgabe fertiggestellt werden.  
 	
 \chapter{Grundlagen}\label{ch:Grundlagen}
 	% (16 Seiten)
@@ -95,10 +83,10 @@
 	\section{OPC UA}
 	
 	%Einführung
-	\ac{OPC UA} ist ein unternehmensunabhängiger, offener Standard zur Kommunikation von Informationen und Daten zwischen Maschinen im industriellen Umfeld. Das Protokoll wurde 2008 von der OPC Foundation veröffentlicht und nimmt sich zur Aufgabe, die Interoperabilität von Systemen zu fördern. Es verwendet eine \ac{SOA} und kann auf verschiedensten Betriebssystemen betrieben werden. OPC UA ist sehr gut skalierbar und kann deshalb als Kommunikationsprotokoll bei kleinen \ac{IoT} Systemen als auch bei komplexen Cloud-Systemen zur Anwendung kommen. 
+	\ac{OPC UA} ist ein unternehmensunabhängiger, offener Standard zur Kommunikation von Informationen und Daten zwischen Maschinen im industriellen Umfeld. Das Protokoll wurde 2008 von der OPC Foundation veröffentlicht und nimmt sich zur Aufgabe, die Interoperabilität von Systemen zu fördern. Es verwendet eine \ac{SOA} und kann auf verschiedensten Betriebssystemen betrieben werden. OPC UA ist sehr gut skalierbar und kann deshalb als Kommunikationsprotokoll bei kleinen \ac{IoT} Systemen als auch bei komplexen Cloud-Systemen zur Anwendung kommen. \cite{rinke_was_2022}
 	 
 	 %Server-Client Modell
-	OPC UA baut auf einem Server-Client-Modell auf, wobei der Client die Anfragen an den Server senden muss. Der Client fragt den Server nach Daten und analysiert diese während der Server die Daten der dahinterliegenden Anlagen in übertragbare Strukturen bringt und sie zur Verfügung stellt. Da jeder Client an mehreren Servern Daten erheben kann, ist das System gut skalier- und erweiterbar.
+	OPC UA baut auf einem Server-Client-Modell auf, wobei der Client die Anfragen an den Server senden muss. Der Client fragt den Server nach Daten und analysiert diese während der Server die Daten der dahinterliegenden Anlagen in übertragbare Strukturen bringt und sie zur Verfügung stellt. Da jeder Client an mehreren Servern Daten erheben kann, ist das System gut skalier- und erweiterbar. \cite{rinke_was_2022}
 	
 	%Interoperabilität
 	Das Ziel von OPC UA und auch im weitergetragenen Sinne von \ac{Umati} ist das Erreichen von Interoperabilität von Maschinen im industriellen Bereich. Interoperabilität beschreibt die Standardisierung von Kommunikation zwischen Systemen. Allgemein kann diese in 4 Stufen eingeteilt werden, wobei jede Ebene auf die darunterliegende aufbaut. Im Schaubild \ref{fig:Interoperabilität} sind die vier Ebenen strukturelle, syntaktische, semantische und organisatorische Interoperabilität abgebildet.
@@ -186,7 +174,7 @@
 		\subsection{Sicherheit}
 		
 		%Einführung
-		Eines der Ziele von OPC UA ist es, eine sichere Verbindung und Kommunikation zu ermöglichen. Die zweite Spezifikation von OPC UA mit dem Titel \glqq Security Modell\grqq definiert die Sicherheit und ist Voraussetzung für die anderen Spezifikationen. Hierin ist festgelegt, welche Sicherheitsmechanismen bei der Nutzung von OPC UA angewendet werden sollen.
+		Eines der Ziele von OPC UA ist es, eine sichere Verbindung und Kommunikation zu ermöglichen. Die zweite Spezifikation von OPC UA mit dem Titel \glqq Security Modell\grqq{} definiert die Sicherheit und ist Voraussetzung für die anderen Spezifikationen. Hierin ist festgelegt, welche Sicherheitsmechanismen bei der Nutzung von OPC UA angewendet werden sollen.
 		
 		% Allgemeines
 		Die OPC Foundation beschreibt Unified Architecture mit den Attributen sicher und Firewall freundlich, da OPC UA über den Port 443 kommuniziert, der meist nicht durch Firewalls blockiert wird. OPC UA unterstützt Security auf Transport- und Applikationsebene anhand von selbst entworfenen Protokollen und Erweiterungen von bereits bestehenden Standards. Die Codierung findet auf binärer Ebene statt, wobei die Kommunikation über HTTPS abläuft. Die Authentifizierung von Clients und Servern findet über X509 Zertifikate statt, wobei der Entwickler der UA Anwendung die Anbindung an einen Zertifikatsspeicher selbst übernehmen kann. \cite{noauthor_unified_nodate, noauthor_opc_nodate}
@@ -234,18 +222,7 @@
 		
 		% Kennzahlen, wer nutzt schon, was sind bisherige Meinungen dazu
 		
-		\subsection{VDMA}
-		
-		%Allgemin
-		\ac{VDMA} ist der größte Industrieverbund in Europa und eines seiner Ziele ist es, \ac{Umati} International zu verbreiten. Der Verband wurde 1892 gegründet und hat seinen Sitz in Frankfurt am Main. Neben der Vertretung der Interessen industrieller Unternehmen in Deutschland und Europa gegenüber der Politik, erarbeitet der VDMA auch Standards und tauscht Know-How zwischen seinen 3.600 Mitgliedsunternehmen aus. \cite{noauthor_verband_nodate} In dem Interessenverband sind Firmen aus den Bereichen Maschinenbau, Anlagenbau und der Zulieferindustrie, welche sich Kompetenzen und Informationen in verschiedensten Themenbereichen von Bildung \& Modernem Arbeiten über Digitalisierung bis zu rechtlichen Feldern teilen. \cite{noauthor_themenubersicht_nodate}
-		
-		%VDMA Wirken
-		Der VDMA wirkt vor allem mit Förderungen in Bereichen, die Innovation bringen. Beispielweise fördert der Verband Technologien in den Bereichen Industrie 4.0, Digitalisierung und nutzt Lobbyarbeit, um seine Mitglieder auch politisch zu unterstützen. Außerdem veranstaltet der VDMA Messen zur Netzwerkbildung und zum Demonstrieren von neusten Technologien seiner Mitglieder. Im Allgemeinen verfolgt der Verband die Stärkung der europäischen Maschinenbaubranche und die Verbesserung der Wettbewerbsfähigkeit auf internationaler Ebene. \cite{noauthor_themenubersicht_nodate}
-		
-		%AZO
-		AZO, der Partner dieser Arbeit, ist auch ein Mitglied des VDMA. Da AZO ein mittelständisches Unternehmen im Anlagenbau ist, setzt sich der VDMA genau für diese Interessen ein und möchte mit \ac{Umati} eine Plug \& Play Umgebung im Anlagenbau ermöglichen. Der VDMA möchte eine erhöhte Interoperabilität zwischen den Maschinen ihrer Mitglieder bewirken und so die Wettbewerbsfähigkeit des europäischen Markts stärken, aber auch in der Standardisierung der internationalen Industrie mitwirken. 
-		
-		\subsection{OPC UA for Machinery}
+		\section{OPC UA for Machinery}
 		
 		\texttt{OPC 40001-1/VDMA 40001-1}, auch OPC UA for Machinery, wurde von VDMA und VDM zusammen mit der OPC Foundation entwickelt. Es ist die fundamentale Spezifikation, auf der andere in diesem Bereich aufbauen sollen. Sie wurde im September 2020 veröffentlicht und ist seit dem mehrfach aktualisiert worden. Der Standard wird auch in Zukunft erweitert werden, um mehr Use Cases abzudecken. Die neuste Version zum Zeitpunkt des Entwurfs dieser Arbeit ist aus August 2023.
 		
@@ -256,6 +233,7 @@
 		OPC UA for Machinery definiert, das jede Maschine und jede Komponente einen Identifi-kations-AddIn besitzt. In diesem müssen mindestens eine Manufacturer und eine Productinstance Identifikation vorhanden sein. Dies stellt sicher, dass ein OPC UA Client jede Maschine die veröffentlicht wird finden und erkennen kann.  
 
 	\section{Weitere Technologien}
+	
 		\subsection{Docker}
 		
 		Docker ist eine Open-Source Virtualisierungstechnologie. Ihr primärer nutzen ist das Anbieten, das Entwickeln und Verwalten von Anwendungen auf einem Serverumfeld. Dabei werden alle Services in eigenen Containern verwaltet, was es ermöglicht einzelne Teile einer Anwendung neu zu starten, sie einfach zu skalieren und einzelne Teile zu beenden, ohne das gesamt System zu beenden. Die Container sind auf die Docker-Engine angewiesen, welche zahlreiche Betriebssysteme unterstützt. Ist eine Anwendung containerized, kann sie auf jeder Maschine laufen, auf der die Docker Engine installiert ist. Dabei ist es irrelevant, auf welchem Betriebssystem die Engine läuft. \cite{noauthor_install_2023}
@@ -268,11 +246,17 @@
 		
 		\subsection{MQTT}
 		
-		Das \ac{MQTT} ist ein Nachrichtenprotokoll, dass sich durch seine robusten Eigenschaften vor allem für unzuverlässige Umgebungen eignet. Es ist entwickelt worden um mit Geräten mit hoher Latenz, geringer Bandbreite oder labilem Netzwerk zu kommunizieren. Es eignet sich vor allem für \ac{M2M}-Kommunikation und den \ac{IoT} Bereich, da es besonders Akku- und Leistungssparen ist. 
+		Das \ac{MQTT} ist ein Nachrichtenprotokoll, dass sich durch seine robusten Eigenschaften vor allem für unzuverlässige Umgebungen eignet. Es ist entwickelt worden um mit Geräten mit hoher Latenz, geringer Bandbreite oder labilem Netzwerk zu kommunizieren. Es eignet sich vor allem für \ac{M2M}-Kommunikation und den \ac{IoT} Bereich, da es besonders Akku- und Leistungssparen ist. \cite{krohn_was_2022}
 		
-		\ac{MQTT} baut auf einer Subscribe and Publish Architektur auf. Ein Eingabegerät, beispielsweise ein Temperatursensor, erhebt seine Daten und reicht sie an einen MQTT Broker weiter, welcher die Daten veröffentlicht (Publish). Möchte ein Client auf die Daten zugreifen, muss er den korrekten \textit{Topic} unter dem die Daten liegen abonnieren und erhält daraufhin alle Änderungen des Datensatzes (Subscribe).
+		\ac{MQTT} baut auf einer Subscribe and Publish Architektur auf. Ein Eingabegerät, beispielsweise ein Temperatursensor, erhebt seine Daten und reicht sie an einen MQTT Broker weiter, welcher die Daten veröffentlicht (Publish). Möchte ein Client auf die Daten zugreifen, muss er den korrekten \textit{Topic} unter dem die Daten liegen abonnieren und erhält daraufhin alle Änderungen des Datensatzes (Subscribe). \cite{krohn_was_2022}
 		
-		Der \ac{MQTT} Broker übernimmt das Versenden der Daten an alle Clients. Für einen Client sehen die Topics nach einer hierarchischen Struktur aus. Sollte die Verbindung zu einem Client unterbrochen werden, puffert der Broker die Veränderungen an den Daten und sendet diese, wenn der Client wieder verfügbar ist.
+		Der \ac{MQTT} Broker übernimmt das Versenden der Daten an alle Clients. Für einen Client sehen die Topics nach einer hierarchischen Struktur aus. Sollte die Verbindung zu einem Client unterbrochen werden, puffert der Broker die Veränderungen an den Daten und sendet diese, wenn der Client wieder verfügbar ist. \cite{krohn_was_2022}
+		
+		% QoS und Nachricht
+		Möchte ein MQTT-Client Daten veröffentlichen, sendet er eine Nachricht an den Broker. Diese Nachricht besteht aus Topic und Payload. Das Topic legt fest, unter welchem Namen andere Clients die Daten finden können, während die Payload die Daten beinhaltet. Diese müssen keiner festen Struktur folgen und können vom Client selbst strukturiert werden. Allerdings macht es Sinn, die Daten in standardisierten Formaten wie XML oder JSON zu verfassen, um das Auslesen zu vereinfachen. Außerdem legt der Client fest, welche Quality of Service er einhalten möchte. Es gibt drei Abstufungen. Auf Stufe 0, der niedrigsten Stufe, werden die Daten einmalig versendet, egal ob der Broker sie erhält oder nicht. Auf der ersten Stufe wird sichergestellt, dass der Broker die Daten bekommt, indem der Client die Daten so oft wiederholt sendet, bis der Broker mit einer Empfangsbestätigung antwortet. Dies kann dazu führen, dass der Broker mit vielen Anfragen überschwemmt wird und er die Nachrichten öfter speichert. Auf der höchsten Stufe wird dieses Problem behoben. Der Client sendet nur eine Nachricht, stellt jedoch sicher, dass der Broker sie erhält. Diese Art der Kommunikation benötigt mehr Bandbreite als Quality of Service 0 und 1. \cite{krohn_was_2022}
+		
+		% Sicherheit
+		MQTT gilt als sicheres Protokoll. Um Nachrichten zu verschlüsseln, wird TLS-\linebreak Verschlüsselung angewandt. Außerdem werden Authentifizierungen für die Clients eingerichtet, um sicherzustellen, dass nur berechtigte Teilnehmer Daten schreiben und lesen können. Zusätzlich können Administratoren des MQTT-Brokers VPNs und Firewalls verwenden, um die Sicherheit des Systems weiter zu stärken. \cite{noauthor_was_2023}
 		
 		\subsection{Grafana}
 		
@@ -289,57 +273,11 @@
 		\subsection{NodeRed}
 		
 		Node-RED ist eine Open-Source-Flow-Basierte-Entwicklungsplattform, die entwickelt wurde, um die Entwicklung von Anwendungen im Bereich des IoT (Internet der Dinge) und der Flusssteuerung zu erleichtern. Es bietet eine visuelle Entwicklungsumgebung, die es Entwicklern ermöglicht, Flüsse von Knoten zu erstellen und zu konfigurieren, um Daten zwischen verschiedenen Geräten zu verarbeiten. Node-RED ist äußerst flexibel und kann problemlos mit einer Vielzahl von Geräten, APIs und Protokollen integriert werden. Es bietet eine umfangreiche Sammlung von Erweiterungen und Erweiterungsmodulen, die die Entwicklung von IoT-Anwendungen und Automatisierungsszenarien beschleunigen. Mit seiner benutzerfreundlichen Oberfläche und seiner leistungsstarken Funktionalität ist Node-RED eine beliebte Wahl für Entwickler, die IoT-Projekte erstellen und komplexe Datenverarbeitungsaufgaben vereinfachen möchten. \cite{noauthor_about_nodate-1}
-		
-\chapter{Methodik}\label{ch:Methodiken}
-	% (8 Seiten)
 	
-	% Forschungsmethodik - Deduktiv??? - Konstruktiv???
-	
-	\section{Literaturrecherche}
-	
-	Die Informationen der vorangegangenen Kapitel \ref{ch:Einführung} und \ref{ch:Grundlagen} wurden aus offizieller Literatur der Hersteller entnommen. Zu den Informationen zu OPC UA wurden die offiziellen Spezifikationen und empfohlene Literatur der OPC Foundation verwendet. Dasselbe Vorgehen wurde für die theoretische Vorarbeit von \ac{Umati} genutzt. Die meisten Informationen zum neuen Standard wurden der offiziellen Webseite des VDMA entnommen. Zusätzlich wurden die vom VDMA empfohlenen Literaturen für OPC UA und Umati verwendet. Um theoretische Grundlagen und Konzepterklärungen zu recherchieren, wurden Vorlesungsmaterialien der DHBW Mosbach verwendet.
-	
-	% Datenerhebung - Literaturrecherche
-	% Stichwort recherche
-	
-	% Über die Hersteller empfolene Literatur
-	
-	\section{Evaluation}
-	
-	% Evaluation des Ergebnisses
-	
-	Das Ergebnis dieser Arbeit sind zwei Prototypen zur Demonstration der \ac{Umati} Spezifikation. Diese Prototypen werden anhand bestimmter Kriterien bewertet, welche aus dem Standard ISO 25010 für Softwarequalität entnommen wurden. Dies ist ein international anerkannter Standard, der die Qualitätsanforderungen und -kriterien für Softwareprodukte und -systeme definiert. In Abbildung \ref{fig:ISO25010} sind die Softwarequalitätskriterien strukturiert abgebildet, wie sie im ISO-Standard definiert sind. 
-	
-	\begin{figure}[H]
-		\centering
-		\includegraphics[width=0.9\textwidth]{res/diagramms/iso25010.png}
-		\caption{Softwarebewertungskriterien ISO 25010} 
-		\label{fig:ISO25010}
-	\end{figure}
-	
-	Die Punkte \textit{Functional Suitability}, \textit{Performance Efficiency}, \textit{Usability} und \textit{Reliability} sind die Hauptkriterien die für die Messeprototypen besonders wichtig sind. Die anderen Kriterien sind ebenfalls von Wichtigkeit, können jedoch den anderen nachgestellt werden, da die Prototypen nur demonstrativen Nutzen hat. 
-	
-	Das Demomaterial welches für die Messe ausgelegt werden soll, muss visuell anschaulich sein und die Kernfunktionen von \ac{Umati} präsentieren. Es geht darum das Interesse der Messebesucher zu wecken und genug Informationen für ein allgemeines Bild über die Funktionen und Ziele von \ac{Umati} zu erreichen. 
-	
-	Die Ausarbeitung der Funktionalen Anforderungen sowie die Evaluation der Prototypen findet in Kapitel \ref{Prototyp:1} und \ref{Prototyp:2} statt.
-	
-	\section{Zeitplanung}
-	
-	Die Bearbeitungszeit dieser Arbeit beträgt zwölf Wochen, von Montag dem 19.06.2023 bis Montag den 11.09.2023. In Abbildung \ref{fig:Grantt} ist ein Grantt-Diagramm der Zeitplanung abgebildet. In den ersten 4 Wochen sollen die theoretische Grundlagen und die Analysen der Arbeit abgeschlossen sein, damit die Praxis am 10.07.2023 beginnen kann. Von Woche 5 bis 10 soll die Implementation und Integration der Prototypen stattfinden. Der gesamte Prozess kann auf gemeinsam 5 Wochen geschätzt werden, wobei eine zusätzliche Woche als Puffer eingeplant wird, sollte es Verzögerungen wie Krankheit oder Bereitstellungsschwierigkeiten geben. Am 21.08.2023 soll die Arbeit abgabebereit sein und für eine Korrekturlesung bereitgestellt werden. Parallel zur Korrekturlesung sollen die Messedokumente und Schulungsunterlagen angefertigt werden. Der letzte Block dient als Puffer für den Abschluss der Arbeit.
-	
-	\begin{figure}[H]
-		\centering
-		\includegraphics[width=0.9\textwidth]{res/analysen/Grantt-Diagramm.pdf}
-		\caption{Grantt-Diagramm zum Projektablauf}
-		\label{fig:Grantt}
-	\end{figure}
-	
-	Der Zeitplan erwies sich als hilfreich, zur Bewertung des momentanen Fortschrittes der Arbeit. Die Ausarbeitung der Einfleitung und Grundlagen verliefen nach Zeitplan. Dadurch war das Projekt nach Woche 4 im Zeitplan und das Praxisprojekt konnte rechtzeitig gestartet werden. Durch Verzögerungen bei der Entwicklung des OPC UA Servers und der Entscheidungsfindung, welcher Verwendet werden sollte, schob sich jedoch die Implementationsphase in den Puffer hinein. Dank des Puffers konnte die Arbeit jedoch dennoch Zeitgerecht bis zur Korrekturabgabe fertiggestellt Werden. Die letzten Arbeitspakete konnten ebenfalls vor der finalen Abgabe fertiggestellt werden.  
-	
-\chapter{Ergebnisse}\label{ch:Ergebnisse}
+\chapter{Analyse und Entwurf}\label{ch:Ergebnisse}
 	
 	% (8 Seiten)
-	
+
 	\section{Anforderungsanalyse}
 		
 		\subsection{Vorgehen}
@@ -385,12 +323,10 @@
 	
 		Im Bereich der Funktionalen Vollständigkeit weist der Erste Prototyp alle Anforderungen auf. Der Prototyp setzt alle Anforderungskriterien der Auflistung zuvor um (REQ 1, REQ 2). Die Performance ist ebenfalls erfüllt. Das System liefert Daten an das Web-Dashboard von Umati innerhalb von einer Minute nach Start der Docker Container (REQ 3). Der Prototyp muss noch auf einem zentralen System gestartet werden, damit er von überall erreichbar ist. Daraufhin muss bei der Demonstration auf einer Messe nur die Verbindung zum Umati Web-Dashboard hergestellt werden. Damit ist REQ 4 erfüllt, solange die Server des VDMAs und die von AZO Online sind. Durch die Verwendung von Docker konnten die Restart Werte so gesetzt werden, dass sich das System neustartet, sollten kleinere Fehler zum Absturz eines Containers führen (REQ 5).
 		
-		Der erste Prototyp erfüllt alle Anforderungen die durch dieses Kapitel erstellt wurden.		
-		
 		\subsection{Prototyp 2: interner Prototyp}\label{Prototyp:2}
 		
 		% Ziel
-		Die Daten, welche die Simulation der Maschine generiert, sollen an eine Grafana Instanz gesendet werden. Hier soll erneut ein umatifähiger OPC UA Server verwendet werden. Die Daten sollen in der grafischen Oberfläche von Grafana einfach und umfangreich ausgelesen und angezeigt werden können. Das Ziel ist es, einen Ablauf zu entwerfen, welcher als Ansatzpunkt für zukünftige Projekte verwendet werden kann. 
+		Die Daten, welche die Simulation der Maschine generiert, sollen an eine Grafana Instanz gesendet werden, da Grafana das bevorzugte Visualisierungstool bei AZO ist. Außerdem bietet Grafana durch die leichte Konfiguration eine schnelle und komfortable Möglichkeit, Daten visuell darzustellen. Hier soll erneut ein umatifähiger OPC UA Server verwendet werden. Die Daten sollen in der grafischen Oberfläche von Grafana einfach und umfangreich ausgelesen und angezeigt werden können. Das Ziel ist es, einen Ablauf zu entwerfen, welcher als Ansatzpunkt für zukünftige Projekte verwendet werden kann. 
 		
 		% Grafana
 		Grafana soll dabei in einem Docker-Container laufen. Grafana bietet nativ die Möglichkeit, unterschiedliche Datenquellen einzubinden. Eine dieser Datenquellen soll verwendet werden. Es soll ein Dashboard entstehen, welches die Daten der Maschine anzeigt und sich live aktualisiert. Aus den Ansätzen folgern diese Anforderungen:
@@ -412,8 +348,6 @@
 		\end{itemize}
 	
 		Im Bereich der Funktionalen Vollständigkeit weist der Erste Prototyp alle Anforderungen auf. Der Prototyp setzt alle Anforderungskriterien der Auflistung zuvor um (REQ 1, REQ 2, REQ 3) und zieht NodeRed als mögliche Lösung des Datenflusses in Betracht (REQ 4). Die Performance ist ebenfalls erfüllt. Das System liefert Daten an das Web-Dashboard von Umati innerhalb von einer Minute nach Start der Docker Container (REQ 5). Der Prototyp muss noch auf einem zentralen System gestartet werden, damit er von überall erreichbar ist. Daraufhin muss bei der Demonstration auf einer Messe nur die Verbindung zum Grafana Server hergestellt werden. Damit ist REQ 6 erfüllt, solange die Server von AZO Online ist. Durch die Verwendung von Docker konnten die Restart Werte so gesetzt werden, dass sich das System neu startet, sollten kleinere Fehler zum Absturz eines Containers führen (REQ 7).
-		
-		Der zweite Prototyp erfüllt damit alle Anforderungen, die in diesem Kapitel gestellt wurden.
 		
 	\section{Lösungsansatz}
 	
@@ -685,7 +619,7 @@
 				\item \textbf{Server} $\rightarrow$ Bearbeiten:
 				\subitem \textbf{Server}: 192.168.0.133
 				\subitem \textbf{Port}: 1883
-				\item \textbf{Topic}: umati/v2/rolog/ControllerType/nsu=http:\_2F\_2Fvdma.org\_2FOPCRobotics\linebreak TestServer\_2F;i=5002
+				\item \textbf{Topic}: umati/v2/rolog/ControllerType/nsu=http:\_2F\_2Fvdma.org\_2FOPC\linebreak RoboticsTestServer\_2F;i=5002
 				\item \textbf{Ausgang}: Ein analysiertes (parsed) JSON-Objekt
 			\end{itemize}
 			Der Name des Servers und der Node können frei gewählt werden.
@@ -828,7 +762,59 @@
 			\caption{Datenbankabfrage mit Verwendung von Variable}
 			\label{fig:variables}
 		\end{figure}
-			
+
+	\section{Evaluation}
+	
+	% Evaluation des Ergebnisses
+	
+	Das Ergebnis dieser Arbeit sind zwei Prototypen zur Demonstration der \ac{Umati} Spezifikation. Diese Prototypen werden anhand bestimmter Kriterien bewertet, welche aus dem Standard ISO 25010 für Softwarequalität entnommen wurden. Dies ist ein international anerkannter Standard, der die Qualitätsanforderungen und -kriterien für Softwareprodukte und -systeme definiert. In Abbildung \ref{fig:ISO25010} sind die Softwarequalitätskriterien strukturiert abgebildet, wie sie im ISO-Standard definiert sind. 
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.9\textwidth]{res/diagramms/iso25010.png}
+		\caption{Softwarebewertungskriterien ISO 25010} 
+		\label{fig:ISO25010}
+	\end{figure}
+	
+	Die Punkte \textit{Functional Suitability}, \textit{Performance Efficiency}, \textit{Usability} und \textit{Reliability} sind die Hauptkriterien die für die Messeprototypen besonders wichtig sind. Die anderen Kriterien sind ebenfalls von Wichtigkeit, können jedoch den anderen nachgestellt werden, da die Prototypen nur demonstrativen Nutzen hat. 
+	
+	Das Demomaterial welches für die Messe ausgelegt werden soll, muss visuell anschaulich sein und die Kernfunktionen von \ac{Umati} präsentieren. Es geht darum das Interesse der Messebesucher zu wecken und genug Informationen für ein allgemeines Bild über die Funktionen und Ziele von \ac{Umati} zu erreichen. 
+	
+	Die Ausarbeitung der Funktionalen Anforderungen sowie die Evaluation der Prototypen findet in Kapitel \ref{Prototyp:1} und \ref{Prototyp:2} statt. Die Flyer, welche in Anhang III einsehbar sind, erfüllen die Anforderungen für anschauliche informative Flugblätter zur Aufklärung über den neuen Standard. Der erste Flyer ist dabei eine mehr AZO orientierte Darstellung in Orange, der Zweite behandelt Umati als Community und ist im Blau-Rosa des Standards gefärbt.
+	
+		
+	\chapter{Erprobung}
+	
+	% Beschreibung Aufbau Dashboard
+	
+	Das Dashboard besteht aus zwei Sektionen. Zunächst werden die Daten für die Achsen und im Anschluss wird die Motortemperatur ausgegeben. Für jede Variable werden einmal alle Werte der letzten 5 Minuten in einem Diagramm und der aktuellste Wert in einem Textfeld angezeigt. In Abbildung \ref{fig:Dashboard1} sind die Achsendaten der ersten Achse dargestellt. Die Daten liegen in der oberen Row, wobei die Daten der zweiten Achse eingeklappt sind. Am oberen linken Rand kann die Variable angepasst werden, um nur die gewünschten Achsen anzeigen zu lassen. Dies funktioniert wie zu erwarten und es kann zwischen Achse 1, Achse 2 oder beiden ausgewählt werden. An der Oberen Rechten Ecke kann das Aktualisierungsintervall des Dashboards angepasst werden, wobei 5 Sekunden der kleinstmögliche Wert ist. 
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=\textwidth]{res/Dashboard/Dashboard_1.png}
+		\caption{Diagramme der Achsendaten auf dem finalen Dashboard} 
+		\label{fig:Dashboard1}
+	\end{figure}
+	
+	% Beschreibeung Dashboard Aufbau
+	Unter den Achsendaten wird wie in Abbildung \ref{fig:Dashboard2} die Motortemperatur ausgegeben. Das Diagramm und die Aktuelle Anzeige sind identisch mit den Variablen der Achsen konzipiert. In den beiden Abbildungen \ref{fig:Dashboard1} und \ref{fig:Dashboard2} ist das Dashboard mit den von Node-Red gelieferten Daten abgebildet. Das Dashboard, welches die Daten über Telegraf einliest, ist identisch aufgebaut und unterscheidet sich nur anhand der Abfragen an die InfluxDB.
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=\textwidth]{res/Dashboard/Dashboard_2.png}
+		\caption{Diagramme der Motortemperatur auf dem finalen Dashboard} 
+		\label{fig:Dashboard2}
+	\end{figure}
+	
+	% Vergleich Node Red und Telegraf
+	Der einzige Unterschied zwischen den beiden Dashboards liegt in der Datenbankabfrage und der Komplexität des Abfragebefehls. Bei den NodeRed-Daten gestaltet sich das Auslesen extrem einfach und kompakt, da die Daten bereits im gewünschten Format vorliegen. Meistens ist die Abfrage auch im Grafana-Baukasten einfach zu erstellen, da es nur wenige, leicht lesbare Variablennamen gibt. Die Auswahl der gewünschten Daten erfolgt bereits in NodeRed, bevor sie in der Datenbank gespeichert werden. 
+	
+	Bei Telegraf gestaltet sich die Abfrage bei Grafana etwas komplizierter. Telegraf verwendet den Pfad der Daten in der JSON-Datei als Spaltennamen. Dies führt insbesondere bei komplexen JSON-Dateien zu langen Namen, die in Grafana ausgewählt werden müssen. Telegraf wandelt alle Felder der JSON, die Werte sein können, in eigene Spalten in der Datenbank um. Dadurch entstehen viele Datenpunkte, auf die Grafana zugreifen kann. Die Daten werden in Grafana transformiert, was zu längeren und schwerer lesbaren Abfragen führt. 
+	
+	Allerdings kann dies auch Vorteile mit sich bringen. Da alle Daten in Grafana vorliegen, können schnell neue Diagramme erstellt werden. Beispielsweise können leicht Maßeinheiten ausgelesen und angezeigt werden. Bei der Lösung mit NodeRed muss hierfür der neue Wert zunächst transformiert und dann aus der InfluxDB ausgelesen werden.
+	
+	Beide Umsetzungen haben ihre Vor- und Nachteile, die je nach Situation angewendet werden können. Ein weiterer Faktor bei der Entscheidung ist die bestehende Infrastruktur. Falls bereits ein NodeRed-Server existiert, der viele Daten aus anderen Projekten verarbeitet, könnte es einfacher sein, auch Umati-Daten über dieselbe Plattform zu bewegen. Ist es jedoch ein eigenständiges System, ist Telegraf als offizielles InfluxData-Projekt möglicherweise die bessere Lösung.
+	
 	\chapter{Fazit und Diskussion}\label{ch:Diskussion_Fazit}
 	
 		Umati birgt ein erhebliches Potenzial zur Automatisierung. Die Vision, eine vollständig automatisierte Anlage mit Plug \& Play zu realisieren, zeugt von Fortschritt und Innovation. Mit Umati könnte diese Vision bald Wirklichkeit werden. Einzig die bisher aufwendige Umsetzung der Umgebung stellt eine Herausforderung dar, jedoch deutet sich eine Veränderung in naher Zukunft an. Die Demonstrationsprojekte des VDMAs unterstreichen die Eignung von Umati als Standard für die M2M-Kommunikation in automatisierten Umgebungen.
@@ -853,9 +839,15 @@
 	\pagebreak
 	\section*{Anhang II: telegraf.conf}
 	\lstinputlisting{res/code/telegraf.conf}
-	\pagebreak
 	\section*{Anhang III: Flyer}
-	\includepdf[page={1,2}]{res/Flyer/Flyer.pdf}
+	\begin{figure}[H]
+		\centering
+		\includegraphics[height=0.9\textheight, page=1]{res/Flyer/Flyer.pdf}
+	\end{figure}
+	\begin{figure}[H]
+		\centering
+		\includegraphics[height=0.9\textheight, page=2]{res/Flyer/Flyer.pdf}
+	\end{figure}
 	\pagebreak
 
 \end{document}
